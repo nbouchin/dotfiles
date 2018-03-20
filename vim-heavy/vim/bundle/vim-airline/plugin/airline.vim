@@ -1,4 +1,4 @@
-" MIT License. Copyright (c) 2013-2016 Bailey Ling.
+" MIT License. Copyright (c) 2013-2018 Bailey Ling et al.
 " vim: et ts=2 sts=2 sw=2
 
 scriptencoding utf-8
@@ -57,6 +57,7 @@ endfunction
 function! s:on_colorscheme_changed()
   call s:init()
   unlet! g:airline#highlighter#normal_fg_hi
+  call airline#highlighter#reset_hlcache()
   let g:airline_gui_mode = airline#init#gui_mode()
   if !s:theme_in_vimrc
     call airline#switch_matching_theme()
@@ -80,6 +81,7 @@ function! s:airline_toggle()
     if exists("s:stl")
       let &stl = s:stl
     endif
+    call airline#highlighter#reset_hlcache()
 
     silent doautocmd User AirlineToggledOff
   else
@@ -93,6 +95,9 @@ function! s:airline_toggle()
       autocmd CmdwinLeave * call airline#remove_statusline_func('airline#cmdwinenter')
 
       autocmd GUIEnter,ColorScheme * call <sid>on_colorscheme_changed()
+      " Refresh airline for :syntax off
+      autocmd SourcePre */syntax/syntax.vim
+            \ call airline#extensions#tabline#buffers#invalidate()
       autocmd VimEnter,WinEnter,BufWinEnter,FileType,BufUnload *
             \ call <sid>on_window_changed()
       if exists('#CompleteDone')
@@ -140,6 +145,7 @@ function! s:airline_refresh()
     let nomodeline = '<nomodeline>'
   endif
   exe printf("silent doautocmd %s User AirlineBeforeRefresh", nomodeline)
+  call airline#highlighter#reset_hlcache()
   call airline#load_theme()
   call airline#update_statusline()
 endfunction
