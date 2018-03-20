@@ -1,3 +1,4 @@
+execute pathogen#infect()
 "set mapleader
 let mapleader = ";"
 " Use vim settings, instead of vi

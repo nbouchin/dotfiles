@@ -1,18 +1,18 @@
 #vim-light configuration
-[submodule "vim-light/vim/pack/git-plugins/start/ale"]
-	path = vim-light/vim/pack/git-plugins/start/ale
+[submodule "vim-light/vim/ale"]
+	path = vim-light/vim/ale
 	url = https://github.com/w0rp/ale.git
-[submodule "vim-light/vim/pack/git-plugins/start/ctrlp.vim"]
-	path = vim-light/vim/pack/git-plugins/start/ctrlp.vim
+[submodule "vim-light/vim/ctrlp.vim"]
+	path = vim-light/vim/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "vim-light/vim/pack/git-plugins/start/neocomplete.vim"]
-	path = vim-light/vim/pack/git-plugins/start/neocomplete.vim
+[submodule "vim-light/vim/neocomplete.vim"]
+	path = vim-light/vim/neocomplete.vim
 	url = https://github.com/Shougo/neocomplete.vim.git
-[submodule "vim-light/vim/pack/git-plugins/start/supertab"]
-	path = vim-light/vim/pack/git-plugins/start/supertab
+[submodule "vim-light/vim/supertab"]
+	path = vim-light/vim/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "vim-light/vim/pack/git-plugins/start/vim-tmux-navigator"]
-	path = vim-light/vim/pack/git-plugins/start/vim-tmux-navigator
+[submodule "vim-light/vim/vim-tmux-navigator"]
+	path = vim-light/vim/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
 
 
