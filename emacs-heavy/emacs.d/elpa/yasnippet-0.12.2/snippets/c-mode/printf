@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: printf
+# contributor: joaotavora
+# key: printf
+# --
+printf ("$1", $2);

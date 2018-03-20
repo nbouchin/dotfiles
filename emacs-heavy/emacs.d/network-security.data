@@ -1,0 +1,3 @@
+(
+ (:id "sha1:e90c053e7117b6f0e00c13714dc63d162cb169ef" :fingerprint "sha1:80:68:d3:4a:bb:f2:3b:9e:42:4d:e7:7e:61:63:53:9a:94:fc:bc:47" :host "irc.cyberguerrilla.org:6697" :conditions (:self-signed :insecure :unknown-ca :invalid))
+)
