@@ -1,0 +1,52 @@
+! .Xresources
+
+! Use a Powerline Font
+XTerm*faceName: DejaVu Sans Mono for Powerline:size=9
+
+! Selection
+!  - Select a complete word (include '/', '.', ',', ...)
+XTerm*charClass: 0-32:1,33-126:2,127-160:3,161-255:2
+
+! Scrolling
+! - Do not scroll to bottom on output
+! - Scroll to bottom on key press
+! - Set line buffer tp 1024 lines
+! - Enable scroll in alternate screen (vim, less, man, ...)
+*scrollTtyOutput: false
+*scrollKey: true
+*saveLines: 4096
+*alternateScroll: true
+XTerm*locale: true
+XTerm*borderWidth: 0
+
+! Allow Ctrl Shift C & Ctrl Shift V
+XTerm*vt100*translations:   #override                       \n \
+    Shift Ctrl <KeyPress>C: copy-selection(CLIPBOARD)       \n \
+    Shift Ctrl <KeyPress>V: insert-selection(CLIPBOARD)
+
+! Colors
+! - Force colors customization
+! - Set colors to Terminator Ambient scheme
+*background: #000000
+*foreground: #868686
+*customization:
+*color0: #2e3436
+*color1: #cc0000
+*color2: #4e9a06
+*color3: #c4a000
+*color4: #3465a4
+*color5: #75507b
+*color6: #06989a
+*color7: #d3d7cf
+*color8: #555753
+*color9: #ef2929
+*color10: #8ae234
+*color11: #fce94f
+*color12: #729fcf
+*color13: #ad7fa8
+*color14: #34e2e2
+*color15: #eeeeec
+
+XTerm*metaSendsEscape: true
+
+! To overide the conf : xrdb -merge ~/.Xresources

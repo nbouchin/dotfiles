@@ -1,0 +1,185 @@
+" pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
+" Use vim settings, instead of vi
+set nocompatible
+set loadplugins
+" Reindent operations (<< and >>)
+set shiftwidth=4
+" 4 space tab
+set tabstop=4
+" Causes backspace to delete 4 spaces
+set softtabstop=4
+" Replaces a <TAB> with spaces
+" set expandtab
+" Uses shiftwidth instead of tabstop at start of lines
+set smarttab
+set modeline
+set ruler
+set history=100
+set nowrap
+" Change terminal title
+set title
+" No annoying error noises
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+" Make backspace delete lots of things
+set backspace=indent,eol,start
+" Show us the command we're typing
+set showcmd
+" Highlight matching parens
+set showmatch
+" Search options: incremental search, highlight search
+set hlsearch
+set incsearch
+" Selective case insensitivity
+set ignorecase
+set smartcase
+" Show full tags when doing search completion
+set showfulltag
+" Speed up macros
+set lazyredraw
+" No annoying error noises
+set noerrorbells
+" Wrap on these
+set whichwrap+=<,>,[,]
+" Use the cool tab complete menu
+set wildmenu
+set wildmode=longest,full
+set wildignore+=.git,.hg,.svn,*.o,*~,*.pyc,*.egg,*.egg-info/**,*/build/**,*/dist/**,*/node_modules/**
+" Allow edit buffers to be hidden
+set hidden
+" 1 height windows
+set winminheight=1
+" misc
+set autowrite
+" never show cursorline
+set nocursorline
+" never show the preview window
+set completeopt-=preview
+set completeopt+=longest
+
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+if exists('+autochdir')
+	set noautochdir
+endif
+set ttyfast
+set smartcase
+
+filetype indent on
+filetype plugin on
+set autoindent
+set smartindent
+syntax on
+
+set encoding=utf-8
+
+set mouse=ar
+
+" always show statusline
+set laststatus=2
+
+" ===================== CUSTOM THEME =====================
+set t_Co=256
+colorscheme deus
+
+" show trailing white space
+set list
+set lcs=tab:./
+set lcs+=trail:·
+
+" ===================== SYNTASTIC =====================
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+filetype indent on 
+filetype plugin on 
+set autoindent
+set smartindent
+syntax on
+
+" syntastic window height
+" see :h syntastic-loclist-callback
+function! SyntasticCheckHook(errors)
+	if !empty(a:errors)
+		let g:syntastic_loc_list_height = min([len(a:errors), 10])
+	endif 
+endfunction
+
+" ===================== UNDO FILE =====================
+
+set undofile                " Save undo's after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+set number
+
+" ===================== CUSTOM MACRO =====================
+" NERDTree maccro
+map <C-N><C-O> :NERDTree<CR>
+map <C-N><C-K> :NERDTreeClose<CR>
+
+" return into two symbs
+inoremap () ()<left>
+inoremap [] []<left>
+inoremap "" ""<left>
+inoremap '' ''<left>
+inoremap {} {}<left>
+inoremap <> <><left>
+inoremap {<tab> {<return>}<up><return>
+
+" hide coloration of found words
+map <C-C> :nohlsearch<CR>
+
+" ===================== WINDOW =====================
+
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
+
+" Remove any introduced trailing whitespace after moving... 
+let g:DVB_TrimWS = 1
+
+" multiple cursor
+let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_next_key='<S-n>'
+let g:multi_cursor_prev_key='<S-p>'
+let g:multi_cursor_skip_key='<S-s>'
+let g:multi_cursor_quit_key='<S-k>'
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+let g:airline_theme='deus'
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces

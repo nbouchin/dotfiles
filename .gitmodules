@@ -1,0 +1,85 @@
+#vim-light configuration
+[submodule "vim-light/vim/pack/git-plugins/start/ale"]
+	path = vim-light/vim/pack/git-plugins/start/ale
+	url = https://github.com/w0rp/ale.git
+[submodule "vim-light/vim/pack/git-plugins/start/ctrlp.vim"]
+	path = vim-light/vim/pack/git-plugins/start/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim-light/vim/pack/git-plugins/start/neocomplete.vim"]
+	path = vim-light/vim/pack/git-plugins/start/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "vim-light/vim/pack/git-plugins/start/supertab"]
+	path = vim-light/vim/pack/git-plugins/start/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "vim-light/vim/pack/git-plugins/start/vim-tmux-navigator"]
+	path = vim-light/vim/pack/git-plugins/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
+
+
+#vim-heavy configuration
+[submodule "vim-heavy/vim/syntastic"]
+	path = vim-heavy/vim/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "vim-heavy/vim/bundle/syntastic"]
+	path = vim-heavy/vim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "vim-heavy/vim/bundle/tagbar"]
+	path = vim-heavy/vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim-heavy/vim/bundle/nerdtree"]
+	path = vim-heavy/vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim-heavy/vim/bundle/vim-airline"]
+	path = vim-heavy/vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "vim-heavy/vim/bundle/vim-gitgutter"]
+	path = vim-heavy/vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vim-heavy/vim/bundle/vim-fugitive"]
+	path = vim-heavy/vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim-heavy/vim/bundle/nginx-vim-syntax"]
+	path = vim-heavy/vim/bundle/nginx-vim-syntax
+	url = https://github.com/evanmiller/nginx-vim-syntax.git
+[submodule "vim-heavy/vim/bundle/ctrlp.vim"]
+	path = vim-heavy/vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim-heavy/vim/bundle/tlib_vim"]
+	path = vim-heavy/vim/bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "vim-heavy/vim/bundle/vim-addon-mw-utils"]
+	path = vim-heavy/vim/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "vim-heavy/vim/bundle/vim-snipmate"]
+	path = vim-heavy/vim/bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "vim-heavy/vim/bundle/vim-snippets"]
+	path = vim-heavy/vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "vim-heavy/vim/bundle/dragvisuals.vim"]
+	path = vim-heavy/vim/bundle/dragvisuals.vim
+	url = https://github.com/shinokada/dragvisuals.vim.git
+[submodule "vim-heavy/vim/bundle/vim-syntax-extra"]
+	path = vim-heavy/vim/bundle/vim-syntax-extra
+	url = https://github.com/justinmk/vim-syntax-extra.git
+[submodule "vim-heavy/vim/bundle/vim-multiple-cursors"]
+	path = vim-heavy/vim/bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "vim-heavy/vim/bundle/nerdcommenter"]
+	path = vim-heavy/vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim-heavy/vim/bundle/nerdtree-git-plugin"]
+	path = vim-heavy/vim/bundle/nerdtree-git-plugin
+	url = https://github.com/scrooloose/nerdtree-git-plugin.git
+[submodule "vim-heavy/vim/bundle/vim-bufferline"]
+	path = vim-heavy/vim/bundle/vim-bufferline
+	url = https://github.com/bling/vim-bufferline.git
+[submodule "vim-heavy/vim/bundle/colorizer"]
+	path = vim-heavy/vim/bundle/colorizer
+	url = https://github.com/lilydjwg/colorizer.git
+[submodule "vim-heavy/vim/bundle/rainbow_parentheses.vim"]
+	path = vim-heavy/vim/bundle/rainbow_parentheses.vim
+	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule "vim-heavy/vim/bundle/vim-airline-themes"]
+	path = vim-heavy/vim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
