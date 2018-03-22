@@ -1,0 +1,67 @@
+;;; Package --- Summary.
+(require 'package)
+;;; Commentary:
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
+
+;;; Code:
+(package-initialize)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
+ '(package-selected-packages
+   (quote
+    (zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi nlinum flycheck))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+)
+
+;; Set colorscheme.
+
+(load-theme 'zenburn)
+
+(custom-set-faces
+ '(default ((t (:background "dark"))))
+ )
+
+
+;; Set emacs swap files location.
+(setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
+
+;; Enable emacs flycheck.
+(global-flycheck-mode)
+
+;; Enable nlinum mode.
+(defvar nlinum-format)
+(global-nlinum-mode 1)
+(setq nlinum-format "%d "); Set plus bar.
+
+;; Company mode configuration.
+(defvar company-backends)
+(defvar company-quickhelp-frontend)
+
+(add-hook 'after-init-hook 'global-company-mode)
+(company-quickhelp-mode 1); ctrl-h for company-help.
+
+(defun my/python-mode-hook () "Load python jedi."
+       (add-to-list 'company-backends 'company-jedi)); use of jedi for company completion.
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
+(add-hook 'python-mode-hook 'run-python-internal)
+
+;; Load and enable yasnippets.
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(provide 'emacs)
+;;; .emacs ends here

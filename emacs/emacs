@@ -1,280 +1,65 @@
-;;; package --- summary
+;;; Package --- Summary.
+(require 'package)
 ;;; Commentary:
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
 
 ;;; Code:
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
 (package-initialize)
-
-(add-to-list 'package-archives
-			 '("melpa" . "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives
-			 '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
  '(package-selected-packages
    (quote
-	(company-go go-guru flymake-go exec-path-from-shell godoctor flycheck-gometalinter go-mode alert oauth2 circe request websocket slack idomenu jedi-core jedi elpy auto-complete smart-tabs-mode js2-mode git-gutter-fringe yasnippet undo-tree twittering-mode tabbar rainbow-mode rainbow-delimiters pcap-mode multiple-cursors markdown-mode+ lua-mode go-direx go-complete go-autocomplete go-add-tags go flymake-jslint flycheck-irony flycheck-clang-analyzer dired-sidebar company-irony-c-headers company-irony color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized autopair auto-complete-c-headers))))
-
+    (zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi nlinum flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+)
+
+;; Set colorscheme.
+(load-theme 'zenburn)
+(custom-set-faces
+ '(default ((t (:background "dark")))); Re set dark background over zenburn.
  )
 
-;;;-----------------------------REQUIRED PACKAGES DEFINITION:-----------------------------;;;
-(require 'package)
-(require 'tabbar)
-(require 'mouse)
-(require 'multiple-cursors)
-(require 'git-gutter-fringe)
-(require 'auto-complete)
-(require 'auto-complete-config)
-(require 'auto-complete-c-headers)
+
+;; Set emacs swap files location.
+(setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
+
+;; Enable emacs flycheck.
+(global-flycheck-mode)
+
+;; Enable nlinum mode.
+(defvar nlinum-format)
+(global-nlinum-mode 1)
+(setq nlinum-format "%d "); Set plus bar.
+
+;; Company mode configuration.
+(defvar company-backends)
+(defvar company-quickhelp-frontend)
+
+(add-hook 'after-init-hook 'global-company-mode)
+(company-quickhelp-mode 1); ctrl-h for company-help.
+
+(defun my/python-mode-hook () "Load python jedi."
+       (add-to-list 'company-backends 'company-jedi)); use of jedi for company completion.
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
+(add-hook 'python-mode-hook 'run-python-internal)
+
+;; Load and enable yasnippets.
 (require 'yasnippet)
-(require 'dired)
-(require 'dired-sidebar)
-(require 'js2-mode)
-(require 'autopair)
-(require 'color-theme-sanityinc-tomorrow)
-;;;-----------------------------REQUIRED PACKAGES DEFINITION END-----------------------------;;;
-
-;;-----------------------------42 header mode:
-(add-to-list 'load-path "~/.emacs.d/42header/")
-(load "list.el")
-(load "string.el")
-(load "comments.el")
-(load "header.el")
-;;-----------------------------42 header mode end.
-
-;;;-----------------------------EMACS STYLE-----------------------------;;;
-
-(color-theme-sanityinc-tomorrow--define-theme night)
-
-;;-----------------------------Mouse support:
-(defvar mouse-sel-mode)
-(
- unless window-system
-  (xterm-mouse-mode t)
-  (defun track-mouse (e))
-  (setq mouse-sel-mode t)
-  )
-;;-----------------------------Mouse support end.
-
-;;-----------------------------Linum and gutter mode:
-(global-git-gutter-mode +1)
-(setq ring-bell-function 'ignore)
-(global-linum-mode t)
-(show-paren-mode 1)
-(setq column-number-mode t)
-;;-----------------------------Linum and gutter end.
-
-;;-----------------------------Font and padding style def:
-(set-language-environment "UTF-8")
-(setq-default font-lock-global-modes t)
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode t)
-(setq-default c-backspace-function 'backward-delete-char)
-(setq-default c-basic-offset 4)
-(setq-default c-default-style "linux")
-(setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
-								64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
-;;-----------------------------Font and padding deff end.
-
-;;-----------------------------Emacs backup and undo directory:
-(defvar undo-tree-auto-save-history)
-(defvar undo-tree-history-directory-alist)
-
-(setq backup-directory-alist `(("." . "~/.saves")))
-(setq backup-by-copying t)
-(setq delete-old-versions t
-	  kept-new-versions 6
-	  kept-old-versions 2
-	  version-control t)
-(setq make-backup-files nil)
-(global-undo-tree-mode)
-(setq undo-tree-auto-save-history t)
-(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
-;;-----------------------------Emacs backup and undo directory end.
-
-;;-----------------------------Emacs split style:
-(setq split-height-threshold nil)
-(setq split-width-threshold 160)
-;;-----------------------------Emacs split style end.
-
-;;-----------------------------Rainbow delimiter mode:
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-;;-----------------------------Rainbow delimiter mode end.
-
-;;-----------------------------Tabbar mode:
-(tabbar-mode 1)
-;; Tabbar defined groups.
-;; Add a buffer modification state indicator in the tab label, and place a
-;; space around the label to make it looks less crowd.
-(defadvice tabbar-buffer-tab-label (after fixup_tab_label_space_and_flag activate)
-  "Print tabbar status."
-  (setq ad-return-value
-		(if (and (buffer-modified-p (tabbar-tab-value tab))
-				 (buffer-file-name (tabbar-tab-value tab)))
-			(concat " + " (concat ad-return-value " "))
-		  (concat " " (concat ad-return-value " ")))))
-;; Called each time the modification state of the buffer changed.
-(defun ztl-modification-state-change ()
-  "Refresh loop."
-  (tabbar-set-template tabbar-current-tabset nil)
-  (tabbar-display-update))
-;; Smart tabs:
-(smart-tabs-advice js2-indent-line js2-basic-offset)
-;;-----------------------------Tabbar mode end.
-
-;;-----------------------------Dired mode:
-;;allow dired to delete or copy dir
-(define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file) ; was dired-advertised-find-file
-(define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file ".."))); was dired-up-directory
-(setq dired-recursive-copies (quote always)) ; “always” means no asking
-(setq dired-recursive-deletes (quote top)) ; “top” means ask once
-(defun xah-dired-mode-setup ()
-  "To be run as hook for `dired-mode'."
-  (dired-hide-details-mode 1))
-(add-hook 'dired-mode-hook 'xah-dired-mode-setup)
-(setq dired-dwim-target t)
-;;-----------------------------Dired mode end.
-
-;;-----------------------------autopair mode:
-(autopair-global-mode 1)
-;;-----------------------------Autopair mode end.
-
-;;-----------------------------Flycheck mode:
-(global-flycheck-mode t)
-;;-----------------------------Flycheck mode end.
-
-;;;-----------------------------EMACS STYLE END-----------------------------;;;
-
-;;;-----------------------------LANGUAGES SUPPORT -----------------------------;;;
-
-;;;-----------------------------C/C++ MODE-----------------------------;;;
-;;-----------------------------Auto-complete mode:
-;; start auto-complete with emacs
-;; do default config for auto-complete
-(ac-config-default)
-;; let's define a function which initializes auto-complete-c-headers and gets called for c/c++ hooks
-(defvar achead:include-directories)
-(defun my:ac-c-header-init ()
-  "Header definition."
-  (add-to-list 'ac-sources 'ac-source-c-headers)
-  (add-to-list 'achead:include-directories '"/usr/include/c++/4.8
- /usr/include/x86_64-linux-gnu/c++/4.8
- /usr/include/c++/4.8/backward
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include
- /usr/local/include
- /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed
- /usr/include/x86_64-linux-gnu
- /usr/include
-"))
-;; now let's call this funcion from c/c++ hooks
-(add-hook 'c++-mode-hook 'my:ac-c-header-init)
-(add-hook 'c-mode-hook 'my:ac-c-header-init)
-;;-----------------------------Auto-complete mode end.
-
-;;-----------------------------Yasnippet mode:
-(add-to-list 'load-path
-			 "~/.emacs.d/elpa/yasnippet-0.12.2/snippets")
-(setq yas-snippet-dirs
-      '("~/.emacs.d/elpa/yasnippet-0.12.2/snippets"))
 (yas-global-mode 1)
-(add-hook 'c-mode-common-hook #'yas-minor-mode)
-(provide 'init-yasnippet)
-;;-----------------------------Yasnippet mode end.
 
-;;;-----------------------------END OF C/C++ MODE-----------------------------;;;
-
-;;;---------------------------
-
-
-;;;-----------------------------PYTHON MODE-----------------------------;;;
-(defvar elpy-rpc-backend)
-
-(package-initialize)
-(elpy-enable)
-(setq elpy-rpc-backend "jedi")
-(defun company-yasnippet-or-completion ()
-  "Solve company yasnippet conflicts."
-  (interactive)
-  (let ((yas-fallback-behavior
-         (apply 'company-complete-common nil)))
-    (yas-expand)))
-
-(add-hook 'company-mode-hook
-          (lambda ()
-            (substitute-key-definition
-             'company-complete-common
-             'company-yasnippet-or-completion
-             company-active-map)))
-;;;-----------------------------END OF PYTHON MODE-----------------------------;;;
-
-;;;-----------------------------GO MODE-----------------------------;;;
-
-(setenv "GOROOT" "/opt/go")
-(setenv "GOPATH" "/home/leukondor/.config.go")
-
-(add-to-list 'exec-path "/usr/bin/gofmt")
-(add-hook 'before-save-hook 'gofmt-before-save)
-
-(defun auto-complete-for-go ()
-(auto-complete-mode 1))
-(add-hook 'go-mode-hook 'auto-complete-for-go)
-
-(with-eval-after-load 'go-mode
-  (require 'go-autocomplete))
-
-;;;-----------------------------END OF GO MODE-----------------------------;;;
-
-;;;-----------------------------JS MODE-----------------------------;;;
-(add-hook 'js-mode-hook 'js2-minor-mode)
-(add-hook 'js2-mode-hook 'ac-js2-mode)
-;;;-----------------------------END OF JS MODE-----------------------------;;;
-
-;;;-----------------------------KEY BINDING-----------------------------;;;
-(global-set-key (kbd "M-n") 'mc/mark-next-like-this)
-(global-set-key (kbd "M-p") 'mc/mark-previous-like-this)
-(global-set-key (kbd "M-a") 'mc/mark-all-like-this)
-(global-set-key (kbd "DEL") 'backward-delete-char)
-(global-set-key (kbd "M-,") 'tabbar-backward-tab)
-(global-set-key (kbd "M-.") 'tabbar-forward-tab)
-(global-set-key (kbd "M-<") 'tabbar-backward-group)
-(global-set-key (kbd "M->") 'tabbar-forward-group)
-(global-set-key (kbd "C-c h") 'header-insert)
-(global-set-key [mouse-4] '(lambda () (interactive) (scroll-down 1)))
-(global-set-key [mouse-5] '(lambda () (interactive) (scroll-up 1)))
-;; Window resizing
-(global-set-key (kbd "M-s-k") 'shrink-window)
-(global-set-key (kbd "M-s-j") 'enlarge-window)
-(global-set-key (kbd "M-s-h") 'shrink-window-horizontally)
-(global-set-key (kbd "M-s-l") 'enlarge-window-horizontally)
-;; Window resizing
-(global-set-key (kbd "<M-s-up>") 'windmove-up)
-(global-set-key (kbd "<M-s-down>") 'windmove-down)
-(global-set-key (kbd "<M-s-left>") 'windmove-left)
-(global-set-key (kbd "<M-s-right>") 'windmove-right)
-;; Dired binding
-(global-set-key (kbd "C-x d") 'dired-sidebar-show-sidebar)
-(put 'dired-find-alternate-file 'disabled nil)
-;;;-----------------------------END OF KEY BINDING-----------------------------;;;
-
-(defun byte-compile-init-dir ()
-  "Byte-compile all your dotfiles."
-  (interactive)
-  (byte-recompile-directory user-emacs-directory 0))
-
-(tool-bar-mode -1)
-
-(provide '.emacs)
+(provide 'emacs)
 ;;; .emacs ends here
