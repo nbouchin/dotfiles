@@ -1,21 +1,21 @@
-zstyle ':prezto:module:prompt' theme 'paradox'
-zstyle ':prezto:module:autosuggestions' color 'yes'
-zstyle ':prezto:module:syntax-highlighting' color 'yes'
+zstyle ':prezto:module:prompt' theme 'skwp'
+export TERM=xterm-256color
 
 # Get color support for 'less'
 export LESS="--RAW-CONTROL-CHARS"
 
 zstyle ':prezto:load' pmodule \
-  'docker' \
   'environment' \
   'terminal' \
+  'command-not-found' \
   'editor' \
   'history' \
-  'autosuggestions' \
   'directory' \
-  'utility'\
+  'spectrum' \
+  'utility' \
   'completion' \
   'git' \
-  'prompt' \
+  'docker' \
   'syntax-highlighting' \
-  'history-substring-search'
+  'history-substring-search' \
+  'prompt'

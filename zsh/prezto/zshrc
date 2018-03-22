@@ -58,7 +58,7 @@ setopt NO_HUP
 
 # only fools wouldn't do this ;-)
 export VISUAL=emacs
-export EDITOR="emacs"
+export EDITOR=emacs
 export KEYTIMEOUT=1
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/Documents/Work/Go
@@ -90,6 +90,9 @@ bindkey '\e[4~' end-of-line
 
 bindkey "\eOP" run-help
 
+bindkey -e
+export KEYTIMEOUT=1
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -97,6 +100,8 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias gpu='DRI_PRIME=1'
 alias lus='systemctl list-units --type=service'
+alias open='xdg-open'
+alias e='emacs'
 
 extract () {
 	if [ -f $1 ] ; then
