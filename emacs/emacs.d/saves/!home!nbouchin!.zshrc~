@@ -57,8 +57,8 @@ setopt ZLE
 setopt NO_HUP
 
 # only fools wouldn't do this ;-)
-export VISUAL=vim
-export EDITOR="vim"
+export VISUAL=emacs
+export EDITOR=emacs
 export KEYTIMEOUT=1
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/Documents/Work/Go
@@ -90,7 +90,7 @@ bindkey '\e[4~' end-of-line
 
 bindkey "\eOP" run-help
 
-bindkey -v
+bindkey -e
 export KEYTIMEOUT=1
 
 # If not running interactively, don't do anything

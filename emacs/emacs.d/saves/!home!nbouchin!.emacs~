@@ -18,22 +18,19 @@
     ("e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
  '(package-selected-packages
    (quote
-    (zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi nlinum flycheck))))
+    (dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-)
+ '(default ((t (:background "dark")))))
 
 ;; Set colorscheme.
-
 (load-theme 'zenburn)
 
-(custom-set-faces
- '(default ((t (:background "dark"))))
- )
-
+;; Enable mouse support.
+(xterm-mouse-mode 1)
 
 ;; Set emacs swap files location.
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
@@ -42,9 +39,13 @@
 (global-flycheck-mode)
 
 ;; Enable nlinum mode.
-(defvar nlinum-format)
-(global-nlinum-mode 1)
-(setq nlinum-format "%d "); Set plus bar.
+(defvar linum-format)
+
+(global-linum-mode )1
+(setq  linum-format "%d "); Set plus bar.
+
+;; Enable git-gutter
+(global-git-gutter-mode)
 
 ;; Company mode configuration.
 (defvar company-backends)

@@ -1,9 +1,9 @@
-;;; popup-autoloads.el --- automatically extracted autoloads
+;;; f-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil nil ("popup.el") (23219 35084 651950 963000))
+;;;### (autoloads nil nil ("f.el") (23219 36095 920889 768000))
 
 ;;;***
 
@@ -12,4 +12,4 @@
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
 ;; End:
-;;; popup-autoloads.el ends here
+;;; f-autoloads.el ends here

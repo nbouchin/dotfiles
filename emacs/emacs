@@ -18,7 +18,7 @@
     ("e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
  '(package-selected-packages
    (quote
-    (git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
+    (git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -41,7 +41,7 @@
 ;; Enable nlinum mode.
 (defvar linum-format)
 
-(global-linum-mode 1)
+(global-linum-mode )1
 (setq  linum-format "%d "); Set plus bar.
 
 ;; Enable git-gutter
