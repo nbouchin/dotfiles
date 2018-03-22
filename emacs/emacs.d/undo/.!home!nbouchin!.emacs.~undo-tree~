@@ -1,0 +1,4 @@
+"f012b3a1259e7d95a27f26216aee5c21a90cbf05"
+[cl-struct-undo-tree [nil ([nil ([nil ([nil ([nil ([nil ([nil (#1=[nil nil ((#("
+" 0 1 (fontified t)) . 1560) (undo-tree-id0 . -1) (undo-tree-id1 . -1) (undo-tree-id2 . -1)) nil (23219 37349 954796 997000) 0 nil]) ((#("
+" 0 1 (fontified t)) . 1560) (undo-tree-id3 . -1) (undo-tree-id4 . -1) (undo-tree-id5 . -1)) nil (23219 37349 954827 741000) 0 nil]) ((#("(global-git-mo" 0 14 (fontified t)) . 1560) (undo-tree-id6 . -1) (undo-tree-id7 . -14)) nil (23219 37349 954843 516000) 0 nil]) ((1567 . 1574)) nil (23219 37349 954851 463000) 0 nil]) ((#(")" 0 1 (fontified t)) . -1567) (undo-tree-id8 . -1) 1568) nil (23219 37349 954867 229000) 0 nil]) ((1560 . 1568) (t 23219 37340 991480 849000)) nil (23219 37349 954875 671000) 0 nil]) ((1559 . 1561) (t 23219 37330 783442 903000)) nil (23219 37340 977143 585000) 0 nil]) nil nil (23219 37340 977162 395000) 0 nil] #1# 169 7 nil]

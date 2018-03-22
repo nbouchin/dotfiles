@@ -18,7 +18,7 @@
     ("e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
  '(package-selected-packages
    (quote
-    (git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
+    (undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -44,15 +44,25 @@
 (global-linum-mode )1
 (setq  linum-format "%d "); Set plus bar.
 
-;; Enable git-gutter
+;; Enable git-gutter.
 (global-git-gutter-mode)
+
+;; Enable undo-dir mode.
+(defvar undo-tree-auto-save-history)
+(defvar undo-tree-history-directory-alist)
+
+(global-undo-tree-mode)
+(setq undo-tree-auto-save-history t)
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
 ;; Company mode configuration.
 (defvar company-backends)
 (defvar company-quickhelp-frontend)
+(defvar company-idle-delay)
 
 (add-hook 'after-init-hook 'global-company-mode)
 (company-quickhelp-mode 1); ctrl-h for company-help.
+(setq company-idle-delay 0); remove company delay.
 
 (defun my/python-mode-hook () "Load python jedi."
        (add-to-list 'company-backends 'company-jedi)); use of jedi for company completion.
