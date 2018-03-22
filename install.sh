@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if ! [[ "$1" == "--help" || "$1" == "-h" ]]; then
 	WM=$1
 	SHELL=$2
