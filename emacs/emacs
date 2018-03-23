@@ -15,10 +15,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
+    ("f0c98535db38af17e81e491a77251e198241346306a90c25eb982b57e687d7c0" "e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
  '(package-selected-packages
    (quote
-    (undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
+    (monokai-theme helm-swoop undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -27,12 +27,12 @@
  '(default ((t (:background "dark")))))
 
 ;; Set colorscheme.
-(load-theme 'zenburn)
+(load-theme 'monokai)
 
 ;; Enable mouse support.
 (xterm-mouse-mode 1)
 
-;; Set emacs swap files location.
+;; Set emacs swap files.
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 
 ;; Enable emacs flycheck.

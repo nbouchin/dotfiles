@@ -1,7 +1,0 @@
-int main(int argc, char *argv[])
-{
-  if (condition) {
-    prout
-  }
-  return 0;
-}
