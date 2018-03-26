@@ -1,29 +1,26 @@
-if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx -- vt1 &> /dev/null
+if type tmux &> /dev/null; then
+    #if not inside a tmux session, and if no session is started, start a new session
+    if [[ $HOST == "" && -z "$TMUX" && -z $TERMINAL_CONTEXT ]]; then
+        (tmux -2 attach || tmux -2 new-session)
+    fi
 fi
+
+set -o emacs
+shopt -s globstar
 
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-	. /usr/share/bash-completion/bash_completion
+    . /usr/share/bash-completion/bash_completion
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
-# vi bindings.
-set -o vi
-bind -m vi-insert "\C-l":clear-screen
-
-# run tmux with bash
-if command -v tmux>/dev/null; then
-	[[ ! $TERM =~ xterm-256color ]] && [ -z $TMUX ] && exec tmux -2
-fi
-
 # git status in bash prompt
 parse_git_branch(){
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # bash prompt
-export PS1=" \[\e[m\]\[\e[32m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]$ "
+export PS1="\[\e[m\]\[\e[32m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]$ "
 
 # colored man
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -45,3 +42,5 @@ alias pbpaste='xclip -selection clipboard -o'
 alias ll='ls -l'
 alias la='ls -a'
 alias l='ls'
+alias lus='systemctl list-units --type=service'
+alias e='emacs'
