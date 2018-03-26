@@ -1,0 +1,13 @@
+"f8520ceaa4be7f406962052bf476ad1997984c2a"
+[cl-struct-undo-tree #1=[nil ([nil ([nil ([nil nil ((252 . 483)) ((#("if which tmux 2>&1 >/dev/null 
+then
+    # start a new session if not exist
+    test -z ${TMUX} && tmux
+
+    # when quitting tmux, try to attach to other session
+    while test -z ${TMUX}; do
+        tmux attach || break
+    done
+fi" 0 2 (fontified t face font-lock-keyword-face) 2 31 (fontified t) 31 35 (fontified t face font-lock-keyword-face) 35 40 (fontified t) 40 42 (fontified t face font-lock-comment-delimiter-face) 42 75 (fontified t face font-lock-comment-face) 75 79 (fontified t) 79 83 (fontified t face font-lock-builtin-face) 83 89 (fontified t) 89 93 (fontified t face font-lock-variable-name-face) 93 108 (fontified t) 108 110 (fontified t face font-lock-comment-delimiter-face) 110 161 (fontified t face font-lock-comment-face) 161 165 (fontified t) 165 171 (fontified t face font-lock-keyword-face) 171 175 (fontified t face font-lock-builtin-face) 175 181 (fontified t) 181 185 (fontified t face font-lock-variable-name-face) 185 188 (fontified t) 188 190 (fontified t face font-lock-keyword-face) 190 214 (fontified t) 214 219 (fontified t face font-lock-keyword-face) 219 224 (fontified t) 224 228 (fontified t face font-lock-keyword-face) 228 229 (fontified t) 229 231 (fontified t face font-lock-keyword-face)) . 252) (undo-tree-id0 . -31) (undo-tree-id1 . -31) (undo-tree-id2 . -36) (undo-tree-id3 . -36) (undo-tree-id4 . -75) (undo-tree-id5 . -75) (undo-tree-id6 . -103) (undo-tree-id7 . -103) (undo-tree-id8 . -104) (undo-tree-id9 . -104) (undo-tree-id10 . -161) (undo-tree-id11 . -161) (undo-tree-id12 . -191) (undo-tree-id13 . -191) (undo-tree-id14 . -220) (undo-tree-id15 . -220) (undo-tree-id16 . -229) (undo-tree-id17 . -229) (t 23224 41476 597175 865000)) (23224 41476 591238 364000) 0 nil]) ((250 . 252) (t 23224 41474 597245 6000)) ((#("
+
+" 0 1 (fontified t face font-lock-comment-face) 1 2 (fontified t)) . 250) (undo-tree-id18 . -2) (undo-tree-id19 . -1) (undo-tree-id20 . -1) (undo-tree-id21 . -2) (undo-tree-id22 . -2)) (23224 41490 312355 242000) 0 nil]) ((247 . 248) (239 . 240) (190 . 191) (120 . 121) (34 . 35) (1 . 2) (t 23224 41327 419103 368000)) ((#("#" 0 1 (fontified t face font-lock-comment-delimiter-face)) . 1) (#("#" 0 1 (fontified t face font-lock-comment-delimiter-face)) . 34) (#("#" 0 1 (fontified t face font-lock-comment-delimiter-face)) . 120) (#("#" 0 1 (fontified t face font-lock-comment-delimiter-face)) . 190) (#("#" 0 1 (fontified t face font-lock-comment-delimiter-face)) . 239) (#("#" 0 1 (fontified t face font-lock-comment-delimiter-face)) . 247)) (23224 41490 688085 753000) 0 nil]) nil nil (23224 41491 25235 644000) 0 nil] #1# 575 3 nil]

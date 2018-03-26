@@ -74,9 +74,6 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
-;; Set default shell
-(setq explicit-shell-file-name "/bin/bash")
-
 ;; Set window navigations in emacs.
 (global-set-key [M-left] 'windmove-left)          ; move to left window
 (global-set-key [M-right] 'windmove-right)        ; move to right window
