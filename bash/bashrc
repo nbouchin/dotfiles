@@ -1,9 +1,6 @@
-if type tmux &> /dev/null; then
-    #if not inside a tmux session, and if no session is started, start a new session
-    if [[ $HOST == "" && -z "$TMUX" && -z $TERMINAL_CONTEXT ]]; then
-        (tmux -2 attach || tmux -2 new-session)
-    fi
-fi
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux -2
 
 set -o emacs
 shopt -s globstar
@@ -37,6 +34,7 @@ alias ls='ls --color=auto'
 # copy/paste
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+alias open='xdg-open'
 
 # ls aliases
 alias ll='ls -l'

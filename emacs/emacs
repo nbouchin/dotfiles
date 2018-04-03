@@ -18,7 +18,7 @@
     ("f0c98535db38af17e81e491a77251e198241346306a90c25eb982b57e687d7c0" "e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
  '(package-selected-packages
    (quote
-    (monokai-theme helm-swoop undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
+    (yaml-mode monokai-theme helm-swoop undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -75,6 +75,7 @@
 (yas-global-mode 1)
 
 ;; Set default shell
+(defvar explicit-shell-file-name)
 (setq explicit-shell-file-name "/bin/bash")
 
 ;; Set window navigations in emacs.
@@ -82,6 +83,12 @@
 (global-set-key [M-right] 'windmove-right)        ; move to right window
 (global-set-key [M-up] 'windmove-up)              ; move to upper window
 (global-set-key [M-down] 'windmove-down)          ; move to lower window
+
+;; Byte compile config.
+(defun my-recompile ()
+  "My-recompile byte-compile all configuration."
+  (interactive)
+  (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
 
 (provide 'emacs)
 ;;; .emacs ends here

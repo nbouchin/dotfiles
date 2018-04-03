@@ -74,11 +74,21 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
+;; Set default shell
+(defvar explicit-shell-file-name)
+(setq explicit-shell-file-name "/bin/bash")
+
 ;; Set window navigations in emacs.
 (global-set-key [M-left] 'windmove-left)          ; move to left window
 (global-set-key [M-right] 'windmove-right)        ; move to right window
 (global-set-key [M-up] 'windmove-up)              ; move to upper window
 (global-set-key [M-down] 'windmove-down)          ; move to lower window
+
+;; Byte compile config.
+(defun my-recompile ()
+  "My-recompile byte-compile all configuration."
+  (interactive)
+  (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
 
 (provide 'emacs)
 ;;; .emacs ends here

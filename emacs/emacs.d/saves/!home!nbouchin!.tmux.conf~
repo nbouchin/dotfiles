@@ -1,5 +1,5 @@
 #run tmux with bash
-set -g default-command /usr/bin/zsh
+set -g default-command /bin/bash
 
 set -g status-keys emacs
 setw -g mode-keys emacs
