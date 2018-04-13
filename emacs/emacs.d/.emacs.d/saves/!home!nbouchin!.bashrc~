@@ -1,0 +1,44 @@
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux -2
+
+set -o emacs
+shopt -s globstar
+
+# Use bash-completion, if available
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+
+# git status in bash prompt
+parse_git_branch(){
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# bash prompt
+export PS1="\[\e[m\]\[\e[32m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]$ "
+
+# colored man
+# export LESS_TERMCAP_mb=$'\e[1;32m'
+# export LESS_TERMCAP_md=$'\e[1;32m'
+# export LESS_TERMCAP_me=$'\e[0m'
+# export LESS_TERMCAP_se=$'\e[0m'
+# export LESS_TERMCAP_so=$'\e[01;33m'
+# export LESS_TERMCAP_ue=$'\e[0m'
+# export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+# colored ls
+alias ls='ls --color=auto'
+
+# copy/paste
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias open='xdg-open'
+
+# ls aliases
+alias ll='ls -l'
+alias la='ls -a'
+alias l='ls'
+alias lus='systemctl list-units --type=service'
+alias e='emacs'

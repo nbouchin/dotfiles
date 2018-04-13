@@ -16,15 +16,20 @@
  '(custom-safe-themes
    (quote
     ("f0c98535db38af17e81e491a77251e198241346306a90c25eb982b57e687d7c0" "e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
+ '(delete-selection-mode nil)
  '(package-selected-packages
    (quote
-    (yaml-mode monokai-theme helm-swoop undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background "dark")))))
+    (ipython-shell-send ipython yaml-mode monokai-theme helm-swoop undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
+;;(custom-set-faces
+;; ;; custom-set-faces was added by Custom.
+;; ;; If you edit it by hand, you could mess it up, so be careful.
+;; ;; Your init file should contain only one such instance.
+;; ;; If there is more than one, they won't work right.
+;; '(default ((t (:background "dark")))))
+
+
+;; Run emacs as a server
+(server-start)
 
 ;; Set colorscheme.
 (load-theme 'monokai)
@@ -41,7 +46,7 @@
 ;; Enable nlinum mode.
 (defvar linum-format)
 
-(global-linum-mode )1
+(global-linum-mode 1)
 (setq  linum-format "%d "); Set plus bar.
 
 ;; Enable git-gutter.
@@ -61,7 +66,7 @@
 (defvar company-idle-delay)
 
 (add-hook 'after-init-hook 'global-company-mode)
-(company-quickhelp-mode 1); ctrl-h for company-help.
+(company-quickhelp-mode 0); ctrl-h for company-help.
 (setq company-idle-delay 0); remove company delay.
 
 (defun my/python-mode-hook () "Load python jedi."
@@ -70,13 +75,17 @@
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 (add-hook 'python-mode-hook 'run-python-internal)
 
+;; Use ipython execution
+(defvar python-shell-interpreter)
+(defvar python-shell-interpreter-args)
+
+(elpy-enable)
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "-i --simple-prompt")
+
 ;; Load and enable yasnippets.
 (require 'yasnippet)
 (yas-global-mode 1)
-
-;; Set default shell
-(defvar explicit-shell-file-name)
-(setq explicit-shell-file-name "/bin/bash")
 
 ;; Set window navigations in emacs.
 (global-set-key [M-left] 'windmove-left)          ; move to left window
@@ -92,3 +101,9 @@
 
 (provide 'emacs)
 ;;; .emacs ends here
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
