@@ -1,7 +1,6 @@
 [KDE Keyboard Layout Switcher]
-Switch keyboard layout to English (Macintosh)=none,none,Switch keyboard layout to English (Macintosh)
 Switch to Next Keyboard Layout=Ctrl+Alt+K,none,Switch to Next Keyboard Layout
-_k_friendly_name=System Settings
+_k_friendly_name=KDE Daemon
 
 [kaccess]
 Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,Toggle Screen Reader On and Off
@@ -11,7 +10,7 @@ _k_friendly_name=Accessibility
 Disable Touchpad=Touchpad Off,Touchpad Off,Disable Touchpad
 Enable Touchpad=Touchpad On,Touchpad On,Enable Touchpad
 Toggle Touchpad=Touchpad Toggle,Touchpad Toggle,Toggle Touchpad
-_k_friendly_name=System Settings
+_k_friendly_name=KDE Daemon
 
 [kded5]
 Show System Activity=Ctrl+Esc,Ctrl+Esc,Show System Activity
@@ -19,13 +18,13 @@ _k_friendly_name=KDE Daemon
 display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
-_k_friendly_name=KDE Daemon
-{0ac4d11a-1dff-43eb-8609-e2ebf377fd78}=Shift+Print,none,Take Full Screen Screenshot
-{1c11058e-7ea3-4d1d-8f0c-ffc07b9a1676}=Meta+Print,none,Take Active Window Screenshot
-{572ff7f2-4ca0-471e-af90-10e5b337b61b}=Meta+Shift+Print,none,Take Rectangular Region Screenshot
-{b26669fc-d1ce-4e49-ac1f-229961d441fc}=Print,none,Start Screenshot Tool
-{b35590af-f722-4788-a3f6-8e831670c2ce}=Meta+Return,none,Run Konsole
-{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=Search,none,Search
+_k_friendly_name=System Settings
+{38d87a20-4471-4371-857e-4cb97a6f9517}=Meta+Return,none,Run Konsole
+{66be114c-9ebd-4cb5-aced-9b41549073a8}=none,none,Take Active Window Screenshot
+{b51fb55e-2267-4802-8a99-0181810e6b5c}=none,none,Start Screenshot Tool
+{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
+{d57bce91-f0ae-4a6d-8e10-3a32c3169764}=none,none,Take Full Screen Screenshot
+{eb219a38-b2f3-43e3-8781-ff7ca9c11339}=none,none,Take Rectangular Region Screenshot
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -38,7 +37,7 @@ mute=Volume Mute,Volume Mute,Mute
 
 [krunner]
 _k_friendly_name=Run Command
-run command=Alt+Space\tAlt+F2\t,Alt+Space,Run Command
+run command=Alt+Space\tAlt+F2\tSearch,Alt+Space,Run Command
 run command on clipboard contents=Alt+Shift+F2,Alt+Shift+F2,Run Command on clipboard contents
 
 [ksmserver]
@@ -192,10 +191,34 @@ Window to Screen 4=none,none,Window to Screen 4
 Window to Screen 5=none,none,Window to Screen 5
 Window to Screen 6=none,none,Window to Screen 6
 Window to Screen 7=none,none,Window to Screen 7
-_k_friendly_name=KWin
+_k_friendly_name=System Settings Module
 view_actual_size=,Meta+0,Actual Size
 view_zoom_in=Meta+=,Meta+=,Zoom In
 view_zoom_out=Meta+-,Meta+-,Zoom Out
+
+[lattedock]
+_k_friendly_name=Latte Dock
+activate task manager entry 1=,Meta+1,Activate Task Manager Entry 1
+activate task manager entry 10=,Meta+0,Activate Task Manager Entry 10
+activate task manager entry 2=,Meta+2,Activate Task Manager Entry 2
+activate task manager entry 3=,Meta+3,Activate Task Manager Entry 3
+activate task manager entry 4=,Meta+4,Activate Task Manager Entry 4
+activate task manager entry 5=,Meta+5,Activate Task Manager Entry 5
+activate task manager entry 6=,Meta+6,Activate Task Manager Entry 6
+activate task manager entry 7=,Meta+7,Activate Task Manager Entry 7
+activate task manager entry 8=,Meta+8,Activate Task Manager Entry 8
+activate task manager entry 9=,Meta+9,Activate Task Manager Entry 9
+new instance for task manager entry 1=,Meta+Ctrl+1,New Instance for Task Manager Entry 1
+new instance for task manager entry 10=Meta+Ctrl+0,Meta+Ctrl+0,New Instance for Task Manager Entry 10
+new instance for task manager entry 2=,Meta+Ctrl+2,New Instance for Task Manager Entry 2
+new instance for task manager entry 3=Meta+Ctrl+3,Meta+Ctrl+3,New Instance for Task Manager Entry 3
+new instance for task manager entry 4=Meta+Ctrl+4,Meta+Ctrl+4,New Instance for Task Manager Entry 4
+new instance for task manager entry 5=Meta+Ctrl+5,Meta+Ctrl+5,New Instance for Task Manager Entry 5
+new instance for task manager entry 6=Meta+Ctrl+6,Meta+Ctrl+6,New Instance for Task Manager Entry 6
+new instance for task manager entry 7=Meta+Ctrl+7,Meta+Ctrl+7,New Instance for Task Manager Entry 7
+new instance for task manager entry 8=Meta+Ctrl+8,Meta+Ctrl+8,New Instance for Task Manager Entry 8
+new instance for task manager entry 9=Meta+Ctrl+9,Meta+Ctrl+9,New Instance for Task Manager Entry 9
+show latte dock=Meta+`,Meta+`,Show Latte Dock
 
 [org_kde_powerdevil]
 Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,Decrease Keyboard Brightness
@@ -220,7 +243,7 @@ activate task manager entry 6=,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=,Meta+9,Activate Task Manager Entry 9
-activate widget 3=Alt+F1,none,Activate Application Launcher Widget
+activate widget 3=Alt+F1,none,Activate Application Menu Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
@@ -234,3 +257,14 @@ show dashboard=Ctrl+F12,Ctrl+F12,Show Desktop
 show-barcode=none,none,Show Barcode...
 show-on-mouse-pos=none,none,Open Klipper at Mouse Position
 stop current activity=Meta+S,Meta+S,Stop Current Activity
+
+[wacomtablet]
+Map to fullscreen=Meta+Ctrl+F,Meta+Ctrl+F,Map to fullscreen
+Map to screen 1=Meta+Ctrl+1,Meta+Ctrl+1,Map to screen 1
+Map to screen 2=Meta+Ctrl+2,Meta+Ctrl+2,Map to screen 2
+Next Profile=Meta+Ctrl+N,Meta+Ctrl+N,Next profile
+Previous Profile=Meta+Ctrl+P,Meta+Ctrl+P,Previous Profile
+Toggle screen map selection=Meta+Ctrl+M,Meta+Ctrl+M,Toggle between all screens
+Toggle stylus mode=Meta+Ctrl+S,Meta+Ctrl+S,Toggle the Stylus Tool Relative/Absolute
+Toggle touch tool=Meta+Ctrl+T,Meta+Ctrl+T,Enable/Disable the Touch Tool
+_k_friendly_name=Wacom Tablet
