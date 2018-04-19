@@ -19,7 +19,7 @@
  '(delete-selection-mode nil)
  '(package-selected-packages
    (quote
-    (ipython-shell-send ipython yaml-mode monokai-theme helm-swoop undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
+    (yaml-mode monokai-theme helm-swoop undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
 ;;(custom-set-faces
 ;; ;; custom-set-faces was added by Custom.
 ;; ;; If you edit it by hand, you could mess it up, so be careful.
@@ -80,8 +80,6 @@
 (defvar python-shell-interpreter-args)
 
 (elpy-enable)
-(setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args "-i --simple-prompt")
 
 ;; Load and enable yasnippets.
 (require 'yasnippet)

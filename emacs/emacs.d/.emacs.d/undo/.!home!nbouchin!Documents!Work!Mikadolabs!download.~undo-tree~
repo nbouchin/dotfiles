@@ -1,2 +1,0 @@
-"a81c1dcfbccebb48347bc1824f48df90b86cdba7"
-[cl-struct-undo-tree [nil ([nil ([nil (#1=[nil nil ((6 . 15)) nil (23244 46575 479095 661000) 0 nil]) (("n" . -6) (undo-tree-id0 . -1) ("m" . -7) (undo-tree-id1 . -1) 8) nil (23244 46575 479110 116000) 0 nil]) ((1 . 8) (t . -1)) nil (23244 46575 479115 665000) 0 nil]) nil nil (23244 46575 479117 827000) 0 nil] #1# 66 3 nil]
