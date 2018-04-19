@@ -1,0 +1,72 @@
+#
+# DrSlump custom theme.
+#
+# Authors:
+#   Iván -DrSlump- Montes <drslump@pollinimini.net>
+#
+
+# Define functions for ZLE that activate on mode change
+function zle-line-init zle-keymap-select {
+  local iterm_vert='\e]50;CursorShape=1\x7'
+  local iterm_block='\e]50;CursorShape=0\x7'
+
+  echo -n "${${KEYMAP/vicmd/$iterm_block}/(main|viins)/$iterm_vert}"
+
+  zle reset-prompt
+}
+
+# Trigger the mode change callback
+#zle -N zle-line-init
+#zle -N zle-keymap-select
+
+
+# pyenv
+function prompt_drslump_venv {
+  setopt promptsubst
+  local pyenv="${PYENV_VERSION:=$PYENV_LOCAL_VERSION}"
+  if [[ $pyenv != '' ]]; then
+    echo "%f%F{blue}py%f:%F{yellow}$pyenv%f"
+  fi
+}
+
+
+function prompt_drslump_precmd {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+
+  # Get Git information if available
+  #if (( $+functions[git-info] )); then
+  #  git-info
+  #fi
+
+  # Use a very simple/fast method to obtain teh current branch
+  branch=`git symbolic-ref --short HEAD 2> /dev/null`
+  if [[ $branch != '' ]]; then
+    branch="%F{blue}git%f:%F{green}$branch%f"
+  fi
+}
+
+
+function prompt_drslump_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd prompt_drslump_precmd
+
+  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{green}$%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary:insert' format ''
+  zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format '%F{red}♺%f'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format '%B%F{yellow}$%b%f'
+
+  # Define prompts.
+  PROMPT="[%F{cyan}%n%f@%F{green}%m%f: %~] "
+  #PROMPT='%n@%m%F{cyan} %1~%f %(!.%B%F{red}#%f%b.)${editor_info[keymap]} '
+  #RPROMPT='$(prompt_drslump_venv) ${git_info[rprompt]} ${editor_info[overwrite]}%(?:: %F{red}⏎%f)'
+  RPROMPT='$(prompt_drslump_venv) ${branch} ${editor_info[overwrite]}%(?:: %F{red}⏎%f)'
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_drslump_setup "$@"
