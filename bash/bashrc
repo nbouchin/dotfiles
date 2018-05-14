@@ -1,6 +1,8 @@
 # If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux -2
+if ! [[ $(echo $SSH_TTY) ]]; then
+	[[ $- != *i* ]] && return
+	[[ -z "$TMUX" ]] && exec tmux -2
+fi
 
 set -o emacs
 shopt -s globstar
