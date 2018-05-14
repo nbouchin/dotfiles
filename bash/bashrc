@@ -51,3 +51,4 @@ alias lus='systemctl list-units --type=service'
 
 # ps aliases
 alias pssh='ps faux | grep sshd'
+alias psftp='ps faux | grep ftp'
