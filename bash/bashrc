@@ -43,7 +43,11 @@ alias open='xdg-open'
 alias ll='ls -l'
 alias la='ls -a'
 alias l='ls'
-alias lus='systemctl list-units --type=service'
 alias e='emacs'
 
+# systemctl aliases
 alias ss='systemctl status'
+alias lus='systemctl list-units --type=service'
+
+# ps aliases
+alias pssh='ps faux | grep sshd'
