@@ -1,5 +1,19 @@
 # If not running interactively, do not do anything
-if ! [[ $(echo $SSH_TTY) ]]; then
+
+ssh_check() {
+	if [[ $(echo $SSH_TTY) ]]; then
+		issh=1
+	fi
+	if [[ $issh ]]; then
+		PCOLOR="\[\e[31m\]"
+	else
+		PCOLOR="\[\e[36m\]"
+	fi
+}
+
+ssh_check
+
+if ! [[ $issh -eq 1 ]]; then
 	[[ $- != *i* ]] && return
 	[[ -z "$TMUX" ]] && exec tmux -2
 fi
@@ -19,7 +33,7 @@ parse_git_branch(){
 }
 
 # bash prompt
-export PS1="\[\e[m\]\[\e[32m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]$ "
+export PS1="\[\e[m\]\[\e[32m\]\u\[\e[m\]@$PCOLOR\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]$ "
 
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
