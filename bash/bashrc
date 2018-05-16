@@ -1,13 +1,6 @@
 # If not running interactively, do not do anything
 
 ssh_check() {
-	if [[ $(echo $LOGNAME) == "root" ]]; then
-		PCURS="#"
-		PCURSC="\[\e[31m\]"
-	else
-		PCURS="$"
-	    PCURSC="\[\e[32m\]"
-	fi
 	if [[ $(echo $SSH_TTY) ]]; then
 		issh=1
 	fi
@@ -40,7 +33,7 @@ parse_git_branch(){
 }
 
 # bash prompt
-export PS1="\[\e[m\]$PCURSC\u\[\e[m\]@$PCOLOR\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]$PCURS "
+export PS1="\[\e[m\]\e[32m\]\u\[\e[m\]@$PCOLOR\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]\$ "
 
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
