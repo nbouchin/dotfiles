@@ -33,7 +33,7 @@ parse_git_branch(){
 }
 
 # bash prompt
-export PS1="\[\e[m\]\e[32m\]\u\[\e[m\]@$PCOLOR\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]\$ "
+export PS1="\[\e[m\]\e[32m\]\u\[\e[m\]@$PCOLOR\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]\\$ "
 
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
