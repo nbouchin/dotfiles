@@ -10,7 +10,7 @@ ssh_check() {
 		issh=1
 	fi
 	if [[ $issh ]]; then
-		PCOLOR="\[\e[31m\]"
+		PCOLOR="\[\e[34m\]"
 	else
 		PCOLOR="\[\e[36m\]"
 	fi
