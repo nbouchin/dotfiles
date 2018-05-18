@@ -1,16 +1,16 @@
 # configuration
-#[submodule "vim/vim/bundle/ale"]
-#	path = vim/vim/bundle/ale
-#	url = https://github.com/w0rp/ale.git
-#[submodule "vim/vim/bundle/ctrlp.vim"]
-#	path = vim/vim/bundle/ctrlp.vim
-#	url = https://github.com/kien/ctrlp.vim.git
-#[submodule "vim/vim/bundle/supertab"]
-#	path = vim/vim/bundle/supertab
-#	url = https://github.com/ervandew/supertab.git
-#[submodule "vim/vim/bundle/vim-tmux-navigator"]
-#	path = vim/vim/bundle/vim-tmux-navigator
-#	url = https://github.com/christoomey/vim-tmux-navigator.git
 [submodule "vim/vim/bundle/YouCompleteMe"]
 	path = vim/vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "vim/vim/bundle/ale"]
+	path = vim/vim/bundle/ale
+	url = https://github.com/w0rp/ale.git
+[submodule "vim/vim/bundle/ctrlp.vim"]
+	path = vim/vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/vim/bundle/supertab"]
+	path = vim/vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "vim/vim/bundle/vim-tmux-navigator"]
+	path = vim/vim/bundle/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
