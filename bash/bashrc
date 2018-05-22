@@ -30,8 +30,7 @@ bind 'TAB:menu-complete'
 # git status in bash prompt
 parse_git_branch(){
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
+    } 
 # bash prompt
 export PS1="\[\e[m\]\[\e[32m\]\u\[\e[m\]\[@$PCOLOR\]\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]\\$ "
 
