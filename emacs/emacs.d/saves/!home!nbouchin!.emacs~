@@ -4,6 +4,7 @@
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 
 ;;; Code:
 (package-initialize)
@@ -15,11 +16,11 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("f0c98535db38af17e81e491a77251e198241346306a90c25eb982b57e687d7c0" "e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
+	("41f0d76ec27f54c7c6ee3244a903847fcb39f163a496dc61fa0c66241e6b3e34" "f0c98535db38af17e81e491a77251e198241346306a90c25eb982b57e687d7c0" "e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
  '(delete-selection-mode nil)
  '(package-selected-packages
    (quote
-    (yaml-mode monokai-theme helm-swoop undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
+	(evil yaml-mode monokai-theme helm-swoop undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
 ;;(custom-set-faces
 ;; ;; custom-set-faces was added by Custom.
 ;; ;; If you edit it by hand, you could mess it up, so be careful.
@@ -36,6 +37,18 @@
 
 ;; Enable mouse support.
 (xterm-mouse-mode 1)
+
+;; Padding configuration
+
+(set-language-environment "UTF-8")
+(setq-default font-lock-global-modes t)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode t)
+(setq-default c-backspace-function 'backward-delete-char)
+(setq-default c-basic-offset 4)
+(setq-default c-default-style "linux")
+(setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
+								64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
 
 ;; Set emacs swap files.
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
@@ -69,21 +82,17 @@
 (company-quickhelp-mode 0); ctrl-h for company-help.
 (setq company-idle-delay 0); remove company delay.
 
+(defun my/python-mode-hook () "Load python jedi."
+       (add-to-list 'company-backends 'company-jedi)); use of jedi for company completion.
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
+(add-hook 'python-mode-hook 'run-python-internal)
+
+;; Use ipython execution
+(defvar python-shell-interpreter)
+(defvar python-shell-interpreter-args)
+
 (elpy-enable)
-
-;;(defun my/python-mode-hook () "Load python jedi."
-;;       (add-to-list 'company-backends 'company-jedi)); use of jedi for company completion.
-;;
-;;(add-hook 'python-mode-hook 'my/python-mode-hook)
-;;(add-hook 'python-mode-hook 'run-python-internal)
-
-;;;; Use ipython execution
-;;(defvar python-shell-interpreter)
-;;(defvar python-shell-interpreter-args)
-;;
-;;(elpy-enable)
-;;(setq python-shell-interpreter "ipython"
-;;      python-shell-interpreter-args "-i --simple-prompt")
 
 ;; Load and enable yasnippets.
 (require 'yasnippet)
