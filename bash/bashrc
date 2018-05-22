@@ -18,7 +18,7 @@ if ! [[ $issh -eq 1 || $LOGNAME == "root" ]]; then
 	[[ -z "$TMUX" ]] && exec tmux -2
 fi
 
-set -o emacs
+set -o vi
 shopt -s globstar
 
 # Use bash-completion, if available
