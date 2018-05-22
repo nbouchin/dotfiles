@@ -12,7 +12,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
 Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-Plug 'roxma/nvim-completion-manager'
 Plug 'phpactor/phpactor' ,  {'do': 'composer install'}
 Plug 'roxma/ncm-phpactor'
 Plug 'w0rp/ale'
@@ -21,6 +20,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'benmills/vimux'
 Plug 'euclio/vim-markdown-composer'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+
 call plug#end()
 
 "Set custom tab width according to language
@@ -104,3 +106,6 @@ nnoremap <M-H> :TmuxResizeLeft<return>
 nnoremap <M-J> :TmuxResizeDown<return>
 nnoremap <M-K> :TmuxResizeUp<return>
 nnoremap <M-L> :TmuxResizeRight<return>
+
+"Enable deoplete
+let g:deoplete#enable_at_startup = 1
