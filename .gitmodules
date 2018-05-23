@@ -26,3 +26,6 @@
 [submodule "vim/vim/bundle/vim-addon-mw-utils"]
 	path = vim/vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/vim/bundle/ultisnips"]
+	path = vim/vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
