@@ -18,7 +18,7 @@ if ! [[ $issh -eq 1 || $LOGNAME == "root" ]]; then
 	[[ -z "$TMUX" ]] && exec tmux -2
 fi
 
-set -o vi
+set -o emacs
 shopt -s globstar
 
 # Use bash-completion, if available
@@ -44,7 +44,7 @@ export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
 
-bind -m vi-insert "\C-l":clear-screen
+#bind -m vi-insert "\C-l":clear-screen
 
 #colored ls
 alias ls='ls --color=auto'
