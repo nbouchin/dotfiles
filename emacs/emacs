@@ -1,10 +1,9 @@
-;;; Package --- Summary.
+;;; PACKAGE-ARCHIVES --- Summary.
 (require 'package)
 ;;; Commentary:
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 
 ;;; Code:
 (package-initialize)
@@ -20,7 +19,7 @@
  '(delete-selection-mode nil)
  '(package-selected-packages
    (quote
-	(evil yaml-mode monokai-theme helm-swoop undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
+	(pyflakes yaml-mode monokai-theme helm-swoop undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
 ;;(custom-set-faces
 ;; ;; custom-set-faces was added by Custom.
 ;; ;; If you edit it by hand, you could mess it up, so be careful.
@@ -92,6 +91,7 @@
 (defvar python-shell-interpreter)
 (defvar python-shell-interpreter-args)
 
+(require 'elpy)
 (elpy-enable)
 
 ;; Load and enable yasnippets.
@@ -109,9 +109,6 @@
   "My-recompile byte-compile all configuration."
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
-
-(require 'evil)
-(evil-mode 1)
 
 (provide 'emacs)
 ;;; .emacs ends here

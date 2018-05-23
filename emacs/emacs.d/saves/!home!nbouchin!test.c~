@@ -2,12 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-	(void)argc;
-	(void)argv;
-	int i;
-
-	i = 2;
-	if (i == 2)
-		printf("%s\n", "Hey");
-	return 0;
+    if (i == 2)
+		printf("%s\n", "Hello, World!");
+    return 0;
 }

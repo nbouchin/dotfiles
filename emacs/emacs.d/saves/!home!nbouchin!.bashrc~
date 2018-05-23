@@ -18,7 +18,7 @@ if ! [[ $issh -eq 1 || $LOGNAME == "root" ]]; then
 	[[ -z "$TMUX" ]] && exec tmux -2
 fi
 
-set -o emacs
+set -o vi
 shopt -s globstar
 
 # Use bash-completion, if available
@@ -32,7 +32,7 @@ parse_git_branch(){
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
     } 
 # bash prompt
-export PS1="\[\e[m\]\[\e[32m\]\u\[\e[m\]\[@$PCOLOR\]\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]\\$ "
+export PS1=" \[\e[m\]\[\e[32m\]\u\[\e[m\]\[@$PCOLOR\]\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]\\$ "
 
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
