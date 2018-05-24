@@ -1,110 +1,71 @@
-execute pathogen#infect()
-"set mapleader
-let mapleader = ";"
-" Use vim settings, instead of vi
-set nocompatible
-set loadplugins
-" Reindent operations (<< and >>)
-set shiftwidth=4
-" 4 space tab
-set tabstop=4
-" Causes backspace to delete 4 spaces
-set softtabstop=4
-" Replaces a <TAB> with spaces
-" set expandtab
-" Uses shiftwidth instead of tabstop at start of lines
+call plug#begin()
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'brooth/far.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'luochen1990/rainbow'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'jiangmiao/auto-pairs'
+Plug 'w0rp/ale'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'benmills/vimux'
+Plug 'euclio/vim-markdown-composer'
+Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+call plug#end()
+
+"Set custom tab width according to language
+autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
+
+" General config.
+set nu
+set mouse=a
 set smarttab
 set modeline
 set ruler
 set history=100
 set nowrap
-" Change terminal title
 set title
-" No annoying error noises
-set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=
-" Make backspace delete lots of things
-set backspace=indent,eol,start
-" Show us the command we're typing
-set showcmd
-" Highlight matching parens
 set showmatch
-" Search options: incremental search, highlight search
 set hlsearch
 set incsearch
-" Selective case insensitivity
 set ignorecase
 set smartcase
-" Show full tags when doing search completion
-set showfulltag
-" Speed up macros
-set lazyredraw
-" No annoying error noises
-set noerrorbells
-" Wrap on these
-set whichwrap+=<,>,[,]
-" Use the cool tab complete menu
-set wildmenu
-set wildmode=longest,full
-set wildignore+=.git,.hg,.svn,*.o,*~,*.pyc,*.egg,*.egg-info/**,*/build/**,*/dist/**,*/node_modules/**
-" Allow edit buffers to be hidden
-set hidden
-" 1 height windows
-set winminheight=1
-" misc
-set autowrite
-" never show cursorline
-set nocursorline
-" never show the preview window
-set completeopt-=preview
-set completeopt+=longest
+"set cursor collumn and line coloration
+set cursorline
+set cursorcolumn
+let mapleader=";"
+colorscheme deus
 
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
+"copy/paste from/to clipboard
 set clipboard=unnamedplus
 
-if exists('+autochdir')
-	set noautochdir
-endif
-set ttyfast
-set smartcase
+" Undo file.
+set undofile
+set undodir=$HOME/.config/nvim/undodir
+set undolevels=1000
+set undoreload=10000
 
-filetype indent on
-filetype plugin on
-set autoindent
-set smartindent
-syntax on
+" Hide coloration of found words
+map <C-C> :nohlsearch<CR>
 
-set encoding=utf-8
+" Airline config.
+let g:airline_theme='deus'
 
-set mouse=ar
+" Rainbow-parentheses
+let g:rainbow_active = 1
 
-" always show statusline
-set laststatus=2
-
-" ctrlp plugin config
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-" ===================== CUSTOM THEME =====================
-set t_Co=256
-colorscheme antares
-
-" show trailing white space
-set list
-set lcs=tab:./
-set lcs+=trail:·
-
-set undofile                " Save undo's after file closes
-set undodir=$HOME/.vim/undo " where to save undo histories
-set undolevels=1000         " How many undos
-set undoreload=10000        " number of lines to save for undo
-set number
-" hide coloration of found words
-map <C-C> :nohlsearch<CR>
-
-" set tmux navigator bindings
+"Tmux navigation
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 2
 nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
@@ -112,37 +73,34 @@ nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
-nnoremap <M-H> :TmuxResizeLeft<return>
-nnoremap <M-J> :TmuxResizeDown<return>
-nnoremap <M-K> :TmuxResizeUp<return>
-nnoremap <M-L> :TmuxResizeRight<return>
 "Esc remaping.
 inoremap kj <esc>
-set <M-h>=h
-set <M-j>=j
-set <M-k>=k
-set <M-l>=l
+
+"Vimux.
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+
+"airline config
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ' '
+let g:airline#extensions#tabline#right_alt_sep = '|'
+let g:airline_left_sep = ' '
+let g:airline_left_alt_sep = '|'
+let g:airline_right_sep = ' '
+let g:airline_right_alt_sep = '|'
 
 "ale settings
 "ale c linter settings
 let g:ale_c_gcc_options="-Wall -Wextra -Werror"
 let g:ale_c_gcc_executable="clang"
 
-"autocomplete
-"nnoremap <c-space> <NOP>
-"let g:neocomplete#enable_at_startup = 1
-"let g:SuperTabDefaultCompletionType = "<c-n>"
-"let g:SuperTabMappingForward = "<NOP>"
-"let g:SuperTabMappingForward = "<NOP>"
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <M-H> :TmuxResizeLeft<return>
+nnoremap <M-J> :TmuxResizeDown<return>
+nnoremap <M-K> :TmuxResizeUp<return>
+nnoremap <M-L> :TmuxResizeRight<return>
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"Enable deoplete
+let g:deoplete#enable_at_startup = 1
