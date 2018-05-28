@@ -4,7 +4,7 @@
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "highlight-indentation" "highlight-indentation.el"
-;;;;;;  (23301 4739 109460 449000))
+;;;;;;  (23301 8468 694541 34000))
 ;;; Generated autoloads from highlight-indentation.el
 
 (autoload 'highlight-indentation-mode "highlight-indentation" "\

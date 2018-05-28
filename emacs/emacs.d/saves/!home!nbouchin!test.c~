@@ -2,7 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-    if (i == 2)
-		printf("%s\n", "Hello, World!");
+    
     return 0;
 }

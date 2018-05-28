@@ -8,18 +8,6 @@
 ;;; Code:
 (package-initialize)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-	("41f0d76ec27f54c7c6ee3244a903847fcb39f163a496dc61fa0c66241e6b3e34" "f0c98535db38af17e81e491a77251e198241346306a90c25eb982b57e687d7c0" "e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
- '(delete-selection-mode nil)
- '(package-selected-packages
-   (quote
-	(pyflakes yaml-mode monokai-theme helm-swoop undo-tree git dired-hide-dotfiles helm git-gutter zenburn-theme yasnippet-snippets yasnippet company-quickhelp company-jedi flycheck))))
 ;;(custom-set-faces
 ;; ;; custom-set-faces was added by Custom.
 ;; ;; If you edit it by hand, you could mess it up, so be careful.
@@ -32,7 +20,7 @@
 (server-start)
 
 ;; Set colorscheme.
-(load-theme 'monokai)
+(load-theme 'monokai t nil)
 
 ;; Enable mouse support.
 (xterm-mouse-mode 1)
@@ -91,8 +79,8 @@
 (defvar python-shell-interpreter)
 (defvar python-shell-interpreter-args)
 
-(require 'elpy)
-(elpy-enable)
+;;(require 'elpy)
+;;(elpy-enable)
 
 ;; Load and enable yasnippets.
 (require 'yasnippet)
@@ -118,3 +106,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+	("c3d4af771cbe0501d5a865656802788a9a0ff9cf10a7df704ec8b8ef69017c68" "0e5fa1ee4b38ba8fd761936bbed55f5b4343863b2d4100fd58ffb9c9becb44bb" "41f90b83fae6e57d37617a9998424cb78fa064fc79706442e677201084ee181d" "e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
+ '(package-selected-packages
+   (quote
+	(monokai-theme yasnippet-snippets yaml-mode undo-tree pyflakes markdown-preview-mode markdown-preview-eww helm-swoop git-gutter git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi))))
