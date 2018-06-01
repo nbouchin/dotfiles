@@ -1,5 +1,8 @@
 ;;; PACKAGE-ARCHIVES --- Summary.
 (require 'package)
+
+(setq package-list '(monokai-theme yasnippet-snippets yaml-mode undo-tree pyflakes markdown-preview-mode markdown-preview-eww helm-swoop git-gutter git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi))
+
 ;;; Commentary:
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/") t)
@@ -15,6 +18,14 @@
 ;; ;; If there is more than one, they won't work right.
 ;; '(default ((t (:background "dark")))))
 
+; fetch the list of packages available 
+(unless package-archive-contents
+  (package-refresh-contents))
+
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
 
 ;; Run emacs as a server
 (server-start)
