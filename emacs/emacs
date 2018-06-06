@@ -139,4 +139,4 @@
 	("c3d4af771cbe0501d5a865656802788a9a0ff9cf10a7df704ec8b8ef69017c68" "0e5fa1ee4b38ba8fd761936bbed55f5b4343863b2d4100fd58ffb9c9becb44bb" "41f90b83fae6e57d37617a9998424cb78fa064fc79706442e677201084ee181d" "e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
  '(package-selected-packages
    (quote
-	(avy monokai-theme yasnippet-snippets undo-tree pyflakes git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi))))
+	(evil avy monokai-theme yasnippet-snippets undo-tree pyflakes git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi))))
