@@ -19,6 +19,8 @@ Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'rust-lang/rust.vim'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 "Set custom tab width according to language
@@ -39,6 +41,8 @@ set incsearch
 set ignorecase
 set smartcase
 "set cursor collumn and line coloration
+set cursorline
+set cursorcolumn
 let mapleader=";"
 colorscheme antares
 
@@ -99,6 +103,21 @@ nnoremap <M-H> :TmuxResizeLeft<return>
 nnoremap <M-J> :TmuxResizeDown<return>
 nnoremap <M-K> :TmuxResizeUp<return>
 nnoremap <M-L> :TmuxResizeRight<return>
+
+" <Leader>f{char} to move to {char}
+map  <leader>f <Plug>(easymotion-bd-f)
+nmap <leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 "Enable deoplete
 let g:deoplete#enable_at_startup = 1
