@@ -20,6 +20,7 @@
 (defun my-install ()
   "My-install search all packages in package-list and install them if not installed."
   (interactive)
+  (defvar package-list)
   (setq package-list '(evil avy transpose-frame monokai-theme yasnippet-snippets yaml-mode undo-tree pyflakes markdown-preview-mode markdown-preview-eww helm-swoop git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi))
   ;; fetch the list of packages available.
   (unless package-archive-contents
