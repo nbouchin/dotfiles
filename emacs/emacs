@@ -1,8 +1,6 @@
 ;;; PACKAGE-ARCHIVES --- Summary.
 (require 'package)
 
-(setq package-list '(evil avy transpose-frame monokai-theme yasnippet-snippets yaml-mode undo-tree pyflakes markdown-preview-mode markdown-preview-eww helm-swoop git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi))
-
 ;;; Commentary:
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/") t)
@@ -18,14 +16,25 @@
 ;; ;; If there is more than one, they won't work right.
 ;; '(default ((t (:background "dark")))))
 
-;; fetch the list of packages available.
-(unless package-archive-contents
-  (package-refresh-contents))
+;; Install all packages.
+(defun my-install ()
+  "My-install search all packages in package-list and install them if not installed."
+  (interactive)
+  (setq package-list '(evil avy transpose-frame monokai-theme yasnippet-snippets yaml-mode undo-tree pyflakes markdown-preview-mode markdown-preview-eww helm-swoop git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi))
+  ;; fetch the list of packages available.
+  (unless package-archive-contents
+	(package-refresh-contents))
+  ;; install the missing packages.
+  (dolist (package package-list)
+	(unless (package-installed-p package)
+	  (package-install package)))
+  )
 
-;; install the missing packages.
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
+;; Byte compile config.
+(defun my-recompile ()
+  "My-recompile byte-compile all configuration."
+  (interactive)
+  (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
 
 ;; Run emacs as a server
 (server-start)
@@ -81,7 +90,7 @@
 (setq company-idle-delay 0); remove company delay.
 
 (defun my/python-mode-hook () "Load python jedi."
-       (add-to-list 'company-backends 'company-jedi)); use of jedi for company completion.
+	   (add-to-list 'company-backends 'company-jedi)); use of jedi for company completion.
 
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 (add-hook 'python-mode-hook 'run-python-internal)
@@ -112,12 +121,6 @@
 (avy-setup-default)
 (define-key evil-normal-state-map "f" 'avy-goto-word-1)
 (global-set-key (kbd "M-g f") 'avy-goto-line)
-
-;; Byte compile config.
-(defun my-recompile ()
-  "My-recompile byte-compile all configuration."
-  (interactive)
-  (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
 
 (provide 'emacs)
 ;;; .emacs ends here
