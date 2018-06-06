@@ -21,7 +21,7 @@
   "My-install search all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(avy monokai-theme yasnippet-snippets undo-tree pyflakes git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi))
+  (setq package-list '(avy monokai-theme yasnippet-snippets undo-tree pyflakes git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi git-gutter))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -47,7 +47,6 @@
 (xterm-mouse-mode 1)
 
 ;; Padding configuration
-
 (set-language-environment "UTF-8")
 (setq-default font-lock-global-modes t)
 (setq-default tab-width 4)
@@ -71,7 +70,7 @@
 (setq  linum-format "%d "); Set plus bar.
 
 ;; Enable git-gutter.
-;; (global-git-gutter-mode)
+(global-git-gutter-mode)
 
 ;; Enable undo-dir mode.
 (defvar undo-tree-auto-save-history)
