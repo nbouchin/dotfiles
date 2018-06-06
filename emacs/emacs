@@ -21,7 +21,7 @@
   "My-install search all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(avy monokai-theme yasnippet-snippets undo-tree pyflakes git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi git-gutter))
+  (setq package-list '(avy monokai-theme yasnippet-snippets undo-tree pyflakes git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi git-gutter evil))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -98,6 +98,9 @@
 ;; Use ipython execution
 (defvar python-shell-interpreter)
 (defvar python-shell-interpreter-args)
+
+(require 'evil)
+(evil-mode)
 
 (require 'elpy)
 (elpy-enable)
