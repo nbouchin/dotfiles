@@ -1,7 +1,7 @@
 ;;; PACKAGE-ARCHIVES --- Summary.
 (require 'package)
 
-(setq package-list '(monokai-theme yasnippet-snippets yaml-mode undo-tree pyflakes markdown-preview-mode markdown-preview-eww helm-swoop git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi))
+(setq package-list '(evil avy transpose-frame monokai-theme yasnippet-snippets yaml-mode undo-tree pyflakes markdown-preview-mode markdown-preview-eww helm-swoop git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi))
 
 ;;; Commentary:
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
