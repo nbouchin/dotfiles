@@ -116,10 +116,10 @@
 (require 'evil)
 (evil-mode 1)
 
-;; Evil bindings.
-
+;; Avy bindings.
 (avy-setup-default)
 (define-key evil-normal-state-map "f" 'avy-goto-word-1)
+(define-key evil-visual-state-map "f" 'avy-goto-word-1)
 (global-set-key (kbd "M-g f") 'avy-goto-line)
 
 (provide 'emacs)
