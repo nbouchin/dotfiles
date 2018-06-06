@@ -110,15 +110,16 @@
 (yas-global-mode 1)
 
 ;; Set window navigations in emacs.
-(global-set-key [M-left] 'windmove-left)          ; move to left window
-(global-set-key [M-right] 'windmove-right)        ; move to right window
-(global-set-key [M-up] 'windmove-up)              ; move to upper window
-(global-set-key [M-down] 'windmove-down)          ; move to lower window
+(global-set-key (kbd "M-h") 'windmove-left)          ; move to left window
+(global-set-key (kbd "M-l") 'windmove-right)        ; move to right window
+(global-set-key (kbd "M-k") 'windmove-up)              ; move to upper window
+(global-set-key (kbd "M-j") 'windmove-down)          ; move to lower window
 
 ;; Avy bindings.
 (avy-setup-default)
-(global-set-key (kbd "M-g f") 'avy-goto-line)
-(global-set-key (kbd "M-g w") 'avy-goto-word-1)
+(define-key evil-normal-state-map "f" 'avy-goto-word-1)
+(define-key evil-visual-state-map "f" 'avy-goto-word-1)
+(global-set-key (kbd "M-g f") 'avy-goto-char)
 
 (provide 'emacs)
 ;;; .emacs ends here
