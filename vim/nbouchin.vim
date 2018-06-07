@@ -6,7 +6,8 @@ if exists('syntax_on')
   syntax reset
 endif
 let g:colors_name = 'nbouchin'
-hi Normal guifg=#e5e5e5 ctermfg=253 guibg=#262626 ctermbg=235 gui=NONE cterm=NONE
+"For asenat : ctermbg=235
+hi Normal guifg=#e5e5e5 ctermfg=253 guibg=#262626 ctermbg=232 gui=NONE cterm=NONE
 " Misc {{{1
 hi Boolean        guifg=#af97df ctermfg=98  ctermbg=NONE gui=NONE guibg=bg cterm=NONE
 hi Character      guifg=#9d7ff2 ctermfg=131 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
