@@ -43,7 +43,7 @@ set smartcase
 set cursorline
 set cursorcolumn
 let mapleader=";"
-colorscheme nbouchin
+colorscheme antares
 
 "copy/paste from/to clipboard
 set clipboard=unnamedplus

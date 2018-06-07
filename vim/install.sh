@@ -21,7 +21,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo -e "${PURPLE}Download${NC} and Install vim plugins."
 vim +PlugInstall +q +q
-echo -e "${BLUE}Copy${NC} nbouchin theme to awesome-vim-colorschemes vim plugin located at ${RED}~/.config/vim/plugged/awesomw-vim-colorschemes/colors/${NC}."
-cp nbouchin.vim ~/.vim/plugged/awesome-vim-colorschemes/colors/
+echo -e "${BLUE}Copy${NC} antares theme to awesome-vim-colorschemes vim plugin located at ${RED}~/.config/vim/plugged/awesomw-vim-colorschemes/colors/${NC}."
+cp antares.vim ~/.vim/plugged/awesome-vim-colorschemes/colors/
 mv ~/.vim/plugged/vim-42header/after ~/.vim/plugged/vim-42header/plugin
 echo -e "${GREEN}Installation${NC} done."
