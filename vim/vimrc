@@ -19,6 +19,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'rust-lang/rust.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'pbondoer/vim-42header'
 call plug#end()
 
 "Set custom tab width according to language
