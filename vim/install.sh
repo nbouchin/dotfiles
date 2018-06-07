@@ -7,8 +7,10 @@ PURPLE='\033[1;35m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-echo -e "${YELLOW}Create${NC} vim dir located at ${RED}~/.vim/undodir/${NC}."
-mkdir -p ~/.vim
+echo -e "${RED}Backup old vim config to ~/oldvim"${NC}
+cp ~/.vimrc ~/oldvim
+echo -e "${YELLOW}Create${NC} vim undo dir located at ${RED}~/.vim/undodir/${NC}."
+mkdir -p ~/.vim/undodir
 echo -e "${BLUE}Copy${NC} vimrc located at ${RED}~/.vimrc${NC}."
 cp vimrc ~/.vimrc
 echo -e "${GREEN}Install${NC} jedi with pip3."
