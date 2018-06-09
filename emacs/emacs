@@ -21,7 +21,7 @@
   "My-install search all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(avy monokai-theme yasnippet-snippets undo-tree pyflakes git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi git-gutter evil))
+  (setq package-list '(avy monokai-theme yasnippet-snippets undo-tree pyflakes git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi git-gutter))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -99,9 +99,6 @@
 (defvar python-shell-interpreter)
 (defvar python-shell-interpreter-args)
 
-(require 'evil)
-(evil-mode)
-
 (require 'elpy)
 (elpy-enable)
 
@@ -117,8 +114,7 @@
 
 ;; Avy bindings.
 (avy-setup-default)
-(define-key evil-normal-state-map "f" 'avy-goto-word-1)
-(define-key evil-visual-state-map "f" 'avy-goto-word-1)
+(global-set-key (kbd "M-g w") 'avy-goto-word-1)
 (global-set-key (kbd "M-g f") 'avy-goto-char)
 
 (provide 'emacs)
@@ -139,4 +135,4 @@
 	("c3d4af771cbe0501d5a865656802788a9a0ff9cf10a7df704ec8b8ef69017c68" "0e5fa1ee4b38ba8fd761936bbed55f5b4343863b2d4100fd58ffb9c9becb44bb" "41f90b83fae6e57d37617a9998424cb78fa064fc79706442e677201084ee181d" "e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
  '(package-selected-packages
    (quote
-	(evil avy monokai-theme yasnippet-snippets undo-tree pyflakes git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi))))
+	(avy monokai-theme yasnippet-snippets undo-tree pyflakes git flycheck elpy dired-hide-dotfiles company-quickhelp company-jedi))))
