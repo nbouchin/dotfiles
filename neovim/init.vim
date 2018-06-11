@@ -22,7 +22,8 @@ Plug 'benmills/vimux'
 Plug 'euclio/vim-markdown-composer'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
-
+Plug 'easymotion/vim-easymotion'
+Plug 'pbondoer/vim-42header'
 call plug#end()
 
 "Set custom tab width according to language
@@ -44,8 +45,6 @@ set incsearch
 set ignorecase
 set smartcase
 "set cursor collumn and line coloration
-set cursorline
-set cursorcolumn
 let mapleader=";"
 colorscheme deus
 
@@ -74,8 +73,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 2
 nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <M-j> :TmuxNavigateDown<cr> nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
 "Esc remaping.
@@ -106,6 +104,21 @@ nnoremap <M-H> :TmuxResizeLeft<return>
 nnoremap <M-J> :TmuxResizeDown<return>
 nnoremap <M-K> :TmuxResizeUp<return>
 nnoremap <M-L> :TmuxResizeRight<return>
+
+" <Leader>f{char} to move to {char}
+map  <leader>f <Plug>(easymotion-bd-f)
+nmap <leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 "Enable deoplete
 let g:deoplete#enable_at_startup = 1
