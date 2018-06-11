@@ -20,6 +20,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'rust-lang/rust.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'pbondoer/vim-42header'
+Plug 'cknadler/vim-anywhere'
 call plug#end()
 
 "Set custom tab width according to language
@@ -74,6 +75,14 @@ nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
+
+if stridx($VIM, '/vim') != -1
+	set <M-h>=h
+	set <M-j>=j
+	set <M-k>=k
+	set <M-l>=l
+	set <M-\>=\
+endif
 "Esc remaping.
 inoremap kj <esc>
 
