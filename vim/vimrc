@@ -47,7 +47,7 @@ colorscheme antares
 
 "copy/paste from/to clipboard
 set clipboard=unnamedplus
-
+set directory=$HOME/.vim/swapdir//
 " Undo file.
 set undofile
 set undodir=$HOME/.vim/undodir
@@ -110,14 +110,11 @@ nnoremap <M-L> :TmuxResizeRight<return>
 " <Leader>f{char} to move to {char}
 map  <leader>f <Plug>(easymotion-bd-f)
 nmap <leader>f <Plug>(easymotion-overwin-f)
-
 " s{char}{char} to move to {char}{char}
 nmap s <Plug>(easymotion-overwin-f2)
-
 " Move to line
 map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
-
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
