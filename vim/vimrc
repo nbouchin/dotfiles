@@ -130,4 +130,3 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 "Enable deoplete
 let g:deoplete#enable_at_startup = 1
-let g:move_key_modifier = 'S'
