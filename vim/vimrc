@@ -7,7 +7,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'luochen1990/rainbow'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
 Plug 'kien/ctrlp.vim'
@@ -65,23 +64,6 @@ let g:rainbow_active = 1
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-
-"Tmux navigation
-let g:tmux_navigator_no_mappings = 1
-let g:tmux_navigator_save_on_switch = 2
-nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
-
-if stridx($VIM, '/vim') != -1
-	set <M-h>=h
-	set <M-j>=j
-	set <M-k>=k
-	set <M-l>=l
-	set <M-\>=\
-endif
 "Esc remaping.
 inoremap kj <esc>
 
@@ -109,11 +91,6 @@ let g:ale_lint_on_text_changed = 'never'
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
-
-nnoremap <M-H> :TmuxResizeLeft<return>
-nnoremap <M-J> :TmuxResizeDown<return>
-nnoremap <M-K> :TmuxResizeUp<return>
-nnoremap <M-L> :TmuxResizeRight<return>
 
 " Vim easymotion configuration.
 " <Leader>f{char} to move to {char}
