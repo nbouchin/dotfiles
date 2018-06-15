@@ -8,16 +8,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'luochen1990/rainbow'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'jiangmiao/auto-pairs'
-Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-Plug 'phpactor/phpactor' ,  {'do': 'composer install'}
-Plug 'roxma/ncm-phpactor'
 Plug 'w0rp/ale'
 Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'benmills/vimux'
 Plug 'euclio/vim-markdown-composer'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -46,7 +38,7 @@ set ignorecase
 set smartcase
 "set cursor collumn and line coloration
 let mapleader=";"
-colorscheme deus
+colorscheme antares
 
 "copy/paste from/to clipboard
 set clipboard=unnamedplus
