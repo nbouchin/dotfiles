@@ -12,8 +12,6 @@ Plug 'w0rp/ale'
 Plug 'kien/ctrlp.vim'
 Plug 'benmills/vimux'
 Plug 'euclio/vim-markdown-composer'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
 Plug 'easymotion/vim-easymotion'
 Plug 'pbondoer/vim-42header'
 call plug#end()
@@ -91,6 +89,8 @@ let g:airline_right_alt_sep = '|'
 "ale c linter settings
 let g:ale_c_gcc_options="-Wall -Wextra -Werror"
 let g:ale_c_gcc_executable="clang"
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
 
 nnoremap <M-H> :TmuxResizeLeft<return>
 nnoremap <M-J> :TmuxResizeDown<return>
@@ -111,6 +111,3 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-"Enable deoplete
-let g:deoplete#enable_at_startup = 1
