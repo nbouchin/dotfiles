@@ -53,7 +53,7 @@ set undoreload=10000
 map <C-C> :nohlsearch<CR>
 
 " Airline config.
-let g:airline_theme='deus'
+let g:airline_theme='luna'
 
 " Rainbow-parentheses
 let g:rainbow_active = 1
