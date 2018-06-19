@@ -226,8 +226,8 @@ root.buttons(my_table.join(
 globalkeys = my_table.join(
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end,
-              {description = "take a screenshot", group = "hotkeys"}),
+    awful.key({	modkey, "Shift" }, "Print", function() os.execute("gnome-screenshot -a") end,
+              {description = "take an area screenshot", group = "hotkeys"}),
 
     -- X screen locker
     awful.key({ modkey, "Control" }, "l", function () os.execute(scrlocker) end,
@@ -249,20 +249,6 @@ globalkeys = my_table.join(
               {description = "view  previous nonempty", group = "tag"}),
     awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end,
               {description = "view  previous nonempty", group = "tag"}),
-
-    -- Default client focus
-    -- awful.key({ altkey,           }, "j",
-    --     function ()
-    --         awful.client.focus.byidx( 1)
-    --     end,
-    --     {description = "focus next by index", group = "client"}
-    -- ),
-    -- awful.key({ altkey,           }, "k",
-    --     function ()
-    --         awful.client.focus.byidx(-1)
-    --     end,
-    --     {description = "focus previous by index", group = "client"}
-    -- ),
 
     -- By direction client focus
     awful.key({ modkey }, "j",
@@ -380,14 +366,6 @@ globalkeys = my_table.join(
     -- Dropdown application
     awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
               {description = "dropdown application", group = "launcher"}),
-
-    -- Widgets popups
-    -- awful.key({ altkey, }, "c", function () lain.widget.calendar.show(7) end,
-    --           {description = "show calendar", group = "widgets"}),
-    -- awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end,
-    --           {description = "show filesystem", group = "widgets"}),
-    -- awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end,
-    --           {description = "show weather", group = "widgets"}),
 
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("brightnessctl set 10%+") end,
