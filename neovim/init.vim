@@ -14,6 +14,7 @@ Plug 'benmills/vimux'
 Plug 'euclio/vim-markdown-composer'
 Plug 'easymotion/vim-easymotion'
 Plug 'pbondoer/vim-42header'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 "Set custom tab width according to language
