@@ -5,7 +5,7 @@ Plug 'brooth/far.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'rafi/awesome-vim-colorschemes'
+Plug 'morhetz/gruvbox'
 Plug 'luochen1990/rainbow'
 Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
@@ -45,7 +45,8 @@ set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 "set cursor collumn and line coloration
 let mapleader=";"
-colorscheme antares
+set bg=dark
+colorscheme gruvbox 
 
 "copy/paste from/to clipboard
 set directory=$HOME/.vim/swapdir//
@@ -72,6 +73,7 @@ map <Leader>vl :VimuxRunLastCommand<CR>
 
 "airline config
 let g:airline#extensions#tabline#enabled = 2
+let g:airline_powerline_fonts = 1
 
 "ale settings
 "ale c linter settings
