@@ -47,6 +47,7 @@ set timeout timeoutlen=5000 ttimeoutlen=100
 let mapleader=";"
 set bg=dark
 colorscheme gruvbox 
+let g:gruvbox_contrast_dark = 'hard'
 
 "copy/paste from/to clipboard
 set directory=$HOME/.vim/swapdir//
