@@ -26,6 +26,7 @@ call plug#end()
 autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
 
 " General config.
+set noeb vb t_vb=
 set guioptions-=aegimrLtT
 set nu
 set mouse=a
@@ -71,12 +72,11 @@ map <Leader>vl :VimuxRunLastCommand<CR>
 
 "airline config
 let g:airline#extensions#tabline#enabled = 2
-let g:airline_powerline_fonts = 1
 
 "ale settings
 "ale c linter settings
 let g:ale_c_gcc_options="-Wall -Wextra -Werror"
-let g:ale_c_gcc_executable="clang"
+let g:ale_c_gcc_executable="gcc"
 let g:ale_lint_on_text_changed = 'never'
 "" You can disable this option too
 "" if you don't want linters to run on opening a file
