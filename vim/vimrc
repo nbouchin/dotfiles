@@ -26,6 +26,7 @@ call plug#end()
 autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
 
 " General config.
+set guioptions-=aegimrLtT
 set nu
 set mouse=a
 set smarttab
