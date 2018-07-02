@@ -26,6 +26,7 @@ call plug#end()
 autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
 
 " General config.
+set guiheadroom=0
 set noeb vb t_vb=
 set guioptions-=aegimrLtT
 set nu
@@ -74,7 +75,6 @@ map <Leader>vl :VimuxRunLastCommand<CR>
 
 "airline config
 let g:airline#extensions#tabline#enabled = 2
-let g:airline_powerline_fonts = 1
 
 "ale settings
 "ale c linter settings

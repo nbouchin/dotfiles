@@ -69,4 +69,3 @@ alias psftp='ps faux | grep ftp'
 
 # reset shell
 alias esl='exec $SHELL -l'
-alias vim='nvim'
