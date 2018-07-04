@@ -14,7 +14,7 @@ Plug 'benmills/vimux'
 Plug 'euclio/vim-markdown-composer'
 Plug 'easymotion/vim-easymotion'
 Plug 'pbondoer/vim-42header'
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 "Set custom tab width according to language
@@ -37,7 +37,7 @@ set ignorecase
 set smartcase
 "set cursor collumn and line coloration
 let mapleader=";"
-colorscheme antares
+colorscheme molokai 
 
 "copy/paste from/to clipboard
 set clipboard=unnamedplus
@@ -52,7 +52,7 @@ set undoreload=10000
 map <C-C> :nohlsearch<CR>
 
 " Airline config.
-"let g:airline_theme='luna'
+let g:airline_theme='molokai'
 
 " Rainbow-parentheses
 let g:rainbow_active = 1
@@ -76,16 +76,15 @@ map <Leader>vl :VimuxRunLastCommand<CR>
 
 "airline config
 let g:airline#extensions#tabline#enabled = 2
-"let g:airline#extensions#tabline#fnamemod = ':t'
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
-"let g:airline#extensions#tabline#right_sep = ' '
-"let g:airline#extensions#tabline#right_alt_sep = '|'
-"let g:airline_left_sep = ' '
-"let g:airline_left_alt_sep = '|'
-"let g:airline_right_sep = ' '
-"let g:airline_right_alt_sep = '|'
-let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ' '
+let g:airline#extensions#tabline#right_alt_sep = '|'
+let g:airline_left_sep = ' '
+let g:airline_left_alt_sep = '|'
+let g:airline_right_sep = ' '
+let g:airline_right_alt_sep = '|'
 
 "ale settings
 "ale c linter settings

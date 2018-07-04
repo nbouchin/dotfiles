@@ -20,6 +20,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'pbondoer/vim-42header'
 Plug 'cknadler/vim-anywhere'
 Plug 'matze/vim-move'
+Plug 'gilligan/vim-lldb'
+Plug 'tomasr/molokai'
 call plug#end()
 
 "Set custom tab width according to language
@@ -46,9 +48,7 @@ set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 "set cursor collumn and line coloration
 let mapleader=";"
-set bg=dark
-colorscheme gruvbox 
-let g:gruvbox_contrast_dark = 'hard'
+colorscheme molokai 
 
 "copy/paste from/to clipboard
 set directory=$HOME/.vim/swapdir//
