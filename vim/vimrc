@@ -22,6 +22,7 @@ Plug 'cknadler/vim-anywhere'
 Plug 'matze/vim-move'
 Plug 'gilligan/vim-lldb'
 Plug 'tomasr/molokai'
+Plug 'justinmk/vim-syntax-extra'
 call plug#end()
 
 "Set custom tab width according to language
