@@ -10,7 +10,7 @@ NC='\033[0m'
 echo -e "${YELLOW}Create${NC} nvim dir located at ${RED}~/.config/nvim/undodir/${NC}."
 mkdir -p ~/.config/nvim/undodir
 echo -e "${BLUE}Copy${NC} init.vim located at ${RED}~/.config/nvim/${NC}."
-cp init.vim ~/.config/nvim/
+ln -sf $PWD/init.vim ~/.config/nvim/
 echo -e "${GREEN}Install${NC} neovim with pip3."
 pip3 install --user neovim
 echo -e "${GREEN}Install${NC} jedi with pip3."
@@ -21,5 +21,5 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 echo -e "${PURPLE}Download${NC} and Install vim plugins."
 nvim +PlugInstall +q +q
 echo -e "${BLUE}Copy${NC} antares.vim theme to awesome-vim-colorschemes vim plugin located at ${RED}~/.config/nvim/plugged/awesomw-vim-colorschemes/colors/${NC}."
-cp antares.vim ~/.config/nvim/plugged/awesome-vim-colorschemes/colors/
+ln -sf $PWD/antares.vim ~/.config/nvim/plugged/awesome-vim-colorschemes/colors/
 echo -e "${GREEN}Installation${NC} done."
