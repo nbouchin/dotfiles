@@ -13,7 +13,7 @@ echo -e "${YELLOW}Create${NC} vim undo dir located at ${RED}~/.vim/undodir/${NC}
 mkdir -p ~/.vim/undodir
 mkdir -p ~/.vim/swapdir
 echo -e "${BLUE}Copy${NC} vimrc located at ${RED}~/.vimrc${NC}."
-cp vimrc ~/.vimrc
+ln -fs $PWD/vimrc ~/.vimrc
 echo -e "${GREEN}Install${NC} jedi and neovim (for if_python3 mode) with pip3."
 pip3 install jedi --user
 pip3 install neovim --user
