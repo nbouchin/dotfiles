@@ -14,6 +14,7 @@ mkdir -p ~/.vim/undodir
 mkdir -p ~/.vim/swapdir
 echo -e "${BLUE}Copy${NC} vimrc located at ${RED}~/.vimrc${NC}."
 ln -fs $PWD/vimrc ~/.vimrc
+ln -fs $PWD/gvimrc ~/.gvimrc
 echo -e "${GREEN}Install${NC} jedi and neovim (for if_python3 mode) with pip3."
 pip3 install jedi --user
 pip3 install neovim --user
@@ -23,6 +24,5 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 echo -e "${PURPLE}Download${NC} and Install vim plugins."
 vim +PlugInstall +q +q
 echo -e "${BLUE}Copy${NC} antares theme to awesome-vim-colorschemes vim plugin located at ${RED}~/.config/vim/plugged/awesomw-vim-colorschemes/colors/${NC}."
-cp antares.vim ~/.vim/plugged/awesome-vim-colorschemes/colors/
-mv ~/.vim/plugged/vim-42header/after ~/.vim/plugged/vim-42header/plugin
+ln -sf $PWD/antares.vim ~/.vim/plugged/awesome-vim-colorschemes/colors/
 echo -e "${GREEN}Installation${NC} done."
