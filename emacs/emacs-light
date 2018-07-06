@@ -24,6 +24,26 @@
 (setq-default c-default-style "linux")
 (setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
 								64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
+;; Install all packages.
+(defun my-install ()
+  "My-install search all packages in package-list and install them if not installed."
+  (interactive)
+  (defvar package-list)
+  (setq package-list '(monokai-theme yasnippet-snippets yasnippet company flycheck))
+  ;; fetch the list of packages available.
+  (unless package-archive-contents
+	(package-refresh-contents))
+  ;; install the missing packages.
+  (dolist (package package-list)
+	(unless (package-installed-p package)
+	  (package-install package)))
+  )
+
+;; Byte compile config.
+(defun my-recompile ()
+  "My-recompile byte-compile all configuration."
+  (interactive)
+  (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
 ;; Enable line numbers
 (defvar linum-format)
 (global-linum-mode 1)
