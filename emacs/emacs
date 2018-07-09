@@ -29,8 +29,6 @@
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
 
-;; Run emacs as a server
-(server-mode 1)
 ;; Set emacs swap directory.
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 ;; Change emacs default theme
@@ -91,7 +89,7 @@
  ;; If there is more than one, they won't work right.
  '(ede-project-directories
    (quote
-	("/home/nbouchin/myproject/include" "/home/nbouchin/myproject/src" "/home/nbouchin" "/home/nbouchin/myproject" "/home/nbouchin/test")))
+	()))
  '(package-selected-packages
    (quote
 	(iedit company-c-headers company-quickhelp monokai-theme yasnippet-snippets yasnippet flycheck))))
