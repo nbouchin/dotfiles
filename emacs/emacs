@@ -13,7 +13,7 @@
   "My-install search all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(monokai-theme yasnippet-snippets yasnippet company flycheck company-quickhelp))
+  (setq package-list '(company-c-headers company-quickhelp monokai-theme yasnippet-snippets yasnippet flycheck))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -51,6 +51,10 @@
 (global-linum-mode 1)
 (setq linum-format "%d "); Set plus bar.
 
+;; Enable ede mode
+
+(global-ede-mode 1)
+
 ;; Enable flycheck on any files.
 (require 'flycheck)
 (global-flycheck-mode)
@@ -65,6 +69,9 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (company-quickhelp-mode 0); ctrl-h for company-help
 (setq company-idle-delay 0); remove company delay
+(require 'company-c-headers)
+(add-to-list 'company-backends 'company-c-headers)
+(add-to-list 'company-c-headers-path-system "/usr/include")
 
 ;; Enable yasnippet.
 (require 'yasnippet)
@@ -77,9 +84,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ede-project-directories
+   (quote
+	("/home/nbouchin/myproject/include" "/home/nbouchin/myproject/src" "/home/nbouchin" "/home/nbouchin/myproject" "/home/nbouchin/test")))
  '(package-selected-packages
    (quote
-	(monokai-theme yasnippet-snippets yasnippet company flycheck))))
+	(company-c-headers company-quickhelp monokai-theme yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
