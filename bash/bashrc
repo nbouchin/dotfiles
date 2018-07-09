@@ -18,7 +18,7 @@ if ! [[ $issh -eq 1 || $LOGNAME == "root" ]]; then
 	[[ -z "$TMUX" ]] && exec tmux -2
 fi
 
-set -o emacs
+set -o vi
 shopt -s globstar
 
 # git status in bash prompt
@@ -26,22 +26,25 @@ parse_git_branch(){
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
     } 
 # bash prompt
-export PS1="\[\e[m\]\[\e[32m\]\u\[\e[m\]\[@$PCOLOR\]\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]\\$ "
+export PS1=" \[\e[m\]\[\e[32m\]\u\[\e[m\]\[@$PCOLOR\]\h\[\e[m\]:\w\[\e[33m\]\$(parse_git_branch)\[\e[m\]\\$ "
 
 if [ -f /usr/share/bash-completion/bash_completion ]; then
  . /usr/share/bash-completion/bash_completion
 fi
 
+
+bind -m vi-insert "\C-l":clear-screen
+
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
 export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse emacsdeo
-export LESS_TERMCAP_se=$'\E[0m'        # reset reverse emacsdeo
+export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
+export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
-export EDITOR="emacs"
+export EDITOR="vi"
 
 #colored ls
 alias ls='ls --color=auto'
@@ -55,12 +58,10 @@ alias open='xdg-open'
 alias ll='ls -l'
 alias la='ls -a'
 alias l='ls'
-alias ec='emacsclient'
-alias em='emacs'
 
 # systemctl aliases
 alias ss='systemctl status'
-alias lus='systemctl list-units --type=seremacsce'
+alias lus='systemctl list-units --type=service'
 
 # ps aliases
 alias pssh='ps faux | grep sshd'
