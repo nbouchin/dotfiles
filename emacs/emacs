@@ -13,7 +13,7 @@
   "My-install search all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(company-c-headers company-quickhelp monokai-theme yasnippet-snippets yasnippet flycheck))
+  (setq package-list '(iedit company-c-headers company-quickhelp monokai-theme yasnippet-snippets yasnippet flychec))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -52,7 +52,6 @@
 (setq linum-format "%d "); Set plus bar.
 
 ;; Enable ede mode
-
 (global-ede-mode 1)
 
 ;; Enable flycheck on any files.
@@ -73,9 +72,15 @@
 (add-to-list 'company-backends 'company-c-headers)
 (add-to-list 'company-c-headers-path-system "/usr/include")
 
+;; Enable semantic
+(semantic-mode 1)
+
 ;; Enable yasnippet.
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;; Enable iedit
+(define-key global-map (kbd "C-c ;") 'iedit-mode)
 
 (provide 'emacs)
 ;;; .emacs ends here
@@ -89,7 +94,7 @@
 	("/home/nbouchin/myproject/include" "/home/nbouchin/myproject/src" "/home/nbouchin" "/home/nbouchin/myproject" "/home/nbouchin/test")))
  '(package-selected-packages
    (quote
-	(company-c-headers company-quickhelp monokai-theme yasnippet-snippets yasnippet flycheck))))
+	(iedit company-c-headers company-quickhelp monokai-theme yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
