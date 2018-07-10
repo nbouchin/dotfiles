@@ -8,7 +8,11 @@
 ;;; Code:
 (package-initialize)
 
+;; Run emacs as a server.
 (server-mode 1)
+
+;;; MY FUNCTION DECLARATIONS
+
 ;; Install all packages.
 (defun my-install ()
   "My-install searchg all packages in package-list and install them if not installed."
@@ -30,6 +34,9 @@
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
 
+
+;;; EMACS MISCS.
+
 ;; Set emacs swap directory.
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 ;; Change emacs default theme
@@ -48,26 +55,24 @@
 (setq-default c-default-style "linux")
 (setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
 								64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
-
 ;; Enable line numbers
 (defvar linum-format)
 (global-linum-mode 1)
 (setq linum-format "%d "); Set plus bar.
 
+;;; PLUGIN CONFIGURATION
+
+;; Enable ace-jump-mode.
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-
 ;; Enable ede mode
 (global-ede-mode 1)
-
 ;; Enable flycheck on any files.
 (require 'flycheck)
 (global-flycheck-mode)
 (setq flycheck-check-syntax-automatically '(save mode-enabe))
-
 ;; Start undo-tree wuth emacs.
 (global-undo-tree-mode)
-
 ;; Start auto-complete with emacs.
 (require 'auto-complete)
 ;; Do default config for auto-complete
@@ -81,7 +86,6 @@
 ; now let's call this function from c/c++ hooks
 (add-hook 'c++-mode-hook 'my:ac-c-header-init)
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
-
 ;; Enable semantic
 (semantic-mode 1)
 (defun my:add-semantic-to-autocomplete()
@@ -90,11 +94,9 @@
 (add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
 ; turn on automatic reparsing of open buffers in semantic
 (global-semantic-idle-scheduler-mode 1)
-
 ;; Enable yasnippet.
 (require 'yasnippet)
 (yas-global-mode 1)
-
 ;; Enable iedit
 (define-key global-map (kbd "C-c ;") 'iedit-mode)
 
