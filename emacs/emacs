@@ -99,6 +99,7 @@
 (yas-global-mode 1)
 ;; Enable iedit
 (define-key global-map (kbd "C-c ;") 'iedit-mode)
+(define-key global-map (kbd "C-c g") 'magit-status)
 
 (provide 'emacs)
 ;;; .emacs ends here
