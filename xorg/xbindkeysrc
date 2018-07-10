@@ -7,13 +7,17 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
 
 # Increase volume
-"amixer -q set %s 2%%+"
+"amixer sset Master 2%+"
 XF86AudioRaiseVolume
 
 # Decrease volume
-"amixer -q set %s 2%%-"
-XF86AudioraiseVolume
+"amixer sset Master 2%-"
+XF86AudioLowerVolume
 
 # Mute volume
 "amixer sset Master toggle"
-XF86audiomute
+XF86AudioMute
+
+#Mute microphone
+"amixer sset Capture toggle"
+XF86AudioMicMute
