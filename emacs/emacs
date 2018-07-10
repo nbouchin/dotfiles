@@ -17,7 +17,7 @@
   "My-install searchg all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(company-quickhelp company-c-headers company magit dired-sidebar iedit helm monokai-theme yasnippet-snippets yasnippet flycheck))
+  (setq package-list '(company-quickhelp company-c-headers company magit dired-sidebar iedit helm monokai-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))

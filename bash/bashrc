@@ -69,3 +69,7 @@ alias psftp='ps faux | grep ftp'
 
 # reset shell
 alias esl='exec $SHELL -l'
+
+# emacs aliases
+alias em='emacs'
+alias ec='emacsclient'
