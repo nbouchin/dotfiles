@@ -75,19 +75,28 @@
 (setq flycheck-check-syntax-automatically '(save mode-enabe))
 ;; Start undo-tree wuth emacs.
 (global-undo-tree-mode)
-;; Start auto-complete with emacs.
-(require 'auto-complete)
-;; Do default config for auto-complete
-(require 'auto-complete-config)
-(ac-config-default)
-(defun my:ac-c-header-init ()
-  (require 'auto-complete-c-headers)
-  (add-to-list 'ac-sources 'ac-source-c-headers)
-  (add-to-list 'achead:include-directories '"/usr/include")
-)
-; now let's call this function from c/c++ hooks
-(add-hook 'c++-mode-hook 'my:ac-c-header-init)
-(add-hook 'c-mode-hook 'my:ac-c-header-init)
+
+
+;;;; Start auto-complete with emacs.
+;;(require 'auto-complete)
+;;;; Do default config for auto-complete
+;;(require 'auto-complete-config)
+;;(ac-config-default)
+;;(defun my:ac-c-header-init ()
+;;  (require 'auto-complete-c-headers)
+;;  (add-to-list 'ac-sources 'ac-source-c-headers)
+;;  (add-to-list 'achead:include-directories '"/usr/include")
+;;)
+;;; now let's call this function from c/c++ hooks
+;;(add-hook 'c++-mode-hook 'my:ac-c-header-init)
+;;(add-hook 'c-mode-hook 'my:ac-c-header-init)
+
+(require 'company)
+(eval-after-load 'company
+  '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
+
+
+
 ;; Enable semantic
 (semantic-mode 1)
 (defun my:add-semantic-to-autocomplete()
@@ -112,7 +121,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(magit dired-sidebar auto-complete-c-headers auto-complete iedit helm monokai-theme yasnippet-snippets yasnippet flycheck))))
+	(company-quickhelp company-c-headers company magit dired-sidebar auto-complete-c-headers auto-complete iedit helm monokai-theme yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
