@@ -9,7 +9,7 @@
 (package-initialize)
 
 ;; Run emacs as a server.
-(server-mode 1)
+;;(server-mode 1)
 ;;; MY FUNCTION DECLARATIONS
 
 ;; Install all packages.
@@ -87,7 +87,7 @@
 (company-quickhelp-mode 0); ctrl-h for company-help.
 (setq company-idle-delay 0); remove company delay.
 (setq company-quickhelp-delay 0); remove company delay.
-(add-to-list 'company-backends '(ecompany-dabbrev-code company-files company-semantic company-yasnippet company-c-headers))
+(add-to-list 'company-backends '(company-dabbrev-code company-files company-semantic company-yasnippet company-c-headers))
 (add-to-list 'company-c-headers-path-system "/usr/include")
 
 ;; Enable semantic
