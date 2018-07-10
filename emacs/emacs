@@ -87,15 +87,12 @@
 (setq company-quickhelp-delay 0); remove company delay.
 (require 'company-c-headers)
 
-(add-to-list 'company-backends 'company-c-headers)
 (add-to-list 'company-c-headers-path-system "/usr/include")
+(add-to-list 'company-backends '(company-irony-c-headers company-dabbrev-code company-yasnippet company-c-headers company-irony company-files))
 
 (define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin)
-(add-to-list 'company-backends 'company-irony)
-(add-to-list 'company-backends 'company-irony-c-headers)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-(add-hook 'c-mode-common-hook 'irony-mode)
-(add-hook 'c-mode-common-hook 'company-mode)
+(define-key global-map [(tab)] 'company-complete)
+
 ;; Enable semantic
 (semantic-mode 1)
 
