@@ -15,5 +15,5 @@ XF86AudioRaiseVolume
 XF86AudioraiseVolume
 
 # Mute volume
-"toggle mute"
+"amixer sset Master toggle"
 XF86audiomute
