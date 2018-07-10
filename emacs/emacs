@@ -88,12 +88,9 @@
 (require 'company-c-headers)
 
 (add-to-list 'company-c-headers-path-system "/usr/include")
-(eval-after-load 'company
-  '(add-to-list 'company-backends
-				'(company-irony-c-headers company-dabbrev-code company-yasnippet company-c-headers company-irony company-files)))
+(add-to-list 'company-backends '(company-irony-c-headers company-dabbrev-code company-yasnippet company-c-headers company-irony company-files))
 (define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin)
 (define-key global-map [(tab)] 'company-complete)
-
 ;; Enable semantic
 (semantic-mode 1)
 
