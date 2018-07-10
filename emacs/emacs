@@ -10,7 +10,6 @@
 
 ;; Run emacs as a server.
 (server-mode 1)
-
 ;;; MY FUNCTION DECLARATIONS
 
 ;; Install all packages.
@@ -18,7 +17,7 @@
   "My-install searchg all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(magit ace-jump-mode dired-sidebar auto-complete-c-headers auto-complete monokai-theme yasnippet-snippets yasnippet flycheck undo-tree iedit))
+  (setq package-list '(irony-eldoc flycheck-irony irony company-quickhelp company-c-headers company magit dired-sidebar iedit helm monokai-theme yasnippet-snippets yasnippet flycheck))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -33,7 +32,6 @@
   "My-recompile byte-compile all configuration."
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
-
 
 ;;; EMACS MISCS.
 
@@ -76,35 +74,31 @@
 ;; Start undo-tree wuth emacs.
 (global-undo-tree-mode)
 
-
-;;;; Start auto-complete with emacs.
-;;(require 'auto-complete)
-;;;; Do default config for auto-complete
-;;(require 'auto-complete-config)
-;;(ac-config-default)
-;;(defun my:ac-c-header-init ()
-;;  (require 'auto-complete-c-headers)
-;;  (add-to-list 'ac-sources 'ac-source-c-headers)
-;;  (add-to-list 'achead:include-directories '"/usr/include")
-;;)
-;;; now let's call this function from c/c++ hooks
-;;(add-hook 'c++-mode-hook 'my:ac-c-header-init)
-;;(add-hook 'c-mode-hook 'my:ac-c-header-init)
-
+;; Enable Company on any files.
 (require 'company)
-(eval-after-load 'company
-  '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
+(defvar company-backends)
+(defvar company-quickhelp-frontend)
+(defvar company-idle-delay)
+(defvar company-quickhelp-delay)
 
+(add-hook 'after-init-hook 'global-company-mode)
+(company-quickhelp-mode); ctrl-h for company-help.
+(setq company-idle-delay 0); remove company delay.
+(setq company-quickhelp-delay 0); remove company delay.
+(require 'company-c-headers)
 
+(add-to-list 'company-backends 'company-c-headers)
+(add-to-list 'company-c-headers-path-system "/usr/include")
 
+(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin)
+(add-to-list 'company-backends 'company-irony)
+(add-to-list 'company-backends 'company-irony-c-headers)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+(add-hook 'c-mode-common-hook 'irony-mode)
+(add-hook 'c-mode-common-hook 'company-mode)
 ;; Enable semantic
 (semantic-mode 1)
-(defun my:add-semantic-to-autocomplete()
-  (add-to-list 'ac-sources 'ac-source-semantic)
-  )
-(add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
-; turn on automatic reparsing of open buffers in semantic
-(global-semantic-idle-scheduler-mode 1)
+
 ;; Enable yasnippet.
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -121,7 +115,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(company-quickhelp company-c-headers company magit dired-sidebar auto-complete-c-headers auto-complete iedit helm monokai-theme yasnippet-snippets yasnippet flycheck))))
+	(irony-eldoc flycheck-irony irony company-quickhelp company-c-headers company magit dired-sidebar auto-complete iedit helm monokai-theme yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
