@@ -8,12 +8,13 @@
 ;;; Code:
 (package-initialize)
 
+(server-mode 1)
 ;; Install all packages.
 (defun my-install ()
   "My-install searchg all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(auto-complete-c-headers auto-complete monokai-theme yasnippet-snippets yasnippet flycheck undo-tree iedit))
+  (setq package-list '(ace-jump-mode dired-sidebar auto-complete-c-headers auto-complete monokai-theme yasnippet-snippets yasnippet flycheck undo-tree iedit))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -33,8 +34,12 @@
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 ;; Change emacs default theme
 (load-theme 'monokai t nil)
-;; Padding configuration.
+;; Enable dired-sidebar.
+(require 'dired-sidebar)
+(global-set-key (kbd "C-x d") 'dired-sidebar-show-sidebar)
 
+;; Padding configuration.
+(tool-bar-mode -1)
 (set-language-environment "UTF-8")
 (setq-default font-lock-global-modes t)
 (setq-default tab-width 4)
@@ -50,6 +55,9 @@
 (global-linum-mode 1)
 (setq linum-format "%d "); Set plus bar.
 
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
 ;; Enable ede mode
 (global-ede-mode 1)
 
@@ -58,11 +66,12 @@
 (global-flycheck-mode)
 (setq flycheck-check-syntax-automatically '(save mode-enabe))
 
+;; Start undo-tree wuth emacs.
 (global-undo-tree-mode)
 
-; start auto-complete with emacs
+;; Start auto-complete with emacs.
 (require 'auto-complete)
-; do default config for auto-complete
+;; Do default config for auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
 (defun my:ac-c-header-init ()
@@ -80,6 +89,8 @@
   (add-to-list 'ac-sources 'ac-source-semantic)
   )
 (add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
+; turn on automatic reparsing of open buffers in semantic
+(global-semantic-idle-scheduler-mode 1)
 
 ;; Enable yasnippet.
 (require 'yasnippet)
@@ -97,7 +108,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(auto-complete-c-headers auto-complete iedit helm monokai-theme yasnippet-snippets yasnippet flycheck))))
+	(find-file-in-project dired-sidebar auto-complete-c-headers auto-complete iedit helm monokai-theme yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
