@@ -37,6 +37,8 @@
 
 ;;; EMACS MISCS.
 
+;; Set default shell
+(setq-default shell-file-name "/bin/bash")
 ;; Set emacs swap directory.
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 ;; Change emacs default theme
