@@ -37,7 +37,6 @@
 ;; Enable dired-sidebar.
 (require 'dired-sidebar)
 (global-set-key (kbd "C-x d") 'dired-sidebar-show-sidebar)
-
 ;; Padding configuration.
 (tool-bar-mode -1)
 (set-language-environment "UTF-8")
@@ -108,7 +107,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(find-file-in-project dired-sidebar auto-complete-c-headers auto-complete iedit helm monokai-theme yasnippet-snippets yasnippet flycheck))))
+	(magit find-file-in-project dired-sidebar auto-complete-c-headers auto-complete iedit helm monokai-theme yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
