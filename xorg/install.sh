@@ -11,4 +11,5 @@ echo -e "${RED}Backup old xsessionrc config to ~/oldxsessionrc"${NC}
 cp ~/.xsessionrc ~/oldxsessionrc
 echo -e "${BLUE}Copy${NC} xsessionrc located at ${RED}~/.xsessionrc${NC}."
 ln -fs $PWD/xsessionrc ~/.xsessionrc
+ln -fs $PWD/xbindkeysrc ~/.xbindkeysrc
 echo -e "${GREEN}Installation${NC} done."
