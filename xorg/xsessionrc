@@ -1,4 +1,5 @@
-xss-lock -- i3lock -n -i /home/nbouchin/.config/awesome/themes/powerarrow-dark/wall.png &
+xss-lock -- i3lock -n -i /home/nbouchin/Documents/dotfiles/awesome/wall.png &
 redshift &
+xbindkeys &
 emacs --daemon &
 i3
