@@ -76,6 +76,7 @@
 
 ;; Enable Company on any files.
 (require 'company)
+(require 'company-c-headers)
 (defvar company-backends)
 (defvar company-quickhelp-frontend)
 (defvar company-idle-delay)
@@ -85,12 +86,10 @@
 (company-quickhelp-mode); ctrl-h for company-help.
 (setq company-idle-delay 0); remove company delay.
 (setq company-quickhelp-delay 0); remove company delay.
-(require 'company-c-headers)
 
 (add-to-list 'company-c-headers-path-system "/usr/include")
-(add-to-list 'company-backends '(company-irony-c-headers company-dabbrev-code company-yasnippet company-c-headers company-irony company-files))
+(add-to-list 'company-backends '(company-irony-c-headers company-dabbrev-code company-yasnippet company-c-headers company-irony company-files company-semantic))
 (define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin)
-(define-key global-map [(tab)] 'company-complete)
 ;; Enable semantic
 (semantic-mode 1)
 
