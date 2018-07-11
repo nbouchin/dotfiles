@@ -39,7 +39,7 @@
 (load-theme 'monokai t nil); Change emacs default theme
 
 (require 'dired-sidebar); Enable dired-sidebar.
-(global-set-key (kbd "C-x d") 'dired-sidebar-show-sidebar)
+(global-set-key (kbd "C-x d") 'dired-sidebar-toggle-sidebar)
 (tool-bar-mode -1); Padding configuration.
 (set-language-environment "UTF-8")
 (setq-default font-lock-global-modes t)
