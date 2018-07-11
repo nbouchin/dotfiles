@@ -41,8 +41,8 @@
 (require 'dired-sidebar); Enable dired-sidebar.
 (global-set-key (kbd "C-x d") 'dired-sidebar-toggle-sidebar)
 (tool-bar-mode -1); Padding configuration.
+(global-hl-line-mode 1)
 (set-language-environment "UTF-8")
-(hl-line-mode t)
 (setq-default font-lock-global-modes t)
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode t)
