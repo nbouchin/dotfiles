@@ -64,6 +64,7 @@
 ;; Enable ace-jump-mode.
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "C-c g") 'magit-status)
 ;; Enable ede mode
 (global-ede-mode 1)
 ;; Enable flycheck on any files.
@@ -81,6 +82,7 @@
 ; do default config for auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
+(setq ac-auto-show-menu t)
 ; let's define a function which initializes auto-complete-c-headers and gets called for c/c++ hooks
 (defun my:ac-c-header-init ()
   (require 'auto-complete-c-headers)
