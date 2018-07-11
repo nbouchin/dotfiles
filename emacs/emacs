@@ -60,18 +60,20 @@
 (global-linum-mode 1)
 (setq linum-format "%d "); Set plus bar.
 
-;;; PLUGIN CONFIGURATION
 ;; Enable ace-jump-mode.
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-(define-key global-map (kbd "C-c g") 'magit-status)
+(define-key global-map (kbd "C-c g") 'magitk-status)
+
 ;; Enable ede mode
 (global-ede-mode 1)
+
 ;; Enable flycheck on any files.
 (require 'flycheck)
 (global-flycheck-mode)
 (setq flycheck-check-syntax-automatically '(save mode-enabe))
-;; Start undo-tree wuth emacs.
+
+;; Start undo-tree with emacs.
 (global-undo-tree-mode)
 
 ; start yasnippet with emacs
@@ -79,33 +81,31 @@
 (yas-global-mode 1)
 
 (require 'auto-complete)
-; do default config for auto-complete
 (require 'auto-complete-config)
+
+(defvar achead:include-directories)
+
 (ac-config-default)
 (setq ac-auto-show-menu t)
-; let's define a function which initializes auto-complete-c-headers and gets called for c/c++ hooks
 (defun my:ac-c-header-init ()
+  "Initialize auto-complete-c-headers."
   (require 'auto-complete-c-headers)
   (add-to-list 'ac-sources 'ac-source-c-headers)
   (add-to-list 'achead:include-directories '"/usr/include")
-)
-; now let's call this function from c/c++ hooks
+  )
+;; add c-header in hook.
 (add-hook 'c++-mode-hook 'my:ac-c-header-init)
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
-
-; Fix iedit bug in Mac
 (define-key global-map (kbd "C-c ;") 'iedit-mode)
 
-; turn on Semantic
+;; turn on Semantic
 (semantic-mode 1)
-; let's define a function which adds semantic as a suggestion backend to auto complete
-; and hook this function to c-mode-common-hook
 (defun my:add-semantic-to-autocomplete()
+  "'add-to-list' into ac-sources the ac-source-semantic plugin."
   (add-to-list 'ac-sources 'ac-source-semantic)
 )
 (add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
-
-; turn on automatic reparsing of open buffers in semantic
+(defun global-semantic-idle-scheduler-mode)
 (global-semantic-idle-scheduler-mode 1)
 
 (provide 'emacs)
