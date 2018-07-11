@@ -17,7 +17,7 @@
   "My-install searchg all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(company-quickhelp company-c-headers company magit dired-sidebar iedit helm monokai-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
+  (setq package-list '(auto-complete auto-complete-c-headers auto-complete-clang magit dired-sidebar iedit helm monokai-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -61,7 +61,6 @@
 (setq linum-format "%d "); Set plus bar.
 
 ;;; PLUGIN CONFIGURATION
-
 ;; Enable ace-jump-mode.
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
@@ -74,32 +73,38 @@
 ;; Start undo-tree wuth emacs.
 (global-undo-tree-mode)
 
-;; Enable Company on any files.
-(require 'company)
-(require 'company-c-headers)
-
-(defvar company-backends)
-(defvar company-quickhelp-frontend)
-(defvar company-idle-delay)
-(defvar company-quickhelp-delay)
-
-(global-company-mode)
-(company-quickhelp-mode 0); ctrl-h for company-help.
-(setq company-idle-delay 0); remove company delay.
-(setq company-quickhelp-delay 0); remove company delay.
-(add-to-list 'company-backends
-			 '(company-c-headers company-semantic company-files company-dabbrev-code company-yasnippet))
-(add-to-list 'company-c-headers-path-system "/usr/include")
-
-;; Enable semantic
-(semantic-mode 1)
-
-;; Enable yasnippet.
+; start yasnippet with emacs
 (require 'yasnippet)
 (yas-global-mode 1)
-;; Enable iedit
+
+(require 'auto-complete)
+; do default config for auto-complete
+(require 'auto-complete-config)
+(ac-config-default)
+; let's define a function which initializes auto-complete-c-headers and gets called for c/c++ hooks
+(defun my:ac-c-header-init ()
+  (require 'auto-complete-c-headers)
+  (add-to-list 'ac-sources 'ac-source-c-headers)
+  (add-to-list 'achead:include-directories '"/usr/include")
+)
+; now let's call this function from c/c++ hooks
+(add-hook 'c++-mode-hook 'my:ac-c-header-init)
+(add-hook 'c-mode-hook 'my:ac-c-header-init)
+
+; Fix iedit bug in Mac
 (define-key global-map (kbd "C-c ;") 'iedit-mode)
-(define-key global-map (kbd "C-c g") 'magit-status)
+
+; turn on Semantic
+(semantic-mode 1)
+; let's define a function which adds semantic as a suggestion backend to auto complete
+; and hook this function to c-mode-common-hook
+(defun my:add-semantic-to-autocomplete()
+  (add-to-list 'ac-sources 'ac-source-semantic)
+)
+(add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
+
+; turn on automatic reparsing of open buffers in semantic
+(global-semantic-idle-scheduler-mode 1)
 
 (provide 'emacs)
 ;;; .emacs ends here
@@ -110,7 +115,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(company-quickhelp company-c-headers company magit dired-sidebar auto-complete iedit helm monokai-theme yasnippet-snippets yasnippet flycheck))))
+	(auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit helm monokai-theme yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
