@@ -5,27 +5,26 @@ Plug 'brooth/far.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'rafi/awesome-vim-colorschemes'
 Plug 'luochen1990/rainbow'
 Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
 Plug 'kien/ctrlp.vim'
 Plug 'benmills/vimux'
-Plug 'zchee/deoplete-jedi'
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'rust-lang/rust.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'pbondoer/vim-42header'
 Plug 'cknadler/vim-anywhere'
 Plug 'matze/vim-move'
+Plug 'gilligan/vim-lldb'
+Plug 'tomasr/molokai'
+Plug 'maralla/completor.vim'
 call plug#end()
 
 "Set custom tab width according to language
 autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
 
 " General config.
+set guiheadroom=0
+set noeb vb t_vb=
 set guioptions-=aegimrLtT
 set nu
 set mouse=a
@@ -37,8 +36,6 @@ set nowrap
 set title
 set showmatch
 set hlsearch
-set noeb
-set novb
 set incsearch
 set ignorecase
 set smartcase
@@ -46,7 +43,7 @@ set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 "set cursor collumn and line coloration
 let mapleader=";"
-colorscheme antares
+colorscheme molokai 
 
 "copy/paste from/to clipboard
 set directory=$HOME/.vim/swapdir//
@@ -73,12 +70,11 @@ map <Leader>vl :VimuxRunLastCommand<CR>
 
 "airline config
 let g:airline#extensions#tabline#enabled = 2
-let g:airline_powerline_fonts = 1
 
 "ale settings
 "ale c linter settings
 let g:ale_c_gcc_options="-Wall -Wextra -Werror"
-let g:ale_c_gcc_executable="clang"
+let g:ale_c_gcc_executable="gcc"
 let g:ale_lint_on_text_changed = 'never'
 "" You can disable this option too
 "" if you don't want linters to run on opening a file
@@ -96,6 +92,5 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-"Enable deoplete
+" Use deoplete.
 let g:deoplete#enable_at_startup = 1
