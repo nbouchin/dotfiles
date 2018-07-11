@@ -8,10 +8,6 @@
 ;;; Code:
 (package-initialize)
 
-;; Run emacs as a server.
-;;(server-mode 1)
-;;; MY FUNCTION DECLARATIONS
-
 ;; Install all packages.
 (defun my-install ()
   "My-install searchg all packages in package-list and install them if not installed."
@@ -33,19 +29,13 @@
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
 
-;;; EMACS MISCS.
+(setq-default shell-file-name "/bin/bash"); Set default shell
+(setq backup-directory-alist `(("." . "~/.emacs.d/saves"))); Set emacs swap directory.
+(load-theme 'monokai t nil); Change emacs default theme
 
-;; Set default shell
-(setq-default shell-file-name "/bin/bash")
-;; Set emacs swap directory.
-(setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
-;; Change emacs default theme
-(load-theme 'monokai t nil)
-;; Enable dired-sidebar.
-(require 'dired-sidebar)
+(require 'dired-sidebar); Enable dired-sidebar.
 (global-set-key (kbd "C-x d") 'dired-sidebar-show-sidebar)
-;; Padding configuration.
-(tool-bar-mode -1)
+(tool-bar-mode -1); Padding configuration.
 (set-language-environment "UTF-8")
 (setq-default font-lock-global-modes t)
 (setq-default tab-width 4)
@@ -55,29 +45,26 @@
 (setq-default c-default-style "linux")
 (setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
 								64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
-;; Enable line numbers
-(defvar linum-format)
+
+(defvar linum-format); Enable line numbers
 (global-linum-mode 1)
+(add-hook 'term-mode-hook (lambda () (linum-mode -1)))
+(add-hook 'dired-mode-hook (lambda () (linum-mode -1)))
 (setq linum-format "%d "); Set plus bar.
 
-;; Enable ace-jump-mode.
-(require 'ace-jump-mode)
+(require 'ace-jump-mode); Enable ace-jump-mode.
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-(define-key global-map (kbd "C-c g") 'magitk-status)
+(define-key global-map (kbd "C-c g") 'magit-status)
 
-;; Enable ede mode
-(global-ede-mode 1)
+(global-ede-mode 1); Enable ede mode
 
-;; Enable flycheck on any files.
-(require 'flycheck)
+(require 'flycheck); Enable flycheck on any files.
 (global-flycheck-mode)
 (setq flycheck-check-syntax-automatically '(save mode-enabe))
 
-;; Start undo-tree with emacs.
-(global-undo-tree-mode)
+(global-undo-tree-mode); Start undo-tree with emacs.
 
-; start yasnippet with emacs
-(require 'yasnippet)
+(require 'yasnippet); start yasnippet with emacs
 (yas-global-mode 1)
 
 (require 'auto-complete)
@@ -98,14 +85,12 @@
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
 (define-key global-map (kbd "C-c ;") 'iedit-mode)
 
-;; turn on Semantic
-(semantic-mode 1)
+(semantic-mode 1); turn on Semantic
 (defun my:add-semantic-to-autocomplete()
   "'add-to-list' into ac-sources the ac-source-semantic plugin."
   (add-to-list 'ac-sources 'ac-source-semantic)
 )
 (add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
-(defun global-semantic-idle-scheduler-mode)
 (global-semantic-idle-scheduler-mode 1)
 
 (provide 'emacs)
