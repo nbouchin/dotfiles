@@ -3,7 +3,7 @@
 set -o emacs
 shopt -s globstar
 
-export PS1="\[\e[0m\]\u@\h:\w\$ "
+export PS1="\[\e[0m\]\u@\h:\w\\$ "
 
 if [ -f /usr/share/bash-completion/bash_completion ]; then
  . /usr/share/bash-completion/bash_completion
