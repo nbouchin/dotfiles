@@ -23,7 +23,7 @@
 	  (package-install package)))
   )
 
-(server-start); Run emacs as a server.
+(server-mode 1)
 
 ;; Byte compile config.
 (defun my-recompile ()
