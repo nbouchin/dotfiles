@@ -60,7 +60,10 @@
 (defvar linum-format); Enable line numbers
 (global-linum-mode 1)
 (add-hook 'term-mode-hook (lambda () (linum-mode -1)))
+;;(add-hook 'term-mode-hook (lambda () (global-hl-line-mode -1)))
 (add-hook 'dired-mode-hook (lambda () (linum-mode -1)))
+;;(add-hook 'dired-mode-hook (lambda () (global-hl-line-mode -1)))
+
 (setq linum-format "%d "); Set plus bar.
 (require 'git-gutter-fringe); Enable git-gutter-fringe
 (global-git-gutter-mode t); Start git-gutter-fringe with emacs
