@@ -1,7 +1,7 @@
 # If not running interactively, do not do anything
 
 set -o emacs
-#shopt -s globstar
+shopt -s globstar
 
 export PS1="\[\e[0m\]\u@\h:\w\\$ "
 
@@ -22,7 +22,7 @@ export EDITOR="emacsclient"
 export VISUAL="emacsclient"
 
 #colored ls
-alias ls='ls -G'
+alias ls='ls --color=auto'
 
 # copy/paste
 alias pbcopy='xclip -selection clipboard'
@@ -48,4 +48,3 @@ alias esl='exec $SHELL -l'
 # emacs aliases
 alias em='emacs'
 alias ec='emacsclient -n'
-export PATH=~/.brew/bin/:$PATH

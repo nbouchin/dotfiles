@@ -13,7 +13,7 @@
   "My-install searchg all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(autopair git-gutter-fringe auto-complete auto-complete-c-headers auto-complete-clang magit dired-sidebar iedit helm monokai-alt-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
+  (setq package-list '(evil autopair git-gutter-fringe auto-complete auto-complete-c-headers auto-complete-clang magit dired-sidebar iedit helm monokai-alt-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -24,6 +24,7 @@
   )
 
 (server-mode 1)
+(evil-mode 1)
 
 ;; Byte compile config.
 (defun my-recompile ()
@@ -122,7 +123,7 @@
 	("eea01f540a0f3bc7c755410ea146943688c4e29bea74a29568635670ab22f9bc" default)))
  '(package-selected-packages
    (quote
-	(monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit helm yasnippet-snippets yasnippet flycheck))))
+	(evil-visual-mark-mode monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit helm yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
