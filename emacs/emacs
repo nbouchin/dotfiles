@@ -13,7 +13,7 @@
   "My-install searchg all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(evil autopair git-gutter-fringe auto-complete auto-complete-c-headers auto-complete-clang magit dired-sidebar iedit helm monokai-alt-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
+  (setq package-list '(transpose-frame autopair git-gutter-fringe auto-complete auto-complete-c-headers auto-complete-clang magit dired-sidebar iedit helm monokai-alt-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -22,9 +22,6 @@
 	(unless (package-installed-p package)
 	  (package-install package)))
   )
-
-(server-mode 1)
-(evil-mode 1)
 
 ;; Byte compile config.
 (defun my-recompile ()
@@ -56,14 +53,17 @@
 (setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
 								64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
 
+(require 'transpose-frame)
+
+
 (require 'autopair)
 (autopair-global-mode 1)
 (defvar linum-format); Enable line numbers
 (global-linum-mode 1)
 (add-hook 'term-mode-hook (lambda () (linum-mode -1)))
-;;(add-hook 'term-mode-hook (lambda () (global-hl-line-mode -1)))
+(add-hook 'term-mode-hook (lambda () (global-hl-line-mode -1)))
 (add-hook 'dired-mode-hook (lambda () (linum-mode -1)))
-;;(add-hook 'dired-mode-hook (lambda () (global-hl-line-mode -1)))
+(add-hook 'dired-mode-hook (lambda () (global-hl-line-mode -1)))
 
 (setq linum-format "%d "); Set plus bar.
 (require 'git-gutter-fringe); Enable git-gutter-fringe
@@ -123,7 +123,7 @@
 	("eea01f540a0f3bc7c755410ea146943688c4e29bea74a29568635670ab22f9bc" default)))
  '(package-selected-packages
    (quote
-	(evil-visual-mark-mode monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit helm yasnippet-snippets yasnippet flycheck))))
+	(transpose-frame rudel monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit helm yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
