@@ -13,7 +13,7 @@
   "My-install searchg all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(transpose-frame autopair git-gutter-fringe auto-complete auto-complete-c-headers auto-complete-clang magit dired-sidebar iedit helm monokai-alt-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
+  (setq package-list '(tabbar transpose-frame autopair git-gutter-fringe auto-complete auto-complete-c-headers auto-complete-clang magit dired-sidebar iedit helm monokai-alt-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -56,6 +56,46 @@
 (require 'transpose-frame)
 
 
+;;; TABAR CUSTOMISATION
+(require 'tabbar)
+(tabbar-mode 1)
+
+(setq tabbar-use-images nil)
+(set-face-attribute
+ 'tabbar-default nil
+ :background "gray15"
+ :foreground "white"
+ :box '(:line-width 1 :color "gray15" :style nil)
+ )
+(set-face-attribute
+ 'tabbar-selected nil
+ :background "gray30"
+ :foreground "white"
+ :box '(:line-width 1 :color "gray30" :style nil)
+ )
+(set-face-attribute
+ 'tabbar-unselected nil
+ :background "gray15"
+ :foreground "white"
+ :box '(:line-width 1 :color "gray15" :style nil)
+ )
+(set-face-attribute
+ 'tabbar-modified nil
+ :background "gray15"
+ :box '(:line-width 1 :color "gray15" :style nil)
+ )
+(set-face-attribute
+ 'tabbar-selected-modified nil
+ :background "gray30"
+ :box '(:line-width 1 :color "gray30" :style nil)
+ )
+(set-face-attribute
+ 'tabbar-button nil
+ :background "gray15"
+ :box '(:line-width 1 :color "gray15" :style nil)
+ )
+;;; END OF TABBAR CUSTOMISATION
+
 (require 'autopair)
 (autopair-global-mode 1)
 (defvar linum-format); Enable line numbers
@@ -69,10 +109,10 @@
 (require 'git-gutter-fringe); Enable git-gutter-fringe
 (global-git-gutter-mode t); Start git-gutter-fringe with emacs
 (setq git-gutter-fr:side 'right-fringe); Set fringe to right
-
 (require 'ace-jump-mode); Enable ace-jump-mode.
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key global-map (kbd "C-c g") 'magit-status)
+(define-key global-map (kbd "C-x t") 'transpose-frame)
 
 (global-ede-mode 1); Enable ede mode
 
@@ -85,11 +125,10 @@
 (require 'yasnippet); start yasnippet with emacs
 (yas-global-mode 1)
 
-
+;; Shell mode configuration
 (add-hook 'shell-mode-hook
       (lambda ()
         (face-remap-set-base 'comint-highlight-prompt :inherit nil)))
-
 
 (require 'auto-complete)
 (require 'auto-complete-config)
@@ -129,7 +168,7 @@
 	("eea01f540a0f3bc7c755410ea146943688c4e29bea74a29568635670ab22f9bc" default)))
  '(package-selected-packages
    (quote
-	(transpose-frame rudel monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit helm yasnippet-snippets yasnippet flycheck))))
+	(tabbar transpose-frame rudel monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
