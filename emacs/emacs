@@ -85,6 +85,12 @@
 (require 'yasnippet); start yasnippet with emacs
 (yas-global-mode 1)
 
+
+(add-hook 'shell-mode-hook
+      (lambda ()
+        (face-remap-set-base 'comint-highlight-prompt :inherit nil)))
+
+
 (require 'auto-complete)
 (require 'auto-complete-config)
 
