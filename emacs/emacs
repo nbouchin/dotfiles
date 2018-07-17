@@ -35,11 +35,13 @@
   (load-file "~/.emacs"))
 
 (setq-default shell-file-name "/bin/bash"); Set default shell
+
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves"))); Set emacs swap directory.
 (load-theme 'monokai-alt t)
 
 (require 'dired-sidebar); Enable dired-sidebar.
 (global-set-key (kbd "C-x d") 'dired-sidebar-toggle-sidebar)
+(set-cursor-color "white")
 (tool-bar-mode -1); Padding configuration.
 (global-hl-line-mode 1)
 (set-language-environment "UTF-8")
@@ -60,10 +62,15 @@
 (autopair-global-mode 1)
 (defvar linum-format); Enable line numbers
 (global-linum-mode 1)
-(add-hook 'term-mode-hook (lambda () (linum-mode -1)))
-(add-hook 'term-mode-hook (lambda () (global-hl-line-mode -1)))
+(add-hook 'eshell-mode-hook (lambda () (linum-mode -1)))
+(add-hook 'eshell-mode-hook (lambda () (global-hl-line-mode -1)))
 (add-hook 'dired-mode-hook (lambda () (linum-mode -1)))
 (add-hook 'dired-mode-hook (lambda () (global-hl-line-mode -1)))
+
+(add-hook 'eshell-mode-hook
+          (defun chunyang-eshell-mode-setup ()
+            (remove-hook 'eshell-output-filter-functions
+                         'eshell-postoutput-scroll-to-bottom)))
 
 (setq linum-format "%d "); Set plus bar.
 (require 'git-gutter-fringe); Enable git-gutter-fringe
@@ -72,6 +79,7 @@
 (require 'ace-jump-mode); Enable ace-jump-mode.
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key global-map (kbd "C-c g") 'magit-status)
+(define-key global-map (kbd "C-c e") 'eshell)
 (define-key global-map (kbd "C-x t") 'transpose-frame)
 
 (global-ede-mode 1); Enable ede mode
@@ -81,6 +89,8 @@
 (setq flycheck-check-syntax-automatically '(save mode-enabe))
 
 (global-undo-tree-mode); Start undo-tree with emacs.
+(setq undo-tree-auto-save-history t)
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
 (require 'yasnippet); start yasnippet with emacs
 (yas-global-mode 1)
@@ -123,9 +133,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-	("eea01f540a0f3bc7c755410ea146943688c4e29bea74a29568635670ab22f9bc" default)))
  '(package-selected-packages
    (quote
 	(tabbar transpose-frame rudel monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit yasnippet-snippets yasnippet flycheck))))
