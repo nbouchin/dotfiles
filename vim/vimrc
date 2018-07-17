@@ -4,6 +4,7 @@ Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 "Set custom tab width according to language
