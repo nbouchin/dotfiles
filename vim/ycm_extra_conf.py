@@ -24,6 +24,7 @@ SOURCE_EXTENSIONS = [
 
 SOURCE_DIRECTORIES = [
         'src',
+        'srcs',
         'lib'
         ]
 
@@ -35,7 +36,8 @@ HEADER_EXTENSIONS = [
         ]
 
 HEADER_DIRECTORIES = [
-        'include'
+        'include',
+        'includes'
         ]
 
 def IsHeaderFile(filename):

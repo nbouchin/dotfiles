@@ -5,6 +5,9 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'drmingdrmer/vim-tabbar'
+Plug 'tomasr/molokai'
+Plug 'justinmk/vim-syntax-extra'
 call plug#end()
 
 "Set custom tab width according to language
@@ -31,7 +34,7 @@ set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 "set cursor collumn and line coloration
 let mapleader=";"
-"colorscheme molokai 
+colorscheme molokai 
 
 "copy/paste from/to clipboard
 set directory=$HOME/.vim/swapdir//
@@ -55,12 +58,6 @@ map  <leader>f <Plug>(easymotion-bd-f)
 nmap <leader>f <Plug>(easymotion-overwin-f)
 " s{char}{char} to move to {char}{char}
 nmap <leader>s <Plug>(easymotion-overwin-f2)
-" Move to line
-map <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
-" Move to word
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 " Remove ycm tab cycle, use C-n and C-p instead tab will complete snippets
