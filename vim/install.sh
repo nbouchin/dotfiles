@@ -14,6 +14,7 @@ mkdir -p ~/.vim/swapdir
 echo -e "${BLUE}Copy${NC} vimrc located at ${RED}~/.vimrc${NC}."
 ln -fs $PWD/vimrc ~/.vimrc
 ln -fs $PWD/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
+ln -fs $PWD/c-libft.snippets ~/.vim/plugged/vim-snippets/UltiSnips/c-libft.snippets
 ln -fs $PWD/gvimrc ~/.gvimrc
 ~/.vim/plugged/YouCompleteMe/./install.py --clang-complete
 echo -e "${PURPLE}Download${NC} vim-plug installation plugin located at ${RED}.local/share/vim/site/autoload/plug.vim${NC}."
