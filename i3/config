@@ -68,10 +68,10 @@ bindsym $sup+Shift+Up move up
 bindsym $sup+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym $sup+mod+h split h
+bindsym $sup+$mod+h split h
 
 # split in vertical orientation
-#bindsym $sup+mod+l split v
+bindsym $sup+$mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $sup+f fullscreen toggle
@@ -138,7 +138,7 @@ bindsym $sup+Shift+r restart
 bindsym $sup+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # active i3 lock
-#bindsym $Control+Shift+l exec "i3lock -n -i /home/nbouchin/Documents/dotfiles/awesome/wall.png"
+bindsym $sup+$mod+l exec "i3lock -n -i /home/nbouchin/Documents/dotfiles/awesome/wall.png"
 
 # run qutebrowser
 bindsym $sup+q exec "qutebrowser"
