@@ -12,6 +12,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'gilligan/vim-lldb'
+Plug 'pbondoer/vim-42header'
 call plug#end()
 
 "Set custom tab width according to language
