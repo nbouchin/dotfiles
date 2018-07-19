@@ -11,6 +11,8 @@ echo -e "${YELLOW}Create${NC} nvim dir located at ${RED}~/.config/nvim/undodir/$
 mkdir -p ~/.config/nvim/undodir
 echo -e "${BLUE}Copy${NC} init.vim located at ${RED}~/.config/nvim/${NC}."
 ln -sf $PWD/init.vim ~/.config/nvim/
+ln -sf $PWD/ycm_extra_conf.py ~/.confing/nvim/.ycm_extra_conf.py
+python ~/.config/nvim/plugged/YouCompleteMe/install.py --clang-completer
 echo -e "${GREEN}Install${NC} neovim with pip3."
 pip3 install --user neovim
 echo -e "${GREEN}Install${NC} jedi with pip3."
