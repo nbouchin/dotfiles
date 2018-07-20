@@ -140,7 +140,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(tabbar transpose-frame rudel monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit yasnippet-snippets yasnippet flycheck))))
+	(evil-visual-mark-mode tabbar transpose-frame rudel monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
