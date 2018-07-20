@@ -11,8 +11,6 @@ echo -e "${YELLOW}Create${NC} nvim dir located at ${RED}~/.config/nvim/undodir/$
 mkdir -p ~/.config/nvim/undodir
 echo -e "${BLUE}Copy${NC} init.vim located at ${RED}~/.config/nvim/${NC}."
 ln -sf $PWD/init.vim ~/.config/nvim/init.vim
-ln -sf $PWD/ycm_extra_conf.py ~/.confing/nvim/.ycm_extra_conf.py
-python ~/.config/nvim/plugged/YouCompleteMe/install.py --clang-completer
 echo -e "${GREEN}Install${NC} neovim with pip3."
 pip3 install --user neovim
 echo -e "${GREEN}Install${NC} jedi with pip3."
@@ -21,7 +19,9 @@ echo -e "${PURPLE}Download${NC} vim-plug installation plugin located at ${RED}.l
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo -e "${PURPLE}Download${NC} and Install vim plugins."
-nvim +PlugInstall +q +q
+nvim +PlugInstall +qall
+ln -sf $PWD/ycm_extra_conf.py ~/.config/nvim/.ycm_extra_conf.py
+python ~/.config/nvim/plugged/YouCompleteMe/install.py --clang-completer
 echo -e "${BLUE}Copy${NC} antares.vim theme to awesome-vim-colorschemes vim plugin located at ${RED}~/.config/nvim/plugged/awesomw-vim-colorschemes/colors/${NC}."
 ln -sf $PWD/antares.vim ~/.config/nvim/plugged/awesome-vim-colorschemes/colors/
 echo -e "${GREEN}Installation${NC} done."
