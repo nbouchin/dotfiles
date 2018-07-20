@@ -11,7 +11,6 @@ Plug 'justinmk/vim-syntax-extra'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'gilligan/vim-lldb'
 Plug 'pbondoer/vim-42header'
 Plug 'dbgx/lldb.nvim'
 call plug#end()
@@ -71,7 +70,7 @@ nmap <leader>t :NERDTreeToggle<CR>
 " Vim Ycm Goto
 nmap <leader>g :YcmCompleter GoTo<CR>
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
 " Remove ycm tab cycle, use C-n and C-p instead tab will complete snippets
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
