@@ -19,6 +19,8 @@ call plug#end()
 autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
 autocmd FileType c UltiSnipsAddFiletypes c-libft
 
+syn match cType   "\vt_\s+[a-zA-Z0-9_]+"
+
 " General config.
 "set guiheadroom=0
 set noeb vb t_vb=
