@@ -13,16 +13,14 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'pbondoer/vim-42header'
 Plug 'dbgx/lldb.nvim'
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 "Set custom tab width according to language
 autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
 autocmd FileType c UltiSnipsAddFiletypes c-libft
 
-syn match cType   "\vt_\s+[a-zA-Z0-9_]+"
-
-" General config.
-"set guiheadroom=0
+" General config.  "set guiheadroom=0
 set noeb vb t_vb=
 set guioptions-=aegimrLtT
 set nu
