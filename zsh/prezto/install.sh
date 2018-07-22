@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 GREEN='\033[1;32m'
 BLUE='\033[1;34m'
@@ -10,7 +10,6 @@ NC='\033[0m'
 echo -e "${RED}Backup old zpreztorc config to ~/oldvim"${NC}
 cp ~/.zpreztorc ~/oldzpreztorc
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-zsh
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
