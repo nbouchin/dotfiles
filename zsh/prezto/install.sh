@@ -19,4 +19,5 @@ echo -e "${BLUE}Copy${NC} zpreztorc located at ${RED}~/.zpreztorc${NC}."
 ln -fs $PWD/zpreztorc ~/.zpreztorc
 ln -fs $PWD/zshrc ~/.zshrc
 ln -fs $PWD/inputrc ~/.inputrc
+ln -fs $PWD/prompt_nbouchin_setup ~/.zprezto/modules/prompt/functions/prompt_nbouchin_setup
 echo -e "${GREEN}Installation${NC} done."
