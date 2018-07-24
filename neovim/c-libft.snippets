@@ -4,284 +4,284 @@
 
 priority -50
 
-snippet ft_isalnum "ft_isalnum(int c)"
-ft_isalnum($1);
+snippet isalnum "ft_isalnum(int c)"
+isalnum($1);
 endsnippet
 
-snippet ft_isalpha "ft_isalpha(int c)"
+snippet isalpha "ft_isalpha(int c)"
 ft_isalpha($1);
 endsnippet
 
-snippet ft_isascii "ft_isascii(int c)"
+snippet isascii "ft_isascii(int c)"
 ft_isascii($1);
 endsnippet
 
-snippet ft_isdigit "ft_isdigit(int c)"
+snippet isdigit "ft_isdigit(int c)"
 ft_isdigit($1);
 endsnippet
 
-snippet ft_islower "ft_islower(int c)"
+snippet islower "ft_islower(int c)"
 ft_islower($1);
 endsnippet
 
-snippet ft_isprint "ft_isprint(int c)"
+snippet isprint "ft_isprint(int c)"
 ft_isprint($1);
 endsnippet
 
-snippet ft_isspace "ft_isspace(int c)"
+snippet isspace "ft_isspace(int c)"
 ft_isspace($1);
 endsnippet
 
-snippet ft_isupper "ft_isupper(int c)"
+snippet isupper "ft_isupper(int c)"
 ft_isupper($1);
 endsnippet
 
-snippet convert_to_list "convert_to_list(t_list **l, char **argv)"
+snippet vert_to_list "convert_to_list(t_list **l, char **argv)"
 ft_isupper($1, $2);
 endsnippet
 
-snippet ft_atoi "ft_atoi(const char *str)"
+snippet atoi "ft_atoi(const char *str)"
 ft_atoi($1);
 endsnippet
 
-snippet ft_itoa "ft_itoa(int n)"
+snippet itoa "ft_itoa(int n)"
 ft_itoa($1);
 endsnippet
 
-snippet ft_tolower "ft_tolower(int c)"
+snippet tolower "ft_tolower(int c)"
 ft_tolower($1);
 endsnippet
 
-snippet ft_toupper "ft_toupper(int c)"
+snippet toupper "ft_toupper(int c)"
 ft_toupper($1);
 endsnippet
 
-snippet ft_delete_node "ft_delete_node(t_list *head, t_list *n)"
+snippet delete_node "ft_delete_node(t_list *head, t_list *n)"
 ft_delete_node($1, $2);
 endsnippet
 
-snippet ft_lstadd "ft_lstadd(t_list **alst, t_list *new)"
+snippet lstadd "ft_lstadd(t_list **alst, t_list *new)"
 ft_lstadd($1, $2);
 endsnippet
 
-snippet ft_lstaddend "ft_lstaddend(t_list **list, t_list *new)"
+snippet lstaddend "ft_lstaddend(t_list **list, t_list *new)"
 ft_lstaddend($1, $2);
 endsnippet
 
-snippet ft_lstdel "ft_lstdel(t_list **alst, void (*del)(void*, size_t))"
+snippet lstdel "ft_lstdel(t_list **alst, void (*del)(void*, size_t))"
 ft_lstdel($1, $2);
 endsnippet
 
-snippet ft_lstdelone "ft_lstdelone(t_list **alst, void (*del)(void*, size_t))"
+snippet lstdelone "ft_lstdelone(t_list **alst, void (*del)(void*, size_t))"
 ft_lstdelone($1, $2);
 endsnippet
 
-snippet ft_lstiter "ft_lstiter(t_list *lst, void (*f)(t_list *elem))"
+snippet lstiter "ft_lstiter(t_list *lst, void (*f)(t_list *elem))"
 ft_lstiter($1, $2);
 endsnippet
 
-snippet ft_lstmap "ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))"
+snippet lstmap "ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))"
 ft_lstmap($1, $2);
 endsnippet
 
-snippet ft_lstnew "ft_lstnew(void const *content, size_t content_size)"
+snippet lstnew "ft_lstnew(void const *content, size_t content_size)"
 ft_lstnew($1, $2);
 endsnippet
 
-snippet ft_memalloc "ft_memalloc(size_t size)"
+snippet memalloc "ft_memalloc(size_t size)"
 ft_memalloc($1);
 endsnippet
 
-snippet ft_memccpy "ft_memccpy(void *dst, const void *src, int c, size_t n)"
+snippet memccpy "ft_memccpy(void *dst, const void *src, int c, size_t n)"
 ft_memccpy($1, $2, $3, $4);
 endsnippet
 
-snippet ft_memchr "ft_memchr(const void *s, int c, size_t n)"
+snippet memchr "ft_memchr(const void *s, int c, size_t n)"
 ft_memchr($1, $2, $3);
 endsnippet
 
-snippet ft_memcmp "ft_memcmp(void const *s1, void const *s2, size_t n)"
+snippet memcmp "ft_memcmp(void const *s1, void const *s2, size_t n)"
 ft_memcmp($1, $2, $3);
 endsnippet
 
-snippet ft_memcpy "ft_memcpy(void *dst, const void *src, size_t n)"
+snippet memcpy "ft_memcpy(void *dst, const void *src, size_t n)"
 ft_memcpy($1, $2, $3);
 endsnippet
 
-snippet ft_memdel "ft_memdel(void **ap)"
+snippet memdel "ft_memdel(void **ap)"
 ft_memdel($1);
 endsnippet
 
-snippet ft_memmove "ft_memmove(void *dst, const void *src, size_t len)"
+snippet memmove "ft_memmove(void *dst, const void *src, size_t len)"
 ft_memmove($1, $2, $3);
 endsnippet
 
-snippet ft_memset "ft_memset(void *b, int c, size_t len)"
+snippet memset "ft_memset(void *b, int c, size_t len)"
 ft_memset($1, $2, $3);
 endsnippet
 
-snippet ft_bzero "ft_bzero(void *s, size_t n)"
+snippet bzero "ft_bzero(void *s, size_t n)"
 ft_bzero($1, $2);
 endsnippet
 
-snippet ft_nblen "ft_nblen(unsigned x)"
+snippet nblen "ft_nblen(unsigned x)"
 ft_nblen($1);
 endsnippet
 
-snippet ft_power "ft_power(double n, int pow)"
+snippet power "ft_power(double n, int pow)"
 ft_power($1, $2);
 endsnippet
 
-snippet ft_putchar "ft_putchar(char c)"
+snippet putchar "ft_putchar(char c)"
 ft_putchar($1);
 endsnippet
 
-snippet ft_putchar_fd "ft_putchar_fd(char c, int fd)"
+snippet putchar_fd "ft_putchar_fd(char c, int fd)"
 ft_putchar_fd($1, $2);
 endsnippet
 
-snippet ft_putendl "ft_putendl(char const *s)"
+snippet putendl "ft_putendl(char const *s)"
 ft_putendl($1);
 endsnippet
 
-snippet ft_putendl_fd "ft_putendl_fd(char const *s, int fd)"
+snippet putendl_fd "ft_putendl_fd(char const *s, int fd)"
 ft_putendl($1, $2);
 endsnippet
 
-snippet ft_putnbr "ft_putnbr(intmax_t n)"
+snippet putnbr "ft_putnbr(intmax_t n)"
 ft_putnbr($1);
 endsnippet
 
-snippet ft_putnbr_fd "ft_putnbr_fd(intmax_t nb, int fd)"
+snippet putnbr_fd "ft_putnbr_fd(intmax_t nb, int fd)"
 ft_putnbr_fd($1, $2);
 endsnippet
 
-snippet ft_putstr "ft_putstri(char const *s)"
+snippet putstr "ft_putstri(char const *s)"
 ft_putstr($1);
 endsnippet
 
-snippet ft_putstr_fd "ft_putstr_fd(char const *s, int fd)"
+snippet putstr_fd "ft_putstr_fd(char const *s, int fd)"
 ft_putstr_fd($1, $2);
 endsnippet
 
-snippet ft_sort_params "ft_sort_params(char **tab)"
+snippet sort_params "ft_sort_params(char **tab)"
 ft_sort_params($1);
 endsnippet
 
-snippet ft_tabcpy "ft_tabcpy(char **tab)"
+snippet tabcpy "ft_tabcpy(char **tab)"
 ft_tabcpy($1);
 endsnippet
 
-snippet ft_charjoin "ft_charjoin(char const *str, char c)"
+snippet charjoin "ft_charjoin(char const *str, char c)"
 ft_charjoin($1);
 endsnippet
 
-snippet ft_strcat "ft_strcat(char *s1, char const *s2)"
+snippet strcat "ft_strcat(char *s1, char const *s2)"
 ft_strcat($1, $2);
 endsnippet
 
-snippet ft_strchr "ft_strchr(char const *s, int c)"
+snippet strchr "ft_strchr(char const *s, int c)"
 ft_strchr($1, $2);
 endsnippet
 
-snippet ft_strclr "ft_strclr(char *s)"
+snippet strclr "ft_strclr(char *s)"
 ft_strclr($1);
 endsnippet
 
-snippet ft_strcmp "ft_strcmp(const char *s1, const char *s2)"
+snippet strcmp "ft_strcmp(const char *s1, const char *s2)"
 ft_strcmp($1, $2);
 endsnippet
 
-snippet ft_strcpy "ft_strcpy(char *dst, const char *src)"
+snippet strcpy "ft_strcpy(char *dst, const char *src)"
 ft_strcpy($1, $2);
 endsnippet
 
-snippet ft_strdel "ft_strdel(char **ap)"
+snippet strdel "ft_strdel(char **ap)"
 ft_strdel($1);
 endsnippet
 
-snippet ft_strdup "ft_strdup(const char *s1)"
+snippet strdup "ft_strdup(const char *s1)"
 ft_strdup($1);
 endsnippet
 
-snippet ft_strequ "ft_strequ(char const *s1, char const *s2)"
+snippet strequ "ft_strequ(char const *s1, char const *s2)"
 ft_strequ($1, $2);
 endsnippet
 
-snippet ft_striter "ft_striter(char *s, void (*f)(char *))"
+snippet striter "ft_striter(char *s, void (*f)(char *))"
 ft_striter($1, $2);
 endsnippet
 
-snippet ft_striteri "ft_striteri(char *s, void (*f)(unsigned int, char *))"
+snippet striteri "ft_striteri(char *s, void (*f)(unsigned int, char *))"
 ft_striteri($1, $2);
 endsnippet
 
-snippet ft_strjoin "ft_strjoin(char const *s1, char const *s2)"
+snippet strjoin "ft_strjoin(char const *s1, char const *s2)"
 ft_strjoin($1, $2);
 endsnippet
 
-snippet ft_strlcat "ft_strlcat(char *dst, const char *src, size_t size)"
+snippet strlcat "ft_strlcat(char *dst, const char *src, size_t size)"
 ft_strlcat($1, $2, $3);
 endsnippet
 
-snippet ft_strlen "ft_strlen(const char *s)"
+snippet strlen "ft_strlen(const char *s)"
 ft_strlen($1);
 endsnippet
 
-snippet ft_strmap "ft_strmap(char const *s, char (*f)(char))"
+snippet strmap "ft_strmap(char const *s, char (*f)(char))"
 ft_strmap($1, $2);
 endsnippet
 
-snippet ft_strmapi "ft_strmapi(char const *s, char (*f)(unsigned int, char))"
+snippet strmapi "ft_strmapi(char const *s, char (*f)(unsigned int, char))"
 ft_strmapi($1, $2);
 endsnippet
 
-snippet ft_strncat "ft_strncat(char *s1, const char *s2, size_t n)"
+snippet strncat "ft_strncat(char *s1, const char *s2, size_t n)"
 ft_strncat($1, $2, $3);
 endsnippet
 
-snippet ft_strncmp "ft_strncmp(const char *s1, const char *s2, size_t n)"
+snippet strncmp "ft_strncmp(const char *s1, const char *s2, size_t n)"
 ft_strncmp($1, $2, $3);
 endsnippet
 
-snippet ft_strncpy "ft_strncpy(char *dst, const char *src, size_t len)"
+snippet strncpy "ft_strncpy(char *dst, const char *src, size_t len)"
 ft_strncpy($1, $2, $3);
 endsnippet
 
-snippet ft_strnequ "ft_strnequ(char const *s1, char const *s2, size_t n)k"
+snippet strnequ "ft_strnequ(char const *s1, char const *s2, size_t n)k"
 ft_strnequ($1, $2, $3);
 endsnippet
 
-snippet ft_strnew "ft_strnew(size_t size)"
+snippet strnew "ft_strnew(size_t size)"
 ft_strnew($1);
 endsnippet
 
-snippet ft_strnstr "ft_strnstr(const char *big, const char *little, size_t len)"
+snippet strnstr "ft_strnstr(const char *big, const char *little, size_t len)"
 ft_strnstr($1, $2, $3);
 endsnippet
 
-snippet ft_strrchr "ft_strrchr(char const *s, int c)"
+snippet strrchr "ft_strrchr(char const *s, int c)"
 ft_strrchr($1, $2);
 endsnippet
 
-snippet ft_strrev "ft_strrev(char *s)"
+snippet strrev "ft_strrev(char *s)"
 ft_strrev($1);
 endsnippet
 
-snippet ft_strsplit "ft_strsplit(char const *s, char c)"
+snippet strsplit "ft_strsplit(char const *s, char c)"
 ft_strsplit($1, $2);
 endsnippet
 
-snippet ft_strstr "ft_strstr(char *big, const char *little)"
+snippet strstr "ft_strstr(char *big, const char *little)"
 ft_strstr($1, $2);
 endsnippet
 
-snippet ft_strsub "ft_strsub(char const *s, unsigned int start, size_t len)"
+snippet strsub "ft_strsub(char const *s, unsigned int start, size_t len)"
 ft_strsub($1, $2, $3);
 endsnippet
 
-snippet ft_strtrim "ft_strtrim(char const *s)"
+snippet strtrim "ft_strtrim(char const *s)"
 ft_strtrim($1);
 endsnippet
 
-# vim:ft=snippets:
+# vim:snippets:
