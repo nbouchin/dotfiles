@@ -5,7 +5,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'drmingdrmer/vim-tabbar'
-Plug 'tomasr/molokai'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -17,6 +16,7 @@ Plug 'w0rp/ale'
 Plug 'Shougo/neoinclude.vim'
 Plug 'zchee/deoplete-jedi' 
 Plug 'Shougo/neco-vim'
+Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
 
 "Set custom tab width according to language
@@ -45,7 +45,7 @@ set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 "set cursor collumn and line coloration
 let mapleader=";"
-colorscheme molokai 
+colorscheme jellybeans
 
 "copy/paste from/to clipboard
 set directory=$HOME/.vim/swapdir//
