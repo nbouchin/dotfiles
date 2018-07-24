@@ -79,7 +79,7 @@ nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR> 
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+let g:deoplete#sources#clang#libclang_path='/usr/lib64/libclang.so'
 let g:deoplete#sources#clang#flags=[
 	    \ '-Wall -Wextra -Werror'
 	    \]
