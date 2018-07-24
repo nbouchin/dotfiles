@@ -15,6 +15,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-clang'
 Plug 'w0rp/ale'
 Plug 'Shougo/neoinclude.vim'
+Plug 'zchee/deoplete-jedi' 
 call plug#end()
 
 "Set custom tab width according to language
@@ -70,6 +71,8 @@ nmap <leader>s <Plug>(easymotion-overwin-f2)
 
 " Vim Nerdtree
 nmap <leader>t :NERDTreeToggle<CR>
+" Vim map
+nmap <leader>m :Man<space>
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
