@@ -1,7 +1,6 @@
 call plug#begin()
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'Valloric/YouCompleteMe'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
@@ -12,8 +11,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'pbondoer/vim-42header'
-Plug 'dbgx/lldb.nvim'
-Plug 'rhysd/vim-clang-format'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-clang'
+Plug 'w0rp/ale'
+Plug 'Shougo/neoinclude.vim'
 call plug#end()
 
 "Set custom tab width according to language
@@ -36,6 +37,8 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set shiftwidth=4
+set softtabstop=4
 set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 "set cursor collumn and line coloration
@@ -67,10 +70,9 @@ nmap <leader>s <Plug>(easymotion-overwin-f2)
 
 " Vim Nerdtree
 nmap <leader>t :NERDTreeToggle<CR>
-" Vim Ycm Goto
-nmap <leader>g :YcmCompleter GoTo<CR>
 
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
-" Remove ycm tab cycle, use C-n and C-p instead tab will complete snippets
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+let g:deoplete#sources#clang#flags=[
+	    \ '-Wall -Wextra -Werror'
+	    \]
