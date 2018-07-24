@@ -74,6 +74,9 @@ nmap <leader>s <Plug>(easymotion-overwin-f2)
 nmap <leader>t :NERDTreeToggle<CR>
 " Vim map
 nmap <leader>m :Man<space>
+nmap <leader>d :bd<CR>
+nmap <leader>n :bn<CR>
+nmap <leader>p :bp<CR> 
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
