@@ -20,9 +20,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo -e "${PURPLE}Download${NC} and Install vim plugins."
 nvim +PlugInstall +qall
-ln -sf $PWD/ycm_extra_conf.py ~/.config/nvim/.ycm_extra_conf.py
 ln -sf $PWD/clang-format ~/.clang-format
-python ~/.config/nvim/plugged/YouCompleteMe/install.py --clang-completer
-echo -e "${BLUE}Copy${NC} antares.vim theme to awesome-vim-colorschemes vim plugin located at ${RED}~/.config/nvim/plugged/awesomw-vim-colorschemes/colors/${NC}."
-ln -sf $PWD/antares.vim ~/.config/nvim/plugged/awesome-vim-colorschemes/colors/
+ln -sf $PWD/c-libft.snippets ~/.config/nvim/plugged/vim-snippets/UltiSnips/c-libft.snippets
 echo -e "${GREEN}Installation${NC} done."
