@@ -16,6 +16,7 @@ Plug 'zchee/deoplete-clang'
 Plug 'w0rp/ale'
 Plug 'Shougo/neoinclude.vim'
 Plug 'zchee/deoplete-jedi' 
+Plug 'Shougo/neco-vim'
 call plug#end()
 
 "Set custom tab width according to language
