@@ -12,13 +12,12 @@ fi
 
 # Customize to your needs...
 
-set -o vi
 #shopt -s globstar
 
-if [ -z "$TMUX" ]; then
-	exec tmux -2
-fi
-
+#if [ -z "$TMUX" ]; then
+#	exec tmux -2
+#fi
+#
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
@@ -33,7 +32,8 @@ export VISUAL="gvim"
 export TERM=xterm-256color
 
 #colored ls
-alias ls='ls --color=auto'
+#alias ls='ls --color=auto'
+alias ls='ls -G'
 
 # copy/paste
 alias pbcopy='xclip -selection clipboard'

@@ -11,6 +11,7 @@ BASE_FLAGS = [
         '-Werror',
         '-I/usr/lib/',
         '-I/usr/include/'
+        '-I/Users/nbouchin/.brew/include/'
         ]
 
 SOURCE_EXTENSIONS = [
