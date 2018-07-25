@@ -9,6 +9,7 @@ NC='\033[0m'
 
 echo -e "${RED}Backup old bashrc config to ~/oldvim"${NC}
 cp ~/.bashrc ~/oldbashrc
+cp ~/.inputrc ~/oldinputrc
 echo -e "${BLUE}Copy${NC} bashrc located at ${RED}~/.bashrc${NC}."
 ln -fs $PWD/bashrc ~/.bashrc
 ln -fs $PWD/inputrc ~/.inputrc
