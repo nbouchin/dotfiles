@@ -19,6 +19,10 @@ Plug 'Shougo/neco-vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/vim-clang-format'
+Plug 'autozimu/LanguageClient-neovim', {
+	    \ 'branch': 'next',
+	    \ 'do': 'bash install.sh',
+	    \ }
 call plug#end()
 
 "Set custom tab width according to language
@@ -82,8 +86,18 @@ nmap <leader>d :bd<CR>
 nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR> 
 
+" Vim GoToDefinition
+nmap <leader>g :call LanguageClient_textDocument_definition()<CR>
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#clang#libclang_path='/usr/lib64/libclang.so'
 let g:deoplete#sources#clang#flags=[
 	    \ '-Wall -Wextra -Werror'
 	    \]
+
+let g:LanguageClient_serverCommands = {                                                                                                                            
+	    \ 'c': ['clangd'],
+	    \ 'cpp': ['clangd'],
+	    \ 'python': ['pyls'],
+	    \ }
+let g:LanguageClient_diagnosticsEnable=0
