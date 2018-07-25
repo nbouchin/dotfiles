@@ -17,6 +17,8 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'zchee/deoplete-jedi' 
 Plug 'Shougo/neco-vim'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'jiangmiao/auto-pairs'
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 "Set custom tab width according to language
@@ -63,15 +65,17 @@ let g:ctrlp_cmd = 'CtrlP'
 "Esc remaping.
 inoremap kj <esc>
 
+" Vim clang format binding
+nmap <leader>F :ClangFormat<CR>
+
 " Vim easymotion configuration.
-" <Leader>f{char} to move to {char}
 map  <leader>f <Plug>(easymotion-bd-f)
 nmap <leader>f <Plug>(easymotion-overwin-f)
-" s{char}{char} to move to {char}{char}
 nmap <leader>s <Plug>(easymotion-overwin-f2)
 
-" Vim Nerdtree
+" Vim Toggle Nerdtree
 nmap <leader>t :NERDTreeToggle<CR>
+
 " Vim map
 nmap <leader>m :Man<space>
 nmap <leader>d :bd<CR>
