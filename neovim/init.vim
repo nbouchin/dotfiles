@@ -78,7 +78,7 @@ nmap <leader>f <Plug>(easymotion-overwin-f)
 nmap <leader>s <Plug>(easymotion-overwin-f2)
 
 " Vim Toggle Nerdtree
-nmap <leader>t :NERDTreeToggle<CR>
+nmap <leader>e :NERDTreeToggle<CR>
 
 " Vim map
 nmap <leader>m :Man<space>
@@ -89,8 +89,12 @@ nmap <leader>p :bp<CR>
 " Vim GoToDefinition
 nmap <leader>g :call LanguageClient_textDocument_definition()<CR>
 
+" Vim termsplit
+nmap <leader>t :vsp term://bash<CR>
+
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path='/usr/lib64/libclang.so'
+let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+"let g:deoplete#sources#clang#libclang_path='/usr/lib64/libclang.so'
 let g:deoplete#sources#clang#flags=[
 	    \ '-Wall -Wextra -Werror'
 	    \]
