@@ -40,7 +40,6 @@
 (load-theme 'monokai-alt t)
 
 (require 'dired-sidebar); Enable dired-sidebar.
-(global-set-key (kbd "C-x d") 'dired-sidebar-toggle-sidebar)
 (set-cursor-color "white")
 (tool-bar-mode -1); Padding configuration.
 (global-hl-line-mode 1)
@@ -81,6 +80,8 @@
 (define-key global-map (kbd "C-c g") 'magit-status)
 (define-key global-map (kbd "C-c e") 'eshell)
 (define-key global-map (kbd "C-x t") 'transpose-frame)
+(global-set-key (kbd "C-x d") 'dired-sidebar-toggle-sidebar)
+
 
 (global-ede-mode 1); Enable ede mode
 
@@ -116,7 +117,6 @@
 ;; add c-header in hook.
 (add-hook 'c++-mode-hook 'my:ac-c-header-init)
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
-(define-key global-map (kbd "C-c ;") 'iedit-mode)
 
 (semantic-mode 1); turn on Semantic
 (defun my:add-semantic-to-autocomplete()
@@ -130,6 +130,9 @@
 (define-key global-map (kbd "C-c <down>") 'windmove-down)
 (define-key global-map (kbd "C-c <left>") 'windmove-left)
 (define-key global-map (kbd "C-c <right>") 'windmove-right)
+;;(define-key global-map (kbd "C-c g") 'semantic-complete-jump)
+(define-key global-map (kbd "C-c ;") 'iedit-mode)
+
 
 (provide 'emacs)
 ;;; .emacs ends here
@@ -140,7 +143,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(evil-visual-mark-mode tabbar transpose-frame rudel monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit yasnippet-snippets yasnippet flycheck))))
+	(markdown-mode evil-visual-mark-mode tabbar transpose-frame rudel monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
