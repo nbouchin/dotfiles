@@ -1,5 +1,3 @@
 xss-lock -- i3lock -n -i /home/nbouchin/Documents/dotfiles/awesome/wall.png &
-feh --bg-scale /home/nbouchin/Documents/dotfiles/awesome/wall.png &
 redshift &
-xbindkeys &
-i3
+awesome

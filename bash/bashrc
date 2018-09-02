@@ -1,5 +1,7 @@
 # If not running interactively, do not do anything
 
+[ -z "$TMUX"  ] && { exec tmux -2 && exit;}
+
 set -o vi 
 shopt -s globstar
 
