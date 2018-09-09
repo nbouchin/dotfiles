@@ -1,7 +1,5 @@
 # If not running interactively, do not do anything
 
-[ -z "$TMUX"  ] && { exec tmux -2 && exit;}
-
 set -o vi 
 shopt -s globstar
 
@@ -54,4 +52,5 @@ alias esl='exec $SHELL -l'
 # emacs aliases
 alias em='emacs'
 alias ec='emacsclient -n'
+alias reconnect='nordvpn disconnect && nordvpn connect'
 export PATH=~/.brew/bin/:$PATH

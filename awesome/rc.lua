@@ -81,7 +81,7 @@ local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = "vim"
 local browser      = "qutebrowser"
 local guieditor    = "vim"
-local scrlocker    = "i3lock -n -i /home/nbouchin/.config/awesome/themes/powerarrow/wall.png"
+local scrlocker    = "i3lock -n -i /home/nbouchin/.config/awesome/themes/powerarrow-dark/wall.png"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
