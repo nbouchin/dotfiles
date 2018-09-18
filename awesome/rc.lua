@@ -73,7 +73,7 @@ local themes = {
     "vertex",          -- 10
 }
 
-local chosen_theme = themes[7]
+local chosen_theme = themes[5]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "xterm"
@@ -81,7 +81,7 @@ local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = "vim"
 local browser      = "qutebrowser"
 local guieditor    = "vim"
-local scrlocker    = "i3lock -n -i /home/nbouchin/.config/awesome/themes/powerarrow-dark/wall.png"
+local scrlocker    = "xsecurelock"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
