@@ -19,6 +19,7 @@ Plug 'Shougo/neco-vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/vim-clang-format'
+Plug 'critiqjo/lldb.nvim'
 Plug 'autozimu/LanguageClient-neovim', {
 	    \ 'branch': 'next',
 	    \ 'do': 'bash install.sh',
@@ -94,7 +95,7 @@ nmap <leader>t :vsp term://bash<CR>
 
 let g:deoplete#enable_at_startup = 1
 "let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
-let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-6.0/lib/libclang.so'
+let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
 let g:deoplete#sources#clang#flags=[
 	    \ '-Wall -Wextra -Werror'
 	    \]
