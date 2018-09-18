@@ -8,8 +8,8 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 
 echo -e "${RED}Backup old xsessionrc config to ~/oldxsessionrc"${NC}
-cp ~/.xsessionrc ~/oldxsessionrc
+cp ~/.xinitrc ~/oldxsessionrc
 echo -e "${BLUE}Copy${NC} xsessionrc located at ${RED}~/.xsessionrc${NC}."
-ln -fs $PWD/xsessionrc ~/.xsessionrc
-ln -fs $PWD/xbindkeysrc ~/.xbindkeysrc
+ln -fs $PWD/xinitrc ~/.xinitrc
+#ln -fs $PWD/xbindkeysrc ~/.xbindkeysrc
 echo -e "${GREEN}Installation${NC} done."
