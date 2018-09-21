@@ -2,10 +2,13 @@
 set -o vi 
 shopt -s globstar
 
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+fi
+
 if [ -f /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion
 fi
-
 
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
