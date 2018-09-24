@@ -94,8 +94,12 @@ nmap <leader>g :call LanguageClient_textDocument_definition()<CR>
 nmap <leader>t :vsp term://bash<CR>
 
 let g:deoplete#enable_at_startup = 1
-"let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
-let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+let g:uname = system("uname")
+if g:uname == "Darwin"
+    let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+elseif g:uname == "Linux"
+    let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+endif
 let g:deoplete#sources#clang#flags=[
 	    \ '-Wall -Wextra -Werror'
 	    \]
