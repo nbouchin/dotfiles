@@ -1,9 +1,18 @@
 # If not running interactively, do not do anything
 set -o vi 
-shopt -s globstar
 
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+UNAME=$(uname)
+
+if [[ $UNAME -ne "Darwin" ]]; then
+	if command -v tmux>/dev/null; then
+	  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+	fi
+	alias ls='ls --color'
+	shopt -s globstar
+else
+	alias norminette='/usr/bin/ruby /usr/bin/norminette'
+	alias ls='ls -G' 
+	export PATH=~/.brew/bin/:$PATH
 fi
 
 if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -24,10 +33,6 @@ export VISUAL="nvim"
 export TERM=xterm-256color
 
 bind -m vi-insert "\C-l":clear-screen
-
-#colored ls
-alias ls='ls --color'
-#alias ls='ls -G' 
 
 # copy/paste
 alias pbcopy='xclip -selection clipboard'
@@ -54,4 +59,3 @@ alias esl='exec $SHELL -l'
 alias em='emacs'
 alias ec='emacsclient -n'
 alias reconnect='nordvpn disconnect && nordvpn connect'
-export PATH=~/.brew/bin/:$PATH

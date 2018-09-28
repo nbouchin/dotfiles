@@ -58,6 +58,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 "Esc remaping.
 inoremap kj <esc>
+"term split.
+nmap <leader>t :vsp term://bash<CR>
 
 " Vim easymotion configuration.
 " <Leader>f{char} to move to {char}
@@ -66,7 +68,7 @@ nmap <leader>f <Plug>(easymotion-overwin-f)
 " s{char}{char} to move to {char}{char}
 nmap <leader>s <Plug>(easymotion-overwin-f2)
 " Vim Nerdtree
-nmap <leader>t :NERDTreeToggle<CR>
+nmap <leader>e :NERDTreeToggle<CR>
 " Vim Ycm Goto
 nmap <leader>g :YcmCompleter GoTo<CR>
 nmap <leader>m :Man<space>
