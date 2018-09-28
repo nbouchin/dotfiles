@@ -26,27 +26,34 @@ XTerm*vt100*translations:   #override                       \n \
     Shift Ctrl <KeyPress>V: insert-selection(CLIPBOARD)
 
 ! Colors
-! - Force colors customization
-! - Set colors to Terminator Ambient scheme
-*background: #000000
-*foreground: #868686
-*customization:
-*color0: #2e3436
-*color1: #cc0000
-*color2: #4e9a06
-*color3: #c4a000
-*color4: #3465a4
-*color5: #75507b
-*color6: #06989a
-*color7: #d3d7cf
-*color8: #555753
-*color9: #ef2929
-*color10: #8ae234
-*color11: #fce94f
-*color12: #729fcf
-*color13: #ad7fa8
-*color14: #34e2e2
-*color15: #eeeeec
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
 
 XTerm*metaSendsEscape: true
 
