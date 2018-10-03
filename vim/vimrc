@@ -5,7 +5,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'drmingdrmer/vim-tabbar'
-Plug 'tomasr/molokai'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -16,6 +15,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 "Set custom tab width according to language

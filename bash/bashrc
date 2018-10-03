@@ -15,11 +15,11 @@ else
 	export PATH=~/.brew/bin/:$PATH
 fi
 
+bind -m vi-insert "\C-l":clear-screen
+
 if [ -f /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion
 fi
-
-alias ls='ls --color'
 
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
