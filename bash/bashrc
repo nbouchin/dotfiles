@@ -1,25 +1,19 @@
 # If not running interactively, do not do anything
-set -o emacs
+set -o vi
 
 UNAME=$(uname)
 
-if [[ $UNAME -ne "Darwin" ]]; then
+if [[ $UNAME == "Darwin" ]]; then
+	alias norminette='/usr/bin/ruby /usr/bin/norminette'
+	alias ls='ls -G' 
+	export PATH=~/.brew/bin/:$PATH
+else
 	if command -v tmux>/dev/null; then
 	  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
 	fi
 	alias ls='ls --color'
 	shopt -s globstar
-else
-	alias norminette='/usr/bin/ruby /usr/bin/norminette'
-	alias ls='ls -G' 
-	export PATH=~/.brew/bin/:$PATH
 fi
-
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
-fi
-
-ls='ls --color'
 
 bind -m vi-insert "\C-l":clear-screen
 
