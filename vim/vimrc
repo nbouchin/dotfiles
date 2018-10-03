@@ -5,7 +5,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'drmingdrmer/vim-tabbar'
-Plug 'tomasr/molokai'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -14,6 +13,9 @@ Plug 'gilligan/vim-lldb'
 Plug 'pbondoer/vim-42header'
 Plug 'Valloric/YouCompleteMe'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 "Set custom tab width according to language
@@ -41,7 +43,7 @@ set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 "set cursor collumn and line coloration
 let mapleader=";"
-colorscheme jellybeans 
+colorscheme gruvbox
 
 "copy/paste from/to clipboard
 set directory=$HOME/.vim/swapdir//
@@ -59,7 +61,7 @@ let g:ctrlp_cmd = 'CtrlP'
 "Esc remaping.
 inoremap kj <esc>
 "term split.
-nmap <leader>t :vsp term://bash<CR>
+nmap <leader>t :vert ter<CR>
 
 " Vim easymotion configuration.
 " <Leader>f{char} to move to {char}
@@ -69,14 +71,31 @@ nmap <leader>f <Plug>(easymotion-overwin-f)
 nmap <leader>s <Plug>(easymotion-overwin-f2)
 " Vim Nerdtree
 nmap <leader>e :NERDTreeToggle<CR>
-" Vim Ycm Goto
+" Vim Ycm Config 
 nmap <leader>g :YcmCompleter GoTo<CR>
+nmap <leader>F :YcmCompleter FixIt<CR>
+" lopen remap. 
+nmap <leader>l :lopen<CR>
 nmap <leader>m :Man<space>
 nmap <leader>d :bd<CR>
 nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR>
+nmap <leader>T :tabedit<CR>
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+"  Ycm will populate location list with errors and warnings, you can toggle it
+"  using <leader> l
+let g:ycm_always_populate_location_list = 1
+" The following line disable auto completion, just type ctrl+space to
+" complete.
+let g:ycm_auto_trigger = 0
 " Remove ycm tab cycle, use C-n and C-p instead tab will complete snippets
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+
+" Airline configuration
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Ultisnips configuration.
+let g:UltiSnipsEditSplit=""

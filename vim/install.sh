@@ -20,7 +20,7 @@ echo -e "If ycm dont run in fedora install ncurses-compat-libs"
 ln -fs $PWD/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
 ln -fs $PWD/c-libft.snippets ~/.vim/plugged/vim-snippets/UltiSnips/c-libft.snippets
 ln -fs $PWD/gvimrc ~/.gvimrc
-python3 ~/.vim/plugged/YouCompleteMe/install.py --clang-complete
+python ~/.vim/plugged/YouCompleteMe/install.py --clang-complete
 echo -e "${PURPLE}Download${NC} and Install vim plugins."
 vim +PlugInstall +q +q
 echo -e "${GREEN}Installation${NC} done."
