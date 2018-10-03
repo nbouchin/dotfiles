@@ -1,5 +1,5 @@
 # If not running interactively, do not do anything
-set -o vi 
+set -o emacs
 
 UNAME=$(uname)
 
@@ -19,6 +19,8 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion
 fi
 
+alias ls='ls --color'
+
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
@@ -28,11 +30,9 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="emacs"
+export VISUAL="emacs"
 export TERM=xterm-256color
-
-bind -m vi-insert "\C-l":clear-screen
 
 # copy/paste
 alias pbcopy='xclip -selection clipboard'
@@ -56,6 +56,7 @@ alias psftp='ps faux | grep ftp'
 alias esl='exec $SHELL -l'
 
 # emacs aliases
+alias e='emacs -nw'
 alias em='emacs'
 alias ec='emacsclient -n'
 alias reconnect='nordvpn disconnect && nordvpn connect'
