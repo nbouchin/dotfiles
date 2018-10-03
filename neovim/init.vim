@@ -29,6 +29,7 @@ call plug#end()
 "Set custom tab width according to language
 autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
 autocmd FileType c UltiSnipsAddFiletypes c-libft
+autocmd FileType cpp,hpp UltiSnipsAddFiletypes cpp-personal
 
 " General config.  "set guiheadroom=0
 set noeb vb t_vb=
