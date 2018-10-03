@@ -27,12 +27,11 @@ def write_docstring_args(arglist, snip):
 
 endglobal
 
-
 snippet hcl "An entire .hpp generator" b
-#ifndef ${2:`!v substitute(vim_snippets#Filename('$1_H','ClassName'),'.*','\U&\E','')`}
+#ifndef ${2:`!v substitute(substitute(vim_snippets#Filename('$1_H','ClassName'),'.*','\U&\E',''), '\.', '\_', 'g')`}
 #define $2
 
-class ${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.','\u&',''), '_\(\w\)', '\u\1', 'g')`}
+class ${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.','\U&',''), '.class', '', 'g')`}
 {
 	private:
 		$3
@@ -49,7 +48,7 @@ class ${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.'
 endsnippet
 
 snippet ccl "An entire .cpp generator" b
-#include <${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.','\u&',''), '_\(\w\)', '\u\1', 'g')`}.class.hpp>
+#include <${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.','\U&',''), '.class', '', 'g')`}.class.hpp>
 
 $1::$1()
 {
@@ -66,6 +65,5 @@ $1::~$1()
 $1 &	$1::operator=( $1 const & rhs )
 {
 }
-
 endsnippet
 # vim:ft=snippets:
