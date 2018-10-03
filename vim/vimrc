@@ -20,7 +20,8 @@ call plug#end()
 
 "Set custom tab width according to language
 autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
-autocmd FileType c UltiSnipsAddFiletypes c-libft cpp-personal
+autocmd FileType c UltiSnipsAddFiletypes c-libft 
+autocmd FileType cpp,hpp UltiSnipsAddFiletypes cpp-personal
 
 " General config.
 set guiheadroom=0
@@ -44,6 +45,7 @@ set timeout timeoutlen=5000 ttimeoutlen=100
 "set cursor collumn and line coloration
 let mapleader=";"
 colorscheme gruvbox
+set background=dark
 
 "copy/paste from/to clipboard
 set directory=$HOME/.vim/swapdir//

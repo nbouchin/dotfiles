@@ -15,13 +15,13 @@ else
 	export PATH=~/.brew/bin/:$PATH
 fi
 
-<<<<<<< HEAD
 if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
 fi
-=======
+
+ls='ls --color'
+
 bind -m vi-insert "\C-l":clear-screen
->>>>>>> 2a61145a74935ec46dbef81ea925b5de669c8b43
 
 if [ -f /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion
