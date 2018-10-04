@@ -56,7 +56,7 @@ let mapleader=";"
 colorscheme jellybeans
 
 "copy/paste from/to clipboard
-set directory=$HOME/.vim/swapdir//
+set directory=$HOME/.config/nvim/swapdir
 " Undo file.
 set undofile
 set undodir=$HOME/.config/nvim/undodir
@@ -96,18 +96,18 @@ nmap <leader>t :vsp term://bash<CR>
 
 let g:deoplete#enable_at_startup = 1
 let g:uname = system("uname")
-if g:uname == "Darwin"
-    let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
-elseif g:uname == "Linux"
-    let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+if g:uname == "Darwin\n"
+	let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+elseif g:uname == "Linux\n"
+	let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+	let g:LanguageClient_serverCommands = {                                                                                                                            
+		    \ 'c': ['clangd'],
+		    \ 'cpp': ['clangd'],
+		    \ 'python': ['pyls'],
+		    \ }
+	let g:LanguageClient_diagnosticsEnable=0
 endif
 let g:deoplete#sources#clang#flags=[
 	    \ '-Wall -Wextra -Werror'
 	    \]
 
-let g:LanguageClient_serverCommands = {                                                                                                                            
-	    \ 'c': ['clangd'],
-	    \ 'cpp': ['clangd'],
-	    \ 'python': ['pyls'],
-	    \ }
-let g:LanguageClient_diagnosticsEnable=0
