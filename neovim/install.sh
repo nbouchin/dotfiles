@@ -22,4 +22,5 @@ echo -e "${PURPLE}Download${NC} and Install vim plugins."
 nvim +PlugInstall +qall
 ln -sf $PWD/clang-format ~/.clang-format
 ln -sf $PWD/c-libft.snippets ~/.config/nvim/plugged/vim-snippets/UltiSnips/c-libft.snippets
+ln -sf $PWD/cpp-personal.snippets ~/.config/nvim/plugged/vim-snippets/UltiSnips/cpp-personal.snippets
 echo -e "${GREEN}Installation${NC} done."
