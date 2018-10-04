@@ -59,7 +59,7 @@ colorscheme jellybeans
 set directory=$HOME/.vim/swapdir//
 " Undo file.
 set undofile
-set undodir=$HOME/.vim/undodir
+set undodir=$HOME/.config/nvim/undodir
 set undolevels=1000
 set undoreload=10000
 

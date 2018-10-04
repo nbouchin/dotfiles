@@ -1,0 +1,77 @@
+priority -50
+
+extends c
+
+# We want to overwrite everything in parent ft.
+priority -49
+###########################################################################
+#			    Global functions 						  #
+###########################################################################
+
+global !p
+
+def write_docstring_args(arglist, snip):
+	args = str(arglist).split(',')
+
+	if len(args) > 1:
+		c = 0
+		for arg in args:
+			if c == 0:
+				snip.rv += arg
+				c = 1
+			else:
+				snip += '*       : %s' % arg.strip()
+	else:
+		snip.rv = args[0]
+
+
+endglobal
+
+snippet hcl "An entire .hpp generator" b
+#ifndef ${2:`!v substitute(substitute(vim_snippets#Filename('$1_H','ClassName'),'.*','\U&\E',''), '\.', '\_', 'g')`}
+#define $2
+
+class ${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.','\U&',''), '.class', '', 'g')`}
+{
+	private:
+		$3
+
+	public:
+		$1( void );
+		$1( $1 const & src );
+		~$1( void );
+
+		$1 &	operator=( $1 const & rhs );
+};
+
+#endif /* $2 */
+endsnippet
+
+snippet ccl "An entire .cpp generator" b
+#include "${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.','\U&',''), '.class', '', 'g')`}.class.hpp"
+
+$1::$1( void )
+{
+	//TODO;
+	return;
+}
+
+$1::$1( $1 const & src )
+{
+	*this = src;
+	return;
+}
+
+$1::~$1( void )
+{
+	//TODO;
+	return;
+}
+
+$1 &	$1::operator=( $1 const & rhs )
+{
+	//TODO;
+	return *this;
+}
+endsnippet
+# vim:ft=snippets:
