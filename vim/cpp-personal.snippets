@@ -37,9 +37,9 @@ class ${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.'
 		$3
 
 	public:
-		$1();
+		$1( void );
 		$1( $1 const & src );
-		~$1();
+		~$1( void );
 
 		$1 &	operator=( $1 const & rhs );
 };
@@ -48,22 +48,30 @@ class ${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.'
 endsnippet
 
 snippet ccl "An entire .cpp generator" b
-#include <${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.','\U&',''), '.class', '', 'g')`}.class.hpp>
+#include "${1:`!v substitute(substitute(vim_snippets#Filename('$1','ClassName'),'^.','\U&',''), '.class', '', 'g')`}.class.hpp"
 
-$1::$1()
+$1::$1( void )
 {
+	//TODO;
+	return;
 }
 
 $1::$1( $1 const & src )
 {
+	*this = src;
+	return;
 }
 
-$1::~$1()
+$1::~$1( void )
 {
+	//TODO;
+	return;
 }
 
 $1 &	$1::operator=( $1 const & rhs )
 {
+	//TODO;
+	return *this;
 }
 endsnippet
 # vim:ft=snippets:
