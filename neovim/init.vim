@@ -3,7 +3,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -20,6 +20,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/vim-clang-format'
 Plug 'critiqjo/lldb.nvim'
 Plug 'vim-airline/vim-airline'
+Plug 'kshenoy/vim-signature'
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'autozimu/LanguageClient-neovim', {
 	\ 'branch': 'next',
 	\ 'do': 'bash install.sh',
@@ -101,6 +103,10 @@ nmap <leader>t :vsp term://bash<CR>
 let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 2
 
+" Vim Rainbow parentheses
+au VimEnter * RainbowParenthesesToggle
+
+"Vim deoplete config
 let g:deoplete#enable_at_startup = 1
 let g:uname = system("uname")
 if g:uname == "Darwin\n"
