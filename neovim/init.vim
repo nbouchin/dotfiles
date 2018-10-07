@@ -22,6 +22,7 @@ Plug 'critiqjo/lldb.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'kshenoy/vim-signature'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'tpope/vim-fugitive'
 Plug 'autozimu/LanguageClient-neovim', {
 	\ 'branch': 'next',
 	\ 'do': 'bash install.sh',
@@ -92,7 +93,6 @@ nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR>
 nmap <leader>T :tabedit<CRl
 
-
 " Vim GoToDefinition
 nmap <leader>g :call LanguageClient_textDocument_definition()<CR>
 
@@ -121,6 +121,6 @@ elseif g:uname == "Linux\n"
 	let g:LanguageClient_diagnosticsEnable=0
 endif
 let g:deoplete#sources#clang#flags=[
-	\ '-Wall -Wextra -Werror'
+	\ '-Wall -Wextra -Werror -g'
 	\]
 
