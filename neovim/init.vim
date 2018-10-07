@@ -4,7 +4,6 @@ Plug 'honza/vim-snippets'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'drmingdrmer/vim-tabbar'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -14,16 +13,17 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-clang'
 Plug 'w0rp/ale'
 Plug 'Shougo/neoinclude.vim'
-Plug 'zchee/deoplete-jedi' 
+Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'rhysd/vim-clang-format'
 Plug 'critiqjo/lldb.nvim'
+Plug 'vim-airline/vim-airline'
 Plug 'autozimu/LanguageClient-neovim', {
-	    \ 'branch': 'next',
-	    \ 'do': 'bash install.sh',
-	    \ }
+	\ 'branch': 'next',
+	\ 'do': 'bash install.sh',
+	\ }
 call plug#end()
 
 "Set custom tab width according to language
@@ -53,7 +53,8 @@ set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 "set cursor collumn and line coloration
 let mapleader=";"
-colorscheme jellybeans
+colorscheme gruvbox
+set background=dark
 
 "copy/paste from/to clipboard
 set directory=$HOME/.config/nvim/swapdir
@@ -86,7 +87,7 @@ nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>m :Man<space>
 nmap <leader>d :bd<CR>
 nmap <leader>n :bn<CR>
-nmap <leader>p :bp<CR> 
+nmap <leader>p :bp<CR>
 nmap <leader>T :tabedit<CRl
 
 
@@ -96,20 +97,24 @@ nmap <leader>g :call LanguageClient_textDocument_definition()<CR>
 " Vim termsplit
 nmap <leader>t :vsp term://bash<CR>
 
+" Vim airline config
+let g:airline_theme='gruvbox'
+let g:airline#extensions#tabline#enabled = 2
+
 let g:deoplete#enable_at_startup = 1
 let g:uname = system("uname")
 if g:uname == "Darwin\n"
 	let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 elseif g:uname == "Linux\n"
 	let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
-	let g:LanguageClient_serverCommands = {                                                                                                                            
-		    \ 'c': ['clangd'],
-		    \ 'cpp': ['clangd'],
-		    \ 'python': ['pyls'],
-		    \ }
+	let g:LanguageClient_serverCommands = {
+	\ 'c': ['clangd'],
+	\ 'cpp': ['clangd'],
+	\ 'python': ['pyls'],
+	\ }
 	let g:LanguageClient_diagnosticsEnable=0
 endif
 let g:deoplete#sources#clang#flags=[
-	    \ '-Wall -Wextra -Werror'
-	    \]
+	\ '-Wall -Wextra -Werror'
+	\]
 
