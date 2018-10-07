@@ -4,7 +4,6 @@ set -o vi
 UNAME=$(uname)
 
 if [[ $UNAME == "Darwin" ]]; then
-	alias norminette='/usr/bin/ruby /usr/bin/norminette'
 	alias ls='ls -G' 
 	export PATH=~/.brew/bin/:$PATH
 else
@@ -13,6 +12,11 @@ else
 	fi
 	alias ls='ls --color'
 	shopt -s globstar
+	# copy/paste
+	alias pbcopy='xclip -selection clipboard'
+	alias pbpaste='xclip -selection clipboard -o'
+	alias open='xdg-open'
+
 fi
 
 bind -m vi-insert "\C-l":clear-screen
@@ -33,11 +37,6 @@ export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
 export EDITOR="emacs"
 export VISUAL="emacs"
 export TERM=xterm-256color
-
-# copy/paste
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
-alias open='xdg-open'
 
 # ls aliases
 alias ll='ls -l'

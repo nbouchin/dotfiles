@@ -87,6 +87,8 @@ nmap <leader>m :Man<space>
 nmap <leader>d :bd<CR>
 nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR> 
+nmap <leader>T :tabedit<CRl
+
 
 " Vim GoToDefinition
 nmap <leader>g :call LanguageClient_textDocument_definition()<CR>
