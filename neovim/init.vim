@@ -104,7 +104,7 @@ let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 2
 
 " Vim Rainbow parentheses
-au VimEnter * RainbowParenthesesToggle
+"au VimEnter * RainbowParenthesesToggle
 
 "Vim deoplete config
 let g:deoplete#enable_at_startup = 1
