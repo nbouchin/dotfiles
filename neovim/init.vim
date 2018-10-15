@@ -12,7 +12,6 @@ Plug 'pbondoer/vim-42header'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-clang'
 Plug 'w0rp/ale'
-Plug 'Shougo/neoinclude.vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
 Plug 'rafi/awesome-vim-colorschemes'
@@ -104,7 +103,7 @@ let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 2
 
 " Vim Rainbow parentheses
-"au VimEnter * RainbowParenthesesToggle
+au VimEnter * RainbowParenthesesToggle
 
 " Vim ale config
 " Write this in your vimrc file
