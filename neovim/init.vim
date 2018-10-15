@@ -16,7 +16,7 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Shougo/neopairs.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'critiqjo/lldb.nvim'
 Plug 'vim-airline/vim-airline'
@@ -30,9 +30,9 @@ Plug 'autozimu/LanguageClient-neovim', {
 call plug#end()
 
 "Set custom tab width according to language
-autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
+autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4
 autocmd FileType c UltiSnipsAddFiletypes c-libft
-autocmd FileType cpp,hpp UltiSnipsAddFiletypes cpp-personal
+autocmd FileType cpp,hpp,tpp UltiSnipsAddFiletypes cpp-personal
 
 " General config.  "set guiheadroom=0
 set noeb vb t_vb=
@@ -91,13 +91,13 @@ nmap <leader>m :Man<space>
 nmap <leader>d :bd<CR>
 nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR>
-nmap <leader>T :tabedit<CRl
+nmap <leader>T :tabedit<CR>
 
 " Vim GoToDefinition
 nmap <leader>g :call LanguageClient_textDocument_definition()<CR>
 
 " Vim termsplit
-nmap <leader>t :vsp term://bash<CR>
+nmap <leader>t :sp term://bash<CR>
 
 " Vim airline config
 let g:airline_theme='gruvbox'
@@ -105,6 +105,13 @@ let g:airline#extensions#tabline#enabled = 2
 
 " Vim Rainbow parentheses
 au VimEnter * RainbowParenthesesToggle
+
+" Vim ale config
+" Write this in your vimrc file
+let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
 
 "Vim deoplete config
 let g:deoplete#enable_at_startup = 1
