@@ -12,12 +12,22 @@ fi
 
 # Customize to your needs...
 
-#shopt -s globstar
+UNAME=$(uname)
+if [[ $UNAME == "Darwin" ]]; then
+	alias ls='ls -G' 
+	export PATH=~/.brew/bin/:$PATH
+else
+	if command -v tmux>/dev/null; then
+	  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+	fi
+	alias ls='ls --color'
+	# copy/paste
+	alias open='xdg-open'
 
-#if [ -z "$TMUX" ]; then
-#	exec tmux -2
-#fi
-#
+fi
+
+#bind -m vi-insert "\C-l":clear-screen
+
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
@@ -27,18 +37,9 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
-export EDITOR="vim"
-export VISUAL="gvim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export TERM=xterm-256color
-
-#colored ls
-#alias ls='ls --color=auto'
-alias ls='ls -G'
-
-# copy/paste
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
-alias open='xdg-open'
 
 # ls aliases
 alias ll='ls -l'
@@ -59,4 +60,3 @@ alias esl='exec $SHELL -l'
 # emacs aliases
 alias em='emacs'
 alias ec='emacsclient -n'
-export PATH=~/.brew/bin/:$PATH

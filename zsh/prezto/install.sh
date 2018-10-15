@@ -19,4 +19,9 @@ ln -fs $PWD/zpreztorc ~/.zpreztorc
 ln -fs $PWD/zshrc ~/.zshrc
 ln -fs $PWD/inputrc ~/.inputrc
 ln -fs $PWD/prompt_nbouchin_setup ~/.zprezto/modules/prompt/functions/prompt_nbouchin_setup
+cd $ZPREZTODIR
+git clone https://github.com/belak/prezto-contrib contrib
+cd contrib
+git submodule init
+git submodule update
 echo -e "${GREEN}Installation${NC} done."

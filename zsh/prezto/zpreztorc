@@ -1,21 +1,22 @@
+zstyle ':prezto:module:editor' key-bindings 'vi'
 zstyle ':prezto:module:prompt' theme 'nbouchin'
-export TERM=xterm-256color
 
+export TERM=xterm-256color
 # Get color support for 'less'
 export LESS="--RAW-CONTROL-CHARS"
 
 zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'command-not-found' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
-  'completion' \
-  'git' \
-  'docker' \
-  'syntax-highlighting' \
-  'history-substring-search' \
-  'prompt'
+	   'environment' \
+	   'terminal' \
+	   'command-not-found' \
+	   'editor' \
+	   'history' \
+	   'directory' \
+	   'spectrum' \
+	   'utility' \
+	   'completion' \
+	   'git' \
+	   'docker' \
+	   'syntax-highlighting' \
+	   'history-substring-search' \
+	   'prompt'
