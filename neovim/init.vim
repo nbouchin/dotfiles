@@ -20,7 +20,6 @@ Plug 'rhysd/vim-clang-format'
 Plug 'critiqjo/lldb.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'kshenoy/vim-signature'
-Plug 'kien/rainbow_parentheses.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'autozimu/LanguageClient-neovim', {
 	\ 'branch': 'next',
@@ -101,9 +100,6 @@ nmap <leader>t :sp term://bash<CR>
 " Vim airline config
 let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 2
-
-" Vim Rainbow parentheses
-au VimEnter * RainbowParenthesesToggle
 
 " Vim ale config
 " Write this in your vimrc file
