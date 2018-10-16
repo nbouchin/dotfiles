@@ -16,12 +16,13 @@ pip3 install --user neovim
 echo -e "${GREEN}Install${NC} jedi with pip3."
 pip3 install jedi --user
 
-echo -e "${PURPLE}Download${NC} vim-plug installation plugin located at ${RED}.local/share/nvim/site/autoload/plug.vim${NC}."
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > neobundle_install.sh
-sh ./neobundle_install.sh
+echo -e "${PURPLE}Download${NC} dein installation plugin located at ${RED}~/.config/nvim/bundle/dein/repos/github.com${NC}."
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > dein_installer.sh
+# For example, we just use `~/.cache/dein` as installation directory
+sh ./dein_installer.sh ~/.config/nvim/bundle/dein
 echo -e "${PURPLE}Download${NC} and Install vim plugins."
-nvim +PlugInstall +qall
+nvim +'call dein#install()' +qall
 ln -sf $PWD/clang-format ~/.clang-format
-ln -sf $PWD/c-libft.snippets ~/.config/nvim/plugged/vim-snippets/UltiSnips/c-libft.snippets
-ln -sf $PWD/cpp-personal.snippets ~/.config/nvim/plugged/vim-snippets/UltiSnips/cpp-personal.snippets
+ln -sf $PWD/c-libft.snippets ~/.config/nvim/bundle/dein/repos/github.com/honza/vim-snippets/UltiSnips/c-libft.snippets
+ln -sf $PWD/cpp-personal.snippets ~/.config/nvim/bundle/dein/repos/github.com/honza/vim-snippets/UltiSnips/cpp-personal.snippets
 echo -e "${GREEN}Installation${NC} done."

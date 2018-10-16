@@ -1,36 +1,49 @@
-call plug#begin()
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'easymotion/vim-easymotion'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'mhinz/vim-signify'
-NeoBundle 'justinmk/vim-syntax-extra'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'pbondoer/vim-42header'
-NeoBundle 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-NeoBundle 'zchee/deoplete-clang'
-NeoBundle 'w0rp/ale'
-NeoBundle 'zchee/deoplete-jedi'
-NeoBundle 'Shougo/neco-vim'
-NeoBundle 'rafi/awesome-vim-colorschemes'
-NeoBundle 'Shougo/neopairs.vim'
-NeoBundle 'rhysd/vim-clang-format'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'kshenoy/vim-signature'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'gilligan/vim-lldb'
-NeoBundle 'autozimu/LanguageClient-neovim', {
-	\ 'branch': 'next',
-	\ 'do': 'bash install.sh',
-	\ }
-call plug#end()
+"dein Scripts-----------------------------
+if &compatible
+    set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/home/nbouchin/.config/nvim/bundle/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/home/nbouchin/.config/nvim/bundle/dein')
+    call dein#begin('/home/nbouchin/.config/nvim/bundle/dein')
+    " Let dein manage dein
+    " Required:
+    call dein#add('/home/nbouchin/.config/nvim/bundle/dein')
+    call dein#add('Shougo/unite.vim')
+    call dein#add('easymotion/vim-easymotion')
+    call dein#add('ctrlpvim/ctrlp.vim')
+    call dein#add('mhinz/vim-signify')
+    call dein#add('justinmk/vim-syntax-extra')
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('scrooloose/nerdcommenter')
+    call dein#add('Xuyuanp/nerdtree-git-plugin')
+    call dein#add('pbondoer/vim-42header')
+    call dein#add('Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'})
+    if !has('nvim')
+	call dein#add('roxma/nvim-yarp')
+	call dein#add('roxma/vim-hug-neovim-rpc')
+    endif
+    call dein#add('Shougo/neosnippet.vim')
+    call dein#add('Shougo/neosnippet-snippets')
+    call dein#add('zchee/deoplete-clang')
+    call dein#add('w0rp/ale')
+    call dein#add('zchee/deoplete-jedi')
+    call dein#add('Shougo/neco-vim')
+    call dein#add('rafi/awesome-vim-colorschemes')
+    call dein#add('rhysd/vim-clang-format')
+    call dein#add('vim-airline/vim-airline')
+    call dein#add('kshenoy/vim-signature')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('gilligan/vim-lldb')
+    call dein#end()
+    call dein#save_state()
+endif
 
 "Set custom tab width according to language
 autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4
-autocmd FileType c UltiSnipsAddFiletypes c-libft
-autocmd FileType cpp,hpp,tpp UltiSnipsAddFiletypes cpp-personal
 
 " General config.  "set guiheadroom=0
 set noeb vb t_vb=
@@ -92,7 +105,6 @@ nmap <leader>p :bp<CR>
 nmap <leader>T :tabedit<CR>
 
 " Vim GoToDefinition
-nmap <leader>g :call LanguageClient_textDocument_definition()<CR>
 
 " Vim termsplit
 nmap <leader>t :vsp term://zsh<CR>
@@ -112,17 +124,16 @@ let g:ale_lint_on_enter = 0
 let g:deoplete#enable_at_startup = 1
 let g:uname = system("uname")
 if g:uname == "Darwin\n"
-	let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+    let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 elseif g:uname == "Linux\n"
-	let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
-	let g:LanguageClient_serverCommands = {
-	\ 'c': ['clangd'],
-	\ 'cpp': ['clangd'],
-	\ 'python': ['pyls'],
-	\ }
-	let g:LanguageClient_diagnosticsEnable=0
+    let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
 endif
 let g:deoplete#sources#clang#flags=[
-	\ '-Wall -Wextra -Werror -g'
-	\]
+	    \ '-Wall -Wextra -Werror -g'
+	    \]
 
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
