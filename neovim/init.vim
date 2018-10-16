@@ -17,10 +17,10 @@ Plug 'Shougo/neco-vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'Shougo/neopairs.vim'
 Plug 'rhysd/vim-clang-format'
-Plug 'critiqjo/lldb.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-fugitive'
+Plug 'gilligan/vim-lldb'
 Plug 'autozimu/LanguageClient-neovim', {
 	\ 'branch': 'next',
 	\ 'do': 'bash install.sh',
@@ -95,7 +95,7 @@ nmap <leader>T :tabedit<CR>
 nmap <leader>g :call LanguageClient_textDocument_definition()<CR>
 
 " Vim termsplit
-nmap <leader>t :sp term://bash<CR>
+nmap <leader>t :vsp term://zsh<CR>
 
 " Vim airline config
 let g:airline_theme='gruvbox'

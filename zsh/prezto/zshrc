@@ -5,6 +5,7 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -17,6 +18,7 @@ if [[ $UNAME == "Darwin" ]]; then
 	alias ls='ls -G' 
 	export PATH=~/.brew/bin/:$PATH
 else
+	[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
 	if command -v tmux>/dev/null; then
 	  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
 	fi
