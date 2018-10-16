@@ -15,9 +15,10 @@ echo -e "${GREEN}Install${NC} neovim with pip3."
 pip3 install --user neovim
 echo -e "${GREEN}Install${NC} jedi with pip3."
 pip3 install jedi --user
+
 echo -e "${PURPLE}Download${NC} vim-plug installation plugin located at ${RED}.local/share/nvim/site/autoload/plug.vim${NC}."
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
+sh ./install.sh
 echo -e "${PURPLE}Download${NC} and Install vim plugins."
 nvim +PlugInstall +qall
 ln -sf $PWD/clang-format ~/.clang-format
