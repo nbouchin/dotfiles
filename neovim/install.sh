@@ -17,8 +17,8 @@ echo -e "${GREEN}Install${NC} jedi with pip3."
 pip3 install jedi --user
 
 echo -e "${PURPLE}Download${NC} vim-plug installation plugin located at ${RED}.local/share/nvim/site/autoload/plug.vim${NC}."
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
-sh ./install.sh
+curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > neobundle_install.sh
+sh ./neobundle_install.sh
 echo -e "${PURPLE}Download${NC} and Install vim plugins."
 nvim +PlugInstall +qall
 ln -sf $PWD/clang-format ~/.clang-format
