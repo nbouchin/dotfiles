@@ -11,7 +11,6 @@ if dein#load_state('~/.config/nvim/bundle/dein')
     " Let dein manage dein
     " Required:
     call dein#add('~/.config/nvim/bundle/dein')
-    call dein#add('Shougo/unite.vim')
     call dein#add('easymotion/vim-easymotion')
     call dein#add('mhinz/vim-signify')
     call dein#add('justinmk/vim-syntax-extra')
@@ -27,7 +26,6 @@ if dein#load_state('~/.config/nvim/bundle/dein')
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('Shougo/neoinclude.vim')
-    call dein#add('Shougo/neopairs.vim')
     call dein#add('Shougo/denite.nvim')
     call dein#add('zchee/deoplete-clang')
     call dein#add('w0rp/ale')
@@ -46,7 +44,7 @@ endif
 "Set custom tab width according to language
 autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4
 
-" General config.  "set guiheadroom=0
+" General config.
 set noeb vb t_vb=
 set guioptions-=aegimrLtT
 set nu
@@ -66,24 +64,24 @@ set shiftwidth=4
 set softtabstop=4
 set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
-"set cursor collumn and line coloration
-let mapleader=";"
-colorscheme gruvbox
 set background=dark
+colorscheme gruvbox
 
-"copy/paste from/to clipboard
+" Swapdir and undo dir creation
 set directory=$HOME/.config/nvim/swapdir
-" Undo file.
 set undofile
 set undodir=$HOME/.config/nvim/undodir
 set undolevels=1000
 set undoreload=10000
 
-" Hide coloration of found words
-map <C-C> :nohlsearch<CR>
+"========================================== From here, configuration of macro redefinition ========================================== 
+let mapleader=";"
 
 "Esc remaping.
 inoremap kj <esc>
+
+" Hide coloration of found words
+map <C-C> :nohlsearch<CR>
 
 " Vim clang format binding
 nmap <leader>F :ClangFormat<CR>
@@ -96,30 +94,35 @@ nmap <leader>s <Plug>(easymotion-overwin-f2)
 " Vim Toggle Nerdtree
 nmap <leader>e :NERDTreeToggle<CR>
 
-" Vim map
-nmap <leader>m :Man<space>
+" Buffer manipulation redefinition
 nmap <leader>d :bd<CR>
 nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR>
+
+" Trigger tabedit
 nmap <leader>T :tabedit<CR>
 
-" Vim GoToDefinition
+" Denite file trigger
+nmap <leader>D :Denite file/rec<CR>
 
 " Vim termsplit
 nmap <leader>t :vsp term://zsh<CR>
+
+" Neosnippet mapping
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <TAB>     <Plug>(neosnippet_expand_or_jump)
+smap <TAB>     <Plug>(neosnippet_expand_or_jump)
+xmap <TAB>     <Plug>(neosnippet_expand_target)
+
+"========================================== Macro redefinition end ========================================== 
 
 " Vim airline config
 let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 2
 
 " Vim ale config
-" Write this in your vimrc file
 let g:ale_lint_on_text_changed = 'never'
-" You can disable this option too
-" if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
-
-let g:neopairs#enable=1
 
 "Vim deoplete config
 let g:deoplete#enable_at_startup = 1
@@ -133,18 +136,8 @@ let g:deoplete#sources#clang#flags=[
 	    \ '-Wall -Wextra -Werror -g'
 	    \]
 
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
