@@ -4,8 +4,7 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/nbouchin/.config/nvim/bundle/dein/repos/github.com/Shougo/dein.vim
-
+set runtimepath+=~/.config/nvim/bundle/dein/repos/github.com/Shougo/dein.vim
 " Required:
 if dein#load_state('/home/nbouchin/.config/nvim/bundle/dein')
     call dein#begin('/home/nbouchin/.config/nvim/bundle/dein')
