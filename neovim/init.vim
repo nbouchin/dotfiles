@@ -117,6 +117,10 @@ endif
 let g:deoplete#sources#clang#flags=[
 	    \ '-Wall -Wextra -Werror -g'
 	    \]
+call deoplete#custom#option('max_list', 10)
+call deoplete#custom#option('smart_case', v:true)
+"remove deoplete preview popup
+set completeopt-=preview
 
 " For conceal markers.
 if has('conceal')
