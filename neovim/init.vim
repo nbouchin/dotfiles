@@ -57,8 +57,6 @@ if dein#load_state('~/.config/nvim/bundle/dein')
     call dein#add('kshenoy/vim-signature')
     " Git integration for nvim
     call dein#add('tpope/vim-fugitive')
-    " lldb integration for nvim
-    call dein#add('gilligan/vim-lldb')
     call dein#end()
     call dein#save_state()
 endif
