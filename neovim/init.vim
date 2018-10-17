@@ -14,7 +14,6 @@ if dein#load_state('/home/nbouchin/.config/nvim/bundle/dein')
     call dein#add('/home/nbouchin/.config/nvim/bundle/dein')
     call dein#add('Shougo/unite.vim')
     call dein#add('easymotion/vim-easymotion')
-    call dein#add('ctrlpvim/ctrlp.vim')
     call dein#add('mhinz/vim-signify')
     call dein#add('justinmk/vim-syntax-extra')
     call dein#add('scrooloose/nerdtree')
@@ -29,6 +28,8 @@ if dein#load_state('/home/nbouchin/.config/nvim/bundle/dein')
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('Shougo/neoinclude.vim')
+    call dein#add('Shougo/neopairs.vim')
+    call dein#add('Shougo/denite.nvim')
     call dein#add('zchee/deoplete-clang')
     call dein#add('w0rp/ale')
     call dein#add('zchee/deoplete-jedi')
@@ -82,8 +83,6 @@ set undoreload=10000
 " Hide coloration of found words
 map <C-C> :nohlsearch<CR>
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
 "Esc remaping.
 inoremap kj <esc>
 
@@ -120,6 +119,8 @@ let g:ale_lint_on_text_changed = 'never'
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
+
+let g:neopairs#enable=1
 
 "Vim deoplete config
 let g:deoplete#enable_at_startup = 1
