@@ -6,11 +6,11 @@ endif
 " Required:
 set runtimepath+=~/.config/nvim/bundle/dein/repos/github.com/Shougo/dein.vim
 " Required:
-if dein#load_state('/home/nbouchin/.config/nvim/bundle/dein')
-    call dein#begin('/home/nbouchin/.config/nvim/bundle/dein')
+if dein#load_state('~/.config/nvim/bundle/dein')
+    call dein#begin('~/.config/nvim/bundle/dein')
     " Let dein manage dein
     " Required:
-    call dein#add('/home/nbouchin/.config/nvim/bundle/dein')
+    call dein#add('~/.config/nvim/bundle/dein')
     call dein#add('Shougo/unite.vim')
     call dein#add('easymotion/vim-easymotion')
     call dein#add('mhinz/vim-signify')
