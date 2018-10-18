@@ -68,6 +68,7 @@ endif
 "Set custom tab width according to language
 autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4
 
+
 " General config.
 set noeb vb t_vb=
 set guioptions-=aegimrLtT
@@ -171,15 +172,6 @@ nmap <leader>D :Denite file/rec<CR>
 
 " Vim termsplit
 nmap <leader>t :vsp term://zsh<CR>
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-	    \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-"========================================== Macro redefinition end ==========================================
+imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
