@@ -159,7 +159,7 @@ nmap <leader>d :bd<CR>
 " Buffer next
 nmap <leader>n :bn<CR>
 " Buffer prev nmap <leader>p :bp<CR>
-nmap <leader>n :bp<CR>
+nmap <leader>p :bp<CR>
 
 " Trigger tabedit
 " Note: create a new workspace tab
