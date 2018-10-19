@@ -68,7 +68,6 @@ endif
 "Set custom tab width according to language
 autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4
 
-
 " General config.
 set noeb vb t_vb=
 set guioptions-=aegimrLtT
@@ -159,8 +158,8 @@ nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>d :bd<CR>
 " Buffer next
 nmap <leader>n :bn<CR>
-" Buffer prev
-nmap <leader>p :bp<CR>
+" Buffer prev nmap <leader>p :bp<CR>
+nmap <leader>n :bp<CR>
 
 " Trigger tabedit
 " Note: create a new workspace tab
@@ -175,3 +174,6 @@ nmap <leader>t :vsp term://zsh<CR>
 imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
+
+" terminal mode enter in normal mode
+tmap <leader>n <c-\><c-n>
