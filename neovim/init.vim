@@ -133,6 +133,7 @@ endif
 
 "========================================== From here, configuration of macro redefinition ==========================================
 let mapleader=";"
+let localleader="\\"
 
 "Esc remaping.
 inoremap kj <esc>
@@ -171,9 +172,11 @@ nmap <leader>D :Denite file/rec<CR>
 
 " Vim termsplit
 nmap <leader>t :vsp term://zsh<CR>
+
+" neosnippet expand config
 imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
 " terminal mode enter in normal mode
-tmap <leader>n <c-\><c-n>
+tmap <localleader>n <c-\><c-n>
