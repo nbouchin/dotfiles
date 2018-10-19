@@ -163,7 +163,7 @@ nmap <leader>p :bp<CR>
 
 " Trigger tabedit
 " Note: create a new workspace tab
-nmap <leader>T :tabedit<CR>
+nmap <leader>T :tabedit
 
 " Denite fuzzy file trigger
 " Note: Trigger denite fuzzy finder for file from actual directory
