@@ -61,6 +61,8 @@ if dein#load_state('~/.config/nvim/bundle/dein')
     call dein#add('dbgx/lldb.nvim', {'do': ':UpdateRemotePlugins'})
     " nvim-checkhealth
     call dein#add('tweekmonster/nvim-checkhealth')
+	" vim autopair
+	call dein#add('jiangmiao/auto-pairs')
     call dein#end()
     call dein#save_state()
 endif
