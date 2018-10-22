@@ -14,4 +14,5 @@ git clone --recursive https://github.com/lcpz/awesome-copycats.git
 mv -bv awesome-copycats/* ~/.config/awesome; rm -rf awesome-copycats
 echo -e "${BLUE}Copy${NC} rc.lua located at ${RED}~/.rc.lua${NC}."
 ln -fs $PWD/rc.lua ~/.config/awesome/rc.lua
+ln -fs $PWD/wall.png ~/.config/awesome/themes/multicolor/wall.png
 echo -e "${GREEN}Installation${NC} done."
