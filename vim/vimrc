@@ -1,30 +1,5 @@
-call plug#begin()
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'easymotion/vim-easymotion'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'drmingdrmer/vim-tabbar'
-Plug 'justinmk/vim-syntax-extra'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'gilligan/vim-lldb'
-Plug 'pbondoer/vim-42header'
-Plug 'Valloric/YouCompleteMe'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-call plug#end()
-
-"Set custom tab width according to language
-autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
-autocmd FileType c UltiSnipsAddFiletypes c-libft 
-autocmd FileType cpp,hpp UltiSnipsAddFiletypes cpp-personal
-
 " General config.
-set guiheadroom=0
+syn on
 set noeb vb t_vb=
 set guioptions-=aegimrLtT
 set nu
@@ -40,64 +15,22 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set shiftwidth=4
+set softtabstop=4
 set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
-"set cursor collumn and line coloration
-let mapleader=";"
-colorscheme gruvbox
 set background=dark
-
-"copy/paste from/to clipboard
-set directory=$HOME/.vim/swapdir//
-" Undo file.
+" Swapdir and undo dir creation.
+set directory=$HOME/.config/nvim/swapdir
 set undofile
-set undodir=$HOME/.vim/undodir
+set undodir=$HOME/.config/nvim/undodir
 set undolevels=1000
 set undoreload=10000
+" Leader definition.
+let mapleader=";"
+let localleader="\\"
 
-" Hide coloration of found words
-map <C-C> :nohlsearch<CR>
-
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-"Esc remaping.
+" Esc remaping.
 inoremap kj <esc>
-"term split.
-nmap <leader>t :vert ter<CR>
-
-" Vim easymotion configuration.
-" <Leader>f{char} to move to {char}
-map  <leader>f <Plug>(easymotion-bd-f)
-nmap <leader>f <Plug>(easymotion-overwin-f)
-" s{char}{char} to move to {char}{char}
-nmap <leader>s <Plug>(easymotion-overwin-f2)
-" Vim Nerdtree
-nmap <leader>e :NERDTreeToggle<CR>
-" Vim Ycm Config 
-nmap <leader>g :YcmCompleter GoTo<CR>
-nmap <leader>F :YcmCompleter FixIt<CR>
-" lopen remap. 
-nmap <leader>l :lopen<CR>
-nmap <leader>m :Man<space>
-nmap <leader>d :bd<CR>
-nmap <leader>n :bn<CR>
-nmap <leader>p :bp<CR>
-nmap <leader>T :tabedit<CR>
-
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-"  Ycm will populate location list with errors and warnings, you can toggle it
-"  using <leader> l
-let g:ycm_always_populate_location_list = 1
-" The following line disable auto completion, just type ctrl+space to
-" complete.
-let g:ycm_auto_trigger = 0
-" Remove ycm tab cycle, use C-n and C-p instead tab will complete snippets
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-
-" Airline configuration
-let g:airline#extensions#tabline#enabled = 2
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-" Ultisnips configuration.
-let g:UltiSnipsEditSplit=""
+" Hide coloration of found words.
+map <C-C> :nohlsearch<CR>

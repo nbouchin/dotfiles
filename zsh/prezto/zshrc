@@ -77,3 +77,4 @@ bindkey -M vicmd "??" history-beginning-search-forward
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey -M viins "kj" vi-cmd-mode
+export PATH=/Users/nbouchin/.brew/bin:/Users/nbouchin/.brew/bin:/Users/nbouchin/.brew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/munki:/Users/nbouchin/.brew/bin
