@@ -1,4 +1,5 @@
 " General config.
+colorscheme rdark-terminal2
 syn on
 set wrap
 set autoindent
@@ -29,7 +30,9 @@ set undofile
 set undodir=$HOME/.vim/undodir
 set undolevels=1000
 set undoreload=10000
-colorscheme rdark-terminal2
+hi SpecialKey ctermfg=235
+set listchars=tab:\\.,trail:.
+set list
 
 " Leader definition.
 let mapleader=";"
