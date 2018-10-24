@@ -21,9 +21,9 @@ set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 set background=dark
 " Swapdir and undo dir creation.
-set directory=$HOME/.config/nvim/swapdir
+set directory=$HOME/.vim/swapdir
 set undofile
-set undodir=$HOME/.config/nvim/undodir
+set undodir=$HOME/.vim/undodir
 set undolevels=1000
 set undoreload=10000
 " Leader definition.
@@ -34,3 +34,9 @@ let localleader="\\"
 inoremap kj <esc>
 " Hide coloration of found words.
 map <C-C> :nohlsearch<CR>
+
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_always_populate_location_list=1
+let g:ycm_auto_trigger=0
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
