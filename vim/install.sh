@@ -8,6 +8,7 @@ NC='\033[0m'
 
 PLUG_START_PATH="~/.vim/pack/my-plugins/start"
 PLUG_OPT_PATH="~/.vim/pack/my-plugins/opt"
+
 echo -e "${RED}Backup old vim config to ~/oldvim"${NC}
 cp ~/.vimrc ~/oldvim
 echo -e "${YELLOW}Create${NC} vim undo dir located at ${RED}~/.vim/undodir/${NC}."
@@ -26,4 +27,4 @@ ln -fs $PWD/vimrc ~/.vimrc
 ln -fs $PWD/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
 ln -fs $PWD/c-libft.snippets $PLUG_START_PATH/vim-snippets/UltiSnips/c-libft.snippets
 ln -fs $PWD/cpp-personal.snippets $PLUG_START_PATH/vim-snippets/UltiSnips/cpp-personal.snippets
-python3 $PLUG_START_PATH/YouCompleteMe/install.py --clang-complete
+python3 ~/.vim/pack/my-plugins/start/YouCompleteMe/install.py --clang-complete
