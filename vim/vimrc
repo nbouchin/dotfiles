@@ -2,7 +2,8 @@
 colorscheme rdark-terminal2
 syn on
 set wrap
-set autoindent
+set smartindent 
+set expandtab
 set ts=4 sw=4
 set noeb vb t_vb=
 set guioptions-=aegimrLtT
