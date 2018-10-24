@@ -30,13 +30,19 @@ set undoreload=10000
 let mapleader=";"
 let localleader="\\"
 
-" Esc remaping.
-inoremap kj <esc>
-" Hide coloration of found words.
-map <C-C> :nohlsearch<CR>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_always_populate_location_list=1
 let g:ycm_auto_trigger=0
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+
+" Esc remaping.
+inoremap kj <esc>
+" Hide coloration of found words.
+map <C-C> :nohlsearch<CR>
+
+map <leader>g :YcmCompleter GoTo<CR>
+map <leader>f :YcmCompleter FixIt<CR>
