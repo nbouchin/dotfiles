@@ -27,10 +27,6 @@ if dein#load_state('~/.config/nvim/bundle/dein')
     call dein#add('pbondoer/vim-42header')
     " Multi plugin completion manager
     call dein#add('Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'})
-    if !has('nvim')
-	call dein#add('roxma/nvim-yarp')
-	call dein#add('roxma/vim-hug-neovim-rpc')
-    endif
     " Required: by deoplete
     call dein#add('Shougo/neco-vim')
     " Neo snippet, managed by deoplete.
@@ -61,8 +57,8 @@ if dein#load_state('~/.config/nvim/bundle/dein')
     call dein#add('dbgx/lldb.nvim', {'do': ':UpdateRemotePlugins'})
     " nvim-checkhealth
     call dein#add('tweekmonster/nvim-checkhealth')
-	" vim autopair
-	call dein#add('jiangmiao/auto-pairs')
+    " vim autopair
+    call dein#add('jiangmiao/auto-pairs')
     call dein#end()
     call dein#save_state()
 endif
@@ -91,7 +87,7 @@ set softtabstop=4
 set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 set background=dark
-colorscheme gruvbox
+colorscheme rdark-terminal2 
 
 " Swapdir and undo dir creation
 set directory=$HOME/.config/nvim/swapdir
@@ -103,7 +99,6 @@ set undoreload=10000
 "================================================== Plugin configuration ==========================================
 
 " Vim airline config
-let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 2
 
 " Vim ale config
