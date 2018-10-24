@@ -1,5 +1,8 @@
 " General config.
 syn on
+set wrap
+set autoindent
+set ts=4 sw=4
 set noeb vb t_vb=
 set guioptions-=aegimrLtT
 set nu
@@ -26,7 +29,8 @@ set undofile
 set undodir=$HOME/.vim/undodir
 set undolevels=1000
 set undoreload=10000
-set wrap
+colorscheme rdark-terminal2
+
 " Leader definition.
 let mapleader=";"
 let localleader="\\"

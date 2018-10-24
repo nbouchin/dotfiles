@@ -22,6 +22,8 @@ git clone https://github.com/honza/vim-snippets.git --recursive $PLUG_START_PATH
 git clone https://github.com/Valloric/YouCompleteMe.git --recursive $PLUG_START_PATH/
 git clone https://github.com/kien/ctrlp.vim.git --recursive $PLUG_START_PATH/
 git clone https://github.com/vim-airline/vim-airline.git $PLUG_START_PATH/
+git clone https://github.com/justinmk/vim-syntax-extra.git $PLUG_START_PATH/
+git clone https://github.com/rafi/awesome-vim-colorschemes.git $PLUG_START_PATH/
 echo -e "${BLUE}Copy${NC} vimrc located at ${RED}~/.vimrc${NC}."
 ln -fs $PWD/vimrc ~/.vimrc
 ln -fs $PWD/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
