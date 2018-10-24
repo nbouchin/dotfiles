@@ -16,7 +16,9 @@ mkdir -p ~/.vim/swapdir
 mkdir -p ~/.vim/pack/my-plugins/{opt,start}
 echo -e "Vim plugin generation."
 git clone https://github.com/tpope/vim-surround.git --recursive $PLUG_START_PATH/
-git clone https://github.com/Valloric/YouCompleteMe.git --recursive $PLUG_START_PATH
+git clone https://github.com/SirVer/ultisnips.git --recursive $PLUG_START_PATH/
+git clone https://github.com/honza/vim-snippets.git --recursive $PLUG_START_PATH/
+git clone https://github.com/Valloric/YouCompleteMe.git --recursive $PLUG_START_PATH/
 echo -e "${BLUE}Copy${NC} vimrc located at ${RED}~/.vimrc${NC}."
 ln -fs $PWD/vimrc ~/.vimrc
 #echo -e "${PURPLE}Download${NC} vim-plug installation plugin located at ${RED}.local/share/vim/site/autoload/plug.vim${NC}."
