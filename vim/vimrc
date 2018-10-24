@@ -26,6 +26,7 @@ set undofile
 set undodir=$HOME/.vim/undodir
 set undolevels=1000
 set undoreload=10000
+set wrap
 " Leader definition.
 let mapleader=";"
 let localleader="\\"
@@ -33,11 +34,13 @@ let localleader="\\"
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+"let g:ycm_auto_trigger=0
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_always_populate_location_list=1
-let g:ycm_auto_trigger=0
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+
+let g:airline#extensions#tabline#enabled = 2
 
 " Esc remaping.
 inoremap kj <esc>
