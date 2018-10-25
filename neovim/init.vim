@@ -87,7 +87,7 @@ set softtabstop=4
 set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 set background=dark
-colorscheme rdark-terminal2 
+colorscheme gruvbox 
 
 " Swapdir and undo dir creation
 set directory=$HOME/.config/nvim/swapdir
@@ -100,6 +100,7 @@ set undoreload=10000
 
 " Vim airline config
 let g:airline#extensions#tabline#enabled = 2
+let g:airline_theme="gruvbox"
 
 " Vim ale config
 let g:ale_lint_on_text_changed = 'never'
