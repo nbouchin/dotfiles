@@ -8,23 +8,23 @@
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Customize to your needs...
 
 UNAME=$(uname)
 if [[ $UNAME == "Darwin" ]]; then
-	alias ls='ls -G' 
-	export PATH=~/.brew/bin/:$PATH
+    alias ls='ls -G' 
+    export PATH=~/.brew/bin:$PATH
 else
-	[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
-	if command -v tmux>/dev/null; then
-	  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
-	fi
-	alias ls='ls --color'
-	# copy/paste
-	alias open='xdg-open'
+    [[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
+    if command -v tmux>/dev/null; then
+	[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+    fi
+    alias ls='ls --color'
+    # copy/paste
+    alias open='xdg-open'
 
 fi
 
@@ -77,4 +77,3 @@ bindkey -M vicmd "??" history-beginning-search-forward
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey -M viins "kj" vi-cmd-mode
-export PATH=/Users/nbouchin/.brew/bin:/Users/nbouchin/.brew/bin:/Users/nbouchin/.brew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/usr/local/munki:/Users/nbouchin/.brew/bin
