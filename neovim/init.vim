@@ -88,6 +88,8 @@ set undofile
 set undodir=$HOME/.config/nvim/undodir
 set undolevels=1000
 set undoreload=10000
+let mapleader=";"
+let localleader="\\"
 
 "================================================== Plugin configuration ==========================================
 
@@ -120,11 +122,14 @@ if has('conceal')
     set conceallevel=2 concealcursor=niv
 endif
 
+let g:LanguageClient_serverCommands = {
+	    \    'cpp': ['clangd'],
+	    \    'c': ['clangd'],
+	    \}
+
 "================================================== Plugin configuration ends ==========================================
 
 "========================================== From here, configuration of macro redefinition ==========================================
-let mapleader=";"
-let localleader="\\"
 
 "Esc remaping.
 inoremap kj <esc>
@@ -171,11 +176,6 @@ inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
 " terminal mode enter in normal mode
 tmap <localleader>n <c-\><c-n>
-
-let g:LanguageClient_serverCommands = {
-	    \    'cpp': ['clangd'],
-	    \    'c': ['clangd'],
-	    \}
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
