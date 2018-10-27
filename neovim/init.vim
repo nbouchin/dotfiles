@@ -1,72 +1,59 @@
-"dein Scripts-----------------------------
-if &compatible
-    set nocompatible               " Be iMproved
-endif
-
-" Required:
-set runtimepath+=~/.config/nvim/bundle/dein/repos/github.com/Shougo/dein.vim
-" Required:
-if dein#load_state('~/.config/nvim/bundle/dein')
-    call dein#begin('~/.config/nvim/bundle/dein')
-    " Let dein manage dein
-    " Required:
-    call dein#add('~/.config/nvim/bundle/dein')
-    " Fly through code with vim easymotion
-    call dein#add('easymotion/vim-easymotion')
-    " Gutter for git, svn etc.
-    call dein#add('mhinz/vim-signify')
-    " Extra syntax highlighting
-    call dein#add('justinmk/vim-syntax-extra')
-    " Nerd{Tree,Commenter} to get graphical file access and easy comments
-    " trigger.
-    call dein#add('scrooloose/nerdtree')
-    call dein#add('scrooloose/nerdcommenter')
-    " Git integration with Nerdtree
-    call dein#add('Xuyuanp/nerdtree-git-plugin')
-    " 42 header everywhere.
-    call dein#add('pbondoer/vim-42header')
-    " Multi plugin completion manager
-    call dein#add('Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'})
-    " Required: by deoplete
-    call dein#add('Shougo/neco-vim')
-    " Neo snippet, managed by deoplete.
-    call dein#add('Shougo/neosnippet.vim')
-    " Neosnippet snippet list
-    call dein#add('Shougo/neosnippet-snippets')
-    " Include completion
-    call dein#add('Shougo/neoinclude.vim')
-    " Fuzzy finder for everything
-    call dein#add('Shougo/denite.nvim')
-    " Clang completion with deoplete
-    call dein#add('zchee/deoplete-clang')
-    " Ale linter, lint pretty everything
-    call dein#add('w0rp/ale')
-    " Deoplete integration with jedi for python
-    call dein#add('zchee/deoplete-jedi')
-    " Multiple coloschemes collection
-    call dein#add('rafi/awesome-vim-colorschemes')
-    " Clang format nvim integration
-    call dein#add('rhysd/vim-clang-format')
-    " Pretty airline and tabbar
-    call dein#add('vim-airline/vim-airline')
-    " Show marks in the file
-    call dein#add('kshenoy/vim-signature')
-    " Git integration for nvim
-    call dein#add('tpope/vim-fugitive')
-    " lldb-nvim
-    call dein#add('dbgx/lldb.nvim', {'do': ':UpdateRemotePlugins'})
-    " nvim-checkhealth
-    call dein#add('tweekmonster/nvim-checkhealth')
-    " vim autopair
-    call dein#add('jiangmiao/auto-pairs')
-    " vim LSP
-    call dein#add('autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ })
-    call dein#end()
-    call dein#save_state()
-endif
+call plug#begin('~/.config/nvim/plugged')
+" Fly through code with vim easymotion
+Plug 'easymotion/vim-easymotion'
+" Gutter for git, svn etc.
+Plug 'mhinz/vim-signify'
+" Extra syntax highlighting
+Plug 'justinmk/vim-syntax-extra'
+" Nerd{Tree,Commenter} to get graphical file access and easy comments
+" trigger.
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+" Git integration with Nerdtree
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" 42 header everywhere.
+Plug 'pbondoer/vim-42header'
+Plug 'autozimu/LanguageClient-neovim', {
+	    \ 'branch': 'next',
+	    \ 'do': 'bash install.sh',
+	    \ }
+" (Optional) Multi-entry selection UI.
+Plug 'junegunn/fzf'
+" Multi plugin completion manager
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+" Required: by deoplete
+Plug 'Shougo/neco-vim'
+" Neo snippet, managed by deoplete.
+Plug 'Shougo/neosnippet.vim'
+" Neosnippet snippet list
+Plug 'Shougo/neosnippet-snippets'
+" Include completion
+Plug 'Shougo/neoinclude.vim'
+" Fuzzy finder for everything
+Plug 'Shougo/denite.nvim'
+" Clang completion with deoplete
+Plug 'zchee/deoplete-clang'
+" Ale linter, lint pretty everything
+Plug 'w0rp/ale'
+" Deoplete integration with jedi for python
+Plug 'zchee/deoplete-jedi'
+" Multiple coloschemes collection
+Plug 'rafi/awesome-vim-colorschemes'
+" Clang format nvim integration
+Plug 'rhysd/vim-clang-format'
+" Pretty airline and tabbar
+Plug 'vim-airline/vim-airline'
+" Show marks in the file
+Plug 'kshenoy/vim-signature'
+" Git integration for nvim
+Plug 'tpope/vim-fugitive'
+" lldb-nvim
+Plug 'dbgx/lldb.nvim', {'do': ':UpdateRemotePlugins'}
+" nvim-checkhealth
+Plug 'tweekmonster/nvim-checkhealth'
+" vim autopair
+Plug 'jiangmiao/auto-pairs'
+call plug#end()
 
 "Set custom tab width according to language
 autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4
@@ -189,3 +176,9 @@ let g:LanguageClient_serverCommands = {
 	    \    'cpp': ['clangd'],
 	    \    'c': ['clangd'],
 	    \}
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
