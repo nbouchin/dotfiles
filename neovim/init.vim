@@ -79,7 +79,6 @@ set softtabstop=4
 set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 set background=dark
-set clipboard=unnamedplus
 colorscheme gruvbox 
 
 " Swapdir and undo dir creation
