@@ -28,8 +28,6 @@ else
 
 fi
 
-#bind -m vi-insert "\C-l":clear-screen
-
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink

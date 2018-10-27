@@ -59,6 +59,11 @@ if dein#load_state('~/.config/nvim/bundle/dein')
     call dein#add('tweekmonster/nvim-checkhealth')
     " vim autopair
     call dein#add('jiangmiao/auto-pairs')
+    " vim LSP
+    call dein#add('autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ })
     call dein#end()
     call dein#save_state()
 endif
@@ -87,6 +92,7 @@ set softtabstop=4
 set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 set background=dark
+set clipboard=unnamedplus
 colorscheme gruvbox 
 
 " Swapdir and undo dir creation
@@ -178,3 +184,8 @@ inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
 " terminal mode enter in normal mode
 tmap <localleader>n <c-\><c-n>
+
+let g:LanguageClient_serverCommands = {
+	    \    'cpp': ['clangd'],
+	    \    'c': ['clangd'],
+	    \}

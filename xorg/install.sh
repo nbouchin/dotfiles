@@ -9,6 +9,8 @@ NC='\033[0m'
 
 echo -e "${RED}Backup old xsessionrc config to ~/oldxsessionrc"${NC}
 cp ~/.xinitrc ~/oldxsessionrc
+cp 00-keyboard.conf /usr/share/X11/xorg.conf/
+cp 70-synaptics.conf /usr/share/X11/xorg.conf/
 echo -e "${BLUE}Copy${NC} xsessionrc located at ${RED}~/.xsessionrc${NC}."
 ln -fs $PWD/xinitrc ~/.xinitrc
 #ln -fs $PWD/xbindkeysrc ~/.xbindkeysrc
