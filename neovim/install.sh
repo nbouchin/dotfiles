@@ -26,13 +26,13 @@ ln -sf $PWD/clang-format ~/.clang-format
 #ln -sf $PWD/cpp-personal.snippets ~/.config/nvim/bundle/dein/repos/github.com/honza/vim-snippets/UltiSnips/cpp-personal.snippets
 nvim +PlugInstall +qall
 echo -e "${GREEN}Installation${NC} done."
-
-echo "Do you want ton install C language client? It may take a while on Darwin systems [Y,n]"
-read input
-if [[ $input == "Y" || $input == "y" ]]; then
-    if [[ $UNAME == "Darwin" ]]; then
-	brew install --with-toolchain llvm
-    elif [[ $UNAME == "Archlinux" ]]; then
-	pacman -Syu clang
-    fi
-fi
+#
+#echo "Do you want ton install C language client? It may take a while on Darwin systems [Y,n]"
+#read input
+#if [[ $input == "Y" || $input == "y" ]]; then
+#    if [[ $UNAME == "Darwin" ]]; then
+#	brew install --with-toolchain llvm
+#    elif [[ $UNAME == "Archlinux" ]]; then
+#	pacman -Syu clang
+#    fi
+#fi
