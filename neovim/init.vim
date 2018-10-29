@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " 42 header everywhere.
 Plug 'pbondoer/vim-42header'
+" nvim language client
 Plug 'autozimu/LanguageClient-neovim', {
 	    \ 'branch': 'next',
 	    \ 'do': 'bash install.sh',
@@ -29,8 +30,6 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 " Include completion
 Plug 'Shougo/neoinclude.vim'
-" Fuzzy finder for everything
-Plug 'Shougo/denite.nvim'
 " Clang completion with deoplete
 Plug 'zchee/deoplete-clang'
 " Ale linter, lint pretty everything
@@ -53,6 +52,8 @@ Plug 'dbgx/lldb.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'tweekmonster/nvim-checkhealth'
 " vim autopair
 Plug 'jiangmiao/auto-pairs'
+" vim ctrlp fuzzy finder
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 "Set custom tab width according to language
@@ -161,10 +162,6 @@ nmap <leader>p :bp<CR>
 " Note: create a new workspace tab
 nmap <leader>T :tabedit
 
-" Denite fuzzy file trigger
-" Note: Trigger denite fuzzy finder for file from actual directory
-nmap <leader>D :Denite file/rec<CR>
-
 " Vim termsplit
 nmap <leader>t :vsp term://zsh<CR>
 
@@ -181,3 +178,7 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" Ctrlp fuzzy finder
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
