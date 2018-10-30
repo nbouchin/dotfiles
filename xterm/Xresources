@@ -27,7 +27,6 @@ XTerm*vt100*translations:   #override                       \n \
     Shift Ctrl <KeyPress>V: insert-selection(CLIPBOARD)
 
 XTerm*metaSendsEscape: true
-
 ! hard contrast: *background: #1d2021
 *background: #282828
 ! soft contrast: *background: #32302f
