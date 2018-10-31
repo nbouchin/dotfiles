@@ -27,12 +27,13 @@ ln -sf $PWD/clang-format ~/.clang-format
 nvim +PlugInstall +qall
 echo -e "${GREEN}Installation${NC} done."
 #
-#echo "Do you want ton install C language client? It may take a while on Darwin systems [Y,n]"
-#read input
-#if [[ $input == "Y" || $input == "y" ]]; then
-#    if [[ $UNAME == "Darwin" ]]; then
-#	brew install --with-toolchain llvm
-#    elif [[ $UNAME == "Archlinux" ]]; then
-#	pacman -Syu clang
-#    fi
-#fi
+echo "Do you want ton install C language client? It take a while on Darwin systems [Y,n]"
+read input
+if [[ $input == "Y" || $input == "y" ]]; then
+    if [[ $UNAME == "Darwin" ]]; then
+	brew install --with-toolchain llvm
+	echo 'export PATH=~/.brew/Cellar/llvm/7.0.0/bin:$PATH' >> ~/.zshrc
+    elif [[ $UNAME == "Archlinux" ]]; then
+	pacman -Syu clang
+    fi
+fi
