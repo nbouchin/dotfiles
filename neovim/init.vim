@@ -107,7 +107,7 @@ let g:uname = system("uname")
 if g:uname == "Darwin\n"
     let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 elseif g:uname == "Linux\n"
-    let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+    let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-6.0/lib/libclang.so'
 endif
 let g:deoplete#sources#clang#flags=[
 	    \ '-Wall -Wextra -Werror -g'
