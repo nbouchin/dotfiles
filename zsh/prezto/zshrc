@@ -16,6 +16,7 @@ fi
 UNAME=$(uname)
 if [[ $UNAME == "Darwin" ]]; then
     alias ls='ls -G' 
+    export PATH=~/.brew/Cellar/llvm/7.0.0/bin:$PATH
     export PATH=~/.brew/bin:$PATH
 else
     [[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
