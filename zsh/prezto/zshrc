@@ -21,13 +21,7 @@ if [[ $UNAME == "Darwin" ]]; then
     export PATH=~/.brew/bin:$PATH
 else
     [[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
-<<<<<<< HEAD
-=======
-    if command -v tmux>/dev/null; then
-	[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
-    fi
     export PATH=/usr/lib/llvm-7.0/bin:$PATH
->>>>>>> b14b5b9e2365874af3931df3737ab79d52928ea1
     alias ls='ls --color'
     # copy/paste
     alias open='xdg-open'
