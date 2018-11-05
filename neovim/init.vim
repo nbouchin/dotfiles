@@ -54,6 +54,8 @@ Plug 'tweekmonster/nvim-checkhealth'
 Plug 'jiangmiao/auto-pairs'
 " vim ctrlp fuzzy finder
 Plug 'ctrlpvim/ctrlp.vim'
+" vim orgmode
+Plug 'jceb/vim-orgmode'
 call plug#end()
 
 "Set custom tab width according to language
