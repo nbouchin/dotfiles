@@ -32,9 +32,10 @@ read input
 if [[ $input == "Y" || $input == "y" ]]; then
     if [[ $UNAME == "Darwin" ]]; then
 	curl -O https://releases.llvm.org/7.0.0/clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
-	tar -xf clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
+	tar -vxf clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
 	mkdir ~/bin && mv clang+llvm-7.0.0-x86_64-apple-darwin/bin/clangd ~/bin
 	rm -rf clang+llvm-7.0.0-x86_64-apple-darwin
+	rm -rf clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
 	echo 'export PATH=~/bin:$PATH' >> ~/.zshrc
     elif [[ $UNAME == "Archlinux" ]]; then
 	pacman -Syu clang
