@@ -85,6 +85,7 @@ set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 set background=dark
 colorscheme gruvbox 
+highlight ColorColumn guibg=#cc231c ctermbg=167
 
 " Swapdir and undo dir creation
 set directory=$HOME/.config/nvim/swapdir
