@@ -62,6 +62,8 @@ call plug#end()
 autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4
 
 " General config.
+set cursorline
+set colorcolumn=81
 set noeb vb t_vb=
 set guioptions-=aegimrLtT
 set nu
