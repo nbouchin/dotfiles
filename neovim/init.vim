@@ -30,8 +30,6 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 " Include completion
 Plug 'Shougo/neoinclude.vim'
-" Clang completion with deoplete
-Plug 'zchee/deoplete-clang'
 " Ale linter, lint pretty everything
 Plug 'w0rp/ale'
 " Deoplete integration with jedi for python
