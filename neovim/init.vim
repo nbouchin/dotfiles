@@ -24,10 +24,10 @@ Plug 'junegunn/fzf'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " Required: by deoplete
 Plug 'Shougo/neco-vim'
-" Neo snippet, managed by deoplete.
-Plug 'Shougo/neosnippet.vim'
-" Neosnippet snippet list
-Plug 'Shougo/neosnippet-snippets'
+" Track the engine.
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
 " Include completion
 Plug 'Shougo/neoinclude.vim'
 " Ale linter, lint pretty everything
@@ -167,10 +167,10 @@ nmap <leader>T :tabedit
 " Vim termsplit
 nmap <leader>t :vsp term://zsh<CR>
 
-" neosnippet expand config
-imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " terminal mode enter in normal mode
 tmap <localleader>n <c-\><c-n>
