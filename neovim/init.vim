@@ -58,7 +58,7 @@ call plug#end()
 
 "Set custom tab width according to language
 autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4
-autocmd FileType c UltiSnipsAddFiletypes c-libft
+"autocmd FileType c UltiSnipsAddFiletypes c-libft
 autocmd FileType cpp,hpp,tpp UltiSnipsAddFiletypes cpp-personal
 
 " General config.
@@ -169,10 +169,6 @@ nmap <leader>T :tabedit
 " Vim termsplit
 nmap <leader>t :vsp term://zsh<CR>
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " terminal mode enter in normal mode
 tmap <localleader>n <c-\><c-n>
@@ -186,3 +182,42 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " Ctrlp fuzzy finder
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-g>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Shitty fix for LSP snippets auto generation
+function! ExpandLspSnippet()
+    call UltiSnips#ExpandSnippetOrJump()
+    if !pumvisible() || empty(v:completed_item)
+        return ''
+    endif
+
+    " only expand Lsp if UltiSnips#ExpandSnippetOrJump not effect.
+    let l:value = v:completed_item['word']
+    let l:matched = len(l:value)
+    if l:matched <= 0
+        return ''
+    endif
+
+    " remove inserted chars before expand snippet
+    if col('.') == col('$')
+        let l:matched -= 1
+        exec 'normal! ' . l:matched . 'Xx'
+    else
+        exec 'normal! ' . l:matched . 'X'
+    endif
+
+    if col('.') == col('$') - 1
+        " move to $ if at the end of line.
+        call cursor(line('.'), col('$'))
+    endif
+
+    " expand snippet now.
+    call UltiSnips#Anon(l:value)
+    return ''
+endfunction
+
+imap <C-k> <C-R>=ExpandLspSnippet()<CR>
