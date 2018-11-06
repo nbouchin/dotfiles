@@ -58,6 +58,8 @@ call plug#end()
 
 "Set custom tab width according to language
 autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4
+autocmd FileType c UltiSnipsAddFiletypes c-libft
+autocmd FileType cpp,hpp,tpp UltiSnipsAddFiletypes cpp-personal
 
 " General config.
 set cursorline
