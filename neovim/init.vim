@@ -1,3 +1,4 @@
+" PLUGINS DELCARATION
 call plug#begin('~/.config/nvim/plugged')
 " Fly through code with vim easymotion
 Plug 'easymotion/vim-easymotion'
@@ -56,6 +57,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jceb/vim-orgmode'
 call plug#end()
 
+" GENERAL CONFIGURATION
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent loadview
+
 "Set custom tab width according to language
 autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4
 "autocmd FileType c UltiSnipsAddFiletypes c-libft
@@ -96,6 +101,7 @@ set undoreload=10000
 let mapleader=";"
 let localleader="\\"
 
+"PLUGIN CONFIGRATION
 "================================================== Plugin configuration ==========================================
 
 " Vim airline config
@@ -134,6 +140,7 @@ let g:LanguageClient_serverCommands = {
 
 "================================================== Plugin configuration ends ==========================================
 
+"MACRO DEFINITION
 "========================================== From here, configuration of macro redefinition ==========================================
 
 "Esc remaping.
