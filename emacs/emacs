@@ -8,14 +8,12 @@
 ;;; Code:
 (package-initialize)
 
-(load-theme 'gruvbox-dark-hard)
-
 ;; Install all packages.
 (defun my-install ()
   "My-install searchg all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(gruvbox-theme evil rudel tabbar transpose-frame autopair git-gutter-fringe auto-complete auto-complete-c-headers auto-complete-clang magit dired-sidebar iedit helm monokai-alt-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
+  (setq package-list '(evil-leader key-chord org-evil gruvbox-theme evil rudel tabbar transpose-frame autopair git-gutter-fringe auto-complete auto-complete-c-headers auto-complete-clang magit dired-sidebar iedit helm monokai-alt-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -36,7 +34,9 @@
   (interactive)
   (load-file "~/.emacs"))
 
-(setq-default shell-file-name "/bin/bash"); Set default shell
+(load-theme 'gruvbox-dark-hard t nil)
+
+(setq-default shell-file-name "/bin/zsh"); Set default shell
 
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves"))); Set emacs swap directory.
 ;;(load-theme 'monokai-alt t)
@@ -56,7 +56,6 @@
 (setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
 								64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
 
-(require 'transpose-frame)
 (load "~/.emacs.d/my-lisp/my-tabbar.el")
 
 (require 'autopair)
@@ -69,14 +68,14 @@
 (add-hook 'dired-mode-hook (lambda () (global-hl-line-mode -1)))
 
 (add-hook 'eshell-mode-hook
-          (defun chunyang-eshell-mode-setup ()
-            (remove-hook 'eshell-output-filter-functions
-                         'eshell-postoutput-scroll-to-bottom)))
+		  (defun chunyang-eshell-mode-setup ()
+			(remove-hook 'eshell-output-filter-functions
+						 'eshell-postoutput-scroll-to-bottom)))
 
 (setq linum-format "%d "); Set plus bar.
-;;(require 'git-gutter-fringe); Enable git-gutter-fringe
+(require 'git-gutter-fringe); Enable git-gutter-fringe
 (global-git-gutter-mode t); Start git-gutter-fringe with emacs
-;;(setq git-gutter-fr:side 'right-fringe); Set fringe to right
+(setq git-gutter-fr:side 'right-fringe); Set fringe to right
 (require 'ace-jump-mode); Enable ace-jump-mode.
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key global-map (kbd "C-c g") 'magit-status)
@@ -100,8 +99,8 @@
 
 ;; Shell mode configuration
 (add-hook 'shell-mode-hook
-      (lambda ()
-        (face-remap-set-base 'comint-highlight-prompt :inherit nil)))
+		  (lambda ()
+			(face-remap-set-base 'comint-highlight-prompt :inherit nil)))
 
 (require 'auto-complete)
 (require 'auto-complete-config)
@@ -129,15 +128,40 @@
 (add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
 (global-semantic-idle-scheduler-mode 1)
 
-(define-key global-map (kbd "C-c <up>") 'windmove-up)
-(define-key global-map (kbd "C-c <down>") 'windmove-down)
-(define-key global-map (kbd "C-c <left>") 'windmove-left)
-(define-key global-map (kbd "C-c <right>") 'windmove-right)
-;;(define-key global-map (kbd "C-c g") 'semantic-complete-jump)
-(define-key global-map (kbd "C-c ;") 'iedit-mode)
-
 (require 'evil)
 (evil-mode 1)
+
+(global-evil-leader-mode)
+(evil-leader/set-leader ";")
+
+(evil-leader/set-key
+ "n" 'evil-prev-buffer
+ "p" 'evil-next-buffer
+ "d" 'evil-delete-buffer)
+
+(require 'key-chord)
+(key-chord-mode 1)
+
+(key-chord-define evil-insert-state-map "kj" 'evil-normal-state)
+
+(loop for (mode . state) in '((inferior-emacs-lisp-mode . emacs)
+							  (magit-mode . normal)
+							  (nrepl-mode . insert)
+							  (pylookup-mode . insert)
+							  (comint-mode . normal)
+							  (shell-mode . insert)
+							  (git-commit-mode . insert)
+							  (git-rebase-mode . normal)
+							  (term-mode . normal)
+							  (help-mode . normal)
+							  (helm-grep-mode . normal)
+							  (grep-mode . normal)
+							  (bc-menu-mode . normal)
+							  (magit-branch-manager-mode . normal)
+							  (rdictcc-buffer-mode . normal)
+							  (dired-mode . normal)
+							  (wdired-mode . normal))
+	  do (evil-set-initial-state mode state))
 
 (provide 'emacs)
 ;;; .emacs ends here
@@ -151,7 +175,7 @@
 	("e2fd81495089dc09d14a88f29dfdff7645f213e2c03650ac2dd275de52a513de" default)))
  '(package-selected-packages
    (quote
-	(gruvbox-theme evil markdown-mode evil-visual-mark-mode tabbar transpose-frame rudel monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit yasnippet-snippets yasnippet flycheck))))
+	(org-evil gruvbox-theme evil markdown-mode evil-visual-mark-mode tabbar transpose-frame rudel monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit yasnippet-snippets yasnippet flycheck))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
