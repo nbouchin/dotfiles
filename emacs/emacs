@@ -147,6 +147,7 @@
 
 (loop for (mode . state) in '((inferior-emacs-lisp-mode . emacs)
 							  (magit-mode . normal)
+							  (magit-status-mode . normal)
 							  (nrepl-mode . normal)
 							  (pylookup-mode . normal)
 							  (comint-mode . normal)
