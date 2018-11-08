@@ -137,7 +137,8 @@
 (evil-leader/set-key
  "n" 'evil-prev-buffer
  "p" 'evil-next-buffer
- "d" 'evil-delete-buffer)
+ "d" 'evil-delete-buffer
+ "c" 'magit-status)
 
 (require 'key-chord)
 (key-chord-mode 1)
