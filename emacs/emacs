@@ -133,6 +133,16 @@
 (evil-mode 1)
 
 (global-evil-leader-mode)
+(setq evil-normal-state-modes (append evil-motion-state-modes evil-normal-state-modes))
+(setq evil-motion-state-modes nil)
+(setq evil-normal-state-modes (append evil-emacs-state-modes evil-normal-state-modes))
+(setq evil-emacs-state-modes nil)
+;; ESC to NORMAL even from emacs state
+(define-key evil-emacs-state-map [escape] 'evil-normal-state)
+;; don't let modes override the INSERT state (!)
+(setq evil-overriding-maps nil
+      evil-intercept-maps nil)
+;; telling-mode cursor
 (evil-leader/set-leader ";")
 
 (evil-leader/set-key
@@ -146,26 +156,26 @@
 
 (key-chord-define evil-insert-state-map "kj" 'evil-normal-state)
 
-(loop for (mode . state) in '((inferior-emacs-lisp-mode . normal)
-							  (package-menu-mode . normal)
-							  (magit-mode . normal)
-							  (magit-status-mode . normal)
-							  (nrepl-mode . normal)
-							  (pylookup-mode . normal)
-							  (comint-mode . normal)
-							  (shell-mode . normal)
-							  (git-commit-mode . normal)
-							  (git-rebase-mode . normal)
-							  (term-mode . normal)
-							  (help-mode . normal)
-							  (helm-grep-mode . normal)
-							  (grep-mode . normal)
-							  (bc-menu-mode . normal)
-							  (magit-branch-manager-mode . normal)
-							  (rdictcc-buffer-mode . normal)
-							  (dired-mode . normal)
-							  (wdired-mode . normal))
-	  do (evil-set-initial-state mode state))
+;;(loop for (mode . state) in '((inferior-emacs-lisp-mode . normal)
+;;							  (package-menu-mode . normal)
+;;							  (magit-mode . normal)
+;;							  (magit-status-mode . normal)
+;;							  (nrepl-mode . normal)
+;;							  (pylookup-mode . normal)
+;;							  (comint-mode . normal)
+;;							  (shell-mode . normal)
+;;							  (git-commit-mode . normal)
+;;							  (git-rebase-mode . normal)
+;;							  (term-mode . normal)
+;;							  (help-mode . normal)
+;;							  (helm-grep-mode . normal)
+;;							  (grep-mode . normal)
+;;							  (bc-menu-mode . normal)
+;;							  (magit-branch-manager-mode . normal)
+;;							  (rdictcc-buffer-mode . normal)
+;;							  (dired-mode . normal)
+;;							  (wdired-mode . normal))
+;;	  do (evil-set-initial-state mode state))
 
 (provide 'emacs)
 ;;; .emacs ends here
