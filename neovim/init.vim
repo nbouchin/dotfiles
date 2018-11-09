@@ -58,8 +58,8 @@ Plug 'jceb/vim-orgmode'
 call plug#end()
 
 " GENERAL CONFIGURATION
-autocmd BufWinLeave * mkview
-autocmd BufWinEnter * silent loadview
+" autocmd BufWinLeave * mkview
+" autocmd BufWinEnter * silent loadview
 
 "Set custom tab width according to language
 autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4

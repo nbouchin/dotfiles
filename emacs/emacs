@@ -13,7 +13,8 @@
   "My-install searchg all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(evil-leader key-chord org-evil gruvbox-theme evil rudel tabbar transpose-frame autopair git-gutter-fringe auto-complete auto-complete-c-headers auto-complete-clang magit dired-sidebar iedit helm monokai-alt-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
+  (setq package-list '(evil-leader key-chord org-evil gruvbox-theme evil rudel tabbar transpose-frame autopair git-gutter-fringe
+								   auto-complete auto-complete-c-headers auto-complete-clang magit dired-sidebar iedit helm monokai-alt-theme yasnippet-snippets yasnippet flycheck ace-jump-mode undo-tree))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -73,9 +74,9 @@
 						 'eshell-postoutput-scroll-to-bottom)))
 
 (setq linum-format "%d "); Set plus bar.
-(require 'git-gutter-fringe); Enable git-gutter-fringe
-(global-git-gutter-mode t); Start git-gutter-fringe with emacs
-(setq git-gutter-fr:side 'right-fringe); Set fringe to right
+;;(require 'git-gutter-fringe); Enable git-gutter-fringe
+;;(global-git-gutter-mode t); Start git-gutter-fringe with emacs
+;;(setq git-gutter-fr:side 'right-fringe); Set fringe to right
 (require 'ace-jump-mode); Enable ace-jump-mode.
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key global-map (kbd "C-c g") 'magit-status)
