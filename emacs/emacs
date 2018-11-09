@@ -74,9 +74,9 @@
 						 'eshell-postoutput-scroll-to-bottom)))
 
 (setq linum-format "%d "); Set plus bar.
-;;(require 'git-gutter-fringe); Enable git-gutter-fringe
-;;(global-git-gutter-mode t); Start git-gutter-fringe with emacs
-;;(setq git-gutter-fr:side 'right-fringe); Set fringe to right
+(require 'git-gutter-fringe); Enable git-gutter-fringe
+(global-git-gutter-mode t); Start git-gutter-fringe with emacs
+(setq git-gutter-fr:side 'right-fringe); Set fringe to right
 (require 'ace-jump-mode); Enable ace-jump-mode.
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key global-map (kbd "C-c g") 'magit-status)
@@ -136,17 +136,18 @@
 (evil-leader/set-leader ";")
 
 (evil-leader/set-key
- "n" 'evil-prev-buffer
- "p" 'evil-next-buffer
- "d" 'evil-delete-buffer
- "c" 'magit-status)
+  "n" 'evil-prev-buffer
+  "p" 'evil-next-buffer
+  "d" 'evil-delete-buffer
+  "c" 'magit-status)
 
 (require 'key-chord)
 (key-chord-mode 1)
 
 (key-chord-define evil-insert-state-map "kj" 'evil-normal-state)
 
-(loop for (mode . state) in '((inferior-emacs-lisp-mode . emacs)
+(loop for (mode . state) in '((inferior-emacs-lisp-mode . normal)
+							  (package-menu-mode . normal)
 							  (magit-mode . normal)
 							  (magit-status-mode . normal)
 							  (nrepl-mode . normal)
