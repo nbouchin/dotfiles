@@ -35,9 +35,9 @@
   (load-file "~/.emacs"))
 
 (load-theme 'gruvbox-dark-hard t nil)
-
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves"))); Set emacs swap directory.
-;;(load-theme 'monokai-alt t)
 
 (set-cursor-color "white")
 (tool-bar-mode -1); Padding configuration.
