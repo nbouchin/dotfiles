@@ -2,8 +2,7 @@
 ;;; Commentary:
 (require 'package)
 
-(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t) (add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/") t)
 
 ;;; Code:
 (package-initialize)
@@ -13,7 +12,7 @@
   "My-install searchg all packages in package-list and install them if not installed."
   (interactive)
   (defvar package-list)
-  (setq package-list '(evil-leader key-chord org-evil gruvbox-theme evil magit undo-tree))
+  (setq package-list '(ac-c-headers autopair yasnippet-snippets yasnippet company-c-headers company flycheck evil-leader key-chord org-evil gruvbox-theme evil magit undo-tree))
   ;; fetch the list of packages available.
   (unless package-archive-contents
 	(package-refresh-contents))
@@ -34,6 +33,7 @@
   (interactive)
   (load-file "~/.emacs"))
 
+(menu-bar-mode -1)
 (load-theme 'gruvbox-dark-hard t nil)
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
@@ -57,6 +57,23 @@
 (setq undo-tree-auto-save-history t)
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
+(global-flycheck-mode)
+(require 'company)
+(require 'cc-mode)
+(require 'yasnippet)
+(require 'pos-tip)
+(setq company-dabbrev-downcase 0)
+(setq company-idle-delay 0)
+(add-to-list 'company-backends 'company-c-headers)
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-backends (delete 'company-semantic company-backends))
+(yas-global-mode)
+
+(define-key company-active-map [tab] 'company-complete-selection)
+(define-key company-active-map (kbd "TAB") 'company-complete-selection)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+
 (require 'evil)
 (evil-mode 1)
 
@@ -74,7 +91,7 @@
 (define-key evil-emacs-state-map [escape] 'evil-normal-state)
 ;; don't let modes override the INSERT state (!)
 (setq evil-overriding-maps nil
-      evil-intercept-maps nil)
+	  evil-intercept-maps nil)
 ;; telling-mode cursor
 (evil-leader/set-leader ";")
 
@@ -86,25 +103,39 @@
 
 
 (cl-loop for (mode . state) in '((inferior-emacs-lisp-mode . normal)
-							  (package-menu-mode . normal)
-							  (magit-mode . insert)
-							  (magit-status-mode . insert)
-							  (magit-popup-mode . insert)
-							  (magit-branch-manager-mode . insert)
-							  (nrepl-mode . normal)
-							  (pylookup-mode . normal)
-							  (comint-mode . insert)
-							  (shell-mode . normal)
-							  (git-commit-mode . insert)
-							  (git-rebase-mode . insert)
-							  (term-mode . insert)
-							  (help-mode . normal)
-							  (helm-grep-mode . normal)
-							  (grep-mode . normal)
-							  (bc-menu-mode . normal)
-							  (rdictcc-buffer-mode . normal)
-							  (dired-mode . normal)
-							  (wdired-mode . normal))
-	  do (evil-set-initial-state mode state))
+								 (package-menu-mode . normal)
+								 (magit-mode . insert)
+								 (magit-status-mode . insert)
+								 (magit-popup-mode . insert)
+								 (magit-branch-manager-mode . insert)
+								 (nrepl-mode . normal)
+								 (pylookup-mode . normal)
+								 (comint-mode . insert)
+								 (shell-mode . normal)
+								 (git-commit-mode . insert)
+								 (git-rebase-mode . insert)
+								 (term-mode . insert)
+								 (help-mode . normal)
+								 (helm-grep-mode . normal)
+								 (grep-mode . normal)
+								 (bc-menu-mode . normal)
+								 (rdictcc-buffer-mode . normal)
+								 (dired-mode . normal)
+								 (wdired-mode . normal))
+		 do (evil-set-initial-state mode state))
 
 (provide 'emacs)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+	(ac-c-headers ac-clang autopair yasnippet-snippets yasnippet company flycheck org-evil magit key-chord gruvbox-theme evil-leader))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
