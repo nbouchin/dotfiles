@@ -20,8 +20,6 @@
 (require 'auto-complete-c-headers)
 (require 'evil)
 (require 'key-chord)
-(evil-mode 1)
-
 
 ;; Install all packages.
 (defun my-install ()
@@ -49,7 +47,7 @@
   "Reload .emacs file without restarting Emacs."
   (interactive)
   (load-file "~/.emacs"))
-
+(gdb-many-windows 1)
 (load-theme 'gruvbox-dark-hard t nil)
 
 (setq-default shell-file-name "/bin/zsh"); Set default shell
@@ -59,7 +57,6 @@
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
 
-(setq gdb-many-windows 1)
 (menu-bar-mode -1)
 (set-cursor-color "white")
 (tool-bar-mode -1); Padding configuration.
@@ -121,6 +118,8 @@
   )
 (add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
 (global-semantic-idle-scheduler-mode 1)
+
+(evil-mode 1)
 
 (global-evil-leader-mode)
 (evil-leader/set-leader ";")
