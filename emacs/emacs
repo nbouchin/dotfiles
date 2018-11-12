@@ -8,20 +8,7 @@
 ;;; Code:
 (package-initialize)
 
-(require 'neotree)
-(require 'dired-sidebar); Enable dired-sidebar.
-(require 'autopair)
-(require 'git-gutter-fringe); Enable git-gutter-fringe
-(require 'ace-jump-mode); Enable ace-jump-mode.
-(require 'flycheck); Enable flycheck on any files.
-(require 'yasnippet); start yasnippet with emacs
-(require 'auto-complete)
-(require 'auto-complete-config)
-(require 'auto-complete-c-headers)
-(require 'evil)
-(require 'key-chord)
 (evil-mode 1)
-
 
 ;; Install all packages.
 (defun my-install ()
@@ -49,6 +36,19 @@
   "Reload .emacs file without restarting Emacs."
   (interactive)
   (load-file "~/.emacs"))
+
+(require 'neotree)
+(require 'dired-sidebar); Enable dired-sidebar.
+(require 'autopair)
+(require 'git-gutter-fringe); Enable git-gutter-fringe
+(require 'ace-jump-mode); Enable ace-jump-mode.
+(require 'flycheck); Enable flycheck on any files.
+(require 'yasnippet); start yasnippet with emacs
+(require 'auto-complete)
+(require 'auto-complete-config)
+(require 'auto-complete-c-headers)
+(require 'evil)
+(require 'key-chord)
 
 (load-theme 'gruvbox-dark-hard t nil)
 
@@ -174,7 +174,7 @@
 	("e2fd81495089dc09d14a88f29dfdff7645f213e2c03650ac2dd275de52a513de" default)))
  '(package-selected-packages
    (quote
-	(org-evil gruvbox-theme evil markdown-mode evil-visual-mark-mode tabbar transpose-frame rudel monokai-alt autopair git-gutter-fringe auto-complete-clang auto-complete-c-headers magit dired-sidebar auto-complete iedit yasnippet-snippets yasnippet flycheck))))
+	())))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
