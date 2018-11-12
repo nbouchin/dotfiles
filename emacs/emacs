@@ -8,8 +8,6 @@
 ;;; Code:
 (package-initialize)
 
-(evil-mode 1)
-
 ;; Install all packages.
 (defun my-install ()
   "My-install searchg all packages in package-list and install them if not installed."
@@ -36,6 +34,8 @@
   "Reload .emacs file without restarting Emacs."
   (interactive)
   (load-file "~/.emacs"))
+
+(evil-mode 1)
 
 (require 'neotree)
 (require 'dired-sidebar); Enable dired-sidebar.
