@@ -37,6 +37,7 @@
 
 (evil-mode 1)
 
+(require 'neotree)
 (require 'dired-sidebar); Enable dired-sidebar.
 (require 'autopair)
 (require 'git-gutter-fringe); Enable git-gutter-fringe
@@ -98,6 +99,7 @@
 		  (lambda ()
 			(face-remap-set-base 'comint-highlight-prompt :inherit nil)))
 
+
 (defvar achead:include-directories)
 
 (ac-config-default)
@@ -134,16 +136,6 @@
 (key-chord-mode 1)
 
 (key-chord-define evil-insert-state-map "kj" 'evil-normal-state)
-
-(setq evil-normal-state-modes (append evil-motion-state-modes evil-normal-state-modes))
-(setq evil-motion-state-modes nil)
-(setq evil-normal-state-modes (append evil-emacs-state-modes evil-normal-state-modes))
-(setq evil-emacs-state-modes nil)
-;; ESC to NORMAL even from emacs state
-(define-key evil-emacs-state-map [escape] 'evil-normal-state)
-;; don't let modes override the INSERT state (!)
-(setq evil-overriding-maps nil
-      evil-intercept-maps nil)
 
 (loop for (mode . state) in '((inferior-emacs-lisp-mode . normal)
 							  (neotree-mode . insert)
