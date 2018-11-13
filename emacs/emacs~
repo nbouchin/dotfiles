@@ -51,8 +51,11 @@
 (require 'key-chord)
 
 (load-theme 'distinguished t nil)
-(set-face-attribute 'flycheck-error nil :foreground "white" :background "red")
-(set-face-attribute 'flycheck-warning nil :foreground "white" :background "orange")
+(eval-after-load 'flycheck
+    '(progn
+(set-face-attribute 'flycheck-error nil :foreground "white" :background "red"))
+    '(progn
+(set-face-attribute 'flycheck-warning nil :foreground "white" :background "orrange")))
 
 (setq-default shell-file-name "/bin/zsh"); Set default shell
 
