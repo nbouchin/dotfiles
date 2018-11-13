@@ -28,9 +28,9 @@ else
 
 fi
 
-if command -v tmux>/dev/null; then
-    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
-fi
+#if command -v tmux>/dev/null; then
+#    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+#fi
 
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
@@ -60,6 +60,7 @@ alias psftp='ps faux | grep ftp'
 alias esl='exec $SHELL -l'
 
 # emacs aliases
+alias enw='emacs -nw'
 alias em='emacs'
 alias ec='emacsclient -n'
 
