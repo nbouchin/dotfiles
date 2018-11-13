@@ -37,6 +37,7 @@
 
 (evil-mode 1)
 
+(require 'cedet)
 (require 'nasm-mode)
 (require 'dired-sidebar); Enable dired-sidebar.
 (require 'autopair)
@@ -54,7 +55,7 @@
 (set-face-attribute 'flycheck-error nil :foreground "white" :background "red")
 (set-face-attribute 'flycheck-warning nil :foreground "white" :background "orange")
 
-(setq-default shell-file-name "/bin/zsh"); Set default shell
+(setq-default shell-file-name "/bin/bash"); Set default shell
 
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves"))); Set emacs swap directory.
 
@@ -117,6 +118,7 @@
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
 
 (semantic-mode 1); turn on Semantic
+
 (defun my:add-semantic-to-autocomplete()
   "'add-to-list' into ac-sources the ac-source-semantic plugin."
   (add-to-list 'ac-sources 'ac-source-semantic)
