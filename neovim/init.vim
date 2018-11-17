@@ -58,9 +58,6 @@ Plug 'jceb/vim-orgmode'
 call plug#end()
 
 " GENERAL CONFIGURATION
-" autocmd BufWinLeave * mkview
-" autocmd BufWinEnter * silent loadview
-
 "Set custom tab width according to language
 autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4
 "autocmd FileType c UltiSnipsAddFiletypes c-libft
@@ -145,23 +142,12 @@ let g:LanguageClient_serverCommands = {
 
 "Esc remaping.
 inoremap kj <esc>
-
 " Hide coloration of found words
 map <C-C> :nohlsearch<CR>
-
-" Vim clang format binding
-nmap <leader>F :ClangFormat<CR>
-
-" Vim easymotion configuration.
-" Easy motion simple char trigger
-map  <leader>f <Plug>(easymotion-bd-f)
-nmap <leader>f <Plug>(easymotion-overwin-f)
 " easymotion double char trigger
 nmap <leader>s <Plug>(easymotion-overwin-f2)
-
 " Vim Toggle Nerdtree
-nmap <leader>e :NERDTreeToggle<CR>
-
+nmap <leader>t :NERDTreeToggle<CR>
 " Buffer manipulation redefinition
 " Buffer delete
 nmap <leader>d :bd<CR>
@@ -169,23 +155,13 @@ nmap <leader>d :bd<CR>
 nmap <leader>n :bn<CR>
 " Buffer prev nmap <leader>p :bp<CR>
 nmap <leader>p :bp<CR>
-
-" Trigger tabedit
-" Note: create a new workspace tab
-nmap <leader>T :tabedit
+" Vim fugitive git integration
+nmap <leader>g :Gstatus<CR>
 
 " Vim termsplit
-nmap <leader>t :vsp term://zsh<CR>
-
-
+nmap <localleader>t :vsp term://zsh<CR>
 " terminal mode enter in normal mode
-tmap <localleader>n <c-\><c-n>
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+tmap <localleader>' <c-\><c-n>
 
 " Ctrlp fuzzy finder
 let g:ctrlp_map = '<c-p>'
@@ -193,8 +169,8 @@ let g:ctrlp_cmd = 'CtrlP'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-g>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
 " Shitty fix for LSP snippets auto generation
 function! ExpandLspSnippet()
