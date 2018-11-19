@@ -59,7 +59,6 @@ Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-surround'
 
 call plug#end()
-
 " GENERAL CONFIGURATION
 "Set custom tab width according to language
 autocmd FileType c,cpp,tpp,hpp,asm,s,as,php,html set ts=4 sw=4
