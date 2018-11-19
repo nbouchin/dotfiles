@@ -55,6 +55,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'ctrlpvim/ctrlp.vim'
 " vim orgmode
 Plug 'jceb/vim-orgmode'
+" vim surround
+Plug 'tpope/vim-surround'
+
 call plug#end()
 
 " GENERAL CONFIGURATION
