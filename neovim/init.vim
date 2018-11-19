@@ -62,7 +62,7 @@ call plug#end()
 
 " GENERAL CONFIGURATION
 "Set custom tab width according to language
-autocmd FileType c,cpp,tpp,hpp,asm,s,php,html set ts=4 sw=4
+autocmd FileType c,cpp,tpp,hpp,asm,s,as,php,html set ts=4 sw=4
 "autocmd FileType c UltiSnipsAddFiletypes c-libft
 autocmd FileType cpp,hpp,tpp UltiSnipsAddFiletypes cpp-personal
 
@@ -101,8 +101,13 @@ set undoreload=10000
 let mapleader=";"
 let localleader="\\"
 
+augroup remember_folds
+    autocmd!
+    autocmd BufWinLeave * mkview
+    autocmd BufWinEnter * silent! loadview
+augroup END
+
 "PLUGIN CONFIGRATION
-"================================================== Plugin configuration ==========================================
 
 " Vim airline config
 let g:airline#extensions#tabline#enabled = 2
@@ -133,15 +138,13 @@ if has('conceal')
     set conceallevel=2 concealcursor=niv
 endif
 
+
 let g:LanguageClient_serverCommands = {
 	    \    'cpp': ['clangd'],
 	    \    'c': ['clangd'],
 	    \}
 
-"================================================== Plugin configuration ends ==========================================
-
 "MACRO DEFINITION
-"========================================== From here, configuration of macro redefinition ==========================================
 
 "Esc remaping.
 inoremap kj <esc>
@@ -175,31 +178,32 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
+
 " Shitty fix for LSP snippets auto generation
 function! ExpandLspSnippet()
     call UltiSnips#ExpandSnippetOrJump()
     if !pumvisible() || empty(v:completed_item)
-        return ''
+	return ''
     endif
 
     " only expand Lsp if UltiSnips#ExpandSnippetOrJump not effect.
     let l:value = v:completed_item['word']
     let l:matched = len(l:value)
     if l:matched <= 0
-        return ''
+	return ''
     endif
 
     " remove inserted chars before expand snippet
     if col('.') == col('$')
-        let l:matched -= 1
-        exec 'normal! ' . l:matched . 'Xx'
+	let l:matched -= 1
+	exec 'normal! ' . l:matched . 'Xx'
     else
-        exec 'normal! ' . l:matched . 'X'
+	exec 'normal! ' . l:matched . 'X'
     endif
 
     if col('.') == col('$') - 1
-        " move to $ if at the end of line.
-        call cursor(line('.'), col('$'))
+	" move to $ if at the end of line.
+	call cursor(line('.'), col('$'))
     endif
 
     " expand snippet now.
