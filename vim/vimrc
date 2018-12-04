@@ -35,14 +35,6 @@ hi SpecialKey ctermfg=235
 set listchars=tab:\\.,trail:.
 set list
 
-" Leader definition.
-let mapleader=";"
-let localleader="\\"
-
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-"let g:ycm_auto_trigger=0
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_max_num_identifier_candidates=10
 let g:ycm_always_populate_location_list=1
@@ -50,14 +42,29 @@ let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_auto_trigger = 0
-let g:ycm_key_invoke_completion = '<C-Space>'
-
+let g:ycm_key_invoke_completion = '<C-n>'
 let g:airline#extensions#tabline#enabled = 2
 
-" Esc remaping.
-inoremap kj <esc>
-" Hide coloration of found words.
-map <C-C> :nohlsearch<CR>
+" Leader definition.
+let mapleader=";"
+let localleader="\\"
 
-map <leader>g :YcmCompleter GoTo<CR>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+"map <leader>g :YcmCompleter GoTo<CR>
+noremap gd :YcmCompleter GoTo<CR>
 map <leader>f :YcmCompleter FixIt<CR>
+"Esc remaping.
+inoremap kj <esc>
+" Hide coloration of found words
+" easymotion double char trigger
+nmap <leader>s <Plug>(easymotion-overwin-f2)
+" Buffer delete
+nmap <leader>d :bd<CR>
+" Buffer next
+nmap <leader>n :bn<CR>
+" Buffer prev nmap <leader>p :bp<CR>
+nmap <leader>p :bp<CR>
+" Vim fugitive git integration
+nmap <leader>g :Gstatus<CR>
