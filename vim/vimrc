@@ -31,6 +31,7 @@ set undofile
 set undodir=$HOME/.vim/undodir
 set undolevels=1000
 set undoreload=10000
+set encoding=utf-8
 hi SpecialKey ctermfg=235
 set listchars=tab:\\.,trail:.,eol:$
 set list
@@ -46,7 +47,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_auto_trigger = 0
 "let g:ycm_key_invoke_completion = '<C-n>'
 let g:airline#extensions#tabline#enabled = 2
-let g:syntastic_c_include_dirs=['/usr/src/kernel-4.20.0/include', 'includes']
+let g:syntastic_c_include_dirs=['/usr/src/kernel-4.20.0/include']
 
 " Leader definition.
 let mapleader=";"

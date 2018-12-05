@@ -10,7 +10,9 @@ BASE_FLAGS = [
         '-Wextra',
         '-Werror',
         '-I/usr/lib/',
-        '-I/usr/include/'
+        '-I/usr/include/',
+	'-I/usr/src/kernel-4.20.0/include/',
+	'/usr/src/kernel-4.20.0/include/linux'
         ]
 
 SOURCE_EXTENSIONS = [
@@ -37,7 +39,9 @@ HEADER_EXTENSIONS = [
 
 HEADER_DIRECTORIES = [
         'include',
-        'includes'
+        'includes',
+	'/usr/src/kernel-4.20.0/include/',
+	'/usr/src/kernel-4.20.0/include/linux'
         ]
 
 def IsHeaderFile(filename):
