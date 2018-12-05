@@ -28,9 +28,11 @@ git clone https://github.com/vim-syntastic/syntastic.git $PLUG_START_PATH/vim-sy
 git clone https://github.com/myint/syntastic-extras.git $PLUG_START_PATH/syntastic-extras
 git clone https://github.com/tpope/vim-fugitive.git $PLUG_START_PATH/vim-fugitive
 git clone https://github.com/tpope/vim-surround.git $PLUG_START_PATH/vim-surround
+git clone https://github.com/rhysd/vim-clang-format.git $PLUG_START_PATH/vim-clang-format
 echo -e "${BLUE}Copy${NC} vimrc located at ${RED}~/.vimrc${NC}."
 ln -fs $PWD/vimrc ~/.vimrc
 ln -fs $PWD/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
 ln -fs $PWD/c-libft.snippets $PLUG_START_PATH/vim-snippets/UltiSnips/c-libft.snippets
 ln -fs $PWD/cpp-personal.snippets $PLUG_START_PATH/vim-snippets/UltiSnips/cpp-personal.snippets
+ln -sf $PWD/clang-format ~/.clang-format
 python3 ~/.vim/pack/my-plugins/start/YouCompleteMe/install.py --clang-complete
