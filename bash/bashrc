@@ -1,5 +1,6 @@
 # If not running interactively, do not do anything
-set -o vi
+#set -o vi
+set -o emacs
 
 UNAME=$(uname)
 
@@ -20,7 +21,7 @@ if command -v tmux>/dev/null; then
 	[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
 fi
 
-bind -m vi-insert "\C-l":clear-screen
+#bind -m vi-insert "\C-l":clear-screen
 
 if [ -f /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion

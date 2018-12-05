@@ -42,10 +42,9 @@ let g:ycm_always_populate_location_list=1
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 let g:ycm_show_diagnostics_ui = 0
-let g:ycm_auto_trigger = 0
-let g:ycm_key_invoke_completion = '<C-n>'
+"let g:ycm_auto_trigger = 0
+"let g:ycm_key_invoke_completion = '<C-n>'
 let g:airline#extensions#tabline#enabled = 2
-
 let g:syntastic_c_include_dirs=['/usr/src/kernel-4.20.0/include', 'includes']
 
 " Leader definition.
@@ -71,3 +70,4 @@ nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR>
 " Vim fugitive git integration
 nmap <leader>g :Gstatus<CR>
+map <C-C> :nohlsearch<CR>
