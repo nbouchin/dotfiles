@@ -31,7 +31,6 @@ set undofile
 set undodir=$HOME/.vim/undodir
 set undolevels=1000
 set undoreload=10000
-set encoding=utf-8
 hi SpecialKey ctermfg=235
 set listchars=tab:\\.,trail:.,eol:$
 set list
