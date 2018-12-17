@@ -11,7 +11,7 @@ BASE_FLAGS = [
         '-Werror',
         '-I/usr/lib/',
         '-I/usr/include/',
-	'-I/usr/src/kernel-4.20.0/include/',
+	'-I/usr/src/linux-next-next-20181210/include/',
         ]
 
 SOURCE_EXTENSIONS = [
@@ -39,6 +39,7 @@ HEADER_EXTENSIONS = [
 HEADER_DIRECTORIES = [
         'include',
         'includes',
+	'/usr/src/linux-next-next-20181210/include/',
         ]
 
 def IsHeaderFile(filename):
