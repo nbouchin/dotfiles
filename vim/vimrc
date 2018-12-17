@@ -1,8 +1,9 @@
-" General config.
+" Plugins load with new vim plugin init
+
 colorscheme rdark-terminal2
 syn on
 set wrap
-set smartindent 
+set smartindent
 set expandtab
 set noeb vb t_vb=
 set guioptions-=aegimrLtT
@@ -25,6 +26,7 @@ set noexpandtab
 set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 set background=dark
+
 " Swapdir and undo dir creation.
 set directory=$HOME/.vim/swapdir
 set undofile
@@ -32,9 +34,10 @@ set undodir=$HOME/.vim/undodir
 set undolevels=1000
 set undoreload=10000
 hi SpecialKey ctermfg=235
-set listchars=tab:\\.,trail:.,eol:$
+set listchars=tab:\\.,trail:.,eol:$,space:.
 set list
 
+" ycm configuration
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_max_num_identifier_candidates=10
 let g:ycm_max_num_candidates=10
@@ -45,12 +48,17 @@ let g:ycm_show_diagnostics_ui = 0
 let g:airline#extensions#tabline#enabled = 2
 let g:syntastic_c_include_dirs=['/usr/src/kernel-4.20.0/include']
 
+" Pmenu dropdown completion colors
+hi Pmenu term=NONE cterm=NONE ctermbg=234 ctermfg=250
+
 " Leader definition.
 let mapleader=";"
 let localleader="\\"
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+map <C-C> :nohlsearch<CR>
 
 "map <leader>g :YcmCompleter GoTo<CR>
 noremap gd :YcmCompleter GoTo<CR>
@@ -68,7 +76,3 @@ nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR>
 " Vim fugitive git integration
 nmap <leader>g :Gstatus<CR>
-map <C-C> :nohlsearch<CR>
-
-" Pmenu dropdown completion colors
-hi Pmenu term=NONE cterm=NONE ctermbg=234 ctermfg=250
