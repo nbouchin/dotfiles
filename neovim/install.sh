@@ -25,6 +25,7 @@ ln -sf $PWD/clang-format ~/.clang-format
 ln -sf $PWD/c-libft.snippets ~/.config/nvim/plugged/vim-snippets/UltiSnips/c-libft.snippets
 ln -sf $PWD/cpp-personal.snippets ~/.config/nvim/plugged/vim-snippets/UltiSnips/cpp-personal.snippets
 nvim +PlugInstall +qall
+
 if [[ $UNAME == "Darwin" ]]; then
     curl -O https://releases.llvm.org/7.0.0/clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
     tar -vxf clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz

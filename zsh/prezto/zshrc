@@ -81,4 +81,3 @@ bindkey -M viins "kj" vi-cmd-mode
 export PATH=~/bin:$PATH
 export PATH=$HOME/.brew/bin:$PATH
 export PATH=~/bin:$PATH
-export PATH=~/bin:$PATH

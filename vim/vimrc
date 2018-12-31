@@ -1,5 +1,4 @@
 " Plugins load with new vim plugin init
-
 colorscheme rdark-terminal2
 syn on
 set wrap
