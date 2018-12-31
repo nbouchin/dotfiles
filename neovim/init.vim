@@ -37,8 +37,6 @@ Plug 'w0rp/ale'
 Plug 'zchee/deoplete-jedi'
 " Multiple coloschemes collection
 Plug 'rafi/awesome-vim-colorschemes'
-" Clang format nvim integration
-Plug 'rhysd/vim-clang-format'
 " Pretty airline and tabbar
 Plug 'vim-airline/vim-airline'
 " Show marks in the file
@@ -53,8 +51,6 @@ Plug 'tweekmonster/nvim-checkhealth'
 Plug 'jiangmiao/auto-pairs'
 " vim ctrlp fuzzy finder
 Plug 'ctrlpvim/ctrlp.vim'
-" vim orgmode
-Plug 'jceb/vim-orgmode'
 " vim surround
 Plug 'tpope/vim-surround'
 
@@ -137,16 +133,18 @@ if has('conceal')
     set conceallevel=2 concealcursor=niv
 endif
 
-
 let g:LanguageClient_serverCommands = {
 	    \    'cpp': ['clangd'],
 	    \    'c': ['clangd'],
+	    \    'rust': ['rls']
 	    \}
 
-"MACRO DEFINITION
+let g:ale_fixers = {'c': ['clang-format']}
 
+"MACRO DEFINITION
 "Esc remaping.
 inoremap kj <esc>
+nmap gd :ALEGoToDefinitionInTab<CR>
 " Hide coloration of found words
 map <C-C> :nohlsearch<CR>
 " easymotion double char trigger
@@ -162,7 +160,6 @@ nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR>
 " Vim fugitive git integration
 nmap <leader>g :Gstatus<CR>
-
 " Vim termsplit
 nmap <localleader>t :vsp term://zsh<CR>
 " terminal mode enter in normal mode
@@ -176,7 +173,6 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-
 
 " Shitty fix for LSP snippets auto generation
 function! ExpandLspSnippet()
