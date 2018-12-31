@@ -144,7 +144,11 @@ let g:ale_fixers = {'c': ['clang-format']}
 "MACRO DEFINITION
 "Esc remaping.
 inoremap kj <esc>
-nmap gd :ALEGoToDefinitionInTab<CR>
+" Fix ALEGoToDefinitionInTab
+"nmap gd :ALEGoToDefinitionInTab<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " Hide coloration of found words
 map <C-C> :nohlsearch<CR>
 " easymotion double char trigger
