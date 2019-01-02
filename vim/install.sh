@@ -30,6 +30,8 @@ git clone https://github.com/tpope/vim-fugitive.git --recursive $PLUG_START_PATH
 git clone https://github.com/tpope/vim-surround.git --recursive $PLUG_START_PATH/vim-surround
 git clone https://github.com/rhysd/vim-clang-format.git --recursive $PLUG_START_PATH/vim-clang-format
 git clone https://github.com/vivien/vim-linux-coding-style.git --recursive $PLUG_START_PATH/vim-linux-coding-style
+git clone https://github.com/prabirshrestha/vim-lsp.git --recursive $PLUG_START_PATH/vim-lsp
+git clone https://github.com/prabirshrestha/async.vim.git --recursive $PLUG_START_PATH/async.vim
 echo -e "${BLUE}Copy${NC} vimrc located at ${RED}~/.vimrc${NC}."
 ln -fs $PWD/vimrc ~/.vimrc
 ln -fs $PWD/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
