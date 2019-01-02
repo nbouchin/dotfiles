@@ -59,7 +59,6 @@ let g:ctrlp_cmd = 'CtrlP'
 
 map <C-C> :nohlsearch<CR>
 
-"map <leader>g :YcmCompleter GoTo<CR>
 noremap gd :YcmCompleter GoTo<CR>
 map <leader>f :YcmCompleter FixIt<CR>
 "Esc remaping.
@@ -75,3 +74,18 @@ nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR>
 " Vim fugitive git integration
 nmap <leader>g :Gstatus<CR>
+
+if executable('clangd')
+    augroup lsp_clangd
+        autocmd!
+        autocmd User lsp_setup call lsp#register_server({
+                    \ 'name': 'clangd',
+                    \ 'cmd': {server_info->['clangd']},
+                    \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+                    \ })
+        autocmd FileType c setlocal omnifunc=lsp#complete
+        autocmd FileType cpp setlocal omnifunc=lsp#complete
+        autocmd FileType objc setlocal omnifunc=lsp#complete
+        autocmd FileType objcpp setlocal omnifunc=lsp#complete
+    augroup end
+endif
