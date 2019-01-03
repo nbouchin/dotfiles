@@ -12,22 +12,24 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+USER=$(whoami)
+UNAME=$(uname)
 
-if [[ $(uname) == "Darwin" ]]; then
-	alias ls='ls -G' 
-	export PATH=~/bin:$PATH
-	export PATH=~/.brew/opt/fzf/bin:$PATH
-	export PATH=~/.brew/bin:$PATH
-else
-	[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
-	xset b off
-	export PATH=/usr/lib/llvm-7.0/bin:$PATH
-	alias ls='ls --color'
-	# copy/paste
-	alias open='xdg-open'
-fi
+if [[ $USER != "root" ]]; then
+	if [[ $UNAME == "Darwin" ]]; then
+		alias ls='ls -G' 
+		export PATH=~/bin:$PATH
+		export PATH=~/.brew/opt/fzf/bin:$PATH
+		export PATH=~/.brew/bin:$PATH
+	else
+		[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
+		xset b off
+		export PATH=/usr/lib/llvm-7.0/bin:$PATH
+		alias ls='ls --color'
+		# copy/paste
+		alias open='xdg-open'
+	fi
 
-if [[ $(who) != "root" ]]; then
 	if command -v tmux>/dev/null; then
 		[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
 	fi
