@@ -48,7 +48,7 @@ alias la='ls -a'
 alias l='ls'
 
 # vim alias
-alias vim='nvim'
+alias vim='vim'
 
 # systemctl aliases
 alias ss='systemctl status'

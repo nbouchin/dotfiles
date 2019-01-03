@@ -57,13 +57,16 @@ Plug 'tpope/vim-surround'
 call plug#end()
 " GENERAL CONFIGURATION
 "Set custom tab width according to language
-autocmd FileType c,cpp,tpp,hpp,asm,s,as,php,html set ts=4 sw=4
+"autocmd FileType c,cpp,tpp,hpp,asm,s,as,php,html set ts=4 sw=4
 "autocmd FileType c UltiSnipsAddFiletypes c-libft
 autocmd FileType cpp,hpp,tpp UltiSnipsAddFiletypes cpp-personal
 
 " General config.
-set cursorline
-set colorcolumn=81
+colorscheme rdark-terminal2
+syn on
+set wrap
+set smartindent
+set expandtab
 set noeb vb t_vb=
 set guioptions-=aegimrLtT
 set nu
@@ -79,14 +82,12 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=8
+set softtabstop=8
+set noexpandtab
 set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
 set background=dark
-colorscheme gruvbox 
-highlight ColorColumn guibg=#cc231c ctermbg=167
-
 " Swapdir and undo dir creation
 set directory=$HOME/.config/nvim/swapdir
 set undofile
@@ -95,6 +96,10 @@ set undolevels=1000
 set undoreload=10000
 let mapleader=";"
 let localleader="\\"
+hi SpecialKey ctermfg=235
+set listchars=tab:\\.,trail:.,eol:$,space:.
+set list
+
 
 augroup remember_folds
     autocmd!
@@ -106,7 +111,7 @@ augroup END
 
 " Vim airline config
 let g:airline#extensions#tabline#enabled = 2
-let g:airline_theme="gruvbox"
+let g:airline_theme="simple"
 
 " Vim ale config
 let g:ale_lint_on_text_changed = 'never'
