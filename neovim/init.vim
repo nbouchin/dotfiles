@@ -100,7 +100,6 @@ hi SpecialKey ctermfg=235
 set listchars=tab:\\.,trail:.,eol:$,space:.
 set list
 
-
 augroup remember_folds
     autocmd!
     autocmd BufWinLeave * mkview
@@ -111,7 +110,6 @@ augroup END
 
 " Vim airline config
 let g:airline#extensions#tabline#enabled = 2
-let g:airline_theme="simple"
 
 " Vim ale config
 let g:ale_lint_on_text_changed = 'never'
