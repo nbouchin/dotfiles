@@ -15,8 +15,8 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 echo -e "${BLUE}Copy${NC} zpreztorc located at ${RED}~/.zpreztorc${NC}."
-ln -fs $PWD/zpreztorc ~/.zpreztorc
-ln -fs $PWD/zshrc ~/.zshrc
-ln -fs $PWD/inputrc ~/.inputrc
-ln -fs $PWD/prompt_nbouchin_setup ~/.zprezto/modules/prompt/functions/prompt_nbouchin_setup
+ln -sf $PWD/zpreztorc ~/.zpreztorc
+ln -sf $PWD/zshrc ~/.zshrc
+ln -sf $PWD/inputrc ~/.inputrc
+ln -sf $PWD/prompt_nbouchin_setup ~/.zprezto/modules/prompt/functions/prompt_nbouchin_setup
 echo -e "${GREEN}Installation${NC} done."

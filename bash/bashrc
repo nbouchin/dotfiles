@@ -4,6 +4,8 @@ set -o emacs
 
 UNAME=$(uname)
 
+xset b off
+
 if [[ $UNAME == "Darwin" ]]; then
 	export PATH=~/.brew/bin:$PATH
 	alias ls='ls -G' 
@@ -19,9 +21,9 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-if command -v tmux>/dev/null; then
-	[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
-fi
+#if command -v tmux>/dev/null; then
+#	[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+#fi
 
 #bind -m vi-insert "\C-l":clear-screen
 

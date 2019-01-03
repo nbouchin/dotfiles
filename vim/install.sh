@@ -36,6 +36,7 @@ git clone https://github.com/prabirshrestha/vim-lsp.git --recursive $PLUG_START_
 git clone https://github.com/prabirshrestha/async.vim.git --recursive $PLUG_START_PATH/async.vim
 git clone https://github.com/mhinz/vim-signify.git --recursive $PLUG_START_PATH/vim-signify
 git clone https://github.com/kshenoy/vim-signature.git --recursive $PLUG_START_PATH/vim-signature
+git clone https://github.com/rust-lang/rust.vim $PLUG_START_PATH/rust.vim
 
 echo -e "${BLUE}Copy${NC} vimrc located at ${RED}~/.vimrc${NC}."
 ln -fs $PWD/vimrc ~/.vimrc

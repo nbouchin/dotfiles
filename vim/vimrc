@@ -44,7 +44,7 @@ let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 let g:ycm_show_diagnostics_ui = 0
 let g:airline#extensions#tabline#enabled = 2
-let g:syntastic_c_include_dirs=['/usr/src/kernel-4.20.0/include']
+"let g:syntastic_c_include_dirs=['/usr/src/kernel-4.20.0/include']
 
 " Pmenu dropdown completion colors
 hi Pmenu term=NONE cterm=NONE ctermbg=234 ctermfg=250 guibg=#1c1c1c guifg=#bcbcbc
