@@ -47,4 +47,4 @@ ln -fs $PWD/clang-format ~/.clang-format
 ln -fs $PWD/gvimrc ~/.gvimrc
 ln -fs $PWD/gtk.css ~/.config/gtk-3.0/gtk.css
 
-python3 ~/.vim/pack/my-plugins/start/YouCompleteMe/install.py --clang-complete
+#python3 ~/.vim/pack/my-plugins/start/YouCompleteMe/install.py --clang-complete

@@ -57,8 +57,9 @@ let g:ctrlp_cmd = 'CtrlP'
 
 map <C-C> :nohlsearch<CR>
 
-noremap gd :YcmCompleter GoTo<CR>
-map <leader>f :YcmCompleter FixIt<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> R :call LanguageClient#textDocument_rename()<CR>
 "Esc remaping.
 inoremap kj <esc>
 " Hide coloration of found words
