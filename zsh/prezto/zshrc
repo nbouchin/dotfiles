@@ -30,9 +30,9 @@ if [[ $USER != "root" ]]; then
 		alias open='xdg-open'
 	fi
 
-	if command -v tmux>/dev/null; then
-		[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
-	fi
+#	if command -v tmux>/dev/null; then
+#		[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+#	fi
 fi
 
 # colored man
