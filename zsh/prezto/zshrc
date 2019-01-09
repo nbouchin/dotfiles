@@ -22,8 +22,14 @@ if [[ $USER != "root" ]]; then
 		export PATH=~/.brew/opt/fzf/bin:$PATH
 		export PATH=~/.brew/bin:$PATH
 	else
-		[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
-		xset b off
+		#[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
+		#xset b off
+		if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+			export XKB_DEFAULT_LAYOUT=us,fr
+			export XKB_DEFAULT_OPTIONS=grp:win_space_toggle
+			xss-lock -- xsecurelock &
+			exec sway
+		fi
 		export PATH=/usr/lib/llvm-7.0/bin:$PATH
 		alias ls='ls --color'
 		# copy/paste
@@ -31,8 +37,8 @@ if [[ $USER != "root" ]]; then
 	fi
 
 #	if command -v tmux>/dev/null; then
-#		[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
-#	fi
+	#		[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+	#	fi
 fi
 
 # colored man
@@ -44,7 +50,7 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
-export TERM=xterm-256color
+	export TERM=xterm-256color
 
 # ls aliases
 alias ll='ls -l'
