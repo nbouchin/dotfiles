@@ -3,7 +3,7 @@
 PLUG_START_PATH="$HOME/.vim/pack/my-plugins/start"
 PLUG_OPT_PATH="$HOME/.vim/pack/my-plugins/opt"
 
-cp -v ~/.vimrc ~/oldvim
+cp -v ~/.vimrc ~/vimrc.bak
 mkdir -pv ~/.vim/undodir
 mkdir -pv ~/.vim/swapdir
 mkdir -pv ~/.vim/pack/my-plugins/{opt,start}
