@@ -208,9 +208,9 @@ endfunction
 
 autocmd CompleteDone * call CompleteSnippet()
 
-imap <silent><expr> <tab> pumvisible() ? "\<c-y>" : "\<tab>"
+imap <silent><expr> <c-space> pumvisible() ? "\<c-y>" : "\<c-space>"
 
 let g:UltiSnipsExpandTrigger="<NUL>"
-let g:UltiSnipsListSnippets="<NUL>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+ret g:UltiSnipsListSnippets="<NUL>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
