@@ -27,7 +27,6 @@ if [[ $USER != "root" ]]; then
 		if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 			export XKB_DEFAULT_LAYOUT=us,fr
 			export XKB_DEFAULT_OPTIONS=grp:win_space_toggle
-			xss-lock -- xsecurelock &
 			exec sway
 		fi
 		export PATH=/usr/lib/llvm-7.0/bin:$PATH
@@ -50,7 +49,7 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
-	export TERM=xterm-256color
+export TERM=xterm-256color
 
 # ls aliases
 alias ll='ls -l'
