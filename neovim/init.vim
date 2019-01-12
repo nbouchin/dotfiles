@@ -16,9 +16,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'pbondoer/vim-42header'
 " nvim language client
 Plug 'autozimu/LanguageClient-neovim', {
-	    \ 'branch': 'next',
-	    \ 'do': 'bash install.sh',
-	    \ }
+			\ 'branch': 'next',
+			\ 'do': 'bash install.sh',
+			\ }
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf'
 " Multi plugin completion manager
@@ -122,13 +122,13 @@ let g:ale_lint_on_enter = 0
 let g:deoplete#enable_at_startup = 1
 let g:uname = system("uname")
 if g:uname == "Darwin\n"
-    let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+	let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 elseif g:uname == "Linux\n"
-    let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-7/lib/libclang.so'
+	let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-7/lib/libclang.so'
 endif
 let g:deoplete#sources#clang#flags=[
-	    \ '-Wall -Wextra -Werror -g'
-	    \]
+			\ '-Wall -Wextra -Werror -g'
+			\]
 call deoplete#custom#option('max_list', 10)
 call deoplete#custom#option('smart_case', v:true)
 "remove deoplete preview popup
@@ -136,14 +136,14 @@ set completeopt-=preview
 
 " For conceal markers.
 if has('conceal')
-    set conceallevel=2 concealcursor=niv
+	set conceallevel=2 concealcursor=niv
 endif
 
 let g:LanguageClient_serverCommands = {
-	    \    'cpp': ['clangd'],
-	    \    'c': ['clangd'],
-	    \    'rust': ['rls']
-	    \}
+			\    'cpp': ['clangd'],
+			\    'c': ['clangd'],
+			\    'rust': ['rls']
+			\}
 
 let g:ale_fixers = {'c': ['clang-format']}
 
@@ -179,41 +179,38 @@ tmap <localleader>' <c-\><c-n>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+" LSP autogeneration snippet fix, just use tab to expand anything
+let g:ulti_expand_res = 0 "default value, just set once
+function! CompleteSnippet()
+  if empty(v:completed_item)
+    return
+  endif
 
-" Shitty fix for LSP snippets auto generation
-function! ExpandLspSnippet()
-    call UltiSnips#ExpandSnippetOrJump()
-    if !pumvisible() || empty(v:completed_item)
-	return ''
-    endif
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res > 0
+    return
+  endif
+  
+  let l:complete = type(v:completed_item) == v:t_dict ? v:completed_item.word : v:completed_item
+  let l:comp_len = len(l:complete)
 
-    " only expand Lsp if UltiSnips#ExpandSnippetOrJump not effect.
-    let l:value = v:completed_item['word']
-    let l:matched = len(l:value)
-    if l:matched <= 0
-	return ''
-    endif
+  let l:cur_col = mode() == 'i' ? col('.') - 2 : col('.') - 1
+  let l:cur_line = getline('.')
 
-    " remove inserted chars before expand snippet
-    if col('.') == col('$')
-	let l:matched -= 1
-	exec 'normal! ' . l:matched . 'Xx'
-    else
-	exec 'normal! ' . l:matched . 'X'
-    endif
+  let l:start = l:comp_len <= l:cur_col ? l:cur_line[:l:cur_col - l:comp_len] : ''
+  let l:end = l:cur_col < len(l:cur_line) ? l:cur_line[l:cur_col + 1 :] : ''
 
-    if col('.') == col('$') - 1
-	" move to $ if at the end of line.
-	call cursor(line('.'), col('$'))
-    endif
+  call setline('.', l:start . l:end)
+  call cursor('.', l:cur_col - l:comp_len + 2)
 
-    " expand snippet now.
-    call UltiSnips#Anon(l:value)
-    return ''
+  call UltiSnips#Anon(l:complete)
 endfunction
 
-imap <C-k> <C-R>=ExpandLspSnippet()<CR>
+autocmd CompleteDone * call CompleteSnippet()
+
+imap <silent><expr> <tab> pumvisible() ? "\<c-y>" : "\<tab>"
+
+let g:UltiSnipsExpandTrigger="<NUL>"
+let g:UltiSnipsListSnippets="<NUL>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
