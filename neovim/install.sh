@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 UNAME=$(uname)
 
 mkdir -pv ~/.config/nvim/undodir
