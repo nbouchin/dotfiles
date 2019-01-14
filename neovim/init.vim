@@ -57,7 +57,8 @@ Plug 'tpope/vim-surround'
 call plug#end()
 " GENERAL CONFIGURATION
 "Set custom tab width according to language
-"autocmd FileType c,cpp,tpp,hpp,asm,s,as,php,html set ts=4 sw=4
+set sw=2 ts=2 softtabstop=2
+autocmd FileType c,cpp,tpp,hpp,asm,s,as,php,html set ts=8 sw=8 softtabstop=8
 "autocmd FileType c UltiSnipsAddFiletypes c-libft
 autocmd FileType cpp,hpp,tpp UltiSnipsAddFiletypes cpp-personal
 
@@ -82,8 +83,6 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set shiftwidth=8
-set softtabstop=8
 set noexpandtab
 set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
@@ -102,12 +101,6 @@ set list
 
 " Pmenu dropdown completion colors
 hi Pmenu term=NONE cterm=NONE ctermbg=234 ctermfg=250 guibg=#1c1c1c guifg=#bcbcbc
-
-"augroup remember_folds
-"    autocmd!
-"    autocmd BufWinLeave * mkview
-"    autocmd BufWinEnter * silent! loadview
-"augroup END
 
 "PLUGIN CONFIGRATION
 
@@ -182,28 +175,28 @@ let g:ctrlp_cmd = 'CtrlP'
 " LSP autogeneration snippet fix, just use tab to expand anything
 let g:ulti_expand_res = 0 "default value, just set once
 function! CompleteSnippet()
-  if empty(v:completed_item)
-    return
-  endif
+	if empty(v:completed_item)
+		return
+	endif
 
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res > 0
-    return
-  endif
-  
-  let l:complete = type(v:completed_item) == v:t_dict ? v:completed_item.word : v:completed_item
-  let l:comp_len = len(l:complete)
+	call UltiSnips#ExpandSnippet()
+	if g:ulti_expand_res > 0
+		return
+	endif
 
-  let l:cur_col = mode() == 'i' ? col('.') - 2 : col('.') - 1
-  let l:cur_line = getline('.')
+	let l:complete = type(v:completed_item) == v:t_dict ? v:completed_item.word : v:completed_item
+	let l:comp_len = len(l:complete)
 
-  let l:start = l:comp_len <= l:cur_col ? l:cur_line[:l:cur_col - l:comp_len] : ''
-  let l:end = l:cur_col < len(l:cur_line) ? l:cur_line[l:cur_col + 1 :] : ''
+	let l:cur_col = mode() == 'i' ? col('.') - 2 : col('.') - 1
+	let l:cur_line = getline('.')
 
-  call setline('.', l:start . l:end)
-  call cursor('.', l:cur_col - l:comp_len + 2)
+	let l:start = l:comp_len <= l:cur_col ? l:cur_line[:l:cur_col - l:comp_len] : ''
+	let l:end = l:cur_col < len(l:cur_line) ? l:cur_line[l:cur_col + 1 :] : ''
 
-  call UltiSnips#Anon(l:complete)
+	call setline('.', l:start . l:end)
+	call cursor('.', l:cur_col - l:comp_len + 2)
+
+	call UltiSnips#Anon(l:complete)
 endfunction
 
 autocmd CompleteDone * call CompleteSnippet()
