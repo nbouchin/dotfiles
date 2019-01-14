@@ -8,22 +8,22 @@ ZSH_AUTOSUGGEST_USE_ASYNC=true
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # powerlevel config
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode context dir rbenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs root_indicator background_jobs history)
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_SHORTEN_DELIMITER=""
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode context dir rbenv)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs root_indicator background_jobs history)
+#POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+#POWERLEVEL9K_SHORTEN_DELIMITER=""
+#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
 # bind k and j for VI mode
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+#bindkey -M vicmd 'k' history-substring-search-up
+#bindkey -M vicmd 'j' history-substring-search-down
 # Path to your oh-my-zsh installation.
   export ZSH=/home/nbouchin/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -74,10 +74,10 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# vi-mode
 plugins=(
   git
   suse
-  vi-mode
   tmux
   command-not-found
   pip
@@ -123,10 +123,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim=nvim
-alias vi=nvim
+#alias vim=nvim
+#alias vi=nvim
 alias ssh="TERM=xterm ssh"
 
 # Bind kj key for esc 
 #bindkey -s kj '\e' 
-bindkey kj vi-cmd-mode
+#bindkey kj vi-cmd-mode
