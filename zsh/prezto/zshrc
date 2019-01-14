@@ -22,13 +22,17 @@ if [[ $USER != "root" ]]; then
 		export PATH=~/.brew/opt/fzf/bin:$PATH
 		export PATH=~/.brew/bin:$PATH
 	else
-		#[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
-		#xset b off
-		if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-			export XKB_DEFAULT_LAYOUT=us,fr
-			export XKB_DEFAULT_OPTIONS=grp:win_space_toggle
-			exec sway
-		fi
+		# launch the default xorg window manager
+		[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
+		xset b off
+
+		# use this for a i3 with wayland alternative
+		#if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+		#	export XKB_DEFAULT_LAYOUT=us
+		#	export XKB_DEFAULT_VARIANT=altgr-intl
+		#	export XKB_DEFAULT_OPTIONS=grp:win_space_toggle
+		#	exec sway
+		#fi
 		export PATH=/usr/lib/llvm-7.0/bin:$PATH
 		alias ls='ls --color'
 		# copy/paste
