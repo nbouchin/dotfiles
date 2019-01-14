@@ -23,7 +23,7 @@ ZSH_AUTOSUGGEST_USE_ASYNC=true
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="fishy"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -91,6 +91,7 @@ plugins=(
   completion
   extract
   history-substring-search
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
