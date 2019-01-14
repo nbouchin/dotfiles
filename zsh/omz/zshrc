@@ -18,7 +18,7 @@ ZSH_AUTOSUGGEST_USE_ASYNC=true
 #bindkey -M vicmd 'k' history-substring-search-up
 #bindkey -M vicmd 'j' history-substring-search-down
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/nbouchin/.oh-my-zsh
+  export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
