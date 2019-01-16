@@ -14,11 +14,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " 42 header everywhere.
 Plug 'pbondoer/vim-42header'
-" nvim language client
-Plug 'autozimu/LanguageClient-neovim', {
-			\ 'branch': 'next',
-			\ 'do': 'bash install.sh',
-			\ }
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf'
 " Multi plugin completion manager
@@ -132,23 +127,13 @@ if has('conceal')
 	set conceallevel=2 concealcursor=niv
 endif
 
-let g:LanguageClient_serverCommands = {
-			\    'cpp': ['clangd'],
-			\    'c': ['clangd'],
-			\    'rust': ['rls']
-			\}
-
 let g:ale_fixers = {'c': ['clang-format']}
 
 "MACRO DEFINITION
 "Esc remaping.
 inoremap kj <esc>
 " Fix ALEGoToDefinitionInTab
-"nmap gd :ALEGoToDefinitionInTab<CR>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> R :call LanguageClient#textDocument_rename()<CR>
-" Hide coloration of found words
+nmap gd :ALEGoToDefinitionInTab<CR>
 map <C-C> :nohlsearch<CR>
 " easymotion double char trigger
 nmap <leader>s <Plug>(easymotion-overwin-f2)
