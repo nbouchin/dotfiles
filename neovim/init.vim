@@ -52,10 +52,14 @@ Plug 'tpope/vim-surround'
 call plug#end()
 " GENERAL CONFIGURATION
 "Set custom tab width according to language
-set sw=2 ts=2 softtabstop=2
-autocmd FileType c,cpp,tpp,hpp,asm,s,as,php,html set ts=8 sw=8 softtabstop=8
-"autocmd FileType c UltiSnipsAddFiletypes c-libft
-autocmd FileType cpp,hpp,tpp UltiSnipsAddFiletypes cpp-personal
+set shiftwidth=2 tabstop=2 softtabstop=2
+augroup padding
+	autocmd FileType c,cpp,tpp,hpp,asm,s,as,php,html set tabstop=8 set shiftwidth=8 set softtabstop=8
+augroup END
+
+augroup snippet
+	autocmd FileType cpp,hpp,tpp UltiSnipsAddFiletypes cpp-personal
+augroup END
 
 " General config.
 colorscheme rdark-terminal2
@@ -63,9 +67,9 @@ syn on
 set wrap
 set smartindent
 set expandtab
-set noeb vb t_vb=
+set noerrorbells vb t_vb=
 set guioptions-=aegimrLtT
-set nu
+set number
 set mouse=a
 set smarttab
 set modeline
@@ -88,7 +92,7 @@ set undofile
 set undodir=$HOME/.config/nvim/undodir
 set undolevels=1000
 set undoreload=10000
-let mapleader=";"
+let mapleader=';'
 let localleader="\\"
 hi SpecialKey ctermfg=235
 set listchars=tab:\\.,trail:.,eol:$,space:.
@@ -103,15 +107,15 @@ hi Pmenu term=NONE cterm=NONE ctermbg=234 ctermfg=250 guibg=#1c1c1c guifg=#bcbcb
 let g:airline#extensions#tabline#enabled = 2
 
 " Vim ale config
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_enter = 0
 
 "Vim deoplete config
 let g:deoplete#enable_at_startup = 1
-let g:uname = system("uname")
-if g:uname == "Darwin\n"
+let g:uname = system('uname')
+if g:uname ==# "Darwin\n"
 	let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
-elseif g:uname == "Linux\n"
+elseif g:uname ==# "Linux\n"
 	let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-7/lib/libclang.so'
 endif
 let g:deoplete#sources#clang#flags=[
@@ -156,39 +160,3 @@ tmap <localleader>' <c-\><c-n>
 " Ctrlp fuzzy finder
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-
-" LSP autogeneration snippet fix, just use tab to expand anything
-let g:ulti_expand_res = 0 "default value, just set once
-function! CompleteSnippet()
-	if empty(v:completed_item)
-		return
-	endif
-
-	call UltiSnips#ExpandSnippet()
-	if g:ulti_expand_res > 0
-		return
-	endif
-
-	let l:complete = type(v:completed_item) == v:t_dict ? v:completed_item.word : v:completed_item
-	let l:comp_len = len(l:complete)
-
-	let l:cur_col = mode() == 'i' ? col('.') - 2 : col('.') - 1
-	let l:cur_line = getline('.')
-
-	let l:start = l:comp_len <= l:cur_col ? l:cur_line[:l:cur_col - l:comp_len] : ''
-	let l:end = l:cur_col < len(l:cur_line) ? l:cur_line[l:cur_col + 1 :] : ''
-
-	call setline('.', l:start . l:end)
-	call cursor('.', l:cur_col - l:comp_len + 2)
-
-	call UltiSnips#Anon(l:complete)
-endfunction
-
-autocmd CompleteDone * call CompleteSnippet()
-
-imap <silent><expr> <c-space> pumvisible() ? "\<c-y>" : "\<c-space>"
-
-let g:UltiSnipsExpandTrigger="<NUL>"
-ret g:UltiSnipsListSnippets="<NUL>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
