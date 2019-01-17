@@ -97,3 +97,4 @@ bindkey '^R' history-incremental-search-backward
 bindkey -M viins "kj" vi-cmd-mode
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=~/bin:$PATH
+export PATH=~/bin:$PATH

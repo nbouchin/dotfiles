@@ -54,7 +54,7 @@ call plug#end()
 "Set custom tab width according to language
 set shiftwidth=2 tabstop=2 softtabstop=2
 augroup padding
-	autocmd FileType c,cpp,tpp,hpp,asm,s,as,php,html set tabstop=8 set shiftwidth=8 set softtabstop=8
+	autocmd FileType c,cpp,tpp,hpp,asm,s,as,php,html setlocal shiftwidth=8 tabstop=8 softtabstop=8
 augroup END
 
 augroup snippet
@@ -132,6 +132,12 @@ if has('conceal')
 endif
 
 let g:ale_fixers = {'c': ['clang-format']}
+let g:ale_linters = {
+  \   'python': ['flake8', 'mypy', 'pylint', 'pyls'],
+  \   'rust': ['cargo', 'rls'],
+	\		'cpp': ['clangd', 'clangtidy'],
+	\		'c': ['clangd', 'clangtidy'],
+	\}
 
 "MACRO DEFINITION
 "Esc remaping.
