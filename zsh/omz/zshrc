@@ -74,12 +74,11 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# vi-mode
+#tmux
 plugins=(
   git
-  suse
-  tmux
   command-not-found
+	vi-mode
   pip
   docker
   common-aliases
@@ -141,3 +140,5 @@ export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
 export TERM=xterm-256color
+
+export PATH=~/.brew/bin:$PATH
