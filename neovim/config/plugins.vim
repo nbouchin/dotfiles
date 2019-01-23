@@ -26,7 +26,7 @@ Plug 'honza/vim-snippets'
 " Include completion
 Plug 'Shougo/neoinclude.vim'
 " Ale linter, lint pretty everything
-"Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 " Deoplete integration with jedi for python
 Plug 'zchee/deoplete-jedi'
 " Multiple coloschemes collection
@@ -47,8 +47,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'ctrlpvim/ctrlp.vim'
 " vim surround
 Plug 'tpope/vim-surround'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+"Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
 call plug#end()
