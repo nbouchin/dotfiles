@@ -6,8 +6,9 @@ if g:uname ==# "Darwin\n"
 elseif g:uname ==# "Linux\n"
 	let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-7/lib/libclang.so'
 endif
+" \ '-Wall -Wextra -Werror -L ~/.brew/lib -I ~/.brew/include -lgtest -std=c++11'
 let g:deoplete#sources#clang#flags=[
-			\ '-Wall -Wextra -Werror -g'
+			\ '-Wall -Wextra -Werror'
 			\]
 call deoplete#custom#option('max_list', 10)
 call deoplete#custom#option('smart_case', v:true)

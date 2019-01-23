@@ -26,7 +26,7 @@ Plug 'honza/vim-snippets'
 " Include completion
 Plug 'Shougo/neoinclude.vim'
 " Ale linter, lint pretty everything
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 " Deoplete integration with jedi for python
 Plug 'zchee/deoplete-jedi'
 " Multiple coloschemes collection
