@@ -9,7 +9,9 @@ augroup snippet
 augroup END
 
 " General config.
-colorscheme rdark-terminal2
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
+"colorscheme rdark-terminal2
 syn on
 set wrap
 set smartindent
@@ -41,12 +43,17 @@ set undolevels=1000
 set undoreload=10000
 let mapleader=';'
 let localleader="\\"
-hi SpecialKey ctermfg=235
+"hi SpecialKey ctermfg=235
 set listchars=tab:\\.,trail:.,eol:$,space:.
 set list
 
 " Pmenu dropdown completion colors
 hi Pmenu term=NONE cterm=NONE ctermbg=234 ctermfg=250 guibg=#1c1c1c guifg=#bcbcbc
+"hi CursorLine ctermbg=234
+set cursorline
+hi ALEError ctermfg=160
+"hi ALEWarning
+"hi ALEInfo
 
 " Vim airline config
 let g:airline#extensions#tabline#enabled = 2
