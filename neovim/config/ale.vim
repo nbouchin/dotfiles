@@ -10,4 +10,4 @@ let g:ale_linters = {
 			\}
 
 let g:ale_c_clang_options='-Wall -Wextra -Werror'
-let g:ale_cpp_clang_options='-Wall -Wextra -Werror'
+let g:ale_cpp_clang_options='-Wall -Wextra -Werror -std=c++14'
