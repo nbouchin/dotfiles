@@ -57,3 +57,10 @@ hi ALEError ctermfg=160
 
 " Vim airline config
 let g:airline#extensions#tabline#enabled = 2
+
+inoremap kj <esc>
+nmap <leader>n :bn<CR>
+nmap <leader>p :bp<CR>
+map <C-C> :nohlsearch<CR>
+nmap <localleader>t :vsp term://zsh<CR>
+tmap <localleader>' <c-\><c-n>

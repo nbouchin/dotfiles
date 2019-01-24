@@ -5,9 +5,11 @@ let g:ale_fixers = {'c': ['clang-format']}
 let g:ale_linters = {
 			\   'python': ['flake8', 'mypy', 'pylint', 'pyls'],
 			\   'rust': ['cargo', 'rls'],
-			\		'cpp': ['clang', 'clangd', 'clangtidy'],
-			\		'c': ['clang', 'clangd', 'clangtidy'],
+			\		'cpp': ['clangd', 'clang', 'clangtidy'],
+			\		'c': ['clangd', 'clang', 'clangtidy'],
 			\}
 
 let g:ale_c_clang_options='-Wall -Wextra -Werror'
 let g:ale_cpp_clang_options='-Wall -Wextra -Werror -std=c++14'
+
+nmap <leader>gd :ALEGoToDefinitionInVSplit<CR>
