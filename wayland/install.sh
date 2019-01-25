@@ -1,4 +1,3 @@
 #!/bin/bash
 
-cp -v ~/.Xdefaults ~/Xdefaults.bak
-ln -fsv ../xterm/Xresources ~/.Xdefaults
+ln -ifsv ../xterm/Xresources ~/.Xdefaults
