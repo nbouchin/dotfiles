@@ -3,7 +3,6 @@
 PLUG_START_PATH="$HOME/.vim/pack/my-plugins/start"
 PLUG_OPT_PATH="$HOME/.vim/pack/my-plugins/opt"
 
-cp -v ~/.vimrc ~/vimrc.bak
 mkdir -pv ~/.vim/undodir
 mkdir -pv ~/.vim/swapdir
 mkdir -pv ~/.vim/pack/my-plugins/{opt,start}
@@ -29,12 +28,12 @@ git clone https://github.com/mhinz/vim-signify.git --recursive $PLUG_START_PATH/
 git clone https://github.com/kshenoy/vim-signature.git --recursive $PLUG_START_PATH/vim-signature
 git clone https://github.com/rust-lang/rust.vim $PLUG_START_PATH/rust.vim
 
-ln -fsv $PWD/vimrc ~/.vimrc
-ln -fsv $PWD/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
-ln -fsv $PWD/c-libft.snippets $PLUG_START_PATH/vim-snippets/UltiSnips/c-libft.snippets
-ln -fsv $PWD/cpp-personal.snippets $PLUG_START_PATH/vim-snippets/UltiSnips/cpp-personal.snippets
-ln -fsv $PWD/clang-format ~/.clang-format
-ln -fsv $PWD/gvimrc ~/.gvimrc
-ln -fsv $PWD/gtk.css ~/.config/gtk-3.0/gtk.css
+ln -ifsv $PWD/vimrc ~/.vimrc
+ln -ifsv $PWD/ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
+ln -ifsv $PWD/c-libft.snippets $PLUG_START_PATH/vim-snippets/UltiSnips/c-libft.snippets
+ln -ifsv $PWD/cpp-personal.snippets $PLUG_START_PATH/vim-snippets/UltiSnips/cpp-personal.snippets
+ln -ifsv $PWD/clang-format ~/.clang-format
+ln -ifsv $PWD/gvimrc ~/.gvimrc
+ln -ifsv $PWD/gtk.css ~/.config/gtk-3.0/gtk.css
 
 python3 ~/.vim/pack/my-plugins/start/YouCompleteMe/install.py --clang-complete

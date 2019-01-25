@@ -12,4 +12,7 @@ let g:ale_linters = {
 let g:ale_c_clang_options='-Wall -Wextra -Werror'
 let g:ale_cpp_clang_options='-Wall -Wextra -Werror -std=c++14'
 
-nmap <leader>gd :ALEGoToDefinitionInVSplit<CR>
+nmap <leader>ag :ALEGoToDefinitionInVSplit<CR>
+nmap <leader>at :ALEToggle<CR>
+nmap <leader>af :ALEFix<CR>
+nmap <leader>ah :ALEHover<CR>
