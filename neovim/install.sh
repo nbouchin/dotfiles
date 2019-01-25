@@ -27,5 +27,7 @@ if [[ $UNAME == "Darwin" && ! -f $HOME/bin/clangd ]]; then
 	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clang-tidy ~/bin
 	rm -rfv clang+llvm-7.0.0-x86_64-apple-darwin
 	rm -rfv clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
-	echo 'export PATH=~/bin:$PATH' >> ~/.zshrc
+	if [[ ! $(grep 'PATH=~/bin:$PATH' ~/.zshrc) ]]; then
+		echo 'export PATH=~/bin:$PATH' >> ~/.zshrc
+	fi
 fi
