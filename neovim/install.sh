@@ -22,9 +22,9 @@ if [[ $UNAME == "Darwin" && ! -f $HOME/bin/clangd ]]; then
 	curl -O https://releases.llvm.org/7.0.0/clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
 	tar -vxf clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
 	mkdir -p ~/bin;
-	mv clang+llvm-7.0.0-x86_64-apple-darwin/bin/clangd ~/bin
-	mv clang+llvm-7.0.0-x86_64-apple-darwin/bin/clang-format ~/bin
-	mv clang+llvm-7.0.0-x86_64-apple-darwin/bin/clang-tidy ~/bin
+	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clangd ~/bin
+	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clang-format ~/bin
+	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clang-tidy ~/bin
 	rm -rfv clang+llvm-7.0.0-x86_64-apple-darwin
 	rm -rfv clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
 	echo 'export PATH=~/bin:$PATH' >> ~/.zshrc
