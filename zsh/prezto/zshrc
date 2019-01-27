@@ -1,10 +1,3 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
 autoload -U compinit
 compinit
 
@@ -22,6 +15,9 @@ if [[ $USER != "root" ]]; then
 		alias ls='ls -G' 
 		export PATH=~/.brew/opt/fzf/bin:$PATH
 		export PATH=~/.brew/bin:$PATH
+		precmd() {
+
+		}
 	else
 		# launch the default xorg window manager
 		[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
@@ -93,10 +89,7 @@ bindkey -M vicmd "//" history-beginning-search-forward
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
-bindkey -M viins "kj" vi-cmd-mode
+#bindkey -M viins "kj" vi-cmd-mode
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-precmd() {
-
-}
 export PATH=~/bin:$PATH

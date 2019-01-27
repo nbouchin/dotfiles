@@ -9,9 +9,9 @@ augroup snippet
 augroup END
 
 " General config.
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
-"colorscheme rdark-terminal2
+"colorscheme gruvbox
+"let g:airline_theme='gruvbox'
+colorscheme rdark-terminal2
 syn on
 set wrap
 set smartindent
