@@ -5,3 +5,4 @@ source $HOME/.config/nvim/config/ale.vim
 source $HOME/.config/nvim/config/ctrlp.vim
 source $HOME/.config/nvim/config/nerdtree.vim
 source $HOME/.config/nvim/config/fugitive.vim
+source $HOME/.config/nvim/config/autopairs.vim
