@@ -41,8 +41,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'dbgx/lldb.nvim', {'do': ':UpdateRemotePlugins'}
 " nvim-checkhealth
 Plug 'tweekmonster/nvim-checkhealth'
-" vim autopair
-Plug 'jiangmiao/auto-pairs'
 " vim ctrlp fuzzy finder
 Plug 'ctrlpvim/ctrlp.vim'
 " vim surround
