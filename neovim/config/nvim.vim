@@ -46,6 +46,7 @@ let localleader="\\"
 "hi SpecialKey ctermfg=235
 set listchars=tab:\\.,trail:.,eol:$,space:.
 set list
+let g:loaded_matchparen=1
 
 " Pmenu dropdown completion colors
 hi Pmenu term=NONE cterm=NONE ctermbg=234 ctermfg=250 guibg=#1c1c1c guifg=#bcbcbc

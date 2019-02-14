@@ -37,8 +37,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'kshenoy/vim-signature'
 " Git integration for nvim
 Plug 'tpope/vim-fugitive'
-" lldb-nvim
-Plug 'dbgx/lldb.nvim', {'do': ':UpdateRemotePlugins'}
 " nvim-checkhealth
 Plug 'tweekmonster/nvim-checkhealth'
 " vim ctrlp fuzzy finder
