@@ -43,4 +43,5 @@ Plug 'tweekmonster/nvim-checkhealth'
 Plug 'ctrlpvim/ctrlp.vim'
 " vim surround
 Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
 call plug#end()
