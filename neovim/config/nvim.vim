@@ -1,7 +1,7 @@
-set shiftwidth=2 tabstop=2 softtabstop=2
+set shiftwidth=4 tabstop=4 softtabstop=4
 
 augroup padding
-	autocmd FileType c,cpp,tpp,hpp,asm,s,as,php,html setlocal shiftwidth=8 tabstop=8 softtabstop=8
+	autocmd FileType c,h setlocal shiftwidth=8 tabstop=8 softtabstop=8
 augroup END
 
 augroup snippet
