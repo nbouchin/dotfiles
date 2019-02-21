@@ -1,1 +1,1 @@
-nmap <leader>g :Gstatus<CR>
+nmap <leader>fg :Gstatus<CR>

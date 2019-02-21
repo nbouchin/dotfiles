@@ -50,7 +50,7 @@ let g:loaded_matchparen=1
 
 " Pmenu dropdown completion colors
 hi Pmenu term=NONE cterm=NONE ctermbg=234 ctermfg=250 guibg=#1c1c1c guifg=#bcbcbc
-"hi CursorLine ctermbg=234
+hi CursorLine ctermbg=234
 set cursorline
 hi ALEError ctermfg=160
 "hi ALEWarning
