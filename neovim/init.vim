@@ -7,3 +7,4 @@ source $HOME/.config/nvim/config/nerdtree.vim
 source $HOME/.config/nvim/config/fugitive.vim
 source $HOME/.config/nvim/config/easymotion.vim
 source $HOME/.config/nvim/config/tagbar.vim
+source $HOME/.config/nvim/config/signify.vim
