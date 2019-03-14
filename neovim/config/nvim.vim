@@ -17,7 +17,6 @@ set wrap
 set smartindent
 set expandtab
 set noerrorbells vb t_vb=
-set guioptions-=aegimrLtT
 set number
 set mouse=a
 set smarttab
