@@ -44,7 +44,7 @@ let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 let g:ycm_show_diagnostics_ui = 0
 let g:airline#extensions#tabline#enabled = 2
-"let g:syntastic_c_include_dirs=['/usr/src/kernel-4.20.0/include']
+let g:syntastic_c_include_dirs=['/usr/src/kernel-4.20.0/include']
 
 " Pmenu dropdown completion colors
 hi Pmenu term=NONE cterm=NONE ctermbg=234 ctermfg=250 guibg=#1c1c1c guifg=#bcbcbc
@@ -57,14 +57,13 @@ let g:ctrlp_cmd = 'CtrlP'
 
 map <C-C> :nohlsearch<CR>
 
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> R :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> gd :LspDeclaration<CR>
+
 "Esc remaping.
 inoremap kj <esc>
 " Hide coloration of found words
 " easymotion double char trigger
-nmap <leader>s <Plug>(easymotion-overwin-f2)
+"nmap <leader>s <Plug>(easymotion-overwin-f2)
 " Buffer delete
 nmap <leader>d :bd<CR>
 " Buffer next
@@ -72,7 +71,7 @@ nmap <leader>n :bn<CR>
 " Buffer prev nmap <leader>p :bp<CR>
 nmap <leader>p :bp<CR>
 " Vim fugitive git integration
-nmap <leader>g :Gstatus<CR>
+"nmap <leader>g :Gstatus<CR>
 
 if executable('clangd')
     augroup lsp_clangd

@@ -1,17 +1,12 @@
 set shiftwidth=4 tabstop=4 softtabstop=4
 
-augroup padding
-	autocmd FileType c,h setlocal shiftwidth=8 tabstop=8 softtabstop=8
-augroup END
+autocmd FileType c,h setlocal shiftwidth=8 tabstop=8 softtabstop=8
 
-augroup snippet
-	autocmd FileType cpp,hpp,tpp UltiSnipsAddFiletypes cpp-personal
-augroup END
+autocmd FileType cpp,hpp,tpp UltiSnipsAddFiletypes cpp-personal
 
 " General config.
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
-"colorscheme rdark-terminal2
+" colorscheme gruvbox
+colorscheme rdark-terminal2
 syn on
 set wrap
 set smartindent
@@ -49,7 +44,7 @@ let g:loaded_matchparen=1
 
 " Pmenu dropdown completion colors
 hi Pmenu term=NONE cterm=NONE ctermbg=234 ctermfg=250 guibg=#1c1c1c guifg=#bcbcbc
-"hi CursorLine ctermbg=234
+hi CursorLine ctermbg=234
 set cursorline
 hi ALEError ctermfg=160
 "hi ALEWarning

@@ -1,5 +1,5 @@
 zstyle ':prezto:module:editor' key-bindings 'vi'
-zstyle ':prezto:module:prompt' theme 'nbouchin'
+zstyle ':prezto:module:prompt' theme 'skwp'
 zstyle ':prezto:module:syntax-highlighting' color 'yes'
 
 export TERM=tmux-256color
@@ -7,7 +7,6 @@ export TERM=tmux-256color
 export LESS="--RAW-CONTROL-CHARS"
 
 zstyle ':prezto:load' pmodule \
-	   'prompt' \
 	   'environment' \
 	   'terminal' \
 	   'command-not-found' \
@@ -21,3 +20,4 @@ zstyle ':prezto:load' pmodule \
 	   'docker' \
 	   'syntax-highlighting' \
 	   'history-substring-search' \
+	   'prompt' \

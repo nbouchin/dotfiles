@@ -78,10 +78,10 @@ local chosen_theme = themes[5]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "xterm"
-local editor       = os.getenv("EDITOR") or "vim"
-local gui_editor   = "vim"
+local editor       = os.getenv("EDITOR") or "nvim"
+local gui_editor   = "nvim"
 local browser      = "qutebrowser"
-local guieditor    = "vim"
+local guieditor    = "nvim"
 local scrlocker    = "xsecurelock"
 
 awful.util.terminal = terminal
