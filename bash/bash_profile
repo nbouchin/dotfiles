@@ -3,18 +3,10 @@
 #
 
 UNAME=$(uname)
-if [[ $UNAME == "Darwin" ]]; then
-    alias ls='ls -G' 
-    export PATH=~/bin:$PATH
-    export PATH=~/.brew/opt/fzf/bin:$PATH
-    export PATH=~/.brew/bin:$PATH
-else
     [[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
     export PATH=/usr/lib/llvm-7.0/bin:$PATH
     alias ls='ls --color'
     # copy/paste
     alias open='xdg-open'
-
-fi
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc

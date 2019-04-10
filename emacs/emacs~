@@ -26,7 +26,7 @@ There are two things you can do about this warning:
 	("3cd4f09a44fe31e6dd65af9eb1f10dc00d5c2f1db31a427713a1784d7db7fdfc" "0d456bc74e0ffa4bf5b69b0b54dac5104512c324199e96fc9f3a1db10dfa31f3" "59e82a683db7129c0142b4b5a35dbbeaf8e01a4b81588f8c163bd255b76f4d21" "04232a0bfc50eac64c12471607090ecac9d7fd2d79e388f8543d1c5439ed81f5" "1436d643b98844555d56c59c74004eb158dc85fc55d2e7205f8d9b8c860e177f" default)))
  '(package-selected-packages
    (quote
-	(evil-visual-mark-mode nyx-theme distinguished-theme dap-mode company-quickhelp company-rtags company-c-headers yasnippet-snippets yasnippet company company-lsp flycheck lsp-ui lsp-mode))))
+	(nyx distinguished-theme dap-mode company-quickhelp company-rtags company-c-headers yasnippet-snippets yasnippet company company-lsp flycheck lsp-ui lsp-mode))))
 
 ;; Install all packages.
 (defun my-install ()
@@ -54,8 +54,7 @@ There are two things you can do about this warning:
   (interactive)
   (load-file "~/.emacs"))
 
-(load-theme 'nyx)
-(evil-mode 1)
+(load-theme 'nyx-theme)
 
 (setq gdb-many-windows 1)
 (global-hl-line-mode 1)
