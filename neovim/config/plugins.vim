@@ -44,4 +44,5 @@ Plug 'ctrlpvim/ctrlp.vim'
 " vim surround
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
+Plug 'racer-rust/vim-racer'
 call plug#end()
