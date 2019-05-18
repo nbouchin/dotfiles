@@ -26,9 +26,8 @@ font pango:monospace 8
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
-
 # Use Mouse+$sup to drag floating windows to their wanted position
-floating_supifier $sup
+#floating_supifier $sup
 
 # start a terminal
 bindsym $sup+Return exec xterm

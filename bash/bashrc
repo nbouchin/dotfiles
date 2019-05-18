@@ -6,21 +6,12 @@ UNAME=$(uname)
 
 xset b off
 
-if [[ $UNAME == "Darwin" ]]; then
-	export PATH=~/.brew/bin:$PATH
-	alias ls='ls -G' 
-	alias norminette='/usr/bin/ruby /usr/bin/norminette'
-else
-	alias ls='ls --color'
-	shopt -s globstar
-	# copy/paste
-	alias pbcopy='xclip -selection clipboard'
-	alias pbpaste='xclip -selection clipboard -o'
-	alias open='xdg-open'
-fi
-
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+alias ls='ls --color'
+shopt -s globstar
+# copy/paste
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias open='xdg-open'
 
 if command -v tmux>/dev/null; then
 	[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
@@ -60,6 +51,7 @@ alias psftp='ps faux | grep ftp'
 alias esl='exec $SHELL -l'
 
 # emacs aliases
+alias emacs='emacs -nw'
 alias e='emacs -nw'
 alias em='emacs'
 alias ec='emacsclient -n'
