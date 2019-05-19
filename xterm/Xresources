@@ -1,7 +1,7 @@
 ! .Xresources
 
 ! Use a Powerline Font
-XTerm*faceName: DejaVu Sans Mono for Powerline:size=7
+XTerm*faceName: DejaVu Sans Mono for Powerline:size=9
 
 ! Selection
 !  - Select a complete word (include '/', '.', ',', ...)

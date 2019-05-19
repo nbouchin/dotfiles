@@ -82,7 +82,7 @@ local editor       = os.getenv("EDITOR") or "nvim"
 local gui_editor   = "nvim"
 local browser      = "qutebrowser"
 local guieditor    = "nvim"
-local scrlocker    = "xsecurelock"
+local scrlocker    = "i3lock -n -i /home/nbouchin/Documents/dotfiles/awesome/wall.png"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
