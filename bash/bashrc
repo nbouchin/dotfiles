@@ -4,10 +4,11 @@ set -o emacs
 
 UNAME=$(uname)
 
-xset b off
+#xset b off
 
-alias ls='ls --color'
-shopt -s globstar
+#alias ls='ls --color'
+alias ls='ls -G'
+#shopt -s globstar
 # copy/paste
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
@@ -23,7 +24,7 @@ fi
 
 # colored man
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
-xrdb -merge ~/.Xresources
+#xrdb -merge ~/.Xresources
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
 export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
 export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
@@ -33,7 +34,7 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
 export EDITOR="vim"
 export VISUAL="vim"
-export TERM=tmux-256color
+#export TERM=tmux-256color
 
 # ls aliases
 alias ll='ls -l'
@@ -58,13 +59,14 @@ alias em='emacs'
 alias ec='emacsclient -n'
 alias reconnect='nordvpn disconnect && nordvpn connect'
 
-NORMAL="\[\e[0m\]"
-RED="\[\e[1;31m\]"
-GREEN="\[\e[1;32m\]"
-
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
-
-unset RED GREEN NORMAL
+#NORMAL="\[\e[0m\]"
+#RED="\[\e[1;31m\]"
+#GREEN="\[\e[1;32m\]"
+#
+#parse_git_branch() {
+#     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+#}
+#export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+#
+#unset RED GREEN NORMAL
+export PATH="$HOME/.cargo/bin:$HOME/.brew/bin:$PATH"
