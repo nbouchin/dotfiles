@@ -1,23 +1,20 @@
 #!/bin/bash
 
-curl -sL install-node.now.sh/lts | sh
-# Optional install yarn if you want install extension by CocInstall command
-curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
-
 UNAME=$(uname)
 
 mkdir -pv ~/.config/nvim/undodir
 mkdir -pv ~/.config/nvim/plugged
 
 ln -isv $PWD/init.vim ~/.config/nvim/init.vim
-ln -isv $PWD/nvim.vim ~/.config/nvim/nvim.vim
-ln -isv $PWD/plugin.vim ~/.config/nvim/plugin.vim
+ln -isv $PWD/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -isv $PWD/coc.vim ~/.config/nvim/coc.vim
 ln -isv $PWD/ctrlp.vim ~/.config/nvim/ctrlp.vim
-ln -isv $PWD/coc-settings.json ~/.config/nvim/coc-settings.json
+ln -isv $PWD/nvim.vim ~/.config/nvim/nvim.vim
+ln -isv $PWD/plugin.vim ~/.config/nvim/plugin.vim
 
 pip3 install neovim --user
 pip3 install jedi --user
+
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
