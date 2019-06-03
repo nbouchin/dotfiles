@@ -21,16 +21,16 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 nvim +PlugInstall +qall
 nvim -c ":CocInstall coc-rls coc-highlight coc-emmet coc-snippets coc-lists coc-git coc-yank coc-vimlsp" -c ":+qa"
 
-#if [[ $UNAME == "Darwin" && ! -f $HOME/bin/clangd ]]; then
-#	curl -O https://releases.llvm.org/7.0.0/clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
-#	tar -vxf clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
-#	mkdir -p ~/bin;
-#	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clangd ~/bin
-#	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clang-format ~/bin
-#	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clang-tidy ~/bin
-#	rm -rfv clang+llvm-7.0.0-x86_64-apple-darwin
-#	rm -rfv clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
-#	if [[ ! $(grep 'PATH=~/bin:$PATH' ~/.zshrc) ]]; then
-#		echo 'export PATH=~/bin:$PATH' >> ~/.zshrc
-#	fi
-#fi
+if [[ $UNAME == "Darwin" && ! -f $HOME/bin/clangd ]]; then
+	curl -O https://releases.llvm.org/7.0.0/clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
+	tar -vxf clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
+	mkdir -p ~/bin;
+	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clangd ~/bin
+	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clang-format ~/bin
+	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clang-tidy ~/bin
+	rm -rfv clang+llvm-7.0.0-x86_64-apple-darwin
+	rm -rfv clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
+	if [[ ! $(grep 'PATH=~/bin:$PATH' ~/.zshrc) ]]; then
+		echo 'export PATH=~/bin:$PATH' >> ~/.zshrc
+	fi
+fi

@@ -19,4 +19,5 @@ Plug 'jsfaint/coc-neoinclude'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 " Gruvbox
 Plug 'morhetz/gruvbox'
+Plug 'kshenoy/vim-signature'
 call plug#end()
