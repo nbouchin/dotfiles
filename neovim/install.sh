@@ -5,9 +5,8 @@ UNAME=$(uname)
 mkdir -pv ~/.config/nvim/undodir
 mkdir -pv ~/.config/nvim/plugged
 
-#curl -sL install-node.now.sh/lts | sh
-## Optional install yarn if you want install extension by CocInstall command
-#curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+#install yarn, required for coc plugin manager
+curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --nightly
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
