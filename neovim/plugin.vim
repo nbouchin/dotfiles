@@ -14,4 +14,5 @@ Plug 'honza/vim-snippets'
 " Gruvbox
 Plug 'morhetz/gruvbox'
 Plug 'kshenoy/vim-signature'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 call plug#end()
