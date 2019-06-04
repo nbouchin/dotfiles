@@ -1,0 +1,89 @@
+" Plugins load with new vim plugin init
+colorscheme rdark-terminal2
+syn on
+set wrap
+set smartindent
+set expandtab
+set noeb vb t_vb=
+set guioptions-=aegimrLtT
+set nu
+set mouse=a
+set smarttab
+set modeline
+set ruler
+set history=100
+set nowrap
+set title
+set showmatch
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set shiftwidth=8
+set softtabstop=8
+set noexpandtab
+set backspace=indent,eol,start
+set timeout timeoutlen=5000 ttimeoutlen=100
+set background=dark
+" Swapdir and undo dir creation.
+set directory=$HOME/.vim/swapdir
+set undofile
+set undodir=$HOME/.vim/undodir
+set undolevels=1000
+set undoreload=10000
+hi SpecialKey ctermfg=235 guifg=#262626
+set listchars=tab:\\.,trail:.,eol:$,space:.
+set list
+
+" ycm configuration
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+let g:ycm_max_num_identifier_candidates=10
+let g:ycm_max_num_candidates=10
+let g:ycm_always_populate_location_list=1
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+let g:ycm_show_diagnostics_ui = 0
+let g:airline#extensions#tabline#enabled = 2
+let g:syntastic_c_include_dirs=['/usr/src/kernel-4.20.0/include']
+
+" Pmenu dropdown completion colors
+hi Pmenu term=NONE cterm=NONE ctermbg=234 ctermfg=250 guibg=#1c1c1c guifg=#bcbcbc
+
+" Leader definition.
+let mapleader=";"
+let localleader="\\"
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+map <C-C> :nohlsearch<CR>
+
+nnoremap <silent> gd :LspDeclaration<CR>
+
+"Esc remaping.
+inoremap kj <esc>
+" Hide coloration of found words
+" easymotion double char trigger
+"nmap <leader>s <Plug>(easymotion-overwin-f2)
+" Buffer delete
+nmap <leader>d :bd<CR>
+" Buffer next
+nmap <leader>n :bn<CR>
+" Buffer prev nmap <leader>p :bp<CR>
+nmap <leader>p :bp<CR>
+" Vim fugitive git integration
+"nmap <leader>g :Gstatus<CR>
+
+if executable('clangd')
+    augroup lsp_clangd
+        autocmd!
+        autocmd User lsp_setup call lsp#register_server({
+                    \ 'name': 'clangd',
+                    \ 'cmd': {server_info->['clangd']},
+                    \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+                    \ })
+        autocmd FileType c setlocal omnifunc=lsp#complete
+        autocmd FileType cpp setlocal omnifunc=lsp#complete
+        autocmd FileType objc setlocal omnifunc=lsp#complete
+        autocmd FileType objcpp setlocal omnifunc=lsp#complete
+    augroup end
+endif

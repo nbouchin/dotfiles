@@ -1,0 +1,12 @@
+#
+# ~/.bash_profile
+#
+
+UNAME=$(uname)
+    [[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
+    export PATH=/usr/lib/llvm-7.0/bin:$PATH
+    alias ls='ls --color'
+    # copy/paste
+    alias open='xdg-open'
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc

@@ -1,0 +1,32 @@
+! .Xresources
+
+! Use a Powerline Font
+XTerm*faceName: DejaVu Sans Mono for Powerline:size=9
+
+! Selection
+!  - Select a complete word (include '/', '.', ',', ...)
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+
+! Scrolling
+! - Do not scroll to bottom on output
+! - Scroll to bottom on key press
+! - Set line buffer tp 1024 lines
+! - Enable scroll in alternate screen (vim, less, man, ...)
+
+*scrollTtyOutput: false
+*scrollKey: true
+*saveLines: 4096
+*alternateScroll: true
+XTerm*locale: true
+XTerm*borderWidth: 0
+XTerm*scrollBar: False
+
+! Allow Ctrl Shift C & Ctrl Shift V
+XTerm*vt100*translations:   #override                       \n \
+    Shift Ctrl <KeyPress>C: copy-selection(CLIPBOARD)       \n \
+    Shift Ctrl <KeyPress>V: insert-selection(CLIPBOARD)
+
+XTerm*metaSendsEscape: true
+XTerm*Background: black
+XTerm*Foreground: white

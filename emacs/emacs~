@@ -1,0 +1,115 @@
+(require 'package)
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (when no-ssl
+    (warn "\
+Your version of Emacs does not support SSL connections,
+which is unsafe because it allows man-in-the-middle attacks.
+There are two things you can do about this warning:
+1. Install an Emacs version that does support SSL and be safe.
+2. Remove this warning from your init file so you won't see it again."))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+(package-initialize)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+	("3cd4f09a44fe31e6dd65af9eb1f10dc00d5c2f1db31a427713a1784d7db7fdfc" "0d456bc74e0ffa4bf5b69b0b54dac5104512c324199e96fc9f3a1db10dfa31f3" "59e82a683db7129c0142b4b5a35dbbeaf8e01a4b81588f8c163bd255b76f4d21" "04232a0bfc50eac64c12471607090ecac9d7fd2d79e388f8543d1c5439ed81f5" "1436d643b98844555d56c59c74004eb158dc85fc55d2e7205f8d9b8c860e177f" default)))
+ '(package-selected-packages
+   (quote
+	(nyx distinguished-theme dap-mode company-quickhelp company-rtags company-c-headers yasnippet-snippets yasnippet company company-lsp flycheck lsp-ui lsp-mode))))
+
+;; Install all packages.
+(defun my-install ()
+  "My-install searchg all packages in package-list and install them if not installed."
+  (interactive)
+  (defvar package-list)
+  (setq package-list '(nyx-theme company-quickhelp company-rtags company-c-headers yasnippet-snippets yasnippet dap-mode company company-lsp flycheck lsp-ui lsp-mode))
+  ;; fetch the list of packages available.
+  (unless package-archive-contents
+	(package-refresh-contents))
+  ;; install the missing packages.
+  (dolist (package package-list)
+	(unless (package-installed-p package)
+	  (package-install package)))
+  )
+
+;; Byte compile config.
+(defun my-recompile ()
+  "My-recompile byte-compile all configuration."
+  (interactive)
+  (byte-recompile-directory (expand-file-name "~/.emacs.d") 0))
+
+(defun reload-dotemacs-file ()
+  "Reload .emacs file without restarting Emacs."
+  (interactive)
+  (load-file "~/.emacs"))
+
+(load-theme 'nyx-theme)
+
+(setq gdb-many-windows 1)
+(global-hl-line-mode 1)
+(set-language-environment "UTF-8")
+(setq ring-bell-function 'ignore)
+(setq-default font-lock-global-modes t)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode t)
+(setq-default c-backspace-function 'backward-delete-char)
+(setq-default c-basic-offset 4)
+(setq-default c-default-style "linux")
+(setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
+64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
+
+(setq backup-directory-alist `(("." . "~/.emacs.d/saves"))); Set emacs swap directory.
+
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+
+(require 'lsp-mode)
+(add-hook 'c++-mode-hook #'lsp)
+(add-hook 'c-mode-hook #'lsp)
+
+(require 'lsp-ui)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+(require 'company)
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 3)
+(add-hook 'after-init-hook 'global-company-mode)
+(company-quickhelp-mode)
+
+(require 'company-lsp)
+(push 'company-lsp company-backends)
+
+(require 'company-c-headers)
+(add-to-list 'company-backends 'company-c-headers)
+
+(require 'rtags)
+(require 'company-rtags)
+
+(setq rtags-completions-enabled t)
+(eval-after-load 'company
+  '(add-to-list
+    'company-backends 'company-rtags))
+(setq rtags-autostart-diagnostics t)
+(rtags-enable-standard-keybindings)
+
+(require 'flycheck)
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -1,0 +1,23 @@
+zstyle ':prezto:module:editor' key-bindings 'vi'
+zstyle ':prezto:module:prompt' theme 'skwp'
+zstyle ':prezto:module:syntax-highlighting' color 'yes'
+
+export TERM=tmux-256color
+# Get color support for 'less'
+export LESS="--RAW-CONTROL-CHARS"
+
+zstyle ':prezto:load' pmodule \
+	   'environment' \
+	   'terminal' \
+	   'command-not-found' \
+	   'editor' \
+	   'history' \
+	   'directory' \
+	   'spectrum' \
+	   'utility' \
+	   'completion' \
+	   'git' \
+	   'docker' \
+	   'syntax-highlighting' \
+	   'history-substring-search' \
+	   'prompt' \

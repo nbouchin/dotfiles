@@ -1,0 +1,23 @@
+## Inclrease backlight
+#"brightnessctl set 10%+"
+#XF86MonBrightnessUp
+#
+## Decrease backlight
+#"brightnessctl set 10%-"
+#XF86MonBrightnessDown
+#
+## Increase volume
+#"amixer sset Master 2%+"
+#XF86AudioRaiseVolume
+#
+## Decrease volume
+#"amixer sset Master 2%-"
+#XF86AudioLowerVolume
+#
+## Mute volume
+#"amixer sset Master toggle"
+#XF86AudioMute
+#
+##Mute microphone
+#"amixer sset Capture toggle"
+#XF86AudioMicMute

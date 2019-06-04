@@ -1,0 +1,128 @@
+set vb t_vb=
+set guiheadroom=0
+set guioptions-=mTLr
+"set t_Co=8 t_md=
+
+" rdark-terminal2 converted to gui colors
+hi CursorLine guibg=#1c1c1c
+hi Normal term=NONE gui=NONE guibg=#000000 guifg=#d0d0d0
+hi Underlined term=underline gui=underline guibg=NONE guifg=#87afff
+hi Ignore term=NONE gui=NONE guibg=NONE guifg=#000000
+hi Error term=reverse gui=NONE guibg=#d70000 guifg=#eeeeee
+hi Todo term=NONE gui=NONE guibg=#000000 guifg=#ffaf5f
+hi Number term=NONE gui=NONE guibg=NONE guifg=#87d75f
+hi String term=NONE gui=NONE guibg=NONE guifg=#87d75f
+hi Function term=NONE gui=NONE guibg=NONE guifg=#ffaf5f
+hi SpecialKey term=bold gui=NONE guibg=NONE guifg=#262626
+hi NonText term=bold gui=NONE guibg=NONE guifg=#303030
+"hi MatchParen term=reverse gui=NONE guibg=#ffaf5f guifg=23
+hi MatchParen term=NONE gui=NONE guibg=NONE guifg=#87afff
+hi Comment term=bold gui=NONE guibg=NONE guifg=#8a8a8a
+hi Constant term=underline gui=NONE guibg=NONE guifg=#87d75f
+hi Special term=bold gui=NONE guibg=NONE guifg=#5f8787
+hi Keyword term=NONE gui=NONE guibg=NONE guifg=#eeeeee
+hi Identifier term=underline gui=NONE guibg=NONE guifg=#d0d0d0
+hi Statement term=bold gui=NONE guibg=NONE guifg=#5fafd7 
+hi PreProc term=underline gui=NONE guibg=NONE guifg=#ffaf5f
+hi Type term=underline gui=NONE guibg=NONE guifg=#87af87
+hi LineNr term=underline gui=NONE guibg=NONE guifg=#5f5f5f
+hi ExtraWhitespace term=NONE gui=NONE guibg=NONE guifg=fg
+"hi Visual term=reverse gui=NONE guibg=90 guifg=#eeeeee
+
+hi Pmenu term=NONE gui=NONE guibg=#1c1c1c guifg=#bcbcbc
+hi PmenuSel term=NONE gui=NONE guibg=#5f5faf guifg=#ffffff
+hi PmenuSbar term=NONE gui=NONE guibg=#444444 guifg=#444444
+hi PmenuThumb term=NONE gui=NONE guibg=#878787 guifg=#878787
+
+hi StatusLine term=reverse,bold gui=NONE guibg=#bcbcbc guifg=#000000
+hi StatusLineNC term=reverse gui=NONE guibg=#585858 guifg=#000000
+"hi VertSplit term=reverse gui=NONE guibg=#878787 guifg=59
+hi VertSplit term=reverse gui=NONE guibg=NONE guifg=#5f5f5f
+hi Directory term=bold gui=NONE guibg=NONE guifg=#ffffff
+hi ErrorMsg term=NONE gui=NONE guibg=#ff0000 guifg=#ffffff
+hi IncSearch term=reverse gui=NONE guibg=#ffff00 guifg=#005f5f
+hi Search term=reverse gui=NONE guibg=#ffaf5f guifg=#005f5f
+hi MoreMsg term=bold gui=bold guibg=NONE guifg=#5fafd7
+hi ModeMsg term=bold gui=bold guibg=NONE guifg=fg
+"hi TabLine term=underline gui=underline guibg=#000000guifg=#878787
+"hi TabLineSel term=bold gui=NONE guibg=59 guifg=#eeeeee
+"hi TabLineFill term=reverse gui=NONE guibg=#000000guifg=16
+hi TabLine term=underline gui=NONE guibg=#585858 guifg=#000000
+hi TabLineSel term=bold gui=NONE guibg=#767676 guifg=#eeeeee
+hi TabLineFill term=reverse gui=NONE guibg=#585858 guifg=#000000
+hi CursorColumn term=reverse gui=NONE guibg=#626262 guifg=fg
+hi Cursor term=NONE gui=NONE guibg=#afafaf guifg=#000000
+hi cppSTLType term=NONE gui=NONE guibg=NONE guifg=fg
+hi cssUIProp term=NONE gui=NONE guibg=NONE guifg=#d7d7d7
+hi vimAutoEvent term=NONE gui=NONE guibg=NONE guifg=fg
+hi cParen term=NONE gui=NONE guibg=NONE guifg=fg
+hi cBracket term=NONE gui=NONE guibg=NONE guifg=fg
+hi cNumbers term=NONE gui=NONE guibg=NONE guifg=fg
+hi phpPropertySelectorInString term=NONE gui=NONE guibg=NONE guifg=#878787
+hi Question term=NONE gui=NONE guibg=NONE guifg=#87d75f
+hi Title term=bold gui=bold guibg=NONE guifg=#ffaf5f
+hi VisualNOS term=bold,underline gui=bold,underline guibg=NONE guifg=fg
+hi WarningMsg term=NONE gui=NONE guibg=NONE guifg=#ff0000
+hi WildMenu term=NONE gui=NONE guibg=#121212 guifg=#eeeeee
+"hi Folded term=NONE gui=NONE guibg=NONE guifg=#d7d7d7
+hi Folded term=NONE gui=NONE guibg=NONE guifg=#005fd7
+hi FoldColumn term=NONE gui=NONE guibg=NONE guifg=#005fd7
+hi phpSemicolon term=NONE gui=NONE guibg=NONE guifg=#878787
+hi phpFunctions term=NONE gui=NONE guibg=NONE guifg=#d7d7d7
+hi phpParent term=NONE gui=NONE guibg=NONE guifg=#878787
+hi javaScriptBraces term=NONE gui=NONE guibg=NONE guifg=#878787
+hi javaScriptOperator term=NONE gui=NONE guibg=NONE guifg=#878787
+hi htmlTag term=NONE gui=NONE guibg=NONE guifg=#878787
+hi htmlTagName term=NONE gui=NONE guibg=NONE guifg=#afafaf
+hi cCppBracket term=NONE gui=NONE guibg=NONE guifg=fg
+hi cBlock term=NONE gui=NONE guibg=NONE guifg=fg
+hi htmlTitle term=NONE gui=NONE guibg=NONE guifg=#87d75f
+hi cUserCont term=NONE gui=NONE guibg=NONE guifg=fg
+hi lCursor term=NONE gui=NONE guibg=#afafaf guifg=#000000
+hi cssPseudoClassId term=NONE gui=NONE guibg=NONE guifg=#eeeeee
+hi cssBraces term=NONE gui=NONE guibg=NONE guifg=#878787
+hi cssIdentifier term=NONE gui=NONE guibg=NONE guifg=#ffaf5f
+hi cssTagName term=NONE gui=NONE guibg=NONE guifg=#ffaf5f
+hi cMulti term=NONE gui=NONE guibg=NONE guifg=fg
+hi ICursor term=NONE gui=NONE guibg=#afafaf guifg=fg
+hi DiffAdd term=bold gui=NONE guibg=NONE guifg=#87d75f
+hi DiffChange term=bold gui=NONE guibg=NONE guifg=fg
+hi DiffDelete term=bold gui=bold guibg=NONE guifg=#ffaf5f
+hi DiffText term=reverse gui=NONE guibg=NONE guifg=fg
+hi SignColumn term=NONE gui=NONE guibg=#000000 guifg=#00ffff
+hi SpellBad term=reverse gui=undercurl guibg=NONE guifg=#ff0000
+hi SpellCap term=reverse gui=undercurl guibg=NONE guifg=#0000ff
+hi SpellRare term=reverse gui=undercurl guibg=NONE guifg=#ff00ff
+hi SpellLocal term=underline gui=undercurl guibg=NONE guifg=#00ffff
+hi htmlSpecialTagName term=NONE gui=NONE guibg=NONE guifg=#afafaf
+hi htmlArg term=NONE gui=NONE guibg=NONE guifg=#d7d7d7
+hi cBitField term=NONE gui=NONE guibg=NONE guifg=fg
+hi cssSelectorOp term=NONE gui=NONE guibg=NONE guifg=#eeeeee
+hi pythonFunction term=NONE gui=NONE guibg=NONE guifg=fg
+hi cNumbersCom term=NONE gui=NONE guibg=NONE guifg=fg
+hi vimFuncName term=NONE gui=NONE guibg=NONE guifg=fg
+hi phpRegionDelimiter term=NONE gui=NONE guibg=NONE guifg=#af87af
+hi phpPropertySelector term=NONE gui=NONE guibg=NONE guifg=#878787
+hi cCppParen term=NONE gui=NONE guibg=NONE guifg=fg
+hi phpOperator term=NONE gui=NONE guibg=NONE guifg=#878787
+hi phpArrayPair term=NONE gui=NONE guibg=NONE guifg=#878787
+hi phpAssignByRef term=NONE gui=NONE guibg=NONE guifg=#878787
+hi phpRelation term=NONE gui=NONE guibg=NONE guifg=#878787
+hi phpMemberSelector term=NONE gui=NONE guibg=NONE guifg=#878787
+hi phpUnknownSelector term=NONE gui=NONE guibg=NONE guifg=#878787
+hi phpVarSelector term=NONE gui=NONE guibg=NONE guifg=#afafaf
+hi htmlEndTag term=NONE gui=NONE guibg=NONE guifg=#878787
+hi vimFold term=NONE gui=NONE guibg=NONE guifg=fg
+
+"Sat's todo conf
+hi satTodoNew term=underline gui=NONE guibg=NONE guifg=fg
+hi satTodoDone term=bold gui=NONE guibg=NONE guifg=#ff0000
+hi satComment term=bold gui=NONE guibg=NONE guifg=#8a8a8a
+hi satTitle term=reverse gui=NONE guibg=#878787 guifg=#5f5f5f
+
+"Minibuff Explorer"
+hi MBEVisibleNormal term=NONE gui=NONE guibg=NONE guifg=#87afff
+hi MBEVisibleChanged term=NONE gui=NONE guibg=NONE guifg=#87afff
+
+hi ColorColumn guibg=#262626
+
