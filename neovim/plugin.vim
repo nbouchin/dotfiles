@@ -9,14 +9,8 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'kien/ctrlp.vim'
 " Install vim surround
 Plug 'tpope/vim-surround'
-" Install UltiSnips
-Plug 'SirVer/ultisnips'
 " Install snippets
 Plug 'honza/vim-snippets'
-" Neoinclude
-Plug 'Shougo/neoinclude.vim'
-Plug 'jsfaint/coc-neoinclude'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 " Gruvbox
 Plug 'morhetz/gruvbox'
 Plug 'kshenoy/vim-signature'
