@@ -1,7 +1,9 @@
+<<<<<<< HEAD
 ## Neovim configuration
 
 The aim of this configuration is to bring [`lsp`](https://microsoft.github.io/language-server-protocol/) for a nice lint and code completion
 If you want lsp full compatibilty on C/CPP prodjects, you must generate a compile_command.json with [`bear`](https://github.com/rizsotto/Bear) for example.
+Also you may install ccls for better C/CPP lsp integration
 Full plugin list is available into the `$HOME/.config/neovim/config/plugins.vim` file
 Every plugin configurations are writen in a separate file named the same
 
