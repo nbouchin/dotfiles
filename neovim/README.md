@@ -79,6 +79,8 @@ Git wraper for vim
 -
 Full path fuzzy file, buffer, mru, tag... finder (jump everywhere in 2 words).
 
+`Ctrl+p` runs the fuzzy finder.
+
 [`vim-surround`](https://github.com/tpope/vim-surround)
 -
 Vim language like word surrounding.
