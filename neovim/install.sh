@@ -22,7 +22,9 @@ ln -isv $PWD/plugin.vim ~/.config/nvim/plugin.vim
 pip3 install neovim --user
 pip3 install jedi --user
 
-nvim -c ":PlugInstall" -c ":CocInstall coc-rls coc-highlight coc-emmet coc-snippets coc-lists coc-git coc-yank coc-vimlsp coc-dictionary coc-tag coc-word coc-emoji coc-omni coc-syntax" -c ":qa"
+nvim -c ":PlugInstall" -c ":qa"
+#nvim -c ":CocInstall coc-rls" -c ":CocInstall coc-emmet" -c ":CocInstall coc-snippets" -c ":CocInstall coc-lists" -c ":CocInstall coc-git" -c ":CocInstall coc-yank" -c ":CocInstall coc-vimlsp"
+nvim -c ":CocInstall coc-rls coc-emmet coc-snippets coc-lists coc-git coc-yank coc-vimlsp"
 
 if [[ $UNAME == "Darwin" && ! -f $HOME/bin/clangd ]]; then
 	curl -O https://releases.llvm.org/7.0.0/clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
