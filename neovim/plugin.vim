@@ -9,7 +9,6 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'kien/ctrlp.vim'
 " Install vim surround
 Plug 'tpope/vim-surround'
-" Install snippets
 Plug 'honza/vim-snippets'
 " Gruvbox
 Plug 'morhetz/gruvbox'
