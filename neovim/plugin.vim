@@ -14,4 +14,6 @@ Plug 'honza/vim-snippets'
 Plug 'morhetz/gruvbox'
 Plug 'kshenoy/vim-signature'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'Shougo/neoinclude.vim'
+Plug 'jsfaint/coc-neoinclude'
 call plug#end()
