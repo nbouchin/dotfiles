@@ -30,8 +30,8 @@ set undoreload=10000
 let mapleader=';'
 let localleader="\\"
 "hi SpecialKey ctermfg=235
-set listchars=tab:\\.,trail:.,eol:$,space:.
-set list
+"set listchars=tab:\\.,trail:.,eol:$,space:.
+"set list
 let g:loaded_matchparen=1
 set shiftwidth=4 tabstop=4 softtabstop=4
 

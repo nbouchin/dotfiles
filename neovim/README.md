@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Neovim configuration
 
 The aim of this configuration is to bring [`lsp`](https://microsoft.github.io/language-server-protocol/) for a nice lint and code completion
