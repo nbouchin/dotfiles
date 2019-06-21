@@ -36,3 +36,6 @@ function fish_prompt
 
   set_color normal
 end
+
+set PATH $PATH $HOME/.cargo/bin
+set PATH $PATH $HOME/.local/bin
