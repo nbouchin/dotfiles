@@ -34,10 +34,10 @@ if [[ $USER != "root" ]]; then
 		# copy/paste
 		alias open='xdg-open'
 	fi
-
-	if command -v tmux>/dev/null; then
-			[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
-	fi
+#
+#	if command -v tmux>/dev/null; then
+#			[[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+#	fi
 fi
 
 # colored man
@@ -49,7 +49,7 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
-export TERM=tmux-256color
+#export TERM=tmux-256color
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 
@@ -93,5 +93,5 @@ bindkey -M vicmd "//" history-beginning-search-forward
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey -M viins "kj" vi-cmd-mode
-#export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #export PATH=~/bin:$PATH

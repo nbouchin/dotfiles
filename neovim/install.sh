@@ -2,34 +2,28 @@
 
 UNAME=$(uname)
 
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 mkdir -pv ~/.config/nvim/undodir
 mkdir -pv ~/.config/nvim/plugged
 
-ln -isv $PWD/init.vim ~/.config/nvim/init.vim
+#curl -sL install-node.now.sh/lts | bash
 
-pip3 install neovim --user
-pip3 install jedi --user
+# Optional install yarn if you want install extension by CocInstall command
+curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-ln -isv $PWD/clang-format ~/.clang-format
-ln -isv $PWD/c-libft.snippets ~/.config/nvim/plugged/vim-snippets/UltiSnips/c-libft.snippets
-ln -isv $PWD/cpp-personal.snippets ~/.config/nvim/plugged/vim-snippets/UltiSnips/cpp-personal.snippets
-ln -isFv $PWD/config ~/.config/nvim
-nvim +PlugInstall +qall
+ln -isv $PWD/init.vim ~/.config/nvim/init.vim
+ln -isv $PWD/coc-settings.json ~/.config/nvim/coc-settings.json
+ln -isv $PWD/coc.vim ~/.config/nvim/coc.vim
+ln -isv $PWD/ctrlp.vim ~/.config/nvim/ctrlp.vim
+ln -isv $PWD/nvim.vim ~/.config/nvim/nvim.vim
+ln -isv $PWD/plugin.vim ~/.config/nvim/plugin.vim
 
-## Uncomment to install pre compiled clangd for lsp integration if using darwin system at 42
-#
-#if [[ $UNAME == "Darwin" && ! -f $HOME/bin/clangd ]]; then
-#	curl -O https://releases.llvm.org/7.0.0/clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
-#	tar -vxf clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
-#	mkdir -p ~/bin;
-#	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clangd ~/bin
-#	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clang-format ~/bin
-#	mv -vi clang+llvm-7.0.0-x86_64-apple-darwin/bin/clang-tidy ~/bin
-#	rm -rfv clang+llvm-7.0.0-x86_64-apple-darwin
-#	rm -rfv clang+llvm-7.0.0-x86_64-apple-darwin.tar.xz
-#	if [[ ! $(grep 'PATH=~/bin:$PATH' ~/.zshrc) ]]; then
-#		echo 'export PATH=~/bin:$PATH' >> ~/.zshrc
-#	fi
-#fi
+pip3 install neovim --user
+pip3 install jedi --user
+
+nvim -c ':PlugInstall' -c ':qa'
+nvim -c ':CocInstall coc-rls coc-emmet coc-snippets coc-lists coc-git coc-yank coc-vimlsp'
