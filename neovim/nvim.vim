@@ -1,4 +1,4 @@
-colorscheme gruvbox
+colorscheme rdark-terminal2
 
 syn on
 set wrap
@@ -34,5 +34,6 @@ let localleader="\\"
 "set list
 let g:loaded_matchparen=1
 set shiftwidth=4 tabstop=4 softtabstop=4
+imap kj <Esc>
 
 map <C-C> :nohlsearch<CR>

@@ -11,7 +11,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'honza/vim-snippets'
 " Gruvbox
-Plug 'morhetz/gruvbox'
+Plug 'vim-scripts/rdark-terminal2.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'dag/vim-fish'
