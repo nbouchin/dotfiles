@@ -13,6 +13,7 @@ pacstrap /mnt base base-devel
 genfstab -U /mnt >> /mnt/etc/fstab
 cat install.sh | head -1 >> /mnt/install.sh && cat install.sh  | tail -28 >> /mnt/install.sh
 arch-chroot /mnt
+exit
 chmod +x install.sh
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 hwclock --systohc
@@ -28,9 +29,9 @@ echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1  localhost" >> /etc/hosts
 echo "127.0.1.1 archlinux.localdomain archlinux" >> /etc/hosts
 
-passwd
+passwd root
 
-pacman -S wpa_supplicant dialog wireless_tools grub efibootmgr neovim sway swaylock swayidle swaybg i3status dmenu tmux xorg xorg-xinit npm nodejs git intel-ucode mesa xf86-video-intel qemu qemu-arch-extra openssh python bc
+pacman -S wpa_supplicant dialog wireless_tools grub efibootmgr neovim sway swaylock swayidle swaybg i3status dmenu tmux xorg xorg-xinit npm nodejs git intel-ucode mesa xf86-video-intel qemu qemu-arch-extra openssh python bc xterm
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
