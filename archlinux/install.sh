@@ -28,7 +28,7 @@ echo "127.0.1.1 archlinux.localdomain archlinux" >> /etc/hosts
 
 passwd
 
-pacman -S wpa_supplicant dialog wireless_tools grub efibootmgr neovim sway swaylock swayidle swaybg i3status dmenu tmux xorg xinit npm nodejs git intel-ucode mesa xf86-video-intel qemu qemu-arch-extra
+pacman -S wpa_supplicant dialog wireless_tools grub efibootmgr neovim sway swaylock swayidle swaybg i3status dmenu tmux xorg xinit npm nodejs git intel-ucode mesa xf86-video-intel qemu qemu-arch-extra openssh
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconig -o /boot/grub/grub.cfg
 exit
