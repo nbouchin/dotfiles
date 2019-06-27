@@ -11,8 +11,8 @@ mkdir -p /mnt/boot/efi && mount -t vfat /dev/nvme1n1p1 /mnt/boot/efi
 
 pacstrap /mnt base base-devel
 genfstab -U /mnt >> /mnt/etc/fstab
-cat install.sh | head -1 >> /mnt/install.sh && cat install.sh  | tail -28 >> /mnt/install.sh
-arch-chroot /mnt
+cat install.sh | head -1 >> /mnt/install.sh && cat install.sh  | tail -26 >> /mnt/install.sh
+arch-chroot /mnt /bin/bash install.sh
 exit
 chmod +x install.sh
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
@@ -38,7 +38,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 useradd -m nbouchin
 usermod -a -G wheel,video nbouchin
 passwd nbouchin
-exit
 exit
 umount -R /mnt
 reboot
