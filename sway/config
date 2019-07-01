@@ -22,7 +22,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/nbouchin/Config/dotfiles/awesome/wall.png fill
 #
 # Example configuration:
 #
@@ -35,10 +35,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # Example configuration:
 #
 exec swayidle \
-		 timeout 300 'swaylock -i /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png --indicator-radius 100' \
+		 timeout 300 'swaylock -i /home/nbouchin/Config/dotfiles/awesome/wall.png --indicator-radius 100' \
 		 timeout 600 'swaymsg "output * dpms off"' \
 		 resume 'swaymsg "output * dpms on"' \
-		 before-sleep 'swaylock -i /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png --indicator-radius 100'
+		 before-sleep 'swaylock -i /home/nbouchin/Config/dotfiles/awesome/wall.png --indicator-radius 100'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -214,17 +214,16 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 
 bar {
-	position top
-
-# When the status_command prints a new line to stdout, swaybar updates.
-# The default just shows the current date and time.
-		status_command i3status
-
-		colors {
-			statusline #ffffff
-				background #000000
-				inactive_workspace #32323200 #32323200 #5c5c5c
-		}
+	swaybar_command waybar
 }
+# class                 border  backgr. text    indicator child_border
+client.focused          #333333 #222222 #888888 #292d2e   #222222
+client.focused_inactive #333333 #222222 #888888 #292d2e   #222222
+client.unfocused        #000000 #000000 #ffffff #000000   #000000
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
 
 include /etc/sway/config.d/*
