@@ -32,7 +32,7 @@ echo "127.0.1.1 archlinux.localdomain archlinux" >> /etc/hosts
 echo "Enter password for root"
 passwd root
 
-pacman -S wpa_supplicant dialog wireless_tools grub efibootmgr neovim sway swaylock swayidle swaybg i3status dmenu tmux xorg xorg-xinit npm nodejs git intel-ucode mesa xf86-video-intel qemu qemu-arch-extra openssh python bc xterm python3-pip
+pacman -S wpa_supplicant dialog wireless_tools grub efibootmgr neovim sway swaylock swayidle swaybg i3status dmenu tmux xorg xorg-xinit npm nodejs git intel-ucode mesa xf86-video-intel qemu qemu-arch-extra openssh python bc xterm python-pip
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg

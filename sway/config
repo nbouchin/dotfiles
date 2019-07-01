@@ -74,7 +74,7 @@ bindsym $mod+Shift+q kill
 # start your launcher
 bindsym $mod+d exec $menu
 # start qutebrowser
-bindsym $mod+q exec firefox
+bindsym $mod+q exec qutebrowser
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle

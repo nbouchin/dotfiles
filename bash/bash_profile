@@ -2,12 +2,9 @@
 # ~/.bash_profile
 #
 
-sway
-UNAME=$(uname)
-#[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null
-#export PATH=/usr/lib/llvm-7.0/bin:$PATH
-#alias ls='ls --color'
-## copy/paste
-#alias open='xdg-open'
-#
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  XKB_DEFAULT_LAYOUT=us exec sway
+fi
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+
+export PATH="$HOME/.cargo/bin:$PATH"

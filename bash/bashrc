@@ -1,6 +1,6 @@
 # If not running interactively, do not do anything
-#set -o vi
-set -o emacs
+set -o vi
+#set -o emacs
 
 UNAME=$(uname)
 
@@ -56,15 +56,6 @@ alias e='emacs -nw'
 alias em='emacs'
 alias ec='emacsclient -n'
 alias reconnect='nordvpn disconnect && nordvpn connect'
+bind -m vi-insert "\C-l":clear-screen
 
-NORMAL="\[\e[0m\]"
-RED="\[\e[1;31m\]"
-GREEN="\[\e[1;32m\]"
-
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
-export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin"
-
-unset RED GREEN NORMAL
+export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin"
