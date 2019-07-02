@@ -2,3 +2,4 @@
 
 mkdir -pv ~/.config/sway/
 ln -ifsv $PWD/config ~/.config/sway/config
+yay -S swayshot

@@ -11,7 +11,7 @@ mkdir -p /mnt/boot/efi && mount -t vfat /dev/nvme1n1p1 /mnt/boot/efi
 
 pacstrap /mnt base base-devel
 genfstab -U /mnt >> /mnt/etc/fstab
-cat install.sh | head -1 >> /mnt/install.sh && cat install.sh  | tail -26 >> /mnt/install.sh
+cat install.sh | head -1 >> /mnt/install.sh && cat install.sh  | tail -29 >> /mnt/install.sh
 arch-chroot /mnt /bin/bash install.sh
 exit
 chmod +x install.sh
@@ -32,14 +32,14 @@ echo "127.0.1.1 archlinux.localdomain archlinux" >> /etc/hosts
 echo "Enter password for root"
 passwd root
 
-pacman -S wpa_supplicant dialog wireless_tools grub efibootmgr neovim sway swaylock swayidle swaybg i3status dmenu tmux xorg xorg-xinit npm nodejs git intel-ucode mesa xf86-video-intel qemu qemu-arch-extra openssh python bc xterm python-pip
+pacman -S wpa_supplicant dialog wireless_tools grub efibootmgr neovim sway swaylock swayidle swaybg dmenu tmux xorg xorg-xinit npm nodejs git intel-ucode mesa xf86-video-intel qemu qemu-arch-extra openssh python bc xterm python-pip qutebrowser pulseaudio dex xclip
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 useradd -m nbouchin
-usermod -a -G wheel,video nbouchin
+usermod -a -G wheel,video,audio nbouchin
+
 passwd nbouchin
 exit
 umount -R /mnt
-reboot

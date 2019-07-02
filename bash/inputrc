@@ -1,6 +1,7 @@
 # do not bell on tab-completion
 set bell-style none
 
+$if mode=vi
 ## vi bindings
 set editing-mode vi
 set show-mode-in-prompt on
@@ -17,6 +18,7 @@ set meta-flag on
 set input-meta on
 set convert-meta off
 set output-meta on
+$endif
 
 $if mode=emacs
 

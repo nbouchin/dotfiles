@@ -17,7 +17,7 @@ set $right l
 set $term xterm
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | dmenu | xargs swaymsg exec
+set $menu dmenu_path | dmenu -b | xargs swaymsg exec
 
 ### Output configuration
 #
@@ -81,6 +81,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym $mod+Shift+r exec  timeout -sSIGINT 5s wf-recorder -g "$(slurp)"
 
 
 # Drag floating windows by holding down $mod and left mouse button.
@@ -216,6 +217,7 @@ bindsym $mod+r mode "resize"
 bar {
 	swaybar_command waybar
 }
+
 # class                 border  backgr. text    indicator child_border
 client.focused          #333333 #262626 #888888 #292d2e   #222222
 client.focused_inactive #333333 #262626 #888888 #292d2e   #222222
