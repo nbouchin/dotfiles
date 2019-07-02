@@ -22,7 +22,7 @@ set $menu dmenu_path | dmenu -b | xargs swaymsg exec
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/nbouchin/Config/dotfiles/awesome/wall.png fill
+output * bg /home/nbouchin/Documents/dotfiles/awesome/wall.png fill
 #
 # Example configuration:
 #
@@ -35,10 +35,10 @@ output * bg /home/nbouchin/Config/dotfiles/awesome/wall.png fill
 # Example configuration:
 #
 exec swayidle \
-		 timeout 300 'swaylock -i /home/nbouchin/Config/dotfiles/awesome/wall.png --indicator-radius 100' \
+		 timeout 300 'swaylock -i /home/nbouchin/dotfiles/awesome/wall.png --indicator-radius 100' \
 		 timeout 600 'swaymsg "output * dpms off"' \
 		 resume 'swaymsg "output * dpms on"' \
-		 before-sleep 'swaylock -i /home/nbouchin/Config/dotfiles/awesome/wall.png --indicator-radius 100'
+		 before-sleep 'swaylock -i /home/nbouchin/dotfiles/awesome/wall.png --indicator-radius 100'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
