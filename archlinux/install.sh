@@ -1,13 +1,18 @@
 #!/bin/bash
 
-mkfs.vfat -F32 /dev/nvme1n1p1
-mkswap /dev/nvme1n1p2
-mkfs.ext4 /dev/nvme1n1p3
+USER="nbouchin"
+HOME_DISK="/dev/nvme0n1p"
+ROOT_DISK="/dev/nvme1n1p1"
 
-mount /dev/nvme1n1p3 /mnt
-mkdir /mnt/home && mount /dev/nvme0n1p1 /mnt/home
-swapon /dev/nvme1n1p2
-mkdir -p /mnt/boot/efi && mount -t vfat /dev/nvme1n1p1 /mnt/boot/efi
+mkfs.vfat -F32 "$ROOT_DISK""1"
+mkswap "$ROOT_DISK""2"
+mkfs.ext4 "$ROOT_DISK""3"
+mkfs.ext4 "$HOME_DISK"
+
+mount "$ROOT_DISK""3" /mnt
+mkdir /mnt/home && mount "$HOME_DISK" /mnt/home
+swapon "$ROOT_DISK""2"
+mkdir -p /mnt/boot/efi && mount -t vfat "$ROOT_DISK""1" /mnt/boot/efi
 
 pacstrap /mnt base base-devel
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -37,9 +42,9 @@ echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
-useradd -m nbouchin
-usermod -a -G wheel,video,audio nbouchin
+useradd -m $USER
+usermod -a -G wheel,video,audio $USER
 
-passwd nbouchin
+passwd $USER
 exit
 umount -R /mnt
