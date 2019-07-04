@@ -31,3 +31,29 @@ XTerm*vt100*translations:   #override                       \n \
 XTerm*metaSendsEscape: true
 XTerm*Background: black
 XTerm*Foreground: white
+
+URxvt*termName: tmux-256color
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+URxvt.font: xft:roboto mono:size=10
+URxvt*scrollBar:  false
+
+URxvt*background: Black
+URxvt*foreground: White
+URxvt.clipboard.autocopy: true
+!URxvt.keysym.M-c: perl:clipboard:copy
+!URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
