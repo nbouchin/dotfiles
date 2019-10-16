@@ -13,6 +13,4 @@ Plug 'honza/vim-snippets'
 " Gruvbox
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'kshenoy/vim-signature'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'dag/vim-fish'
 call plug#end()
