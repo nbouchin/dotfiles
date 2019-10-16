@@ -7,9 +7,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 mkdir -pv ~/.config/nvim/undodir
 mkdir -pv ~/.config/nvim/plugged
 
-#curl -sL install-node.now.sh/lts | bash
-
-# Optional install yarn if you want install extension by CocInstall command
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
