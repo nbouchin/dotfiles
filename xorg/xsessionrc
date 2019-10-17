@@ -6,10 +6,11 @@ xset r rate 250 60                          # keyboard repeat delay and rate
 . $HOME/Documents/dotfiles/dwm/dwm_battery.sh
 . $HOME/Documents/dotfiles/dwm/dwm_brightness.sh
 . $HOME/Documents/dotfiles/dwm/dwm_sound.sh
+. $HOME/Documents/dotfiles/dwm/dwm_capture.sh
 
 # Statusbar loop
 while true; do
-	xsetroot -name "$(dwm_sound) $(dwm_brightness) $(dwm_battery) $( date +"%F %R" )"
+	xsetroot -name "$(dwm_capture) $(dwm_sound) $(dwm_brightness) $(dwm_battery) $( date +"%F %R" )"
    sleep 0.1    # Update time every minute
 done &
 
