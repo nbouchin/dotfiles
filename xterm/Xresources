@@ -1,20 +1,5 @@
 ! .Xresources
 
-! Use a Powerline Font
-XTerm.vt100.faceName: Roboto Mono:size=9.5:antialias=true
-XTerm.vt100.font: 7x13
-
-! Selection
-!  - Select a complete word (include '/', '.', ',', ...)
-! xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-
-
-! Scrolling
-! - Do not scroll to bottom on output
-! - Scroll to bottom on key press
-! - Set line buffer tp 1024 lines
-! - Enable scroll in alternate screen (vim, less, man, ...)
-
 *scrollTtyOutput: false
 *scrollKey: true
 *saveLines: 4096
