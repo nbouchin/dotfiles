@@ -11,7 +11,7 @@ xset r rate 250 60                          # keyboard repeat delay and rate
 # Statusbar loop
 while true; do
 	xsetroot -name "$(dwm_capture) $(dwm_sound) $(dwm_brightness) $(dwm_battery) $( date +"%F %R" )"
-   sleep 0.1    # Update time every minute
+   sleep 1    # Update time every minute
 done &
 
 exec $HOME/bin/dwm/dwm-6.1/dwm

@@ -7,8 +7,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 mkdir -pv ~/.config/nvim/undodir
 mkdir -pv ~/.config/nvim/plugged
 
-curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
-
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

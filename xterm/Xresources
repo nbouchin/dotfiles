@@ -1,5 +1,8 @@
 ! .Xresources
 
+XTerm.vt100.faceName: Roboto Mono:size=9.5:antialias=true
+XTerm.vt100.font: 7x13
+
 *scrollTtyOutput: false
 *scrollKey: true
 *saveLines: 4096
