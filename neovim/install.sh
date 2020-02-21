@@ -10,6 +10,8 @@ mkdir -pv ~/.config/nvim/plugged
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+echo -e "\n/!\\ Warning: to have full coc integration you should install nodejs.\n"
+sleep 5
 ln -isv $PWD/init.vim ~/.config/nvim/init.vim
 ln -isv $PWD/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -isv $PWD/coc.vim ~/.config/nvim/coc.vim
