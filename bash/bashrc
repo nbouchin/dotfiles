@@ -19,22 +19,15 @@ export PATH
 
 xset b off
 shopt -s globstar
-
-# colored man
-export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
-export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
-export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
-export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
-export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
-export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
-export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+export HISTSIZE=
+export HISTFILESIZE=
+export HISTCONTROL=ignoreboth:erasedups
+
 export TERM=tmux-256color
-#export PS1=" \u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
-export PS1="$PS1 \$(parse_git_branch)\n> "
+export PS1="\[\e[m\]$PS1\$(parse_git_branch)\n> "
 export CLIPOS_HOME=$HOME/Documents/clipos
 
 parse_git_branch() {
@@ -43,6 +36,20 @@ parse_git_branch() {
 
 clipos_cd() {
 	cd $CLIPOS_HOME/$1
+}
+
+
+# colored man
+man() {
+	GROFF_NO_SGR=1 \
+	LESS_TERMCAP_mb=$'\e[1;32m' \
+	LESS_TERMCAP_md=$'\e[1;32m' \
+	LESS_TERMCAP_me=$'\e[0m' \
+	LESS_TERMCAP_se=$'\e[0m' \
+	LESS_TERMCAP_so=$'\e[01;33m' \
+	LESS_TERMCAP_ue=$'\e[0m' \
+	LESS_TERMCAP_us=$'\e[1;4;31m' \
+	command man "$@"
 }
 
 # copy/paste
