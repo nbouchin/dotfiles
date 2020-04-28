@@ -29,4 +29,4 @@ pip3 install neovim --user
 pip3 install jedi --user
 
 nvim -c ':PlugInstall' -c ':qa'
-nvim -c ':CocInstall coc-rls coc-emmet coc-snippets coc-lists coc-git coc-yank coc-vimlsp'
+nvim -c ':CocInstall coc-rls coc-emmet coc-snippets coc-lists coc-git coc-yank coc-vimlsp coc-rust-analyzer'
