@@ -1,0 +1,40 @@
+#window {
+	margin: 0px;
+	border: 1px solid #2d2e2e;
+	background-color: #2d2e2e;
+	opacity: 0.99;
+	border-radius: 4px;
+}
+
+#input {
+	margin: 0px;
+	border: 1px solid #242424;
+	background-color: #2d2e2e;
+	color: white;
+}
+
+#inner-box {
+	margin: 5px;
+	border: 1px solid #2d2e2e;
+	background-color: #2d2e2e;
+	opacity: 0.9;
+}
+
+#outer-box {
+	margin: 5px;
+	border: 1px solid #2d2e2e;
+	background-color: #2d2e2e;
+	opacity: 0.9;
+}
+
+#scroll {
+	margin: 5px;
+	border: 1px solid #2d2e2e;
+	background-color: #2d2e2e;
+	opacity: 0.9;
+}
+
+#text {
+	margin: 5px;
+	color: white;
+} 
