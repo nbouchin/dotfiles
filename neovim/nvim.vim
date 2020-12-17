@@ -29,11 +29,14 @@ set undolevels=1000
 set undoreload=10000
 let mapleader=';'
 let localleader="\\"
-"hi SpecialKey ctermfg=235
 set listchars=tab:»\ ,trail:.,eol:$,space:.
 set list
 let g:loaded_matchparen=1
 set shiftwidth=4 tabstop=4 softtabstop=4
 imap kj <Esc>
+
+" Pmenu dropdown completion colors
+hi Pmenu term=NONE cterm=NONE ctermbg=234 ctermfg=250 guibg=#1c1c1c guifg=#bcbcbc
+hi SpecialKey ctermfg=235 guifg=#262626
 
 map <C-C> :nohlsearch<CR>
