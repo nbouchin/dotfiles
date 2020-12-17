@@ -4,6 +4,9 @@
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
+if [ -f /etc/bash.bashrc ]; then
+	. /etc/bash.bashrc
+fi
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:$HOME/.bin:" ]]
@@ -17,10 +20,10 @@ export PATH
 
 # User specific aliases and functions
 
-xset b off
+#xset b off
 shopt -s globstar
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="vim"
+export VISUAL="vim"
 
 export HISTSIZE=
 export HISTFILESIZE=
@@ -28,12 +31,12 @@ export HISTCONTROL=ignoreboth:erasedups
 
 export TERM=tmux-256color
 export PS1="\[\e[m\]$PS1\$(parse_git_branch)\n> "
-export CLIPOS_HOME=$HOME/Documents/Work/clipos
 
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+export CLIPOS_HOME=$HOME/Documents/Work/CLIP-OS/clipos
 clipos_cd() {
 	cd $CLIPOS_HOME/$1
 }
@@ -51,6 +54,18 @@ man() {
 	LESS_TERMCAP_us=$'\e[1;4;31m' \
 	command man "$@"
 }
+
+wifi_scan() {
+	sudo iw dev wlp0s20f3 scan # | grep SSID
+}
+
+wifi_connect() {
+	sudo wpa_passphrase $1 >> /etc/wpa_supplicant/wpa_supplicant-wlp0s20f3.conf
+}
+
+
+alias wscan='wifi_scan'
+alias wcon='wifi_connect'
 
 # copy/paste
 alias pbcopy='xclip -selection clipboard'
