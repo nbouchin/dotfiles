@@ -1,0 +1,20 @@
+declare -rA plugins=(
+	#[SirVer]=ultisnips 
+	#[Valloric]=YouCompleteMe
+	#[honza]=vim-snippets
+	[justinmk]=vim-syntax-extra
+	[kien]=ctrlp.vim
+	[kshenoy]=vim-signature
+	[mhinz]=vim-signify
+	[myint]=syntastic-extras
+	#[prabirshrestha]=async.vim
+	#[prabirshrestha]=vim-lsp
+	[rafi]=awesome-vim-colorschemes
+	#[rhysd]=vim-clang-format
+	#[rust-lang]=rust.vim
+	#[tpope]=vim-fugitive
+	[tpope]=vim-surround
+	[vim-airline]=vim-airline
+	[vim-syntastic]=syntastic
+	#[vivien]=vim-linux-coding-style
+)

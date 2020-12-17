@@ -19,8 +19,8 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set shiftwidth=8
-set softtabstop=8
+set shiftwidth=4
+set softtabstop=4
 set noexpandtab
 set backspace=indent,eol,start
 set timeout timeoutlen=5000 ttimeoutlen=100
@@ -34,6 +34,7 @@ set undoreload=10000
 hi SpecialKey ctermfg=235 guifg=#262626
 set listchars=tab:\\.,trail:.,eol:$,space:.
 set list
+set clipboard=unnamedplus
 
 " ycm configuration
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
@@ -87,3 +88,7 @@ if executable('clangd')
         autocmd FileType objcpp setlocal omnifunc=lsp#complete
     augroup end
 endif
+
+xnoremap "+y y:call system("wl-copy", @")<cr>
+nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
