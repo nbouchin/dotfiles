@@ -5,6 +5,8 @@ for_window [class="^.*"] border pixel 1
 #
 # Read `man 5 sway` for a complete reference.
 
+xwayland disable
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -15,15 +17,15 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term urxvt 
+set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu rofi -show run 
+set $menu wofi --show run,dmenu,drun
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output "*" bg /home/nbouchin/Documents/dotfiles/awesome/wall.png fill
+output "*" bg /home/nbouchinet/Documents/Configurations/dotfiles/awesome/wall.png fill
 #
 # Example configuration:
 #
@@ -36,10 +38,10 @@ output "*" bg /home/nbouchin/Documents/dotfiles/awesome/wall.png fill
 # Example configuration:
 #
 exec swayidle \
-		 timeout 300 'swaylock -i /home/nbouchin/Documents/dotfiles/awesome/wall.png --indicator-radius 100' \
+		 timeout 300 'swaylock -i /home/nbouchinet/Documents/Configurations/dotfiles/awesome/wall.png --indicator-radius 100' \
 		 timeout 600 'swaymsg "output * dpms off"' \
 		 resume 'swaymsg "output * dpms on"' \
-		 before-sleep 'swaylock -i /home/nbouchin/Documents/dotfiles/awesome/wall.png --indicator-radius 100'
+		 before-sleep 'swaylock -i /home/nbouchinet/Documents/Configurations/dotfiles/awesome/wall.png --indicator-radius 100'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -74,16 +76,15 @@ bindsym $mod+Shift+q kill
 
 # start your launcher
 bindsym $mod+d exec $menu
-bindsym $mod+alt+l exec swaylock -i /home/nbouchin/Documents/dotfiles/awesome/wall.png --indicator-radius 100
+bindsym $mod+alt+l exec swaylock -i /home/nbouchinet/Documents/Configurations/dotfiles/awesome/wall.png --indicator-radius 100
 # start qutebrowser
-bindsym $mod+q exec qutebrowser
+bindsym $mod+q exec firefox
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym $mod+Shift+r exec timeout -sSIGINT 30s wf-recorder -f "screen-record-"$(date +%s)".mp4" -g "$(slurp)"
 
 
 # Drag floating windows by holding down $mod and left mouse button.
@@ -174,6 +175,7 @@ bindsym $mod+space focus mode_toggle
 
 # move focus to the parent container
 bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
 #
 # Scratchpad:
 #
@@ -221,7 +223,7 @@ bar {
 }
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #333333 #262626 #888888 #292d2e   #7094db
+#client.focused          #333333 #262626 #888888 #292d2e   #7094db
 client.focused_inactive #333333 #262626 #888888 #292d2e   #222222
 client.unfocused        #000000 #000000 #ffffff #000000   #000000
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
