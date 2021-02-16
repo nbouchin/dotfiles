@@ -21,9 +21,10 @@ export PATH
 # User specific aliases and functions
 
 #xset b off
+#set -o vi
 shopt -s globstar
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 export HISTSIZE=
 export HISTFILESIZE=
@@ -77,3 +78,4 @@ alias ll='ls -l'
 alias la='ls -a'
 alias l='ls'
 alias ccd='clipos_cd'
+source "$HOME/.cargo/env"

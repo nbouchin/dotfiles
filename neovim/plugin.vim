@@ -9,4 +9,7 @@ Plug 'honza/vim-snippets'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'kshenoy/vim-signature'
 Plug 'easymotion/vim-easymotion'
+" Grammar checking tool
+Plug 'rhysd/vim-grammarous'
+
 call plug#end()

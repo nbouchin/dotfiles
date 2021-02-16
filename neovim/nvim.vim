@@ -31,6 +31,7 @@ let mapleader=';'
 let localleader="\\"
 set listchars=tab:»\ ,trail:.,eol:$,space:.
 set list
+set textwidth=100
 let g:loaded_matchparen=1
 set shiftwidth=4 tabstop=4 softtabstop=4
 imap kj <Esc>

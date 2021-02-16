@@ -2,7 +2,7 @@
 
 UNAME=$(uname)
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+#export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 mkdir -pv ~/.config/nvim/undodir
 mkdir -pv ~/.config/nvim/plugged
@@ -10,14 +10,14 @@ mkdir -pv ~/.config/nvim/plugged
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-if [[ -n "$(command -v nodejs)" ]]; then
-	echo -e "\n/!\\ Warning: to enable full coc integration you should install nodejs.\n"
-	sleep 2
-fi
-if [[ -n "$(command -v ccls)" ]]; then
-	echo -e "\n/!\\ Warning: to enable full c/cpp lsp integration you should install ccls.\n"
-	sleep 2
-fi
+#if [[ -n "$(command -v nodejs)" ]]; then
+#	echo -e "\n/!\\ Warning: to enable full coc integration you should install nodejs.\n"
+#	sleep 2
+#fi
+#if [[ -n "$(command -v ccls)" ]]; then
+#	echo -e "\n/!\\ Warning: to enable full c/cpp lsp integration you should install ccls.\n"
+#	sleep 2
+#fi
 ln -isv $PWD/init.vim ~/.config/nvim/init.vim
 ln -isv $PWD/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -isv $PWD/coc.vim ~/.config/nvim/coc.vim
