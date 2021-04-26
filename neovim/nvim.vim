@@ -1,4 +1,4 @@
-colorscheme gruvbox
+colorscheme rdark-terminal2
 
 syn on
 set wrap

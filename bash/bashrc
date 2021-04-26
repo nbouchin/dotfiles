@@ -29,6 +29,7 @@ export VISUAL="nvim"
 export HISTSIZE=
 export HISTFILESIZE=
 export HISTCONTROL=ignoreboth:erasedups
+export PAGER=less
 
 export TERM=tmux-256color
 export PS1="\[\e[m\]$PS1\$(parse_git_branch)\n> "
@@ -40,6 +41,17 @@ parse_git_branch() {
 export CLIPOS_HOME=$HOME/Documents/Work/CLIP-OS/clipos
 clipos_cd() {
 	cd $CLIPOS_HOME/$1
+}
+
+export VSERVER_HOME=$HOME/Documents/Work/Dev/LSM/Vserver/
+vserver_cd() {
+
+	cd $VSERVER_HOME/$1
+}
+
+export REVERSE_HOME=$HOME/Documents/Work/ESSI/Reverse
+reverse_cd() {
+	cd $REVERSE_HOME/$1
 }
 
 
@@ -64,9 +76,29 @@ wifi_connect() {
 	sudo wpa_passphrase $1 >> /etc/wpa_supplicant/wpa_supplicant-wlp0s20f3.conf
 }
 
+report() {
+	declare -r REPORT_PATH=${HOME}/Documents/Work/Rapports
+	declare -r TIMESTAMP=$(date +"%Y-%m-%d")
+	declare -r WEEK_NUMBER=$(date +"%Y-%m-%U")
+	declare -r WEEK_DIR=${REPORT_PATH}/${WEEK_NUMBER}
+	declare -r TODAY_REPORT=${REPORT_PATH}/${WEEK_NUMBER}/${TIMESTAMP}.txt
+	declare -r day_of_week=$(date +"%w")
+	
+	if [ ${day_of_week} == "1" ]; then
+		[ ! -d ${WEEK_DIR} ] && mkdir ${WEEK_DIR}
+	fi
+	
+	[ ! -f ${TODAY_REPORT} ] && touch ${TODAY_REPORT}
+	
+	exec alacritty --command bash -c "swaymsg \"move scratchpad\" && /usr/bin/nvim ${TODAY_REPORT}" &
+}
+
 
 alias wscan='wifi_scan'
 alias wcon='wifi_connect'
+
+alias ida="QT_QPA_PLATFORM=xcb firejail /usr/local/bin/idapro-7.6/ida64"
+alias ghidra="_JAVA_AWT_WM_NONREPARENTING=1 ghidra"
 
 # copy/paste
 alias pbcopy='xclip -selection clipboard'
@@ -78,4 +110,6 @@ alias ll='ls -l'
 alias la='ls -a'
 alias l='ls'
 alias ccd='clipos_cd'
+alias vcd='vserver_cd'
+alias rcd='reverse_cd'
 source "$HOME/.cargo/env"
